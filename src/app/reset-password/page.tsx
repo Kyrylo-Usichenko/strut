@@ -4,7 +4,7 @@ import React, { useState, ChangeEvent, FocusEvent } from "react";
 import styles from "./ResetPassword.module.css";
 import Link from "next/link";
 
-function ResetPassword(): JSX.Element {
+function ResetPassword() {
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [hasValue, setHasValue] = useState<boolean>(false);
 
