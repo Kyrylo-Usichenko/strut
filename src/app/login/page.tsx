@@ -1,90 +1,88 @@
 "use client";
-import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
 import styles from "./login.module.css";
-import { FcGoogle } from "react-icons/fc";
-import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import Link from "next/link";
+import EyeBlocked from "~/icons/EyeBlocked";
+import Eye from "~/icons/Eye";
+import Google from "~/icons/Google";
+import ContinueButton from "~/shared/components/ContinueButton/ContinueButton";
 
-const Login: React.FC = () => {
-    const [showPassword, setShowPassword] = useState(false);
+function Login() {
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [emailFocused, setEmailFocused] = useState<boolean>(false);
+    const [passwordFocused, setPasswordFocused] = useState<boolean>(false);
 
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    function handleClickShowPassword(): void {
+        setShowPassword((show) => !show);
+    }
 
-    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    function handleMouseDownPassword(event: React.MouseEvent<HTMLButtonElement>): void {
         event.preventDefault();
-    };
-
-    const defaultStyles = {
-        "mb": "12px",
-        "width": "320px",
-        "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#DCDCD9",
-            transition: "border-color 0.3s ease-in-out"
-        },
-        "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#282828"
-        },
-        "& .MuiInputLabel-root": {
-            color: "#2d333a"
-        },
-        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#282828"
-        },
-        "& .Mui-focused .MuiInputLabel-root": {
-            color: "#282828" // колір label при фокусі
-        }
-    };
+    }
 
     return (
         <div className={styles.div}>
             <h2 className={styles.title}>Log in to Strut</h2>
-            <button className={styles.googleBtn}>
-                <FcGoogle className={styles.googleSvg} /> Continue with Google
+            <button className={styles.googleBtn}><Google/>
+                Continue with Google
             </button>
             <span className={styles.spanOr}>or</span>
 
             <form>
-                <TextField
-                    id="outlined-password-input"
-                    label="Email address*"
-                    type="email"
-                    autoComplete="current-password"
-                    sx={defaultStyles}
-                    required
-                />
-
-                <FormControl
-                    sx={defaultStyles}
-                    variant="outlined"
-                >
-                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                    <OutlinedInput
-                        id="outlined-adornment-password"
-                        type={showPassword ? "text" : "password"}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
-                                >
-                                    {showPassword ? <MdVisibilityOff /> : <MdVisibility />}
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                        label="Password"
+                <div className={styles.inputContainer}>
+                    <input
+                        type="email"
+                        id="email"
+                        className={styles.input}
                         required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onFocus={() => setEmailFocused(true)}
+                        onBlur={() => setEmailFocused(email.length > 0)}
                     />
-                </FormControl>
+                    <label
+                        htmlFor="email"
+                        className={`${styles.label} ${emailFocused || email.length > 0 ? styles.labelFloating : ''}`}
+                    >
+                        Email address*
+                    </label>
+                </div>
+
+                <div className={styles.inputContainer}>
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        id="password"
+                        className={styles.input}
+                        required
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        onFocus={() => setPasswordFocused(true)}
+                        onBlur={() => setPasswordFocused(password.length > 0)}
+                    />
+                    <label
+                        htmlFor="password"
+                        className={`${styles.label} ${passwordFocused || password.length > 0 ? styles.labelFloating : ''}`}
+                    >
+                        Password*
+                    </label>
+                    <button
+                        type="button"
+                        className={styles.passwordToggle}
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                    >
+                        {showPassword ? <EyeBlocked /> : <Eye />}
+                    </button>
+                </div>
 
                 <Link href="/forgot-password" className={styles.forgotLink}>Forgot password?</Link>
 
-                <button type="submit" className={styles.contBtn}>Continue</button>
+                <ContinueButton />
             </form>
         </div>
     );
-};
+}
 
 export default Login;
