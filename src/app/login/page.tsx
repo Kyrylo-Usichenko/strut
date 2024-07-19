@@ -5,7 +5,7 @@ import Link from "next/link";
 import EyeBlocked from "~/components/icons/EyeBlocked";
 import Eye from "~/components/icons/Eye";
 import Google from "~/components/icons/Google";
-import ContinueButton from "~/shared/components/ContinueButton/ContinueButton";
+import ContinueButton from "~/components/shared/ContinueButton/ContinueButton";
 
 function Login() {
     const [showPassword, setShowPassword] = useState<boolean>(false);
