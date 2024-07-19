@@ -20,7 +20,7 @@ body {
 }
 
 button {
-    display: flex;
+    /* display: flex; */
     cursor: pointer;
     background: none;
     border: none;
