@@ -2,15 +2,15 @@
 import styles from "./login.module.css";
 import React, { FC, useState } from "react";
 import Link from "next/link";
-import EyeBlocked from "~/icons/EyeBlocked";
-import Eye from "~/icons/Eye";
-import Google from "~/icons/Google";
-import ContinueButton from "~/shared/components/ContinueButton/ContinueButton";
+import EyeBlocked from "~/components/icons/EyeBlocked";
+import Eye from "~/components/icons/Eye";
+import Google from "~/components/icons/Google";
+import ContinueButton from "~/components/shared/ContinueButton/ContinueButton";
 
 function Login() {
     const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
     const [emailFocused, setEmailFocused] = useState<boolean>(false);
     const [passwordFocused, setPasswordFocused] = useState<boolean>(false);
 
@@ -25,7 +25,8 @@ function Login() {
     return (
         <div className={styles.div}>
             <h2 className={styles.title}>Log in to Strut</h2>
-            <button className={styles.googleBtn}><Google/>
+            <button className={styles.googleBtn}>
+                <Google />
                 Continue with Google
             </button>
             <span className={styles.spanOr}>or</span>
@@ -44,7 +45,7 @@ function Login() {
                     />
                     <label
                         htmlFor="email"
-                        className={`${styles.label} ${emailFocused || email.length > 0 ? styles.labelFloating : ''}`}
+                        className={`${styles.label} ${emailFocused || email.length > 0 ? styles.labelFloating : ""}`}
                     >
                         Email address*
                     </label>
@@ -63,7 +64,7 @@ function Login() {
                     />
                     <label
                         htmlFor="password"
-                        className={`${styles.label} ${passwordFocused || password.length > 0 ? styles.labelFloating : ''}`}
+                        className={`${styles.label} ${passwordFocused || password.length > 0 ? styles.labelFloating : ""}`}
                     >
                         Password*
                     </label>
@@ -77,7 +78,9 @@ function Login() {
                     </button>
                 </div>
 
-                <Link href="/forgot-password" className={styles.forgotLink}>Forgot password?</Link>
+                <Link href="/forgot-password" className={styles.forgotLink}>
+                    Forgot password?
+                </Link>
 
                 <ContinueButton />
             </form>

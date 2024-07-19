@@ -1,7 +1,7 @@
-.contBtn{
+.contBtn {
     border: none;
     margin-top: 24px;
-    background-color: #FFB546;
+    background-color: #ffb546;
     width: 100%;
     height: 44px;
     font-size: 1rem;
@@ -14,6 +14,6 @@
 }
 
 .contBtn:hover,
-.contBtn:focus{
-    box-shadow: inset 0 0 0 150px rgba(0,0,0,0.2);
+.contBtn:focus {
+    box-shadow: inset 0 0 0 150px rgba(0, 0, 0, 0.2);
 }

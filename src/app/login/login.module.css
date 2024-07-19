@@ -1,4 +1,4 @@
-.div{
+.div {
     width: 320px;
     display: flex;
     align-items: center;
@@ -8,18 +8,18 @@
     background-color: #f5f4f1;
     border-radius: 32px;
 }
-.title{
+.title {
     color: #1e212a;
     letter-spacing: 0;
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 40px;
 }
-.googleSvg{
+.googleSvg {
     width: 20px;
     height: 20px;
 }
-.googleBtn{
+.googleBtn {
     border: none;
     width: 100%;
     padding-left: 32px;
@@ -31,7 +31,7 @@
     gap: 20px;
 
     background-color: #f5f4f1;
-    border: 1px solid #DCDCD9;
+    border: 1px solid #dcdcd9;
     border-radius: 9999px;
     color: #1e212a;
     font-size: 16px;
@@ -40,11 +40,11 @@
     transition: box-shadow 0.3s ease-in-out;
 }
 .googleBtn:hover,
-.googleBtn:focus{
-    box-shadow: inset 0 0 0 150px rgba(0,0,0,0.2);
+.googleBtn:focus {
+    box-shadow: inset 0 0 0 150px rgba(0, 0, 0, 0.2);
 }
 
-.spanOr{
+.spanOr {
     text-transform: uppercase;
     font-size: 12px;
     color: #1e212a;
@@ -53,7 +53,7 @@
     position: relative;
 }
 
-.spanOr::before{
+.spanOr::before {
     position: absolute;
     content: " ";
     background-color: #dcdcd9;
@@ -63,7 +63,7 @@
     left: -150px;
 }
 
-.spanOr::after{
+.spanOr::after {
     position: absolute;
     content: " ";
     background-color: #dcdcd9;
@@ -73,20 +73,17 @@
     left: 30px;
 }
 
-.addressInput{
+.addressInput {
     width: 100%;
 }
 
-.forgotLink{
+.forgotLink {
     display: block;
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 700;
     color: #282828;
 }
-
-
-
 
 .inputContainer {
     position: relative;
@@ -97,14 +94,15 @@
 .input {
     width: 295px;
     padding: 12px;
-    border: 1px solid #DCDCD9;
+    border: 1px solid #dcdcd9;
     border-radius: 4px;
     font-size: 16px;
     transition: border-color 0.3s ease-in-out;
     background-color: transparent;
 }
 
-.input:hover, .input:focus {
+.input:hover,
+.input:focus {
     border-color: #282828;
     outline: none;
 }

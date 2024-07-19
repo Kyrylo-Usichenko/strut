@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./SuccessResetPassword.module.css";
-import SuccessLetter from "~/icons/SuccessLetter";
+import SuccessLetter from "~/components/icons/SuccessLetter";
 import Link from "next/link";
 
 const SuccessResetPassword: React.FC = () => {
     const email = "bodnjaal@gmail.com";
-    
+
     return (
         <div className={styles.div}>
             <SuccessLetter />
