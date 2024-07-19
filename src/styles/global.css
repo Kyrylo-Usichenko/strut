@@ -12,6 +12,7 @@
     --dark-secondary: rgb(255 255 255 / 5%);
     --dark-text-primary: rgba(255, 255, 255, 0.8);
     --dark-text-secondary: #86868b;
+    --popup-menu-bg-color: #272829;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
 }
 
 button {
-    /* display: flex; */
+    display: flex;
     cursor: pointer;
     background: none;
     border: none;
