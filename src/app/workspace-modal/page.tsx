@@ -1,8 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./WorkspaceModal.module.css";
 import CheckIcon from "../../components/icons/CheckIcon";
-import { useState } from "react";
 import WorkspaceItem from "~/shared/components/WorkspaceItem/WorkspaceItem";
 import DashedCircleIcon from "../../components/icons/DashedCircleIcon";
 import СircleIcon from "../../components/icons/СircleIcon";
@@ -14,10 +14,10 @@ import CheckedCircleIcon from "../../components/icons/CheckedCircleIcon";
 type ButtonType = "first" | "second" | "third";
 
 export default function WorkspaceModal() {
-    const [activeButton, setActiveButton] = useState("first");
-    const [inputValue, setInputValue] = useState("");
+    const [activeButton, setActiveButton] = useState<ButtonType>("first");
+    const [inputValue, setInputValue] = useState<string>("");
 
-    function inputHandler(e: React.ChangeEvent<HTMLInputElement>): void {
+    function handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
         setInputValue(e.target.value);
     }
 
@@ -35,7 +35,7 @@ export default function WorkspaceModal() {
                     </label>
                     <input
                         value={inputValue}
-                        onChange={inputHandler}
+                        onChange={handleInputChange}
                         className={styles.input}
                         type="text"
                         name="name"
@@ -72,7 +72,12 @@ export default function WorkspaceModal() {
 
                     <div className={styles.cancelCreateContainer}>
                         <button className={styles.cancelBtn}>Cancel</button>
-                        <button className={`${inputValue ? styles.createBtn : styles.createBtnBlur}`} disabled={!inputValue}>Create</button>
+                        <button
+                            className={`${inputValue ? styles.createBtn : styles.createBtnBlur}`}
+                            disabled={!inputValue}
+                        >
+                            Create
+                        </button>
                     </div>
                 </div>
             </div>
