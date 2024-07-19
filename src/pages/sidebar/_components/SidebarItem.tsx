@@ -8,7 +8,7 @@ interface Props {
     link: string;
 }
 
-const SidebarItem: React.FC<Props> = ({ icon, label, link }) => {
+function SidebarItem({ icon, label, link }: Props) {
     return (
         <Link href={link}>
             <div className={styles.item}>
@@ -17,6 +17,6 @@ const SidebarItem: React.FC<Props> = ({ icon, label, link }) => {
             </div>
         </Link>
     );
-};
+}
 
 export { SidebarItem };

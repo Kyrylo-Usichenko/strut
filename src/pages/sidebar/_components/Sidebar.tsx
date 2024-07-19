@@ -14,7 +14,7 @@ interface Props {
     isOpen: boolean;
 }
 
-const Sidebar: React.FC<Props> = ({ isOpen }) => {
+function Sidebar({ isOpen }: Props) {
     return (
         <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
             <div className={styles.top}>
@@ -40,6 +40,6 @@ const Sidebar: React.FC<Props> = ({ isOpen }) => {
             </div>
         </div>
     );
-};
+}
 
 export { Sidebar };
