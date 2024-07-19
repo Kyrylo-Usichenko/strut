@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import { PopupMenu } from "../../components/shared/PopupMenu/PopupMenu";
-import styles from "../../components/shared/PopupMenu/menu.module.css";
-import ExportIcon from "../../components/icons/ExportIcon";
-import EyeIcon from "../../components/icons/EyeIcon";
-import DuplicateIcon from "../../components/icons/DuplicateIcon";
-import TrashBinIcon from "../../components/icons/TrashBinIcon";
+import React, { FC, useState } from "react";
+import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
+import styles from "~/components/shared/PopupMenu/menu.module.css";
+import ExportIcon from "~/components/icons/ExportIcon";
+import EyeIcon from "~/components/icons/EyeIcon";
+import DuplicateIcon from "~/components/icons/DuplicateIcon";
+import TrashBinIcon from "~/components/icons/TrashBinIcon";
 
 const items = [
     { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
@@ -14,7 +14,7 @@ const items = [
     { icon: <DuplicateIcon />, label: "Duplicate Workspace", link: "" }
 ];
 
-const PopupMenuPage: React.FC = () => {
+const PopupMenuPage:FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (

@@ -1,11 +1,11 @@
 "use client";
 import React, { FC, useState } from "react";
 import { Sidebar } from "./_components/Sidebar";
-import SidebarIcon from "../../components/icons/SidebarIcon";
+import SidebarIcon from "~/components/icons/SidebarIcon";
 import styles from "./sidebar.module.css";
-import "../../styles/global.css";
+import "~/styles/global.css";
 
-const SidebarPage: React.FC = () => {
+const SidebarPage:FC = () => {
     const [isOpen, setIsOpen] = useState(true);
 
     function toggleSidebar() {

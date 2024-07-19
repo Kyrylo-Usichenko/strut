@@ -1,8 +1,8 @@
-import React from "react";
-import { Tooltip } from "../../components/shared/Tooltip/Tooltip";
-import styles from "../../components/shared/Tooltip/tooltip.module.css";
+import React, { FC } from "react";
+import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
+import styles from "~/components/shared/Tooltip/tooltip.module.css";
 
-const TooltipPage: React.FC = () => {
+const TooltipPage:FC = () => {
     return (
         <div className={styles.container}>
             <Tooltip label="Some top text" direction="top">
