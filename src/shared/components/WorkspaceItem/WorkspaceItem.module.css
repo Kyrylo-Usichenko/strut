@@ -1,0 +1,16 @@
+.item{
+    width: 100%;
+    background-color: transparent;
+    height: 52px;
+    display: flex;
+    gap: 16px;
+    padding: 16px 0 16px 16px;
+}
+
+.title,
+.number{
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
