@@ -7,7 +7,7 @@ export default function Home() {
             <Link href="/tooltip">Tooltip</Link>
             <Link href="/side-menu-popup">Side Menu Popup</Link>
             <Link href="/stage-menu">Stage Menu</Link>
-            <Link href="/buttons">Brand Voice Button</Link>
+            <Link href="/buttons">Buttons</Link>
         </main>
     );
 }
