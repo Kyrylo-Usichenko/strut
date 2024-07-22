@@ -13,10 +13,19 @@ function SvgIcon() {
 
 export default function BrandVoiceButton() {
     return (
+        <>
         <Button
             icon={<SvgIcon />}
             text="Brand Voice"
+            tooltipLabel="Brand Voice"
             onClick={() => console.log("Brand Voice button clicked")}
         />
+        {/* <Button
+            icon={<SvgIcon />}
+            text="Brand Voice"
+            // tooltipLabel="Brand Voice"
+            onClick={() => console.log("Brand Voice button clicked")}
+        /> */}
+        </>
     );
 }
