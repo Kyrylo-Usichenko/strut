@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./menu.module.css";
 import { PopupMenuItem } from "./PopupMenuItem";
+import styles from "./menu.module.css";
 
 type Props = {
     items: { icon: JSX.Element; label: string; link: string }[];
