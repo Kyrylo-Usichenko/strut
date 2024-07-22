@@ -1,5 +1,31 @@
+@import "fonts.css";
+
 *,
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-primary: #1b1c1c;
+    --dark-secondary: rgb(255 255 255 / 5%);
+    --dark-text-primary: rgba(255, 255, 255, 0.8);
+    --dark-text-secondary: #86868b;
+}
+
+body {
+    background-color: var(--dark-primary);
+    font-family: "Inter", Helvetica, Arial, sans-serif;
+}
+
+button {
+    display: flex;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
 }
