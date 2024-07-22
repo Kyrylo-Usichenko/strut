@@ -1,6 +1,6 @@
 'use client'
 
-import Button from "../../shared/button/Button";
+import Button from "../../components/shared/button/Button";
 
 function SvgIcon() {
     return (
