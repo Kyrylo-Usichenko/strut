@@ -6,6 +6,7 @@ import ExportIcon from "~/components/icons/ExportIcon";
 import EyeIcon from "~/components/icons/EyeIcon";
 import DuplicateIcon from "~/components/icons/DuplicateIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
+import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 
 const items = [
     { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
@@ -18,11 +19,19 @@ const PopupMenuPage:FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
-        <div className={styles.container}>
-            <button onClick={() => setIsOpen(!isOpen)} className={styles.button}>
-                Open Menu
-            </button>
-            {isOpen && <PopupMenu items={items} direction="bottom" />}
+        <div className={styles.wrapper}>
+            <div className={styles.container}>
+                <button onClick={() => setIsOpen(!isOpen)} className={styles.button}>
+                    <ThreeDotsIcon />
+                </button>
+                {isOpen && <PopupMenu items={items} direction="bottom" />}
+            </div>
+            <div className={styles.container}>
+                <button onClick={() => setIsOpen(!isOpen)} className={styles.button}>
+                    <ThreeDotsIcon />
+                </button>
+                {isOpen && <PopupMenu items={items} direction="right" />}
+            </div>
         </div>
     );
 };
