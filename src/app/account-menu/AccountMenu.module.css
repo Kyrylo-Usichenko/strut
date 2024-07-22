@@ -38,7 +38,7 @@
 }
 
 .mod:hover,
-.mod:focus{
+.mod:focus {
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -59,29 +59,30 @@
 }
 
 .item:hover,
-.item:focus{
+.item:focus {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-.shadow{
+.shadow {
     position: absolute;
     top: 1.5px;
+    z-index: -1;
     left: 2px;
     height: 64px;
     width: calc(100% / 3);
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
     border-radius: 6px;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.1s ease-in-out;
 }
-.shadow.dark{
-    left: 75px;   
+.shadow.dark {
+    left: 75px;
 }
 
-.shadow.light{
+.shadow.light {
     left: 2px;
 }
-.shadow.auto{
+.shadow.auto {
     left: 148px;
 }

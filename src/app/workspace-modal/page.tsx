@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./WorkspaceModal.module.css";
-import CheckIcon from "../../components/icons/CheckIcon";
 import WorkspaceItem from "~/shared/components/WorkspaceItem/WorkspaceItem";
+import CheckedCircleIcon from "../../components/icons/CheckedCircleIcon";
+import CheckIcon from "../../components/icons/CheckIcon";
+import CircleHalfIcon from "../../components/icons/CircleHalfIcon";
+import CircleQuaterIcon from "../../components/icons/CircleQuaterIcon";
 import DashedCircleIcon from "../../components/icons/DashedCircleIcon";
 import СircleIcon from "../../components/icons/СircleIcon";
-import CircleQuaterIcon from "../../components/icons/CircleQuaterIcon";
-import CircleHalfIcon from "../../components/icons/CircleHalfIcon";
 import СircleWithoutQueaterIcon from "../../components/icons/СircleWithoutQueaterIcon";
-import CheckedCircleIcon from "../../components/icons/CheckedCircleIcon";
+import styles from "./WorkspaceModal.module.css";
 
 type ButtonType = "first" | "second" | "third";
 
