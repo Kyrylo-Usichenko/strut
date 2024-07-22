@@ -5,8 +5,9 @@ export default function Home() {
         <main>
             <Link href="/sidebar">Sidebar</Link>
             <Link href="/tooltip">Tooltip</Link>
-            <Link href="/side-menu-popup">Side Menu Popup</Link>
-            <Link href="/stage-menu">Stage Menu</Link>
+            <Link href="/side-menu-popup">Side Popup Menu</Link>
+            <Link href="/stage-menu">Stage Popup Menu</Link>
+            <Link href="/task-popup">Task Popup Menu</Link>
         </main>
     );
 }
