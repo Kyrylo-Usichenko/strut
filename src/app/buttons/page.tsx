@@ -20,12 +20,18 @@ export default function BrandVoiceButton() {
             tooltipLabel="Brand Voice"
             onClick={() => console.log("Brand Voice button clicked")}
         />
-        {/* <Button
+        <Button
             icon={<SvgIcon />}
-            text="Brand Voice"
+            text="Brand Voice (no tooltip)"
             // tooltipLabel="Brand Voice"
             onClick={() => console.log("Brand Voice button clicked")}
-        /> */}
+        />
+        <Button
+            // icon={<SvgIcon />}
+            text="Brand Voice (no icon)"
+            tooltipLabel="Brand Voice"
+            onClick={() => console.log("Brand Voice button clicked")}
+        />
         </>
     );
 }
