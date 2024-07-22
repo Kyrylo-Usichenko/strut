@@ -1,0 +1,73 @@
+.div{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px;
+    width: 112px;
+    height: 28px;
+}
+
+.container1,
+.container2,
+.container3{
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 6px 12px;
+    z-index: 100;
+}
+.container1:hover,
+.container1:focus,
+.container2:hover,
+.container2:focus,
+.container3:hover,
+.container3:focus{
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.title1,
+.title2,
+.title3{
+    display: none;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 4px;
+    border-radius: 8px;
+    width: 250%;
+    text-align: center;
+}
+
+.container1:hover .title1,
+.container2:hover .title2,
+.container3:hover .title3{
+    display: inline;
+}
+.shadow{
+    width: 36px;
+    height: 24px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+    top: 1.5px;
+    left: 2px;
+    transition: left 0.3s ease-in-out;
+}
+.shadow.midle{
+    top: 1.5px;
+    left: 38px;
+}
+.shadow.right{
+    top: 1.5px;
+    left: 74px;
+}
