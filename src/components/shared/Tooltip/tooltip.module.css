@@ -1,23 +1,7 @@
-.container {
-    margin: 100px;
-}
-
 .wrapper {
     position: relative;
     display: inline-block;
     margin: 10px;
-}
-
-.button {
-    padding: 10px;
-    cursor: pointer;
-    color: var(--dark-text-secondary);
-}
-
-.button:hover {
-    border-radius: 15px;
-    background-color: var(--dark-secondary);
-    color: var(--dark-text-primary);
 }
 
 .tooltip {

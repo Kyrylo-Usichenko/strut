@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./AccountMenu.module.css";
-import LightModeIcon from "../../components/icons/LightModeIcon";
-import DarkModeIcon from "../../components/icons/DarkModeIcon";
 import AutoModeIcon from "../../components/icons/AutoModeIcon";
+import DarkModeIcon from "../../components/icons/DarkModeIcon";
 import DiscordIcon from "../../components/icons/DiscordIcon";
 import DownloadIcon from "../../components/icons/DownloadIcon";
+import LightModeIcon from "../../components/icons/LightModeIcon";
 import SignOutIcon from "../../components/icons/SignOutIcon";
+import styles from "./AccountMenu.module.css";
 
-type Mode = 'light' | 'dark' | 'auto';
+type Mode = "light" | "dark" | "auto";
 
 export default function AccountMenu() {
-    const [mode, setMode] = useState('dark'); 
+    const [mode, setMode] = useState("dark");
 
     const handleModeChange = (newMode: Mode) => {
         setMode(newMode);
@@ -27,43 +27,34 @@ export default function AccountMenu() {
     return (
         <div className={styles.div}>
             <div className={styles.toggler}>
-                <div 
-                    className={styles.mod}
-                    onClick={() => handleModeChange('light')}
-                >
+                <button className={styles.mod} onClick={() => handleModeChange("light")}>
                     <LightModeIcon />
                     <p className={styles.togglerTitle}>Light</p>
-                </div>
-                <div 
-                    className={styles.mod}
-                    onClick={() => handleModeChange('dark')}
-                >
+                </button>
+                <button className={styles.mod} onClick={() => handleModeChange("dark")}>
                     <DarkModeIcon />
                     <p className={styles.togglerTitle}>Dark</p>
-                </div>
-                <div 
-                    className={styles.mod}
-                    onClick={() => handleModeChange('auto')}
-                >
+                </button>
+                <button className={styles.mod} onClick={() => handleModeChange("auto")}>
                     <AutoModeIcon />
                     <p className={styles.togglerTitle}>Auto</p>
-                </div>
+                </button>
                 <div className={`${styles.shadow} ${shadowClass}`}></div>
             </div>
 
             <div className={styles.tools}>
-                <div className={styles.item}>
+                <a className={styles.item}>
                     <DiscordIcon />
                     <p className={styles.itemTitle}>Join us on Discord</p>
-                </div>
-                <div className={styles.item}>
+                </a>
+                <a className={styles.item}>
                     <DownloadIcon />
                     <p className={styles.itemTitle}>Download Desktop App</p>
-                </div>
-                <div className={styles.item}>
+                </a>
+                <a className={styles.item}>
                     <SignOutIcon />
                     <p className={styles.itemTitle}>Sign Out</p>
-                </div>
+                </a>
             </div>
         </div>
     );
