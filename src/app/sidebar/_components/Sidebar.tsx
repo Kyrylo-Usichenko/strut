@@ -1,13 +1,13 @@
 import React from "react";
 import { SidebarItem } from "./SidebarItem";
-import SearchIcon from "../../../components/icons/SearchIcon";
-import InboxIcon from "../../../components/icons/InboxIcon";
-import FolderIcon from "../../../components/icons/FolderIcon";
-import ListAllIcon from "../../../components/icons/ListAllIcon";
-import PlusIcon from "../../../components/icons/PlusIcon";
-import BullHornIcon from "../../../components/icons/BullHornIcon";
-import InfoIcon from "../../../components/icons/InfoIcon";
-import PersonIcon from "../../../components/icons/PersonIcon";
+import SearchIcon from "~/components/icons/SearchIcon";
+import InboxIcon from "~/components/icons/InboxIcon";
+import FolderIcon from "~/components/icons/FolderIcon";
+import ListAllIcon from "~/components/icons/ListAllIcon";
+import PlusIcon from "~/components/icons/PlusIcon";
+import BullHornIcon from "~/components/icons/BullHornIcon";
+import InfoIcon from "~/components/icons/InfoIcon";
+import PersonIcon from "~/components/icons/PersonIcon";
 import styles from "../sidebar.module.css";
 
 interface Props {

@@ -1,0 +1,71 @@
+.container {
+    margin: 100px;
+}
+
+.wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.button {
+    padding: 10px;
+    cursor: pointer;
+    color: var(--dark-text-secondary);
+}
+
+.button:hover {
+    border-radius: 15px;
+    background-color: var(--dark-secondary);
+    color: var(--dark-text-primary);
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #494a4a;
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.tooltip.top {
+    transform: translateX(-50%);
+    bottom: calc(100% + 3px);
+    left: 50%;
+}
+
+.tooltip.bottom {
+    transform: translateX(-50%);
+    top: calc(100% + 3px);
+    left: 50%;
+}
+
+.tooltip.left {
+    transform: translateY(-50%);
+    right: calc(100% + 3px);
+    top: 50%;
+}
+
+.tooltip.right {
+    transform: translateY(-50%);
+    left: calc(100% + 3px);
+    top: 50%;
+}
+
+.keys {
+    display: flex;
+    gap: 3px;
+    font-size: 12px;
+}
+
+.key {
+    padding: 1px 2px;
+    border-radius: 3px;
+    background-color: #6d6e6e;
+}

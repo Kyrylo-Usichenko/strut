@@ -1,0 +1,70 @@
+.div {
+    width: 224px;
+    background-color: rgb(39, 40, 41);
+    box-shadow:
+        rgba(0, 0, 0, 0.1) 0px 4px 8px,
+        rgba(0, 0, 0, 0.1) 0px 8px 24px,
+        rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    backdrop-filter: blur(1rem);
+    border-radius: 1.5rem;
+    padding: 16px;
+    opacity: 1;
+    z-index: 10000;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    list-style-type: none;
+}
+.item {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.item:hover,
+.item:focus {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.selectColor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.selectColor::after {
+    content: " ";
+    background: rgba(255, 255, 255, 0.024);
+    height: 1px;
+    width: 224px;
+    position: absolute;
+    bottom: -10px;
+    left: -15px;
+}
+
+.border {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.border:hover{
+    border: 2px solid currentColor; 
+}
+.circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
