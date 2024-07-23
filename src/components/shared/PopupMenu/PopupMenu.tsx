@@ -1,11 +1,11 @@
 "use client";
 import React, { FC } from "react";
-import { PopupMenuComponent } from "./PopupMenuComponent";
 import ExportIcon from "~/components/icons/ExportIcon";
 import EyeIcon from "~/components/icons/EyeIcon";
 import DuplicateIcon from "~/components/icons/DuplicateIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
+import { PopupMenuComponent } from "./PopupMenuComponent";
 import { useVisible } from "./utils/useVisible";
 import styles from "~/components/shared/PopupMenu/menu.module.css";
 import s from "~/components/shared/PopupMenu/styles.module.css";

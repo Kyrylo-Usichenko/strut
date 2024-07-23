@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { StageMenu } from "~/components/shared/PopupMenu/StageMenu";
 import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
-import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import AccountMenu from "./account-menu/page";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
-import s from "./styles.module.css";
 import Button from "~/components/shared/button/Button";
+import s from "./styles.module.css";
 
 export default function Home() {
     return (
@@ -38,6 +37,7 @@ export default function Home() {
             <Link href="/stage-icon-menu">Stage Icon Menu</Link>
             <Link href="/buttons">Brand Voice Buttons</Link>
             <Link href="/tooltip">Buttons with tooltips</Link>
+            <Link href="/buttons">Brand Voice Button</Link>
             <Link href="/sidebar">Sidebar</Link>
             <Link href="/side-menu-popup">Side Menu Popup</Link>
         </main>
