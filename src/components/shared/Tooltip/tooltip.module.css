@@ -1,23 +1,7 @@
-.container {
-    margin: 100px;
-}
-
 .wrapper {
     position: relative;
     display: inline-block;
     margin: 10px;
-}
-
-.button {
-    padding: 10px;
-    cursor: pointer;
-    color: var(--dark-text-secondary);
-}
-
-.button:hover {
-    border-radius: 15px;
-    background-color: var(--dark-secondary);
-    color: var(--dark-text-primary);
 }
 
 .tooltip {
@@ -32,6 +16,44 @@
     color: white;
     font-size: 12px;
     white-space: nowrap;
+}
+
+.tooltip2 {
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #494a4a;
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.tooltip2.top {
+    transform: translateX(-50%);
+    bottom: calc(100% + 3px);
+    left: 50%;
+}
+
+.tooltip2.bottom {
+    transform: translateX(-50%);
+    top: calc(100% + 3px);
+    left: 50%;
+}
+
+.tooltip2.left {
+    transform: translateY(-50%);
+    right: calc(100% + 3px);
+    top: 50%;
+}
+
+.tooltip2.right {
+    transform: translateY(-50%);
+    left: calc(100% + 3px);
+    top: 50%;
 }
 
 .tooltip.top {

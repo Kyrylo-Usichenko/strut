@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.5em;
+    color: #fafafa;
+    margin-bottom: 10px;
+}

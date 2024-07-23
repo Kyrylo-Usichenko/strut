@@ -8,7 +8,7 @@ import PlusIcon from "~/components/icons/PlusIcon";
 import BullHornIcon from "~/components/icons/BullHornIcon";
 import InfoIcon from "~/components/icons/InfoIcon";
 import PersonIcon from "~/components/icons/PersonIcon";
-import styles from "../sidebar.module.css";
+import styles from "./sidebar.module.css";
 
 interface Props {
     isOpen: boolean;
@@ -19,7 +19,7 @@ function Sidebar({ isOpen }: Props) {
         <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
             <div className={styles.top}>
                 <button className={styles.header}>
-                    <PersonIcon />
+                    <PersonIcon width={20} height={20} />
                 </button>
                 <div className={styles.items}>
                     <SidebarItem label="Search" icon={<SearchIcon />} link="" />

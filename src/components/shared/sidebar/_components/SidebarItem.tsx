@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styles from "../sidebar.module.css";
+import styles from "./sidebar.module.css";
 
 interface Props {
     icon: JSX.Element;

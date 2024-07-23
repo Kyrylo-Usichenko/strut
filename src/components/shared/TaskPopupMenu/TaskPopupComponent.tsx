@@ -7,9 +7,11 @@ type Props = {
     items: { icon: JSX.Element; label: string; link: string }[];
     direction?: "top" | "bottom" | "left" | "right";
     docInfo: { words: number; chars: number; time: number };
+    visible: boolean;
 };
 
-const TaskPopupMenu: React.FC<Props> = ({ items, docInfo, direction = "bottom" }) => {
+function TaskPopupComponent({ items, docInfo, direction = "bottom", visible = false }: Props) {
+    if (!visible) return null;
     return (
         <div className={`${styles.menu} ${styles[direction]}`}>
             <div className={styles.items}>
@@ -35,4 +37,4 @@ const TaskPopupMenu: React.FC<Props> = ({ items, docInfo, direction = "bottom" }
     );
 };
 
-export { TaskPopupMenu };
+export { TaskPopupComponent };
