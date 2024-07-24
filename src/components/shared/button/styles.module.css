@@ -12,9 +12,29 @@
     color: rgb(255, 255, 255, 0.5);
 }
 
+.buttonNoBackground {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 16px;
+
+    color: rgb(255, 255, 255, 0.5);
+}
+
 .button:hover {
     background-color: rgb(255, 255, 255, 0.1);
     color: rgb(255, 255, 255, 0.8);
+    cursor:'pointer';
+}
+
+.buttonNoBackground:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+    color: rgb(255, 255, 255, 0.8);
+    cursor:'pointer';
 }
 
 .button:disabled {
