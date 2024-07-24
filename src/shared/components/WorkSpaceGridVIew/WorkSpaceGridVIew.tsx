@@ -7,7 +7,7 @@ type Props = {
 };
 export default function WorkSpaceGridVIew({ title }: Props) {
     return (
-        <div className={styles.div}>
+        <div className={styles.container}>
             <div className={styles.start}>
                 <WorkSpaceGridViewIcon />
                 <p className={styles.title}>{title}</p>

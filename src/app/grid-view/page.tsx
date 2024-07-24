@@ -1,12 +1,12 @@
 import styles from "./GridView.module.css";
-import PlusIcon from "../../components/icons/PlusIcon"
+import PlusIcon from "~/components/icons/PlusIcon"
 import WorkSpaceGridVIew from "~/shared/components/WorkSpaceGridVIew/WorkSpaceGridVIew";
 
 
 export default function GridView() {
   return (
-    <div className={styles.div}>
-      <div className={styles.createDiv}>
+    <div className={styles.container}>
+      <div className={styles.createContainer}>
         <PlusIcon />
         <p className={styles.createDivTitle}>New workspace</p>
       </div>
