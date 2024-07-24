@@ -1,11 +1,11 @@
 "use client";
-import styles from "./login.module.css";
-import React, { FC, useState } from "react";
 import Link from "next/link";
-import EyeBlocked from "~/components/icons/EyeBlocked";
+import React, { useState } from "react";
 import Eye from "~/components/icons/Eye";
+import EyeBlocked from "~/components/icons/EyeBlocked";
 import Google from "~/components/icons/Google";
 import ContinueButton from "~/components/shared/ContinueButton/ContinueButton";
+import styles from "./login.module.css";
 
 function Login() {
     const [showPassword, setShowPassword] = useState<boolean>(false);
