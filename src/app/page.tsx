@@ -8,6 +8,7 @@ import Sidebar from "~/components/shared/sidebar/Sidebar";
 import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
+import SearchInput from "./search-input/page";
 
 export default function Home() {
     return (
@@ -46,6 +47,10 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Layout Toggler</span>
                 <LayoutToggler />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Search Input</span>
+                <SearchInput />
             </div>
             <Link href="/stage-icon-menu">stage-icon-menu</Link>
             <Link href="/sidebar">Sidebar</Link>
