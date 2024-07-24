@@ -5,6 +5,7 @@ import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 import AccountMenu from "./account-menu/page";
 import s from "./styles.module.css";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
+import GridView from "./grid-view/page";
 
 export default function Home() {
     return (
@@ -30,6 +31,10 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Sidebar</span>
                 <Sidebar />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Grid view</span>
+                <GridView />
             </div>
             <Link href="/stage-icon-menu">stage-icon-menu</Link>
             <Link href="/sidebar">Sidebar</Link>
