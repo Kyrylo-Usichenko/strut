@@ -6,6 +6,7 @@ import AccountMenu from "./account-menu/page";
 import s from "./styles.module.css";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import GridView from "./grid-view/page";
+import LabelMenu from "./label-menu/page"
 
 export default function Home() {
     return (
@@ -35,6 +36,10 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Grid view</span>
                 <GridView />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Label Menu</span>
+                <LabelMenu />
             </div>
             <Link href="/stage-icon-menu">stage-icon-menu</Link>
             <Link href="/sidebar">Sidebar</Link>
