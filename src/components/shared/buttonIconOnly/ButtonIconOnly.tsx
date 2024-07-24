@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 
 type ButtonProps = {
-    icon?: ReactNode;
+    icon: ReactNode;
     tooltipLabel?: string;
     onClick: () => void;
 };
@@ -25,7 +25,7 @@ export default function ButtonIconOnly({ icon, tooltipLabel, onClick }: ButtonPr
                     setShow(false);
                 }}
             >
-                {icon && <>{icon}</>}
+                {icon}
                 {tooltipLabel && show && <Tooltip label={tooltipLabel} direction="bottom" />}
             </button>
         </>
