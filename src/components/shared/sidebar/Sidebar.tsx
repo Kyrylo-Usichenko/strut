@@ -1,10 +1,10 @@
 "use client";
-import { FC, useState } from "react";
+import { useState } from "react";
 import SidebarIcon from "~/components/icons/SidebarIcon";
-import { Sidebar } from "./_components/Sidebar";
-import styles from "./styles.module.css";
 import "~/styles/global.css";
 import { Tooltip } from "../Tooltip/Tooltip";
+import { Sidebar } from "./_components/Sidebar";
+import styles from "./styles.module.css";
 
 function SidebarPage() {
     const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -23,6 +23,6 @@ function SidebarPage() {
             <Sidebar isOpen={isOpen} />
         </div>
     );
-};
+}
 
 export default SidebarPage;
