@@ -1,0 +1,91 @@
+.container {
+    height: 28px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.iconBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: #995cbf;
+    border-radius: 50%;
+}
+
+.iconBtn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.input {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    width: 125.525px;
+}
+
+.activeInput {
+    position: relative;
+    z-index: 10;
+    outline: none;
+    border: none;
+    padding: 4px 12px;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    width: 206px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.input:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+.stageMenu {
+    position: absolute;
+    z-index: 1000;
+    top: calc(100%);
+    left: 0;
+}
+.number {
+    margin-left: 8px;
+    margin-right: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+.hidden{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.plusIcon,
+.treeDotsIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+.plusIcon:hover,
+.treeDotsIcon:hover{
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+}
