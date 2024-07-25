@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    margin-left: 200px;
+    margin-bottom: 100px;
+    gap: 10px;
+}
+
+.button {
+    background: var(--popup-menu-bg-color);
+    padding: 4px;
+    border-radius: 15px;
+    color: var(--dark-text-secondary);
+}
+
+.button:hover {
+    background: var(--dark-secondary);
+    color: var(--dark-text-primary);
+}
