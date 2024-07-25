@@ -7,6 +7,7 @@ type ButtonProps = {
     icon?: ReactNode;
     text: string;
     tooltipLabel?: string;
+    withoutBackground?: boolean;
     onClick?: () => void;
 };
 
@@ -27,13 +28,13 @@ type ButtonProps = {
 //     // );
 // }
 
-export default function Button({ icon, text, tooltipLabel, onClick }: ButtonProps) {
+export default function Button({ icon, text, tooltipLabel, withoutBackground, onClick }: ButtonProps) {
     const [show, setShow] = useState<boolean>(false);
 
     return (
         <>
             <button
-                className={styles.button}
+                className={withoutBackground? styles.buttonNoBackground: styles.button}
                 onClick={onClick}
                 onPointerEnter={() => {
                     if (tooltipLabel) {

@@ -54,7 +54,8 @@ const colors: string[] = [
 
 export default function StageIconMenu() {
     const [color, setColor] = useState<string>("rgba(255, 255, 255, 0.5)");
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [activeIndex, setActiveIndex] = useState<number>();
+    const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
     function handleColorClick(colorItem: string, index: number) {
         setColor(colorItem);
@@ -66,13 +67,15 @@ export default function StageIconMenu() {
             <div className={styles.selectColor}>
                 {colors.map((colorItem, index) => {
                     return (
-                        <div
+                        <button
                             key={index}
                             className={styles.border}
                             style={{
-                                border: activeIndex === index ? `2px solid ${colorItem}` : "none"
+                                border: activeIndex === index || hoverIndex === index ? `2px solid ${colorItem}` : "none"
                             }}
                             onClick={() => handleColorClick(colorItem, index)}
+                            onMouseEnter={() => setHoverIndex(index)}
+                            onMouseLeave={() => setHoverIndex(null)}
                         >
                             <div
                                 className={styles.circle}
@@ -80,7 +83,7 @@ export default function StageIconMenu() {
                                     background: colorItem
                                 }}
                             ></div>
-                        </div>
+                        </button>
                     );
                 })}
             </div>

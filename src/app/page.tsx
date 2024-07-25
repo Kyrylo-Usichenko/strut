@@ -4,6 +4,10 @@ import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
 import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import AccountMenu from "./account-menu/page";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
+import GridView from "./grid-view/page";
+import LabelMenu from "./label-menu/page";
+import LayoutToggler from "./layout-toggler/page";
+import SearchInput from "./search-input/page";
 import Button from "~/components/shared/button/Button";
 import styles from "~/components/shared/PopupMenu/styles.module.css";
 import s from "./styles.module.css";
@@ -36,6 +40,23 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Sidebar</span>
                 <Sidebar />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Grid view</span>
+                <GridView />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Label Menu</span>
+                <LabelMenu />
+                <br /><br /><br /><br /><br />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Layout Toggler</span>
+                <LayoutToggler />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Search Input</span>
+                <SearchInput />
             </div>
             <Link href="/stage-icon-menu">Stage Icon Menu</Link>
             <Link href="/buttons">Brand Voice Buttons</Link>

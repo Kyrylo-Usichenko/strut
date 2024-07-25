@@ -27,6 +27,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    cursor: pointer;
 }
 .item:hover,
 .item:focus {
@@ -37,7 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 16px;
     position: relative;
 }
@@ -53,16 +54,14 @@
 }
 
 .border {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.border:hover{
-    border: 2px solid currentColor; 
-}
+
 .circle {
     width: 16px;
     height: 16px;
