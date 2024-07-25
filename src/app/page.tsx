@@ -1,21 +1,30 @@
 import Link from "next/link";
+import AccountPopup from "~/components/shared/account/account-popup/AccountPopup";
+import AccountButton from "~/components/shared/account/AccountButton";
 import StageMenu from "~/components/shared/PopupMenu/StageMenu";
+import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
-import AccountMenu from "./account-menu/page";
-import s from "./styles.module.css";
-import Sidebar from "~/components/shared/sidebar/Sidebar";
 import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
 import SearchInput from "./search-input/page";
+import s from "./styles.module.css";
 
 export default function Home() {
     return (
         <main className={s.wrapper}>
             <div className={s.item}>
+                <span className={s.title}>Sidebar</span>
+                <Sidebar />
+            </div>
+            <div className={s.item}>
                 <span className={s.title}>Account menu</span>
-                <AccountMenu />
+                <div style={{ position: "relative", width: 232, height: 220 }}>
+                    <AccountPopup isOpened={true} />
+                </div>
+                <span className={s.title}>Usage</span>
+                <AccountButton />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage menu</span>
@@ -31,10 +40,7 @@ export default function Home() {
                     <Tooltip label="Some top text" direction="bottom" />
                 </div>
             </div>
-            <div className={s.item}>
-                <span className={s.title}>Sidebar</span>
-                <Sidebar />
-            </div>
+
             <div className={s.item}>
                 <span className={s.title}>Grid view</span>
                 <GridView />
@@ -42,7 +48,11 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Label Menu</span>
                 <LabelMenu />
-                <br /><br /><br /><br /><br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Layout Toggler</span>

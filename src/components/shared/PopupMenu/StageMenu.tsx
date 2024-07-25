@@ -4,6 +4,7 @@ import ArrowIcon from "~/components/icons/ArrowIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
+import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
 import styles from "./menu.module.css";
 
 const items = [
@@ -18,9 +19,7 @@ const StageMenuPage: FC = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
-                <button onClick={() => setIsOpen(!isOpen)} className={styles.button}>
-                    <ThreeDotsIcon />
-                </button>
+                <ButtonIconOnly onClick={() => setIsOpen(!isOpen)} icon={<ThreeDotsIcon />} />
                 {isOpen && <PopupMenu items={items} direction="bottom" />}
             </div>
         </div>
