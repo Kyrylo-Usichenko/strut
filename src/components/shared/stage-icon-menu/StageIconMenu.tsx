@@ -21,6 +21,9 @@ import TwoPagesIcon from "~/components/icons/TwoPagesIcon";
 import СircleIcon from "~/components/icons/СircleIcon";
 import СircleWithoutQueaterIcon from "~/components/icons/СircleWithoutQueaterIcon";
 import styles from "./StageIconMenu.module.css";
+import MenuButton from "../buttonMenu/menuButton";
+
+type stageIconProps = { activeColor: string; onIconSelect: (icon: JSX.Element, color: string) => void };
 
 const icons: React.ComponentType[] = [
     DashedCircleIcon,
@@ -52,9 +55,11 @@ const colors: string[] = [
     "rgb(1, 114, 100)"
 ];
 
-export default function StageIconMenu() {
-    const [color, setColor] = useState<string>("rgba(255, 255, 255, 0.5)");
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+export default function StageIconMenu({ activeColor, onIconSelect }: stageIconProps) {
+    const [activeIndex, setActiveIndex] = useState<number>(
+        colors.indexOf(activeColor) === -1 ? 0 : colors.indexOf(activeColor)
+    );
+    const [color, setColor] = useState<string>(colors[activeIndex]);
 
     function handleColorClick(colorItem: string, index: number) {
         setColor(colorItem);
@@ -88,7 +93,11 @@ export default function StageIconMenu() {
                 {icons.map((IconComponent, index) => {
                     return (
                         <li className={styles.item} key={index}>
-                            <IconComponent />
+                            {/* <IconComponent /> */}
+                            <MenuButton
+                                icon={<IconComponent />}
+                                onClick={() => onIconSelect(<IconComponent />, color)}
+                            />
                         </li>
                     );
                 })}

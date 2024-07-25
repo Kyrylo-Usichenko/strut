@@ -10,6 +10,7 @@
     border-radius: 16px;
 
     color: rgb(255, 255, 255, 0.5);
+    transition: background-color 0.1s ease-in-out 0s;
 }
 
 .buttonNoBackground {
@@ -23,18 +24,19 @@
     border-radius: 16px;
 
     color: rgb(255, 255, 255, 0.5);
+    transition: background-color 0.1s ease-in-out 0s;
 }
 
 .button:hover {
     background-color: rgb(255, 255, 255, 0.1);
     color: rgb(255, 255, 255, 0.8);
-    cursor:'pointer';
+    cursor: "pointer";
 }
 
 .buttonNoBackground:hover {
     background-color: rgb(255, 255, 255, 0.1);
     color: rgb(255, 255, 255, 0.8);
-    cursor:'pointer';
+    cursor: "pointer";
 }
 
 .button:disabled {
