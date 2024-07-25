@@ -8,7 +8,7 @@ import AvatarIcon from "~/components/icons/AvatarIcon";
 import PlusIcon from "~/components/icons/PlusIcon";
 import SearchIcon from "~/components/icons/SearchIcon";
 import { Tooltip } from "../../Tooltip/Tooltip";
-import styles from "../sidebar.module.css";
+import styles from "./sidebar.module.css";
 import { SidebarItem } from "./SidebarItem";
 
 type Props = {
