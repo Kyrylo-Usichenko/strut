@@ -33,6 +33,6 @@ function StageMenu() {
             <PopupMenuComponent items={items} direction="bottom" visible={isVisible} />
         </div>
     );
-};
+}
 
 export { StageMenu };

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import AvatarIcon from "~/components/icons/AvatarIcon";
 import BlankIcon from "~/components/icons/BlankIcon";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 import CheckedCircleIcon from "~/components/icons/CheckedCircleIcon";
@@ -14,7 +15,6 @@ import DashedCircleIcon from "~/components/icons/DashedCircleIcon";
 import FaceIcon from "~/components/icons/FaceIcon";
 import HeartIcon from "~/components/icons/HeartIcon";
 import LaptopIcon from "~/components/icons/LaptopIcon";
-import PersonIcon from "~/components/icons/PersonIcon";
 import ShopBagIcon from "~/components/icons/ShopBagIcon";
 import StarIcon from "~/components/icons/StarIcon";
 import TwoPagesIcon from "~/components/icons/TwoPagesIcon";
@@ -32,7 +32,7 @@ const icons: React.ComponentType[] = [
     CircleWithStarIcon,
     BlankIcon,
     FaceIcon,
-    PersonIcon,
+    AvatarIcon,
     LaptopIcon,
     ShopBagIcon,
     TwoPagesIcon,
@@ -71,7 +71,8 @@ export default function StageIconMenu() {
                             key={index}
                             className={styles.border}
                             style={{
-                                border: activeIndex === index || hoverIndex === index ? `2px solid ${colorItem}` : "none"
+                                border:
+                                    activeIndex === index || hoverIndex === index ? `2px solid ${colorItem}` : "none"
                             }}
                             onClick={() => handleColorClick(colorItem, index)}
                             onMouseEnter={() => setHoverIndex(index)}

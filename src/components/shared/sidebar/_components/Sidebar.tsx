@@ -1,28 +1,26 @@
-import React from "react";
-import { SidebarItem } from "./SidebarItem";
-import SearchIcon from "~/components/icons/SearchIcon";
-import InboxIcon from "~/components/icons/InboxIcon";
-import FolderIcon from "~/components/icons/FolderIcon";
-import ListAllIcon from "~/components/icons/ListAllIcon";
-import PlusIcon from "~/components/icons/PlusIcon";
 import BullHornIcon from "~/components/icons/BullHornIcon";
+import FolderIcon from "~/components/icons/FolderIcon";
+import InboxIcon from "~/components/icons/InboxIcon";
 import InfoIcon from "~/components/icons/InfoIcon";
-import PersonIcon from "~/components/icons/PersonIcon";
-import styles from "./sidebar.module.css";
+import ListAllIcon from "~/components/icons/ListAllIcon";
+
+import AvatarIcon from "~/components/icons/AvatarIcon";
+import PlusIcon from "~/components/icons/PlusIcon";
+import SearchIcon from "~/components/icons/SearchIcon";
 import { Tooltip } from "../../Tooltip/Tooltip";
+import styles from "./sidebar.module.css";
+import { SidebarItem } from "./SidebarItem";
 
 type Props = {
     isOpen: boolean;
-}
+};
 
 function Sidebar({ isOpen }: Props) {
     return (
         <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
             <div className={styles.top}>
                 <button className={styles.header}>
-                    <Tooltip label="Account" direction="bottom" display="flex">
-                        <PersonIcon width={20} height={20} />
-                    </Tooltip>
+                    <AvatarIcon />
                 </button>
                 <div className={styles.items}>
                     <Tooltip label="Search" direction="right" keys={["CTRL", "/"]}>
