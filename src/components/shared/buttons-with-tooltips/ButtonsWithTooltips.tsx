@@ -1,8 +1,7 @@
-import { FC } from "react";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 import s from "./styles.module.css";
 
-const TooltipPage: FC = () => {
+function ButtonWithTooltips() {
     return (
         <div className={s.container}>
             <Tooltip label="Some top text" direction="top">
@@ -21,4 +20,4 @@ const TooltipPage: FC = () => {
     );
 };
 
-export default TooltipPage;
+export { ButtonWithTooltips };

@@ -4,13 +4,12 @@
 }
 
 .item {
-    /* display: flex;
-
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
+    margin-bottom: 10px;
     font-size: 1.5em;
-    text-align: center;
     color: #fafafa;
 }

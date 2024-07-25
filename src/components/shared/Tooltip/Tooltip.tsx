@@ -1,22 +1,26 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./tooltip.module.css";
+import w from "./wrappers.module.css";
 
-interface Props {
+type Props = {
     label: string;
     keys?: string[];
     direction?: "top" | "bottom" | "left" | "right";
+    display?: "inline-block" | "flex";
     children?: React.ReactNode;
+    visible?: boolean;
 }
 
-function Tooltip({ label, keys, direction = "bottom", children }: Props) {
-    const [show, setShow] = useState<boolean>(false);
+function Tooltip({ label, keys, direction = "bottom", children, display = "inline-block", visible = true }: Props) {
+    const [isHovered, setHovered] = useState<boolean>(false);
+    const wrapper = display === "flex" ? w.wrapperFlex : w.wrapperInlineBlock;
 
     if (children) {
         return (
-            <div onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} className={styles.wrapper}>
+            <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={wrapper}>
                 {children}
-                {show && (
+                {isHovered && visible && (
                     <div className={`${styles.tooltip} ${styles[direction]}`}>
                         <span>{label}</span>
                         {keys && (

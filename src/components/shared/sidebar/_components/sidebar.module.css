@@ -1,21 +1,14 @@
-.wrapper {
-    position: relative;
-}
-
 .sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    width: 225px;
-    transition:
-        transform 0.3s ease,
-        width 0.3s ease;
+    width: 223px;
+    transition: transform 0.1s ease;
     padding-left: 16px;
-    overflow-y: auto;
+    border-right: 1px solid var(--dark-secondary);
     background-color: var(--dark-primary);
     color: var(--dark-text-secondary);
-    border-right: 1px solid var(--dark-secondary);
     font-size: 14px;
     font-weight: bold;
 }
@@ -35,9 +28,9 @@
 
 .sidebar .header {
     margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     margin-left: 40px;
-    padding: 6px;
+    padding: 4px;
     border-radius: 20px;
     width: fit-content;
     height: fit-content;
@@ -52,51 +45,77 @@
 .sidebar .items {
     display: flex;
     flex-direction: column;
-    width: 95%;
-    padding: 1px 0;
+    gap: 1px;
+    width: 191px;
 }
 
 .sidebar .divider {
-    margin-top: 16px;
+    margin-top: 17px;
+    margin-bottom: 1px;
     padding: 4px 8px;
     font-size: 12px;
 }
 
 .sidebar .items.bottom {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 21px;
 }
 
 .sidebar .item {
     display: flex;
     align-items: center;
-    padding: 7px 12px;
+    justify-content: space-between;
     line-height: 1;
+    height: 28px;
+    padding: 7px 4px 7px 12px;
     color: var(--dark-text-secondary);
     text-decoration: none;
 }
 
-.sidebar .item:hover {
+.left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar .left span {
+    margin-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar .item:hover,
+.sidebar .open {
     border-radius: 15px;
-    background-color: var(--dark-secondary);
+    background-color: var(--popup-menu-bg-color);
     color: var(--dark-text-primary);
 }
 
-.sidebar .item span {
-    margin-left: 8px;
+.sidebar .item:hover .button,
+.sidebar .open .button {
+    display: flex;
+    opacity: 1;
 }
 
 .button {
-    position: absolute;
-    z-index: 1000;
-    top: 20px;
-    left: 20px;
-    padding: 6px;
-    border-radius: 20px;
-    width: fit-content;
-    color: var(--dark-text-secondary);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 15px;
+    color: var(--dark-text-primary);
+    opacity: 0;
 }
 
-.button:hover {
-    background-color: var(--dark-secondary);
-    color: var(--dark-text-primary);
+.button:hover,
+.sidebar .open .button {
+    background-color: #3c3d3d;
+}
+
+.right {
+    position: relative;
 }

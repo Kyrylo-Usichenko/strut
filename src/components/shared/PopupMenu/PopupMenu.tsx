@@ -1,22 +1,35 @@
-import React from "react";
-import { PopupMenuItem } from "./PopupMenuItem";
-import styles from "./menu.module.css";
+"use client";
+import React, { FC } from "react";
+import ExportIcon from "~/components/icons/ExportIcon";
+import EyeIcon from "~/components/icons/EyeIcon";
+import DuplicateIcon from "~/components/icons/DuplicateIcon";
+import TrashBinIcon from "~/components/icons/TrashBinIcon";
+import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
+import { PopupMenuComponent } from "./PopupMenuComponent";
+import { useVisible } from "./utils/useVisible";
+import styles from "~/components/shared/PopupMenu/menu.module.css";
+import s from "~/components/shared/PopupMenu/styles.module.css";
 
-type Props = {
-    items: { icon: JSX.Element; label: string; link: string }[];
-    direction?: "top" | "bottom" | "left" | "right";
-};
+const items = [
+    { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
+    { icon: <EyeIcon />, label: "Hide from Sidebar", link: "" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" },
+    { icon: <DuplicateIcon />, label: "Duplicate Workspace", link: "" }
+];
 
-const PopupMenu: React.FC<Props> = ({ items, direction = "bottom" }) => {
+function PopupMenu() {
+    const { isVisible, setIsVisible, ref } = useVisible(false);
+    const handleButtonClick = () => {
+        setIsVisible(!isVisible);
+    };
+
     return (
-        <div className={`${styles.menu} ${styles[direction]}`}>
-            <div className={styles.items}>
-                {items.map((item, index) => (
-                    <PopupMenuItem key={index} {...item} />
-                ))}
-            </div>
+        <div className={styles.container} ref={ref}>
+            <button onClick={handleButtonClick} className={s.button}>
+                <ThreeDotsIcon />
+            </button>
+            <PopupMenuComponent items={items} direction="right" visible={isVisible} />
         </div>
     );
 };
-
 export { PopupMenu };
