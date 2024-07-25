@@ -1,7 +1,6 @@
-import { FC } from "react";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 
-const SidebarPage: FC = () => {
+function SidebarPage() {
     return <Sidebar />;
 };
 

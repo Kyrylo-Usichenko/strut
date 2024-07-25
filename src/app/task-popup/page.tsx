@@ -1,7 +1,6 @@
-import { FC } from "react";
 import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
 
-const TaskPopupPage: FC = () => {
+function TaskPopupPage() {
     return <TaskPopup />;
 };
 

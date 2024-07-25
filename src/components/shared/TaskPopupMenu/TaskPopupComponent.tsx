@@ -20,21 +20,21 @@ function TaskPopupComponent({ items, docInfo, direction = "bottom", visible = fa
                 ))}
             </div>
             <div className={task.info}>
-                    <p>
-                        <span>Word count:</span>
-                        <span>{docInfo.words}</span>
-                    </p>
-                    <p>
-                        <span>Characters count:</span>
-                        <span>{docInfo.chars}</span>
-                    </p>
-                    <p>
-                        <span>Reading time:</span>
-                        <span>{docInfo.time}s</span>
-                    </p>
-                </div>
+                <p>
+                    <span>Word count:</span>
+                    <span>{docInfo.words}</span>
+                </p>
+                <p>
+                    <span>Characters count:</span>
+                    <span>{docInfo.chars}</span>
+                </p>
+                <p>
+                    <span>Reading time:</span>
+                    <span>{docInfo.time}s</span>
+                </p>
+            </div>
         </div>
     );
-};
+}
 
 export { TaskPopupComponent };

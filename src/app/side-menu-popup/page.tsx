@@ -1,8 +1,12 @@
-import { FC } from "react";
 import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
+import styles from "~/components/shared/PopupMenu/styles.module.css";
 
-const PopupMenuPage: FC = () => {
-    return <PopupMenu />;
+function PopupMenuPage() {
+    return (
+        <div className={styles.wrapper}>
+            <PopupMenu />
+        </div>
+    );
 };
 
 export default PopupMenuPage;

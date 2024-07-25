@@ -1,5 +1,6 @@
 .container {
-    margin: 100px;
+    display: flex;
+    margin: 50px;
 }
 
 .button {

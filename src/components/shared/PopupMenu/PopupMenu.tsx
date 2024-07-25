@@ -17,35 +17,18 @@ const items = [
     { icon: <DuplicateIcon />, label: "Duplicate Workspace", link: "" }
 ];
 
-const PopupMenu: FC = () => {
-    const menu = useVisible(false);
-    const menu2 = useVisible(false);
-
+function PopupMenu() {
+    const { isVisible, setIsVisible, ref } = useVisible(false);
     const handleButtonClick = () => {
-        menu.setIsVisible(!menu.isVisible);
-    };
-    const handleButton2Click = () => {
-        menu2.setIsVisible(!menu2.isVisible);
+        setIsVisible(!isVisible);
     };
 
     return (
-        <div className={s.wrapper}>
-            <div className={styles.container} ref={menu.ref}>
-                <button onClick={handleButtonClick} className={s.button}>
-                    <ThreeDotsIcon />
-                </button>
-                <div>
-                    <PopupMenuComponent items={items} direction="bottom" visible={menu.isVisible} />
-                </div>
-            </div>
-            <div className={styles.container} ref={menu2.ref}>
-                <button onClick={handleButton2Click} className={s.button}>
-                    <ThreeDotsIcon />
-                </button>
-                <div>
-                    <PopupMenuComponent items={items} direction="right" visible={menu2.isVisible} />
-                </div>
-            </div>
+        <div className={styles.container} ref={ref}>
+            <button onClick={handleButtonClick} className={s.button}>
+                <ThreeDotsIcon />
+            </button>
+            <PopupMenuComponent items={items} direction="right" visible={isVisible} />
         </div>
     );
 };

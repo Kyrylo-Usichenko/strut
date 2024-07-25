@@ -5,7 +5,7 @@ function useVisible(initialIsVisible: boolean) {
     const ref = useRef<HTMLDivElement | null>(null);
 
     const handleClickOutside = useCallback((event: MouseEvent) => {
-        if (ref.current && !ref.current.contains(event.target as Node) ) {
+        if (ref.current && !ref.current.contains(event.target as Node)) {
             setIsVisible(false);
         }
     }, []);
@@ -20,13 +20,12 @@ function useVisible(initialIsVisible: boolean) {
         if (isVisible) {
             document.addEventListener("mousedown", handleClickOutside);
             document.addEventListener("keydown", handleEscapePress);
-        } 
+        }
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
             document.removeEventListener("keydown", handleEscapePress);
         };
-    }, [ isVisible, handleClickOutside, handleEscapePress]);
-
+    }, [isVisible, handleClickOutside, handleEscapePress]);
 
     return { ref, isVisible, setIsVisible };
 }

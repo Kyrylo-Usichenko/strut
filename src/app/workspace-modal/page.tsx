@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import WorkspaceItem from "~/shared/components/WorkspaceItem/WorkspaceItem";
+import WorkspaceItem from "~/components/shared/WorkspaceItem/WorkspaceItem";
 import CheckedCircleIcon from "../../components/icons/CheckedCircleIcon";
 import CheckIcon from "../../components/icons/CheckIcon";
 import CircleHalfIcon from "../../components/icons/CircleHalfIcon";

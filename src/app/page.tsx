@@ -5,6 +5,7 @@ import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import AccountMenu from "./account-menu/page";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import Button from "~/components/shared/button/Button";
+import styles from "~/components/shared/PopupMenu/styles.module.css";
 import s from "./styles.module.css";
 
 export default function Home() {
@@ -20,7 +21,9 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage Popup menu</span>
-                <StageMenu />
+                <div className={styles.wrapper}>
+                    <StageMenu />
+                </div>
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage Icon menu</span>
@@ -28,7 +31,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Tooltips</span>
-                <Button text="Button with tooltip" tooltipLabel="tooltip"/>
+                <Button text="Button with tooltip" tooltipLabel="tooltip" />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Sidebar</span>
@@ -37,7 +40,6 @@ export default function Home() {
             <Link href="/stage-icon-menu">Stage Icon Menu</Link>
             <Link href="/buttons">Brand Voice Buttons</Link>
             <Link href="/tooltip">Buttons with tooltips</Link>
-            <Link href="/buttons">Brand Voice Button</Link>
             <Link href="/sidebar">Sidebar</Link>
             <Link href="/side-menu-popup">Side Menu Popup</Link>
         </main>

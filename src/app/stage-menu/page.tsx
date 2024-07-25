@@ -1,8 +1,12 @@
-import { FC } from "react";
 import { StageMenu } from "~/components/shared/PopupMenu/StageMenu";
+import styles from "~/components/shared/PopupMenu/styles.module.css";
 
-const ComponentName: FC = () => {
-    return <StageMenu />;
+function StageMenuPage() {
+    return (
+        <div className={styles.wrapper}>
+            <StageMenu />
+        </div>
+    );
 };
 
-export default ComponentName;
+export default StageMenuPage;
