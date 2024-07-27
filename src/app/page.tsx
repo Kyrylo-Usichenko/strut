@@ -41,7 +41,7 @@ export default function Home() {
             </div>
 
             <div className={s.item}>
-                <span className={s.title}>Grid view</span>
+                <span className={s.title} style={{width: "900px", paddingLeft: "350px"}}>Grid view</span>
                 <GridView />
             </div>
             <div className={s.item}>
