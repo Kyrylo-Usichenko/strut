@@ -8,6 +8,7 @@ type ButtonProps = {
     text: string;
     tooltipLabel?: string;
     withoutBackground?: boolean;
+    disabled?: boolean;
     onClick?: () => void;
 };
 
@@ -28,7 +29,7 @@ type ButtonProps = {
 //     // );
 // }
 
-export default function Button({ icon, text, tooltipLabel, withoutBackground, onClick }: ButtonProps) {
+export default function Button({ icon, text, tooltipLabel, withoutBackground, disabled, onClick }: ButtonProps) {
     const [show, setShow] = useState<boolean>(false);
 
     return (
@@ -36,6 +37,7 @@ export default function Button({ icon, text, tooltipLabel, withoutBackground, on
             <button
                 className={withoutBackground? styles.buttonNoBackground: styles.button}
                 onClick={onClick}
+                disabled={disabled}
                 onPointerEnter={() => {
                     if (tooltipLabel) {
                         setShow(true);

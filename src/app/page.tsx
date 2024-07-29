@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import AccountPopup from "~/components/shared/account/account-popup/AccountPopup";
 import AccountButton from "~/components/shared/account/AccountButton";
 import Button from "~/components/shared/button/Button";
+import CalendarIcon from "~/components/icons/CalendarIcon";
 
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "./stage-input/page";
@@ -13,6 +16,7 @@ import s from "./styles.module.css";
 import { StageMenu } from "~/components/shared/PopupMenu/StageMenu";
 
 export default function Home() {
+
     return (
         <main className={s.wrapper}>
             <div className={s.item}>
@@ -26,6 +30,40 @@ export default function Home() {
                 </div>
                 <span className={s.title}>Usage</span>
                 <AccountButton />
+            </div>
+            <div>
+                <span className={s.title}>Buttons</span>
+                <Button
+                    icon={<CalendarIcon />}
+                    text="Default Button"
+                    tooltipLabel="With tooltip"
+                    onClick={() => console.log("Brand Voice button clicked")}
+                />
+                <Button
+                    icon={<CalendarIcon />}
+                    text="Button (no tooltip)"
+                    // tooltipLabel="Brand Voice"
+                    onClick={() => console.log("Brand Voice button clicked")}
+                />
+                <Button
+                    // icon={<SvgIcon />}
+                    text="Button (no icon)"
+                    tooltipLabel="Brand Voice"
+                    onClick={() => console.log("Brand Voice button clicked")}
+                />
+                <Button
+                    // icon={<SvgIcon />}
+                    text="Button (no background)"
+                    tooltipLabel="Share Workspace"
+                    withoutBackground={true}
+                    onClick={() => console.log("Share button clicked")}
+                />
+                    <Button
+                        text="Button (disabled)"
+                        tooltipLabel="Disabled one"
+                        onClick={() => console.log("Brand Voice button clicked")}
+                        disabled={true}
+                    />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage menu</span>
