@@ -1,10 +1,10 @@
 import Link from "next/link";
 import StageMenu from "~/components/shared/PopupMenu/StageMenu";
-import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
+import Sidebar from "~/components/shared/sidebar/Sidebar";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 import AccountMenu from "./account-menu/page";
+import StageInput from "./stage-input/page";
 import s from "./styles.module.css";
-import Sidebar from "~/components/shared/sidebar/Sidebar";
 
 export default function Home() {
     return (
@@ -19,7 +19,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage menu</span>
-                <StageIconMenu />
+                <StageInput />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Tooltips</span>
