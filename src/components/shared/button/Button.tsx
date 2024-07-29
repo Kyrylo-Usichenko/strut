@@ -1,13 +1,14 @@
+"use client";
 import { ReactNode, useState } from "react";
-import styles from "./styles.module.css";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
+import styles from "./styles.module.css";
 
 type ButtonProps = {
     icon?: ReactNode;
     text: string;
     tooltipLabel?: string;
     withoutBackground?: boolean;
-    onClick: () => void;
+    onClick?: () => void;
 };
 
 // export default function Button({ icon, text, tooltipLabel, onClick }: ButtonProps) {

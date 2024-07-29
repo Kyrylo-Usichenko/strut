@@ -1,8 +1,8 @@
 import { FC } from "react";
-import ButtonsWithTooltips from "~/components/shared/buttons-with-tooltips/ButtonsWithTooltips";
+import { ButtonWithTooltips } from "~/components/shared/buttons-with-tooltips/ButtonsWithTooltips";
 
-const TooltipPage: FC = () => {
-    return <ButtonsWithTooltips />;
+function TooltipPage() {
+    return <ButtonWithTooltips />;
 };
 
 export default TooltipPage;

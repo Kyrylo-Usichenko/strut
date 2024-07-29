@@ -1,0 +1,19 @@
+.wrapper {
+    position: relative;
+}
+
+.button {
+    position: absolute;
+    z-index: 1000;
+    top: 20px;
+    left: 20px;
+    padding: 6px;
+    border-radius: 20px;
+    width: fit-content;
+    color: var(--dark-text-secondary);
+}
+
+.button:hover {
+    background-color: var(--dark-secondary);
+    color: var(--dark-text-primary);
+}

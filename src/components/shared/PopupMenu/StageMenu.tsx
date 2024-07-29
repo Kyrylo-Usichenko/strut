@@ -1,30 +1,38 @@
 "use client";
-import { FC, useState } from "react";
-import ArrowIcon from "~/components/icons/ArrowIcon";
-import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
+import React from "react";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
-import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
-import styles from "./menu.module.css";
+import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
+import ArrowIcon from "~/components/icons/ArrowIcon";
+import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
+import { PopupMenuComponent } from "./PopupMenuComponent";
+import styles from "~/components/shared/PopupMenu/menu.module.css";
+import s from "~/components/shared/PopupMenu/styles.module.css";
 
-const items = [
+interface MenuItem {
+    icon: JSX.Element;
+    label: string;
+    link: string;
+}
+
+const items: MenuItem[] = [
     { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
     { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
     { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
 ];
-
-const StageMenuPage: FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+function StageMenu() {
+    const { isVisible, setIsVisible, ref } = useVisible(false);
+    const handleButtonClick = () => {
+        setIsVisible(!isVisible);
+    };
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.container}>
-                <button onClick={() => setIsOpen(!isOpen)} className={styles.button}>
-                    <ThreeDotsIcon />
-                </button>
-                {isOpen && <PopupMenu items={items} direction="bottom" />}
-            </div>
+        <div className={styles.container} ref={ref}>
+            <button onClick={handleButtonClick} className={s.button}>
+                <ThreeDotsIcon />
+            </button>
+            <PopupMenuComponent items={items} direction="bottom" visible={isVisible} />
         </div>
     );
-};
+}
 
-export default StageMenuPage;
+export { StageMenu };
