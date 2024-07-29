@@ -19,7 +19,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage menu</span>
-                <StageInput />
+                {/* <StageInput viewMode="kanban" /> */}
             </div>
             <div className={s.item}>
                 <span className={s.title}>Tooltips</span>

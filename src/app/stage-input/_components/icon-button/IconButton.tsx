@@ -5,7 +5,7 @@ import { IconButtonProps } from './IconButton.types';
 
 export default function IconButton({ currentIcon, currentColor, showMenu, onIconChange, toggleMenu }: IconButtonProps) {
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{position: 'relative'}}>
             <ButtonIconOnly
                 icon={currentIcon}
                 tooltipLabel={!showMenu ? "Change Icon" : undefined}

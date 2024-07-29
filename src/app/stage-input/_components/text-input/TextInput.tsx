@@ -1,6 +1,6 @@
 import styles from "./TextInput.module.css";
 import { TextInputProps } from "./TextInput.types";
-import HiddenSpan from "../_hidden-span/HiddenSpan";
+import HiddenSpan from "../hidden-span/HiddenSpan";
 
 export default function TextInput({ value, width, styleMode, onChange, setWidth }: TextInputProps) {
     if (styleMode === "kanban") {
