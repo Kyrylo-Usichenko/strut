@@ -7,10 +7,10 @@ type ButtonProps = {
     tooltipLabel?: string;
     onClick: () => void;
     disabled?: boolean;
-    color?: string;
+    color?: string | undefined;
 };
 
-export default function ButtonIconOnly({ icon, tooltipLabel, onClick, disabled = false, color = 'currentColor' }: ButtonProps) {
+export default function ButtonIconOnly({ icon, tooltipLabel, onClick, disabled = false, color = undefined }: ButtonProps) {
     const [show, setShow] = useState<boolean>(false);
 
     const handleMouseEnter = () => {
@@ -30,7 +30,7 @@ export default function ButtonIconOnly({ icon, tooltipLabel, onClick, disabled =
             onPointerEnter={handleMouseEnter}
             onPointerLeave={handleMouseLeave}
             disabled={disabled}
-            style={{ color }}
+            {...(color && { style: { color } })}
         >
             {icon && <>{icon}</>}
             {tooltipLabel && show && !disabled && <Tooltip label={tooltipLabel} direction="bottom" />}

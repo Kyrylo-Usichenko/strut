@@ -23,7 +23,7 @@ import СircleWithoutQueaterIcon from "~/components/icons/СircleWithoutQueaterI
 import styles from "./StageIconMenu.module.css";
 import MenuButton from "../buttonMenu/menuButton";
 
-type stageIconProps = { activeColor: string; onIconSelect: (icon: JSX.Element, color: string) => void };
+type stageIconProps = { activeColor?: string; onIconSelect?: (icon: JSX.Element, color: string) => void };
 
 const icons: React.ComponentType[] = [
     DashedCircleIcon,
@@ -56,6 +56,7 @@ const colors: string[] = [
 ];
 
 export default function StageIconMenu({ activeColor, onIconSelect }: stageIconProps) {
+    activeColor = activeColor || colors[0];
     const [activeIndex, setActiveIndex] = useState<number>(
         colors.indexOf(activeColor) === -1 ? 0 : colors.indexOf(activeColor)
     );
@@ -96,7 +97,7 @@ export default function StageIconMenu({ activeColor, onIconSelect }: stageIconPr
                             {/* <IconComponent /> */}
                             <MenuButton
                                 icon={<IconComponent />}
-                                onClick={() => onIconSelect(<IconComponent />, color)}
+                                onClick={() => (onIconSelect ? onIconSelect(<IconComponent />, color) : undefined)}
                             />
                         </li>
                     );
