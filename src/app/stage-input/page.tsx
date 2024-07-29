@@ -11,8 +11,8 @@ type viewModeProps = {
     viewMode: "list" | "grid" | "kanban";
 };
 
-// export default function StageInput({ viewMode }: viewModeProps) {
-function StageInput({ viewMode }: viewModeProps) {
+export default function StageInput({ viewMode }: viewModeProps) {
+// function StageInput({ viewMode }: viewModeProps) {
     const [currentIcon, setCurrentIcon] = useState(DashedCircleIcon as unknown as JSX.Element);
     const [currentColor, setCurrentColor] = useState("rgba(255, 255, 255, 0.5)");
     const [showMenu, setShowMenu] = useState(false);
@@ -40,11 +40,11 @@ function StageInput({ viewMode }: viewModeProps) {
     );
 }
 
-export default function Page() {
-    return (
-        <>
-            <StageInput viewMode="kanban" />
-            <StageInput viewMode="list" />
-        </>
-    );
-}
+// export default function Page() {
+//     return (
+//         <>
+//             <StageInput viewMode="kanban" />
+//             <StageInput viewMode="list" />
+//         </>
+//     );
+// }
