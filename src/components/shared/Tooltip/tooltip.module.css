@@ -18,13 +18,10 @@
 }
 
 .tooltip {
-    padding: 4px 4px 4px 8px;
+    padding: 4px 8px;
     border-radius: 8px;
     backdrop-filter: blur(16px);
     gap: 6px;
-    transform: translate3d(5.12px, 52.16px, 0px);
-    transform-origin: top;
-    transition-duration: 100ms;
 }
 
 .tooltip.top,
