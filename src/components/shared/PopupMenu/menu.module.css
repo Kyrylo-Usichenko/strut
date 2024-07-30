@@ -8,11 +8,11 @@
     display: flex;
     flex-direction: column;
     width: max-content;
-    padding: 4px;
+    padding: 3px;
     background: var(--popup-menu-bg-color);
     color: var(--dark-text-secondary);
     border: 1px solid var(--dark-secondary);
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 14px;
     font-weight: bold;
 }
@@ -55,6 +55,7 @@
 
 .menu .item:hover {
     border-radius: 10px;
-    background: var(--dark-secondary);
-    color: var(--dark-text-primary);
+    font-weight: 400;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8); 
 }

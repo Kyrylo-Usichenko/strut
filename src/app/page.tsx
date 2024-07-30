@@ -15,8 +15,8 @@ import { items, PopupMenuWithButton } from "~/components/shared/PopupMenu/PopupM
 import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
 import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
 import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
-import s from "./styles.module.css";
 import AccountMenu from "./account-menu/page";
+import s from "./styles.module.css";
 
 export default function Home() {
     return (
