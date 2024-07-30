@@ -12,6 +12,17 @@ type Props = {
     visible?: boolean;
 };
 
+function outOfScreenHandler(tooltipRef: HTMLDivElement | null) {
+    if (tooltipRef) {
+        const rect = tooltipRef.getBoundingClientRect();
+        console.log(rect);
+        //if out of left screen
+        if (rect.x < 0) {
+            tooltipRef.style.left = "100%";
+        }
+    }
+}
+
 function Tooltip({ label, keys, direction = "bottom", children, display = "inline-block", visible = true }: Props) {
     const [isHovered, setHovered] = useState<boolean>(false);
     const wrapper = display === "flex" ? w.wrapperFlex : w.wrapperInlineBlock;
@@ -38,15 +49,12 @@ function Tooltip({ label, keys, direction = "bottom", children, display = "inlin
         );
     }
     return (
-        <div className={`${styles.tooltip} ${styles[direction]}`}>
+        <div className={`${styles.tooltip} ${styles[direction]}`} ref={(node) => outOfScreenHandler(node)}>
             <span>{label}</span>
             {keys && (
                 <div className={styles.keys}>
                     {keys.map((key, index) => (
-                        <span
-                            key={index}
-                            className={styles.key}
-                        >
+                        <span key={index} className={styles.key}>
                             {key}
                         </span>
                     ))}
