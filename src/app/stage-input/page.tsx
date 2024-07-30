@@ -14,9 +14,10 @@ type stageInputProps = {
     color?: string;
     value?: string;
     width?: number;
+    amount?: number;
 };
 
-export default function StageInput({ viewMode, icon, color, value, width}: stageInputProps) {
+export default function StageInput({ viewMode, icon, color, value, width, amount}: stageInputProps) {
     const [currentIcon, setCurrentIcon] = useState(icon || DashedCircleIcon as unknown as JSX.Element);
     const [currentColor, setCurrentColor] = useState(color || "rgba(255, 255, 255, 0.5)");
     const {ref: menuRef, isVisible: showMenu, setIsVisible: setShowMenu} = useVisible(false);
@@ -40,7 +41,7 @@ export default function StageInput({ viewMode, icon, color, value, width}: stage
                 menuRef={menuRef}
             />
             <TextInput value={currentValue} width={currentWidth} styleMode={viewMode} onChange={setValue} setWidth={setWidth} />
-            <DocsAmount amount={0} styleMode={viewMode} />
+            <DocsAmount amount={amount || 0} styleMode={viewMode} />
         </div>
     );
 }

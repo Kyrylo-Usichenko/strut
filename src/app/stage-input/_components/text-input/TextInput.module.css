@@ -42,7 +42,7 @@
     text-overflow: ellipsis;
     position: absolute;
     z-index: 999;
-    left: 32px;
+    left: 28px;
 }
 
 .kanbanInput:hover {
