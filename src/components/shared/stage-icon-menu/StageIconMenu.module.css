@@ -1,4 +1,6 @@
 .div {
+    position: absolute;
+    top: calc(100% + 4px);
     width: 224px;
     background-color: rgb(39, 40, 41);
     box-shadow:
@@ -17,12 +19,13 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 4px;
+    /* gap: 8px; */
     list-style: none;
     list-style-type: none;
 }
 .item {
-    padding: 4px;
+    /* padding: 4px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,6 +44,10 @@
     gap: 8px;
     margin-bottom: 16px;
     position: relative;
+}
+
+.selectColor:hover {
+    cursor: pointer;
 }
 
 .selectColor::after {

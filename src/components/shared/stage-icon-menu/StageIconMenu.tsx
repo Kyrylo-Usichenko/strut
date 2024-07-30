@@ -21,6 +21,9 @@ import TwoPagesIcon from "~/components/icons/TwoPagesIcon";
 import СircleIcon from "~/components/icons/СircleIcon";
 import СircleWithoutQueaterIcon from "~/components/icons/СircleWithoutQueaterIcon";
 import styles from "./StageIconMenu.module.css";
+import MenuButton from "../buttonMenu/menuButton";
+
+type stageIconProps = { activeColor?: string; onIconSelect?: (icon: JSX.Element, color: string) => void, menuRef?: React.RefObject<HTMLDivElement> };
 
 const icons: React.ComponentType[] = [
     DashedCircleIcon,
@@ -52,9 +55,12 @@ const colors: string[] = [
     "rgb(1, 114, 100)"
 ];
 
-export default function StageIconMenu() {
-    const [color, setColor] = useState<string>("rgba(255, 255, 255, 0.5)");
-    const [activeIndex, setActiveIndex] = useState<number>();
+export default function StageIconMenu({ activeColor, onIconSelect, menuRef }: stageIconProps) {
+    activeColor = activeColor || colors[0];
+    const [activeIndex, setActiveIndex] = useState<number>(
+        colors.indexOf(activeColor) === -1 ? 0 : colors.indexOf(activeColor)
+    );
+    const [color, setColor] = useState<string>(colors[activeIndex]);
     const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
     function handleColorClick(colorItem: string, index: number) {
@@ -63,7 +69,7 @@ export default function StageIconMenu() {
     }
 
     return (
-        <div className={styles.div}>
+        <div className={styles.div} ref={menuRef}>
             <div className={styles.selectColor}>
                 {colors.map((colorItem, index) => {
                     return (
@@ -92,7 +98,11 @@ export default function StageIconMenu() {
                 {icons.map((IconComponent, index) => {
                     return (
                         <li className={styles.item} key={index}>
-                            <IconComponent />
+                            {/* <IconComponent /> */}
+                            <MenuButton
+                                icon={<IconComponent />}
+                                onClick={() => (onIconSelect ? onIconSelect(<IconComponent />, color) : undefined)}
+                            />
                         </li>
                     );
                 })}

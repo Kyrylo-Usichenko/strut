@@ -1,0 +1,12 @@
+.pAmount {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 8px;
+    user-select: none;
+}
+
+.pAmount:hover {
+    cursor: default;
+}

@@ -4,19 +4,29 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 8px;
+    padding: 6px;
     border: none;
     outline: none;
     border-radius: 16px;
     color: rgb(255, 255, 255, 0.5);
+    transition: background-color 0.1s ease-in-out 0s;
 }
 
 .button:hover {
     background-color: rgb(255, 255, 255, 0.05);
     color: rgb(255, 255, 255, 0.8);
+    cursor:'pointer';
 }
 
-.icon {
-    width: 12px;
-    height: 12px;
+.button:focus-visible{
+    outline: none;
+    background-color: rgb(255, 255, 255, 0.05);
+    color: rgb(255, 255, 255, 0.8);
+}
+
+.iconWrapper {
+    width: 16px;
+    height: 16px;
+    align-items: center;
+    justify-content: center;
 }

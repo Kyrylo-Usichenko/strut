@@ -4,7 +4,7 @@ import AccountPopup from "~/components/shared/account/account-popup/AccountPopup
 import AccountButton from "~/components/shared/account/AccountButton";
 import Button from "~/components/shared/button/Button";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
-import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
+import StageInput from "./stage-input/page";
 import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
@@ -62,8 +62,9 @@ export default function Home() {
                 </div>
             </div>
             <div className={s.item}>
-                <span className={s.title}>Stage Icon menu</span>
-                <StageIconMenu />
+                <span className={s.title}>Stage Input</span>
+                <StageInput viewMode="kanban" />
+                <StageInput viewMode="list" />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Tooltips</span>

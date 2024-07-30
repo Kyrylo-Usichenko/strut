@@ -1,0 +1,59 @@
+.input {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px 0px 4px 12px;
+    box-sizing: content-box;
+    background: transparent;
+    border: none;
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.1s ease-in-out 0s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.input:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    cursor: text;
+}
+
+.input:focus {
+    background-color: rgb(39, 40, 41);
+    outline: none;
+    box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.kanbanInput {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px 12px;
+    width: 101px;
+    box-sizing: content-box;
+    background: transparent;
+    border: none;
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.1s ease-in-out 0s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    z-index: 999;
+    left: 28px;
+}
+
+.kanbanInput:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    cursor: text;
+}
+
+.kanbanInput:focus {
+    background-color: rgb(39, 40, 41);
+    outline: none;
+    box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    width: 182px;
+}
+
