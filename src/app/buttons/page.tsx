@@ -47,7 +47,8 @@ export default function BrandVoiceButton() {
             <Button
                 // icon={<SvgIcon />}
                 text="Brand Voice (no icon)"
-                tooltipLabel="Brand Voice"
+                tooltipLabel="Open Sidebar"
+                tooltipKeys={['CTRL', '`']}
                 onClick={() => console.log("Brand Voice button clicked")}
             />
             <Button
@@ -60,6 +61,7 @@ export default function BrandVoiceButton() {
             <ButtonIconOnly
                 icon={<PlusSignIcon />}
                 tooltipLabel="New Doc"
+                tooltipKeys={['CTRL', 'N']}
                 onClick={() => console.log("PlusButton clicked")}
             />
         </>

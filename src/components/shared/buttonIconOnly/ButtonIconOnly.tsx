@@ -5,11 +5,12 @@ import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 type ButtonProps = {
     icon?: ReactNode;
     tooltipLabel?: string;
+    tooltipKeys?: string[];
     color?: string;
     onClick: () => void;
 };
 
-export default function ButtonIconOnly({ icon, tooltipLabel, color, onClick }: ButtonProps) {
+export default function ButtonIconOnly({ icon, tooltipLabel, tooltipKeys, color, onClick }: ButtonProps) {
     const [show, setShow] = useState<boolean>(false);
 
     return (
@@ -28,7 +29,7 @@ export default function ButtonIconOnly({ icon, tooltipLabel, color, onClick }: B
                 {...(color && { style: { color } })}
             >
                 {icon && <>{icon}</>}
-                {tooltipLabel && show && <Tooltip label={tooltipLabel} direction="bottom" />}
+                {tooltipLabel && show && <Tooltip label={tooltipLabel} keys={tooltipKeys} direction="bottom" />}
             </button>
         </>
     );

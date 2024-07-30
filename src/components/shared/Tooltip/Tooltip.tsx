@@ -10,7 +10,7 @@ type Props = {
     display?: "inline-block" | "flex";
     children?: React.ReactNode;
     visible?: boolean;
-}
+};
 
 function Tooltip({ label, keys, direction = "bottom", children, display = "inline-block", visible = true }: Props) {
     const [isHovered, setHovered] = useState<boolean>(false);
@@ -21,12 +21,12 @@ function Tooltip({ label, keys, direction = "bottom", children, display = "inlin
             <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={wrapper}>
                 {children}
                 {isHovered && visible && (
-                    <div className={`${styles.tooltip} ${styles[direction]}`}>
+                    <div className={`${styles.wrappingTooltip} ${styles[direction]}`}>
                         <span>{label}</span>
                         {keys && (
-                            <div className={styles.keys}>
+                            <div className={styles.wrappingKeys}>
                                 {keys.map((key, index) => (
-                                    <kbd key={index} className={styles.key}>
+                                    <kbd key={index} className={styles.wrappingKey}>
                                         {key}
                                     </kbd>
                                 ))}
@@ -38,14 +38,17 @@ function Tooltip({ label, keys, direction = "bottom", children, display = "inlin
         );
     }
     return (
-        <div className={`${styles.tooltip2} ${styles[direction]}`}>
+        <div className={`${styles.tooltip} ${styles[direction]}`}>
             <span>{label}</span>
             {keys && (
                 <div className={styles.keys}>
                     {keys.map((key, index) => (
-                        <kbd key={index} className={styles.key}>
+                        <span
+                            key={index}
+                            className={styles.key}
+                        >
                             {key}
-                        </kbd>
+                        </span>
                     ))}
                 </div>
             )}
