@@ -3,13 +3,12 @@ import FolderIcon from "~/components/icons/FolderIcon";
 import InboxIcon from "~/components/icons/InboxIcon";
 import InfoIcon from "~/components/icons/InfoIcon";
 import ListAllIcon from "~/components/icons/ListAllIcon";
-
-import AvatarIcon from "~/components/icons/AvatarIcon";
 import PlusIcon from "~/components/icons/PlusIcon";
 import SearchIcon from "~/components/icons/SearchIcon";
 import { Tooltip } from "../../Tooltip/Tooltip";
-import styles from "./sidebar.module.css";
 import { SidebarItem } from "./SidebarItem";
+import styles from "./sidebar.module.css";
+import AccountButton from "../../account/AccountButton";
 
 type Props = {
     isOpen: boolean;
@@ -19,9 +18,9 @@ function Sidebar({ isOpen }: Props) {
     return (
         <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
             <div className={styles.top}>
-                <button className={styles.header}>
-                    <AvatarIcon />
-                </button>
+                <div className={styles.header}>
+                   <AccountButton/>
+                </div>
                 <div className={styles.items}>
                     <Tooltip label="Search" direction="right" keys={["CTRL", "/"]}>
                         <SidebarItem label="Search" icon={<SearchIcon />} link="" />

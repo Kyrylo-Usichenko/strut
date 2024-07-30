@@ -1,7 +1,6 @@
 "use client";
 import styles from "./styles.module.css"
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import AutoModeIcon from "~/components/icons/AutoModeIcon";
 import DarkModeIcon from "~/components/icons/DarkModeIcon";
 import DiscordIcon from "~/components/icons/DiscordIcon";

@@ -1,17 +1,16 @@
 .wrapper {
     display: flex;
-    gap: 24px;
-    height: 100vh;
+    gap: 50px;
 }
 
 .item {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .title {
     margin-bottom: 10px;
     font-size: 1.5em;
     color: #fafafa;
+    white-space: nowrap;
 }
