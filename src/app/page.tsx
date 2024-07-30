@@ -12,6 +12,7 @@ import SearchInput from "./search-input/page";
 import s from "./styles.module.css";
 import { StageMenu } from "~/components/shared/PopupMenu/StageMenu";
 import AccountMenu from "./account-menu/page";
+import BoardListView from "./board-list-view/page";
 
 export default function Home() {
     return (
@@ -62,6 +63,10 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Search Input</span>
                 <SearchInput />
+            </div>
+            <div className={s.item}>
+                <span className={s.title} style={{width: "700px", paddingLeft: "250px"}}>Board list view</span>
+                <BoardListView />
             </div>
             <Link href="/stage-icon-menu">Stage Icon Menu</Link>
             <Link href="/buttons">Brand Voice Buttons</Link>
