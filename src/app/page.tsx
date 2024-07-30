@@ -34,6 +34,7 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Stage Input</span>
                 <StageInput viewMode="kanban" />
+                <StageInput viewMode="list" />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Tooltips</span>

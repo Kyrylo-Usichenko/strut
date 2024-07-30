@@ -20,7 +20,7 @@
 }
 
 .input:focus {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(39, 40, 41);
     outline: none;
     box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
@@ -40,6 +40,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    position: absolute;
+    z-index: 999;
+    left: 32px;
 }
 
 .kanbanInput:hover {
@@ -48,7 +51,7 @@
 }
 
 .kanbanInput:focus {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(39, 40, 41);
     outline: none;
     box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     width: 182px;
