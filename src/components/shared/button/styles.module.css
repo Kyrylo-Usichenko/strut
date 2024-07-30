@@ -11,6 +11,21 @@
     border-radius: 16px;
 
     color: rgb(255, 255, 255, 0.5);
+    transition: background-color 0.1s ease-in-out 0s;
+}
+
+.buttonNoBackground {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 16px;
+
+    color: rgb(255, 255, 255, 0.5);
+    transition: background-color 0.1s ease-in-out 0s;
 }
 
 .buttonNoBackground {

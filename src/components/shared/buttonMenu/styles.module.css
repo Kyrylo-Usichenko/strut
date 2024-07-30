@@ -1,0 +1,16 @@
+.button {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 16px;
+
+    color: rgb(255, 255, 255, 0.5);
+}
+
+.button:hover {
+    cursor: "pointer";
+}
