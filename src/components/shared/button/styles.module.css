@@ -34,8 +34,16 @@
     color: rgba(255, 255, 255, 0.2);
 }
 
+.buttonNoBackground:disabled {
+    color: rgba(255, 255, 255, 0.2);
+}
+
 .button:active{
     transform: scale(0.99, 0.98);
+}
+
+.buttonNoBackground:active{
+    transform: scale(0.98);
 }
 
 .icon {

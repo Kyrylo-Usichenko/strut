@@ -8,36 +8,19 @@ type ButtonProps = {
     text: string;
     tooltipLabel?: string;
     withoutBackground?: boolean;
-    disabled?: boolean;
+    state?: "disabled" | "hovered" | "active";
     onClick?: () => void;
 };
 
-// export default function Button({ icon, text, tooltipLabel, onClick }: ButtonProps) {
-//     const buttonContent = (
-//         <button className={styles.button} onClick={onClick}>
-//             {icon && <>{icon}</>}
-//             <p className={styles.text}>{text}</p>
-//         </button>
-//     );
-
-//     // return tooltipLabel ? (
-//     //     <Tooltip label={tooltipLabel} direction="bottom">
-//     //         {buttonContent}
-//     //     </Tooltip>
-//     // ) : (
-//     //     buttonContent
-//     // );
-// }
-
-export default function Button({ icon, text, tooltipLabel, withoutBackground, disabled, onClick }: ButtonProps) {
-    const [show, setShow] = useState<boolean>(false);
+export default function Button({ icon, text, tooltipLabel, withoutBackground, state, onClick }: ButtonProps) {
+    const [show, setShow] = useState<boolean>(state === "hovered");
 
     return (
         <>
             <button
-                className={withoutBackground? styles.buttonNoBackground: styles.button}
+                className={withoutBackground ? styles.buttonNoBackground : styles.button}
                 onClick={onClick}
-                disabled={disabled}
+                disabled={state === "disabled"}
                 onPointerEnter={() => {
                     if (tooltipLabel) {
                         setShow(true);
@@ -45,6 +28,11 @@ export default function Button({ icon, text, tooltipLabel, withoutBackground, di
                 }}
                 onPointerLeave={() => {
                     setShow(false);
+                }}
+                style={{
+                    transform: state === "active" ? "scale(0.95)" : undefined,
+                    color: state === "hovered" ? "rgba(255, 255, 255, 0.8)" : undefined,
+                    backgroundColor: state === "hovered" ? "rgba(255, 255, 255, 0.1)" : undefined
                 }}
             >
                 {icon && <>{icon}</>}

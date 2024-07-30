@@ -6,7 +6,7 @@ type ButtonProps = {
     icon?: ReactNode;
     tooltipLabel?: string;
     color?: string;
-    onClick: () => void;
+    onClick?: () => void;
 };
 
 export default function ButtonIconOnly({ icon, tooltipLabel, color, onClick }: ButtonProps) {
