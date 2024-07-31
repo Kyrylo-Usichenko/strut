@@ -1,88 +1,79 @@
+.wrapingTooltip,
 .tooltip {
     position: absolute;
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 4px 5px;
-    border-radius: 7px;
     background-color: #49494a;
     color: white;
     font-size: 12px;
     font-weight: normal;
-    white-space: nowrap;
+    white-space: nowrap;    
 }
 
-.tooltip2 {
-    position: absolute;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
+.wrapingTooltip {
+    padding: 4px 5px;
+    border-radius: 7px;
     gap: 5px;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: #494a4a;
-    color: white;
-    font-size: 12px;
-    white-space: nowrap;
 }
 
-.tooltip2.top {
+.tooltip {
+    padding: 4px 8px;
+    border-radius: 8px;
+    backdrop-filter: blur(16px);
+    gap: 6px;
+}
+
+.tooltip.top,
+.wrapingTooltip.top {
     transform: translateX(-50%);
     bottom: calc(100% + 3px);
     left: 50%;
 }
 
-.tooltip2.bottom {
+.tooltip.bottom,
+.wrapingTooltip.bottom {
     transform: translateX(-50%);
     top: calc(100% + 3px);
     left: 50%;
 }
 
-.tooltip2.left {
+.tooltip.left,
+.wrapingTooltip.left {
     transform: translateY(-50%);
     right: calc(100% + 3px);
     top: 50%;
 }
 
-.tooltip2.right {
+.tooltip.right,
+.wrapingTooltip.right {
     transform: translateY(-50%);
     left: calc(100% + 3px);
     top: 50%;
 }
 
-.tooltip.top {
-    transform: translateX(-50%);
-    bottom: calc(100% + 3px);
-    left: 50%;
+.wrappingKeys {
+    display: flex;
+    gap: 3px;
+    font-size: 10px;
+    font-weight: 500;
 }
 
-.tooltip.bottom {
-    transform: translateX(-50%);
-    top: calc(100% + 3px);
-    left: 50%;
-}
-
-.tooltip.left {
-    transform: translateY(-50%);
-    right: calc(100% + 3px);
-    top: 50%;
-}
-
-.tooltip.right {
-    transform: translateY(-50%);
-    left: calc(100% + 3px);
-    top: 50%;
+.wrappingKey {
+    padding: 2px 4px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .keys {
     display: flex;
-    gap: 3px;
-    font-size: 11px;
+    font-size: 10px;
+    font-weight: 500;
 }
 
 .key {
     padding: 2px 4px;
-    border-radius: 5px;
-    background-color: #6d6e6e;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-left: 2px;
 }

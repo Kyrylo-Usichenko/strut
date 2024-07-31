@@ -1,14 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { PopupMenuComponent } from "../../PopupMenu/PopupMenuComponent";
+import { PopupMenu } from "../../PopupMenu/PopupMenu";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 import { useVisible } from "../../PopupMenu/utils/useVisible";
-import ExportIcon from "~/components/icons/ExportIcon";
-import EyeIcon from "~/components/icons/EyeIcon";
-import TrashBinIcon from "~/components/icons/TrashBinIcon";
-import DuplicateIcon from "~/components/icons/DuplicateIcon";
-import styles from "./sidebar.module.css";
 import { Tooltip } from "../../Tooltip/Tooltip";
+import { items } from "../../PopupMenu/PopupMenuWithButton";
+import ButtonIconOnly from "../../buttonIconOnly/ButtonIconOnly";
+import styles from "./sidebar.module.css";
 
 type Props = {
     icon: JSX.Element;
@@ -18,12 +16,6 @@ type Props = {
 }
 
 function SidebarItem({ icon, label, link, hasMenu = false }: Props) {
-    const items = [
-        { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
-        { icon: <EyeIcon />, label: "Hide from Sidebar", link: "" },
-        { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" },
-        { icon: <DuplicateIcon />, label: "Duplicate Workspace", link: "" }
-    ];
     const { isVisible, setIsVisible, ref } = useVisible(false);
 
     const handleButtonClick = () => {
@@ -39,12 +31,13 @@ function SidebarItem({ icon, label, link, hasMenu = false }: Props) {
                 </div>
                 {hasMenu && (
                     <div className={styles.right} ref={ref}>
+                          {/* <ButtonIconOnly onClick={handleButtonClick} icon={<ThreeDotsIcon/>} tooltipLabel="More Options" className={styles} ></ButtonIconOnly>  */}
                         <Tooltip label="More Options" direction="right" visible={!isVisible}>
                             <button onClick={handleButtonClick} className={styles.button}>
                                 <ThreeDotsIcon />
                             </button>
                         </Tooltip>
-                        <PopupMenuComponent items={items} direction="right" visible={isVisible} />
+                        <PopupMenu items={items} direction="right" visible={isVisible} />
                     </div>
                 )}
             </div>

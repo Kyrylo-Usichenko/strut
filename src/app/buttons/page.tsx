@@ -47,7 +47,8 @@ export default function BrandVoiceButton() {
             <Button
                 // icon={<SvgIcon />}
                 text="Brand Voice (no icon)"
-                tooltipLabel="Brand Voice"
+                tooltipLabel="Open Sidebar"
+                tooltipKeys={["CTRL", "`"]}
                 onClick={() => console.log("Brand Voice button clicked")}
             />
             <Button
@@ -57,11 +58,14 @@ export default function BrandVoiceButton() {
                 withoutBackground={true}
                 onClick={() => console.log("Share button clicked")}
             />
-            <ButtonIconOnly
-                icon={<PlusSignIcon />}
-                tooltipLabel="New Doc"
-                onClick={() => console.log("PlusButton clicked")}
-            />
+            <div style={{position: 'absolute', right: '20px', bottom: '20px'}}>
+                <ButtonIconOnly
+                    icon={<PlusSignIcon />}
+                    tooltipLabel="New Doc"
+                    tooltipKeys={["CTRL", "N"]}
+                    onClick={() => console.log("PlusButton clicked")}
+                />
+            </div>
         </>
     );
 }

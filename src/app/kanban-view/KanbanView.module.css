@@ -1,0 +1,8 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 20px 28px 32px 28px;
+}

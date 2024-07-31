@@ -7,6 +7,7 @@ type ButtonProps = {
     icon?: ReactNode;
     text: string;
     tooltipLabel?: string;
+    tooltipKeys?: string[];
     withoutBackground?: boolean;
     onClick?: () => void;
 };
@@ -28,7 +29,7 @@ type ButtonProps = {
 //     // );
 // }
 
-export default function Button({ icon, text, tooltipLabel, withoutBackground, onClick }: ButtonProps) {
+export default function Button({ icon, text, tooltipLabel, tooltipKeys, withoutBackground, onClick }: ButtonProps) {
     const [show, setShow] = useState<boolean>(false);
 
     return (
@@ -47,7 +48,7 @@ export default function Button({ icon, text, tooltipLabel, withoutBackground, on
             >
                 {icon && <>{icon}</>}
                 <p className={styles.text}>{text}</p>
-                {tooltipLabel && show && <Tooltip label={tooltipLabel} direction="bottom" />}
+                {tooltipLabel && show && <Tooltip label={tooltipLabel || ''} keys={tooltipKeys} direction="bottom" />}
             </button>
         </>
     );
