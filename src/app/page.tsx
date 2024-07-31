@@ -22,6 +22,8 @@ import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import s from "./styles.module.css";
 import WorkspaceModal from "./workspace-modal/page";
+import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
+import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
 
 
 export default function Home() {
@@ -132,12 +134,18 @@ export default function Home() {
                 <span className={s.title} style={{width: "700px", paddingLeft: "250px"}}>Board list view</span>
                 <BoardListView />
             </div>
-            <Link href="/stage-icon-menu">Stage Icon Menu</Link>
+            {/* <Link href="/stage-icon-menu">Stage Icon Menu</Link> */}
+            <div className={s.item} >
+                <span className={s.title}>Stage icon menu</span>
+                <StageIconMenuComponent />
+                <span className={s.title} style={{marginTop: "10px"}}>Usage</span>
+                <StageInput  viewMode="list"/>
+            </div>
             <div className={s.item} >
                 <span className={s.title} style={{paddingLeft: "350px"}}>Kanban View</span>
                 <KanbanView />
             </div>
-            <div className={s.item} >
+            <div className={s.item} style={{height: "100px"}}>
                 <span className={s.title} style={{paddingLeft: "312px"}}>Workspace modal</span>
                 <WorkspaceModal />
             </div>
