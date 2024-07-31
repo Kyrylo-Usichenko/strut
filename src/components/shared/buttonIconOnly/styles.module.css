@@ -24,6 +24,11 @@
     color: rgb(255, 255, 255, 0.8);
 }
 
+.button:active{
+    background-color: rgb(255, 255, 255, 0.05);
+    transform: scale(0.95);
+}
+
 .iconWrapper {
     width: 16px;
     height: 16px;
