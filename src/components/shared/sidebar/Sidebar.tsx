@@ -2,9 +2,9 @@
 import { useState } from "react";
 import SidebarIcon from "~/components/icons/SidebarIcon";
 import "~/styles/global.css";
-import { Tooltip } from "../Tooltip/Tooltip";
 import { Sidebar } from "./_components/Sidebar";
 import styles from "./styles.module.css";
+import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
 
 function SidebarPage() {
     const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -15,11 +15,7 @@ function SidebarPage() {
 
     return (
         <div className={styles.wrapper}>
-            <button className={styles.button} onClick={toggleSidebar}>
-                <Tooltip label="Open Sidebar" keys={["CTRL", "`"]} direction="bottom" display="flex">
-                    <SidebarIcon />
-                </Tooltip>
-            </button>
+            <ButtonIconOnly tooltipLabel="Open Sidebar" icon={<SidebarIcon />} onClick={toggleSidebar} className={styles.button}></ButtonIconOnly>
             <Sidebar isOpen={isOpen} />
         </div>
     );

@@ -1,35 +1,29 @@
-"use client";
-import React, { FC } from "react";
-import ExportIcon from "~/components/icons/ExportIcon";
-import EyeIcon from "~/components/icons/EyeIcon";
-import DuplicateIcon from "~/components/icons/DuplicateIcon";
-import TrashBinIcon from "~/components/icons/TrashBinIcon";
-import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
-import { PopupMenuComponent } from "./PopupMenuComponent";
-import { useVisible } from "./utils/useVisible";
-import styles from "~/components/shared/PopupMenu/menu.module.css";
-import s from "~/components/shared/PopupMenu/styles.module.css";
+import React from "react";
+import { PopupMenuItem } from "./PopupMenuItem";
+import styles from "./menu.module.css";
 
-const items = [
-    { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
-    { icon: <EyeIcon />, label: "Hide from Sidebar", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" },
-    { icon: <DuplicateIcon />, label: "Duplicate Workspace", link: "" }
-];
+export interface MenuItem {
+    icon: JSX.Element;
+    label: string;
+    link: string;
+}
 
-function PopupMenu() {
-    const { isVisible, setIsVisible, ref } = useVisible(false);
-    const handleButtonClick = () => {
-        setIsVisible(!isVisible);
-    };
-
+type Props = {
+    items: MenuItem[];
+    direction?: "top" | "bottom" | "left" | "right";
+    visible: boolean;
+};
+function PopupMenu({ items, direction, visible = false }: Props) {
+    if (!visible) return null;
     return (
-        <div className={styles.container} ref={ref}>
-            <button onClick={handleButtonClick} className={s.button}>
-                <ThreeDotsIcon />
-            </button>
-            <PopupMenuComponent items={items} direction="right" visible={isVisible} />
+         <div className={`${styles.menu} ${direction ? styles[direction] : ''}`}>
+            <div className={styles.items}>
+                {items.map((item, index) => (
+                    <PopupMenuItem key={index} {...item} />
+                ))}
+            </div>
         </div>
     );
-};
-export { PopupMenu };
+}
+
+export { PopupMenu};

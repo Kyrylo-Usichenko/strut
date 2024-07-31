@@ -1,7 +1,7 @@
-import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
+import { TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
 
 function TaskPopupPage() {
-    return <TaskPopup />;
+    return <TaskPopupWithButton />;
 };
 
 export default TaskPopupPage;

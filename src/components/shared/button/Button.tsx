@@ -7,12 +7,13 @@ type ButtonProps = {
     icon?: ReactNode;
     text: string;
     tooltipLabel?: string;
+    tooltipKeys?: string[];
     withoutBackground?: boolean;
     state?: "disabled" | "hovered" | "active";
     onClick?: () => void;
 };
 
-export default function Button({ icon, text, tooltipLabel, withoutBackground, state, onClick }: ButtonProps) {
+export default function Button({ icon, text, tooltipLabel, tooltipKeys, withoutBackground, state, onClick }: ButtonProps) {
     const [show, setShow] = useState<boolean>(state === "hovered");
 
     return (
@@ -37,7 +38,7 @@ export default function Button({ icon, text, tooltipLabel, withoutBackground, st
             >
                 {icon && <>{icon}</>}
                 <p className={styles.text}>{text}</p>
-                {tooltipLabel && show && <Tooltip label={tooltipLabel} direction="bottom" />}
+                {tooltipLabel && show && <Tooltip label={tooltipLabel || ''} keys={tooltipKeys} direction="bottom" />}
             </button>
         </>
     );

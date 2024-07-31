@@ -1,8 +1,49 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto, Oxygen, Ubuntu, Cantarell, Fira_Sans} from 'next/font/google';
 import "~/styles/index.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+    weight: ['400'],
+    variable: "--font-inter",
+    subsets: ['latin'],
+    display: 'swap'
+  });
+
+  const roboto = Roboto({
+    weight: ['700'],
+    variable: '--font-roboto',
+    subsets: ['latin'],
+    display: 'swap'
+  });
+  
+  const oxygen = Oxygen({
+    weight: ['400'],
+    variable: '--font-oxygen',
+    subsets: ['latin'],
+    display: 'swap'
+  });
+  
+  const ubuntu = Ubuntu({
+    weight: ['400'],
+    variable: '--font-ubuntu',
+    subsets: ['latin'],
+    display: 'swap'
+  });
+  
+  const cantarell = Cantarell({
+    weight: ['400'],
+    variable: '--font-cantarell',
+    subsets: ['latin'],
+    display: 'swap'
+  });
+  
+  const firaSans = Fira_Sans({
+    weight: ['400'],
+    variable: '--font-fira-sans',
+    subsets: ['latin'],
+    display: 'swap'
+  });
+
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -15,8 +56,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={inter.className}>{children}</body>
+        <html lang="en" className={`${inter.variable} ${roboto.variable} ${oxygen.variable} ${ubuntu.variable} ${cantarell.variable} ${firaSans.variable}`}>
+            <body>{children}</body>
         </html>
     );
 }

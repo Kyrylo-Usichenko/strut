@@ -1,9 +1,0 @@
-.wrapperFlex {
-    position: relative;
-    display: flex;
-}
-
-.wrapperInlineBlock {
-    position: relative;
-    display: inline-block;
-}

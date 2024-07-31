@@ -12,5 +12,5 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font-inter), var(--font-roboto), var(--font-oxygen), var(--font-ubuntu), var(--font-cantarell), var(--font-fira-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
