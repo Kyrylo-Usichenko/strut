@@ -21,6 +21,7 @@ import AccountMenu from "./account-menu/page";
 import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import s from "./styles.module.css";
+import WorkspaceModal from "./workspace-modal/page";
 
 
 export default function Home() {
@@ -135,6 +136,10 @@ export default function Home() {
             <div className={s.item} >
                 <span className={s.title} style={{paddingLeft: "350px"}}>Kanban View</span>
                 <KanbanView />
+            </div>
+            <div className={s.item} >
+                <span className={s.title} style={{paddingLeft: "312px"}}>Workspace modal</span>
+                <WorkspaceModal />
             </div>
             <Link href="/buttons">Brand Voice Buttons</Link>
             <Link href="/tooltip">Buttons with tooltips</Link>
