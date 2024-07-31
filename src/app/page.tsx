@@ -15,6 +15,7 @@ import LayoutToggler from "./layout-toggler/page";
 import SearchInput from "./search-input/page";
 import s from "./styles.module.css";
 import { StageMenu } from "~/components/shared/PopupMenu/StageMenu";
+import AccountMenu from "./account-menu/page";
 
 export default function Home() {
     return (
@@ -25,8 +26,8 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Account menu</span>
-                <div style={{ position: "relative", width: 232, height: 220 }}>
-                    <AccountPopup isOpened={true} />
+                <div style={{ position: "relative" }}>
+                    <AccountMenu/>
                 </div>
                 <span className={s.title}>Usage</span>
                 <AccountButton />
@@ -73,6 +74,7 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Stage Input</span>
                 <StageInput viewMode="kanban" />
+                <StageInput viewMode="list" />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Tooltips</span>

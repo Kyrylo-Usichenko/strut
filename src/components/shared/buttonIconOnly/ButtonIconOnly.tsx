@@ -27,7 +27,7 @@ export default function ButtonIconOnly({ icon, tooltipLabel, color, onClick }: B
                 }}
                 {...(color && { style: { color } })}
             >
-                {icon && <>{icon}</>}
+                <div className={styles.iconWrapper}>{icon && <>{icon}</>}</div>
                 {tooltipLabel && show && <Tooltip label={tooltipLabel} direction="bottom" />}
             </button>
         </>

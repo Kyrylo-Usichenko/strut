@@ -7,15 +7,22 @@ import s from "./styles.module.css";
 
 function AccountButton() {
     const [isOpened, setIsOpened] = useState<boolean>(false);
+
+    const handleTogglePopup = () => {
+        setIsOpened((prev) => !prev);
+    };
+
+    const handleClosePopup = () => {
+        setIsOpened(false);
+    };
+
     return (
         <div className={s.wrapper}>
             <ButtonIconOnly
-                onClick={() => {
-                    setIsOpened(!isOpened);
-                }}
+                onClick={handleTogglePopup}
                 icon={<AvatarIcon />}
             />
-            <AccountPopup isOpened={isOpened} />
+            {isOpened && <AccountPopup isOpened={isOpened} onClose={handleClosePopup} />}
         </div>
     );
 }
