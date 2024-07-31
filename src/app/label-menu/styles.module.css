@@ -1,6 +1,6 @@
 .container {
     position: relative;
-    padding-left: 300px;
+    padding-left: 233px;
 }
 
 .labelDiv {
@@ -20,6 +20,19 @@
     border: none;
     background-color: rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.8);
+}
+
+.labelDivPressed {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .title {
@@ -46,18 +59,26 @@
     position: absolute;
     z-index: 10;
     bottom: -83px;
-    left: 28px;
+    left: 6px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
+    width: 256px;
     height: 80px;
-    padding: 12px;
+    padding: 4px;
     border-radius: 12px;
     background: rgb(39, 40, 41);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0.25rem 0.5rem 0px, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px;
 }
-
+.menu::after{
+    position: absolute;
+    top: 40px;
+    left: -1px;
+    content: " ";
+    width: 258px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
 .input {
     position: relative;
     width: 100%;
@@ -66,20 +87,34 @@
     border: none;
     outline: none;
     background-color: transparent;
+    padding: 8px 12px;
+    font-size: 14px;
 }
 
 .tagText {
     position: relative;
     font-size: 16px;
+    padding: 8px 12px;
     color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
 }
 
-.tagText::after {
-    position: absolute;
-    top: -10px;
-    left: -13px;
-    content: " ";
-    width: 302px;
-    height: 1px;
+
+.createBtn{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: start;
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 248px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.createBtn:hover{
     background-color: rgba(255, 255, 255, 0.05);
 }

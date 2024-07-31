@@ -28,7 +28,14 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
-.title1,
+.container{
+    position: relative;
+    z-index: 100;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 6px 12px;
+}
+
+/* .title1,
 .title2,
 .title3 {
     position: absolute;
@@ -60,15 +67,15 @@
 .container2:hover .title2,
 .container3:hover .title3 {
     display: inline;
-}
+} */
 
 .shadow {
     position: absolute;
     z-index: 10;
-    top: 1.5px;
+    top: 2px;
     left: 2px;
     width: 36px;
-    height: 24px;
+    height: 25px;
     border-radius: 16px;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
@@ -76,11 +83,11 @@
 }
 
 .shadow.midle {
-    top: 1.5px;
+    top: 2px;
     left: 38px;
 }
 
 .shadow.right {
-    top: 1.5px;
+    top: 2px;
     left: 74px;
 }

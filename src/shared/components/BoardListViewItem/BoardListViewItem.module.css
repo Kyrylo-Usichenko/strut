@@ -1,0 +1,40 @@
+.ButtonIconOnly{
+    opacity: 0;
+}
+.smallArrow{
+    position: relative;
+    top: -2px;
+    left: 0px;
+}
+.smallArrowClicked{
+    position: relative;
+    left: 2px;
+    transform: rotate(90deg);
+}
+
+.leftPart{
+    display: flex;
+}
+
+.topPart{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px 16px 8px;
+    box-shadow: rgba(255, 255, 255, 0.024) 0px 1px 0px;
+}
+
+.rightPart{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.container:hover .ButtonIconOnly{
+    opacity: 1;
+}
+
+.list{
+    list-style: none;
+    list-style-type: none;
+}

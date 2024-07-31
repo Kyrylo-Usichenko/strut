@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useLayoutEffect, useRef } from "react";
 import styles from "./tooltip.module.css";
-import w from "./wrappers.module.css";
 
 type Props = {
     label: string;
@@ -55,7 +54,11 @@ function Tooltip({ label, keys, direction = "bottom", children, display = "inlin
 
     if (children) {
         return (
-            <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={wrapper}>
+            <div
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                className={styles.wrapper}
+            >
                 {children}
                 {isHovered && visible && (
                     <div className={`${styles.wrappingTooltip} ${styles[direction]}`} ref={tooltipRef}>

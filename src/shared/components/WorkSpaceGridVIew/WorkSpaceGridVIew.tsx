@@ -1,6 +1,7 @@
 import styles from "./WorkSpaceGridVIew.module.css";
 import WorkSpaceGridViewIcon from "~/components/icons/WorkSpaceGridViewIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
+import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 
 type Props = {
     title: string;
@@ -13,8 +14,11 @@ export default function WorkSpaceGridVIew({ title }: Props) {
                 <p className={styles.title}>{title}</p>
             </div>
             <div className={styles.dots}>
-                <ThreeDotsIcon />
-                <p className={styles.tooltip}>More Options</p>
+                <Tooltip label="More Options" direction="bottom">
+                    <ThreeDotsIcon />
+                </Tooltip>
+
+                {/* <p className={styles.tooltip}>More Options</p> */}
             </div>
         </div>
     );
