@@ -2,7 +2,7 @@
 import styles from "./KanbanItemHeader.module.css";
 import PlusIcon from "~/components/icons/PlusIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
-import StageInput from "~/app/stage-input/page";
+import StageInput from "~/components/shared/stage-input/StageInput";
 
 type Props = {
     icon: React.ReactElement;
