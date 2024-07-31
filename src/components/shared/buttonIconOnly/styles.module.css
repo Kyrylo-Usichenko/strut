@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 6px;
+    height: 28px;
+    width: 28px;
     border: none;
     outline: none;
     border-radius: 16px;
@@ -27,11 +28,4 @@
 .button:active{
     background-color: rgb(255, 255, 255, 0.05);
     transform: scale(0.95);
-}
-
-.iconWrapper {
-    width: 16px;
-    height: 16px;
-    align-items: center;
-    justify-content: center;
 }

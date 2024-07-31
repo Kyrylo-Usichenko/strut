@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useLayoutEffect, useRef } from "react";
+import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
 import styles from "./tooltip.module.css";
 
 type Props = {
@@ -14,11 +14,13 @@ type Props = {
 function outOfScreenHandler(tooltipRef: HTMLDivElement | null) {
     if (tooltipRef) {
         const rect = tooltipRef.getBoundingClientRect();
+
         // if out of left screen
         if (rect.x < 0) {
             tooltipRef.style.transform = "translateX(0)";
             tooltipRef.style.left = `0px`;
             tooltipRef.style.right = "auto";
+            console.log("out of left screen");
         }
         // if out of right screen
         if (rect.right > window.innerWidth) {
@@ -43,14 +45,21 @@ function outOfScreenHandler(tooltipRef: HTMLDivElement | null) {
 
 function Tooltip({ label, keys, direction = "bottom", children, display = "inline-block", visible = true }: Props) {
     const [isHovered, setHovered] = useState<boolean>(false);
-    const wrapper = display === "flex" ? w.wrapperFlex : w.wrapperInlineBlock;
     const tooltipRef = useRef<HTMLDivElement | null>(null);
 
+    //for childfree tooltips
     useLayoutEffect(() => {
         if (tooltipRef.current) {
             outOfScreenHandler(tooltipRef.current);
         }
     }, []);
+
+    //for wrapping tooltips
+    useEffect(() => {
+        if (isHovered && tooltipRef.current) {
+            outOfScreenHandler(tooltipRef.current);
+        }
+    }, [isHovered]);
 
     if (children) {
         return (
@@ -61,14 +70,18 @@ function Tooltip({ label, keys, direction = "bottom", children, display = "inlin
             >
                 {children}
                 {isHovered && visible && (
-                    <div className={`${styles.wrappingTooltip} ${styles[direction]}`} ref={tooltipRef}>
+                    <div
+                        className={`${styles.tooltip} ${styles[direction]}`}
+                        style={{ padding: keys ? "4px 4px 4px 8px" : undefined }}
+                        ref={tooltipRef}
+                    >
                         <span>{label}</span>
                         {keys && (
-                            <div className={styles.wrappingKeys}>
+                            <div className={styles.keys}>
                                 {keys.map((key, index) => (
-                                    <kbd key={index} className={styles.wrappingKey}>
+                                    <span key={index} className={styles.key}>
                                         {key}
-                                    </kbd>
+                                    </span>
                                 ))}
                             </div>
                         )}

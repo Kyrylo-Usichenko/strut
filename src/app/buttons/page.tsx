@@ -2,6 +2,7 @@
 
 import Button from "../../components/shared/button/Button";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
+import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 
 function SvgIcon() {
     return (
@@ -51,6 +52,12 @@ export default function BrandVoiceButton() {
                 tooltipKeys={["CTRL", "`"]}
                 onClick={() => console.log("Brand Voice button clicked")}
             />
+            <Tooltip label="Search" direction="bottom" keys={["CTRL", "/"]}>
+                <ButtonIconOnly
+                    icon={<PlusSignIcon />}
+                    onClick={() => console.log("PlusButton clicked")}
+                />
+            </Tooltip>
             <Button
                 // icon={<SvgIcon />}
                 text="Share"
@@ -58,7 +65,7 @@ export default function BrandVoiceButton() {
                 withoutBackground={true}
                 onClick={() => console.log("Share button clicked")}
             />
-            <div style={{position: 'absolute', right: '20px', bottom: '20px'}}>
+            <div style={{ position: "absolute", right: "20px", bottom: "20px" }}>
                 <ButtonIconOnly
                     icon={<PlusSignIcon />}
                     tooltipLabel="New Doc"
