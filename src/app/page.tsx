@@ -12,6 +12,7 @@ import SearchInput from "./search-input/page";
 import s from "./styles.module.css";
 import { StageMenu } from "~/components/shared/PopupMenu/StageMenu";
 import AccountMenu from "./account-menu/page";
+import KanbanView from "./kanban-view/page";
 
 export default function Home() {
     return (
@@ -58,6 +59,10 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Search Input</span>
                 <SearchInput />
+            </div>
+            <div className={s.item} >
+                <span className={s.title} style={{paddingLeft: "350px"}}>Kanban View</span>
+                <KanbanView />
             </div>
             <Link href="/stage-icon-menu">Stage Icon Menu</Link>
             <Link href="/buttons">Brand Voice Buttons</Link>
