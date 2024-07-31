@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import AccountPopup from "~/components/shared/account/account-popup/AccountPopup";
 import AccountButton from "~/components/shared/account/AccountButton";
 import Button from "~/components/shared/button/Button";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
@@ -16,6 +15,7 @@ import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
 import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
 import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
 import AccountMenu from "./account-menu/page";
+import KanbanView from "./kanban-view/page";
 import s from "./styles.module.css";
 
 export default function Home() {
@@ -70,8 +70,13 @@ export default function Home() {
                 <span className={s.title}>Tooltips</span>
                 <Button text="Button with tooltip" tooltipLabel="tooltip" />
             </div>
+
             <div className={s.item}>
-                <span className={s.title}>Label Menu</span>
+                <span className={s.title} style={{width: "900px", paddingLeft: "350px"}}>Grid view</span>
+                <GridView />
+            </div>
+            <div className={s.item}>
+                <span className={s.title} style={{width: "300px"}}>Label Menu</span>
                 <LabelMenu />
             </div>
             <div className={s.item}>
@@ -81,6 +86,10 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Search Input</span>
                 <SearchInput />
+            </div>
+            <div className={s.item} >
+                <span className={s.title} style={{paddingLeft: "350px"}}>Kanban View</span>
+                <KanbanView />
             </div>
             <Link href="/buttons">Brand Voice Buttons</Link>
             <Link href="/tooltip">Buttons with tooltips</Link>

@@ -5,6 +5,7 @@ import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 type ButtonProps = {
     icon: ReactNode;
     tooltipLabel?: string;
+    tooltipKeys?: string[];
     color?: string;
     onClick?: () => void;
     className?: string;
@@ -12,15 +13,7 @@ type ButtonProps = {
     tooltipDirection?: "top" | "bottom" | "left" | "right";
 };
 
-export default function ButtonIconOnly({
-    icon,
-    tooltipLabel,
-    color,
-    tooltipVisible = true,
-    tooltipDirection = "bottom",
-    onClick,
-    className
-}: ButtonProps) {
+export default function ButtonIconOnly({ icon, tooltipLabel, color, onClick, tooltipVisible = true, tooltipDirection = "bottom", tooltipKeys, className }: ButtonProps) {
     const [show, setShow] = useState<boolean>(false);
 
     return (
@@ -38,8 +31,8 @@ export default function ButtonIconOnly({
                 }}
                 {...(color && { style: { color } })}
             >
-                {icon}
-                {tooltipLabel && show && (<Tooltip label={tooltipLabel} direction={tooltipDirection} visible={tooltipVisible}/>)}
+                <div className={styles.iconWrapper}>{icon}</div>
+                {tooltipLabel && show && (<Tooltip label={tooltipLabel} keys={tooltipKeys} direction={tooltipDirection} visible={tooltipVisible}/>)}
             </button>
         </>
     );
