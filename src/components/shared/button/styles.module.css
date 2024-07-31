@@ -1,61 +1,49 @@
+.button,
+.buttonNoBackground {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 16px;
+    
+    color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.1s ease-in-out 0s;
+    white-space: nowrap;
+}
+
 .button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    gap: 8px;
-    padding: 4px 12px;
-    background-color: rgb(255, 255, 255, 0.05);
-    border: none;
-    border-radius: 16px;
-
-    color: rgb(255, 255, 255, 0.5);
-    transition: background-color 0.1s ease-in-out 0s;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .buttonNoBackground {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 4px 12px;
-    border: none;
-    border-radius: 16px;
-
-    color: rgb(255, 255, 255, 0.5);
-    transition: background-color 0.1s ease-in-out 0s;
+    background-color: transparent;
 }
 
-.buttonNoBackground {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 4px 12px;
-    border: none;
-    border-radius: 16px;
-
-    color: rgb(255, 255, 255, 0.5);
-}
-
-.button:hover {
-    background-color: rgb(255, 255, 255, 0.1);
-    color: rgb(255, 255, 255, 0.8);
-    cursor:'pointer';
-}
-
+.button:hover,
 .buttonNoBackground:hover {
-    background-color: rgb(255, 255, 255, 0.1);
-    color: rgb(255, 255, 255, 0.8);
-    cursor:'pointer';
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
 }
 
 .button:disabled {
-    background-color: rgb(0, 0, 0, 0.2);
-    color: rgb(255, 255, 255, 0.5);
+    background-color: #1e1e1e;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.buttonNoBackground:disabled {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.button:active{
+    transform: scale(0.99, 0.98);
+}
+
+.buttonNoBackground:active{
+    transform: scale(0.98);
 }
 
 .icon {
@@ -66,4 +54,5 @@
 
 .text {
     font-size: 14px;
+    white-space: nowrap;
 }

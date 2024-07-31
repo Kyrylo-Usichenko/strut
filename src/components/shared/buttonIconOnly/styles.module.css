@@ -4,11 +4,10 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 6px 6px;
+    padding: 6px;
     border: none;
     outline: none;
     border-radius: 16px;
-
     color: rgb(255, 255, 255, 0.5);
     transition: background-color 0.1s ease-in-out 0s;
 }
@@ -23,6 +22,11 @@
     outline: none;
     background-color: rgb(255, 255, 255, 0.05);
     color: rgb(255, 255, 255, 0.8);
+}
+
+.button:active{
+    background-color: rgb(255, 255, 255, 0.05);
+    transform: scale(0.95);
 }
 
 .iconWrapper {

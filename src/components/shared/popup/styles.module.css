@@ -1,6 +1,6 @@
 .wrapper {
     position: absolute;
-    width: 232px;
+    z-index: 1000;
     background: rgb(39, 40, 41);
     backdrop-filter: blur(1rem);
     box-shadow:
