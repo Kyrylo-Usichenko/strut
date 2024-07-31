@@ -23,28 +23,28 @@
 .tooltip.top,
 .wrapingTooltip.top {
     transform: translateX(-50%);
-    bottom: calc(100% + 3px);
+    bottom: calc(100% + 4px);
     left: 50%;
 }
 
 .tooltip.bottom,
 .wrapingTooltip.bottom {
     transform: translateX(-50%);
-    top: calc(100% + 3px);
+    top: calc(100% + 4px);
     left: 50%;
 }
 
 .tooltip.left,
 .wrapingTooltip.left {
     transform: translateY(-50%);
-    right: calc(100% + 3px);
+    right: calc(100% + 4px);
     top: 50%;
 }
 
 .tooltip.right,
 .wrapingTooltip.right {
     transform: translateY(-50%);
-    left: calc(100% + 3px);
+    left: calc(100% + 4px);
     top: 50%;
 }
 

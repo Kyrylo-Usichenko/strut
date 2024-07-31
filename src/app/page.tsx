@@ -6,7 +6,7 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 
 import Sidebar from "~/components/shared/sidebar/Sidebar";
-import StageInput from "./stage-input/page";
+import StageInput from "../components/shared/stage-input/StageInput";
 import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";

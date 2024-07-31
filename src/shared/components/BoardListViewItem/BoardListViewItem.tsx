@@ -4,7 +4,7 @@ import { ReactElement, useState } from "react";
 import styles from "./BoardListViewItem.module.css";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
-import StageInput from "~/app/stage-input/page";
+import StageInput from "~/components/shared/stage-input/StageInput";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 import PlusIcon from "~/components/icons/PlusIcon";
 import BoardListViewBottomItem from "../BoardListViewBottomItem/BoardListViewBottomItem";
