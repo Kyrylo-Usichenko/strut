@@ -39,7 +39,7 @@ export default function ButtonIconOnly({
                 {...(color && { style: { color } })}
             >
                 {icon}
-                {tooltipLabel && show && <Tooltip label={tooltipLabel} direction={tooltipDirection} visible={tooltipVisible}/>}
+                {tooltipLabel && show && (<Tooltip label={tooltipLabel} direction={tooltipDirection} visible={tooltipVisible}/>)}
             </button>
         </>
     );
