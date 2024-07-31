@@ -1,27 +1,23 @@
-.wrapingTooltip,
 .tooltip {
     position: absolute;
-    z-index: 1000;
+    z-index: 100000000000;
     display: flex;
     align-items: center;
     background-color: #49494a;
     color: white;
     font-size: 12px;
     font-weight: normal;
-    white-space: nowrap;    
-}
-
-.wrapingTooltip {
-    padding: 4px 5px;
-    border-radius: 7px;
-    gap: 5px;
-}
-
-.tooltip {
+    white-space: nowrap;
+    backdrop-filter: blur(16px);
     padding: 4px 8px;
     border-radius: 8px;
-    backdrop-filter: blur(16px);
     gap: 6px;
+}
+
+.wrapper {
+    position: relative;
+    display: inline-block;
+    /* margin: 10px; */
 }
 
 .tooltip.top,
