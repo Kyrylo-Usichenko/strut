@@ -24,6 +24,7 @@ import s from "./styles.module.css";
 import WorkspaceModal from "./workspace-modal/page";
 import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
+import LabelMenuItem from "~/shared/components/LabelMenuItem/LabelMenuItem";
 
 
 export default function Home() {
@@ -120,6 +121,8 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title} style={{width: "300px"}}>Label Menu</span>
+                <LabelMenuItem />
+                <span className={s.title} style={{marginTop: "10px", marginBottom: "0px"}}>Usage</span>
                 <LabelMenu />
             </div>
             <div className={s.item}>
