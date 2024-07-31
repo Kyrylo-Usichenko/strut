@@ -8,81 +8,78 @@
         rgba(0, 0, 0, 0.1) 0px 8px 24px,
         rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
         border-radius: 12px;
+    font-weight: 400; 
+    font-size: 14px;    
 }
 
 .toggler {
-    position: relative; /* Positioning */
-    display: flex; /* Layout */
+    position: relative; 
+    display: flex; 
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 2px; /* Box model */
+    padding: 2px; 
     margin-bottom: 4px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05); /* Visual */
+    background: rgba(255, 255, 255, 0.05); 
 }
-
 .mod {
-    display: flex; /* Layout */
+    display: flex; 
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: calc(100% / 3);
     height: 64px;
-    font-weight: 400; /* Text */
-    font-size: 14px;
     line-height: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Visual */
+    color: rgba(255, 255, 255, 0.5); 
     gap: 4px;
 }
 
 .mod:hover,
 .mod:focus {
-    color: rgba(255, 255, 255, 0.8); /* Visual */
+    color: rgba(255, 255, 255, 0.8); 
 }
 
 .item {
-    display: flex; /* Layout */
+    display: flex; 
     align-items: center;
-    padding: 8px 12px; /* Box model */
+    padding: 8px 12px;
     border-radius: 8px;
     gap: 10px;
-    color: rgba(255, 255, 255, 0.5); /* Visual */
+    color: rgba(255, 255, 255, 0.5); 
 }
 
 .itemTitle {
-    font-weight: 400; /* Text */
-    font-size: 14px;
     line-height: 20px;
 }
 
 .item:hover,
 .item:focus {
-    background-color: rgba(255, 255, 255, 0.05); /* Visual */
+    background-color: rgba(255, 255, 255, 0.05); 
     color: rgba(255, 255, 255, 0.8);
 }
 
 .shadow {
-    position: absolute; /* Positioning */
+    position: absolute; 
     top: 1.5px;
     left: 2px;
     z-index: -1;
-    width: calc(100% / 3); /* Size */
+    width: calc(100% / 3); 
     height: 64px;
-    background-color: rgba(255, 255, 255, 0.1); /* Visual */
+    background-color: rgba(255, 255, 255, 0.1); 
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
     border-radius: 6px;
     transition: left 0.1s ease-in-out;
 }
 
 .shadow.dark {
-    left: 75px; /* Positioning */
+    left: 75px;
 }
 
 .shadow.light {
-    left: 2px; /* Positioning */
+    left: 2px; 
 }
 
 .shadow.auto {
-    left: 148px; /* Positioning */
+    left: 148px; 
 }

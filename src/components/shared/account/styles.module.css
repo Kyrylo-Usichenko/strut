@@ -1,5 +1,11 @@
 .wrapper {
     position: relative;
-    width: 232px;
-    height: 188px;
+}
+.icon {
+    padding: 4px;
+
+    & svg {
+        width: 20px;
+        height: 20px;
+    }
 }

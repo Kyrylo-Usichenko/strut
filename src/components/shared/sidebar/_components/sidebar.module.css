@@ -10,7 +10,7 @@
     background-color: var(--dark-primary);
     color: var(--dark-text-secondary);
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .sidebar.open {
@@ -30,7 +30,6 @@
     margin-top: 20px;
     margin-bottom: 16px;
     margin-left: 40px;
-    padding: 4px;
     border-radius: 20px;
     width: fit-content;
     height: fit-content;
@@ -54,6 +53,8 @@
     margin-bottom: 1px;
     padding: 4px 8px;
     font-size: 12px;
+    font-family: var(--font-inter), var(--font-roboto), var(--font-oxygen), var(--font-ubuntu), var(--font-cantarell), var(--font-fira-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
 }
 
 .sidebar .items.bottom {
@@ -67,32 +68,40 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    line-height: 1;
     height: 28px;
     padding: 7px 4px 7px 12px;
     color: var(--dark-text-secondary);
     text-decoration: none;
+
+    & .plusIcon {
+        margin: 0px 2px;
+    }
 }
 
 .left {
     display: flex;
     align-items: center;
-    flex: 1;
+    gap: 8px;
     overflow: hidden;
 }
 
 .sidebar .left span {
-    margin-left: 8px;
+    flex: 1; 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .sidebar .item:hover,
-.sidebar .open {
+.sidebar .open .item {
     border-radius: 15px;
-    background-color: var(--popup-menu-bg-color);
-    color: var(--dark-text-primary);
+    background-color: rgb(50, 51, 51);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+}
+
+.sidebar .open .item .button {
+    color: var(--dark-text-secondary);
 }
 
 .sidebar .item:hover .button,
@@ -113,7 +122,7 @@
 
 .button:hover,
 .sidebar .open .button {
-    background-color: #3c3d3d;
+    background-color: rgb(60, 61, 61);
 }
 
 .right {
