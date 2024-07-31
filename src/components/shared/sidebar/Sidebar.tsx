@@ -15,7 +15,13 @@ function SidebarPage() {
 
     return (
         <div className={styles.wrapper}>
-            <ButtonIconOnly tooltipLabel="Open Sidebar" icon={<SidebarIcon />} onClick={toggleSidebar} className={styles.button}></ButtonIconOnly>
+            <ButtonIconOnly
+                tooltipLabel="Open Sidebar"
+                tooltipKeys={["CTRL", "`"]}
+                icon={<SidebarIcon />}
+                onClick={toggleSidebar}
+                className={styles.button}
+            ></ButtonIconOnly>
             <Sidebar isOpen={isOpen} />
         </div>
     );

@@ -3,14 +3,13 @@ import { Inter, Roboto, Oxygen, Ubuntu, Cantarell, Fira_Sans} from 'next/font/go
 import "~/styles/index.css";
 
 const inter = Inter({
-    weight: ['400'],
     variable: "--font-inter",
     subsets: ['latin'],
     display: 'swap'
   });
 
   const roboto = Roboto({
-    weight: ['700'],
+    weight: ['400'],
     variable: '--font-roboto',
     subsets: ['latin'],
     display: 'swap'
