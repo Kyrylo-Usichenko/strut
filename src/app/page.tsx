@@ -6,7 +6,7 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 
 import Sidebar from "~/components/shared/sidebar/Sidebar";
-import StageInput from "./stage-input/page";
+import StageInput from "../components/shared/stage-input/StageInput";
 import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
@@ -22,7 +22,6 @@ import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import s from "./styles.module.css";
 
-
 export default function Home() {
     return (
         <main className={s.wrapper}>
@@ -33,7 +32,7 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Account menu</span>
                 <div style={{ position: "relative", height: 220 }}>
-                    <AccountMenu/>
+                    <AccountMenu />
                 </div>
                 <span className={s.title}>Usage</span>
                 <AccountButton />
@@ -58,32 +57,21 @@ export default function Home() {
             </div>
             <div>
                 <span className={s.title}>Buttons</span>
-                <Button
-                    icon={<CalendarIcon />}
-                    text="Default Button"
-                    tooltipLabel="With tooltip below"
-                />
+                <Button icon={<CalendarIcon />} text="Default Button" tooltipLabel="With tooltip below" />
                 <Button text="Button (no icon)" onClick={() => console.log("Brand Voice button clicked")} />
                 <ButtonIconOnly
                     icon={<CalendarIcon />}
                     tooltipLabel="Button (no text)"
                     onClick={() => console.log("Brand Voice button clicked")}
                 />
-                <Button
-                    text="Button (no background)"
-                    withoutBackground={true}
-                />
+                <Button text="Button (no background)" withoutBackground={true} />
                 <Button
                     text="Button (active)"
                     tooltipLabel="Active one"
                     onClick={() => console.log("Brand Voice button clicked")}
                     state="active"
                 />
-                <Button
-                    text="Button (disabled)"
-                    tooltipLabel="Disabled one"
-                    state="disabled"
-                />
+                <Button text="Button (disabled)" tooltipLabel="Disabled one" state="disabled" />
                 <Button
                     text="Button (hovered)"
                     tooltipLabel="Hovered one"
@@ -112,11 +100,15 @@ export default function Home() {
             </div>
 
             <div className={s.item}>
-                <span className={s.title} style={{width: "900px", paddingLeft: "350px"}}>Grid view</span>
+                <span className={s.title} style={{ width: "900px", paddingLeft: "350px" }}>
+                    Grid view
+                </span>
                 <GridView />
             </div>
             <div className={s.item}>
-                <span className={s.title} style={{width: "300px"}}>Label Menu</span>
+                <span className={s.title} style={{ width: "300px" }}>
+                    Label Menu
+                </span>
                 <LabelMenu />
             </div>
             <div className={s.item}>
@@ -128,12 +120,16 @@ export default function Home() {
                 <SearchInput />
             </div>
             <div className={s.item}>
-                <span className={s.title} style={{width: "700px", paddingLeft: "250px"}}>Board list view</span>
+                <span className={s.title} style={{ width: "700px", paddingLeft: "250px" }}>
+                    Board list view
+                </span>
                 <BoardListView />
             </div>
             <Link href="/stage-icon-menu">Stage Icon Menu</Link>
-            <div className={s.item} >
-                <span className={s.title} style={{paddingLeft: "350px"}}>Kanban View</span>
+            <div className={s.item}>
+                <span className={s.title} style={{ paddingLeft: "350px" }}>
+                    Kanban View
+                </span>
                 <KanbanView />
             </div>
             <Link href="/buttons">Brand Voice Buttons</Link>

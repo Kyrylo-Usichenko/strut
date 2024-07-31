@@ -4,7 +4,7 @@ import { ReactElement, useState } from "react";
 import styles from "./BoardListViewItem.module.css";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
-import StageInput from "~/app/stage-input/page";
+import StageInput from "~/components/shared/stage-input/StageInput";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 import PlusIcon from "~/components/icons/PlusIcon";
 import BoardListViewBottomItem from "../BoardListViewBottomItem/BoardListViewBottomItem";
@@ -59,7 +59,7 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
                 <ul className={styles.list}>
                     {textData.map((text, index) => (
                         <li key={index}>
-                            <BoardListViewBottomItem text={text} icon={icon} iconColor={iconColor}/>
+                            <BoardListViewBottomItem text={text} icon={icon} iconColor={iconColor} />
                         </li>
                     ))}
                 </ul>

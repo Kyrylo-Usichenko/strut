@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import styles from './HiddenSpan.module.css';
-import { HiddenSpanProps } from './HiddenSpan.types';
+import { useEffect, useRef } from "react";
+import styles from "./HiddenSpan.module.css";
+import { HiddenSpanProps } from "./HiddenSpan.types";
 
 export default function HiddenSpan({ text, setWidth }: HiddenSpanProps) {
     const spanRef = useRef<HTMLSpanElement>(null);
