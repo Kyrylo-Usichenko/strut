@@ -43,7 +43,6 @@ function outOfScreenHandler(tooltipRef: HTMLDivElement | null) {
 
 function Tooltip({ label, keys, direction = "bottom", children, display = "inline-block", visible = true }: Props) {
     const [isHovered, setHovered] = useState<boolean>(false);
-    const wrapper = display === "flex" ? w.wrapperFlex : w.wrapperInlineBlock;
     const tooltipRef = useRef<HTMLDivElement | null>(null);
 
     useLayoutEffect(() => {
