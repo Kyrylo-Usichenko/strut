@@ -43,17 +43,13 @@ export default function Home() {
             </div>
 
             <div className={s.item}>
-                <span className={s.title}>Grid view</span>
+                <span className={s.title} style={{width: "900px", paddingLeft: "350px"}}>Grid view</span>
                 <GridView />
             </div>
             <div className={s.item}>
-                <span className={s.title}>Label Menu</span>
+                <span className={s.title} style={{width: "300px"}}>Label Menu</span>
                 <LabelMenu />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                
             </div>
             <div className={s.item}>
                 <span className={s.title}>Layout Toggler</span>
