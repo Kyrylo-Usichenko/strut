@@ -1,10 +1,8 @@
 "use client";
-import Link from "next/link";
 import AccountButton from "~/components/shared/account/AccountButton";
 import Button from "~/components/shared/button/Button";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
-
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "../components/shared/stage-input/StageInput";
 // import GridView from "./grid-view/page";
@@ -20,6 +18,8 @@ import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/Tas
 import AccountMenu from "./account-menu/page";
 import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
+import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
+import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 import s from "./styles.module.css";
 import WorkspaceModal from "./workspace-modal/page";
 import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
@@ -68,6 +68,16 @@ export default function Home() {
                 <span className={s.title}>Usage</span>
                 <div style={{ marginLeft: "150px" }}>
                     <StageMenuWithButton />
+                </div>
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Status menu</span>
+                <div style={{ position: "relative", width: 216, height: 205 }}>
+                    <StatusMenu items={statusItems} onItemClick={() => {}} visible={true} />
+                </div>
+                <span className={s.title}>Usage</span>
+                <div style={{ marginLeft: "188px" }}>
+                    <StatusMenuWithButton />
                 </div>
             </div>
             <div>
@@ -154,9 +164,6 @@ export default function Home() {
                 </span>
                 <WorkspaceModal />
             </div>
-            <Link href="/buttons">Brand Voice Buttons</Link>
-            <Link href="/tooltip">Buttons with tooltips</Link>
-            <Link href="/sidebar">Sidebar</Link>
         </main>
     );
 }
