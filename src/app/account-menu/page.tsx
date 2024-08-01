@@ -24,23 +24,31 @@ export default function AccountMenu() {
     }[mode];
 
     return (
-        
-            <div className={styles.inner} >
-                <div className={styles.toggler}>
-                    <button className={`${mode === "light" ? styles.modActive : styles.mod}`} onClick={() => handleModeChange("light")}>
-                        <LightModeIcon />
-                        <p className={styles.togglerTitle}>Light</p>
-                    </button>
-                    <button className={`${mode === "dark" ? styles.modActive : styles.mod}`} onClick={() => handleModeChange("dark")}>
-                        <DarkModeIcon />
-                        <p className={styles.togglerTitle}>Dark</p>
-                    </button>
-                    <button className={`${mode === "auto" ? styles.modActive : styles.mod}`} onClick={() => handleModeChange("auto")}>
-                        <AutoModeIcon />
-                        <p className={styles.togglerTitle}>Auto</p>
-                    </button>
-                    <div className={`${styles.shadow} ${shadowClass}`}></div>
-                </div>
+        <div className={styles.inner}>
+            <div className={styles.toggler}>
+                <button
+                    className={`${mode === "light" ? styles.modActive : styles.mod}`}
+                    onClick={() => handleModeChange("light")}
+                >
+                    <LightModeIcon />
+                    <p className={styles.togglerTitle}>Light</p>
+                </button>
+                <button
+                    className={`${mode === "dark" ? styles.modActive : styles.mod}`}
+                    onClick={() => handleModeChange("dark")}
+                >
+                    <DarkModeIcon />
+                    <p className={styles.togglerTitle}>Dark</p>
+                </button>
+                <button
+                    className={`${mode === "auto" ? styles.modActive : styles.mod}`}
+                    onClick={() => handleModeChange("auto")}
+                >
+                    <AutoModeIcon />
+                    <p className={styles.togglerTitle}>Auto</p>
+                </button>
+                <div className={`${styles.shadow} ${shadowClass}`}></div>
+            </div>
 
             <div className={styles.tools}>
                 <a className={styles.item}>

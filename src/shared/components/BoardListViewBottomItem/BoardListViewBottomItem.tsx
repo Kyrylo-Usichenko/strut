@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import styles from "./BoardListViewBottomItem.module.css";
@@ -29,9 +29,11 @@ export default function BoardListViewBottomItem({ text, icon, iconColor }: Props
         <div className={styles.container}>
             <div className={styles.leftSide}>
                 <div className={styles.chekedIconWrapper}>
-                    {!isActive && <button className={styles.chekedIcon}>
-                        <SmallCheckIcon />
-                    </button>}
+                    {!isActive && (
+                        <button className={styles.chekedIcon}>
+                            <SmallCheckIcon />
+                        </button>
+                    )}
                     <a className={`${isActive ? styles.focusedIconActive : styles.focusedIcon}`} onClick={handleClick}>
                         <SmallCheckIcon />
                     </a>

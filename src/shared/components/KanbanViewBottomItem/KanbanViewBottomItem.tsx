@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import styles from "./KanbanViewBottomItem.module.css";
@@ -15,13 +15,18 @@ type Props = {
 export default function KanbanViewBottomItem({ icon, header, data, color }: Props) {
     const [isChekIconActive, setIsChekIconActive] = useState<boolean>(false);
 
-    function hahdleCheckIcon(){
+    function hahdleCheckIcon() {
         setIsChekIconActive(!isChekIconActive);
     }
 
     return (
         <div className={`${isChekIconActive ? styles.containerActive : styles.container}`}>
-            <a className={`${isChekIconActive ? styles.chekedIconActive : styles.chekedIcon}`} onClick={hahdleCheckIcon}><SmallChekIcon/></a>
+            <a
+                className={`${isChekIconActive ? styles.chekedIconActive : styles.chekedIcon}`}
+                onClick={hahdleCheckIcon}
+            >
+                <SmallChekIcon />
+            </a>
             <div className={styles.tag}>
                 <LabelMenu />
             </div>
