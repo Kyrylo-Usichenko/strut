@@ -6,11 +6,11 @@ import CircleWithCrossIcon from "~/components/icons/CircleWithCrossIcon";
 import SearchIcon from "~/components/icons/SearchIcon";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 
-type Props = {
-    onInputActiveChange?: (isActive: boolean) => void;
-};
+// type Props = {
+//     onInputActiveChange?: (isActive: boolean) => void;
+// };
 
-export default function SearchInput({ onInputActiveChange = () => {} }: Props) {
+export default function SearchInput({ onInputActiveChange }: any) {
     const [isInputActive, setIsInputActive] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
