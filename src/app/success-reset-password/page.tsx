@@ -4,7 +4,7 @@ import SuccessLetter from "~/components/icons/SuccessLetter";
 import Link from "next/link";
 
 const SuccessResetPassword: React.FC = () => {
-    const email = "bodnjaal@gmail.com";
+    const email = "user@gmail.com";
 
     return (
         <div className={styles.div}>

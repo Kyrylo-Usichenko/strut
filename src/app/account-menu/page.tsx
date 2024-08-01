@@ -26,15 +26,24 @@ export default function AccountMenu() {
     return (
         <div className={styles.inner}>
             <div className={styles.toggler}>
-                <button className={styles.mod} onClick={() => handleModeChange("light")}>
+                <button
+                    className={`${mode === "light" ? styles.modActive : styles.mod}`}
+                    onClick={() => handleModeChange("light")}
+                >
                     <LightModeIcon />
                     <p className={styles.togglerTitle}>Light</p>
                 </button>
-                <button className={styles.mod} onClick={() => handleModeChange("dark")}>
+                <button
+                    className={`${mode === "dark" ? styles.modActive : styles.mod}`}
+                    onClick={() => handleModeChange("dark")}
+                >
                     <DarkModeIcon />
                     <p className={styles.togglerTitle}>Dark</p>
                 </button>
-                <button className={styles.mod} onClick={() => handleModeChange("auto")}>
+                <button
+                    className={`${mode === "auto" ? styles.modActive : styles.mod}`}
+                    onClick={() => handleModeChange("auto")}
+                >
                     <AutoModeIcon />
                     <p className={styles.togglerTitle}>Auto</p>
                 </button>

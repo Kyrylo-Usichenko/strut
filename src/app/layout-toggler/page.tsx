@@ -18,7 +18,6 @@ export default function LayoutToggler() {
                     onClick={() => setActive("container1")}
                 >
                     <ListViewIcon />
-                    {/* <p className={styles.title1}>List View</p> */}
                 </button>
             </Tooltip>
             <Tooltip label="Grid View" direction="bottom">
@@ -27,7 +26,6 @@ export default function LayoutToggler() {
                     onClick={() => setActive("container2")}
                 >
                     <GridViewIcon />
-                    {/* <p className={styles.title2}></p> */}
                 </button>
             </Tooltip>
             <Tooltip label="Kanban View" direction="bottom">
@@ -36,7 +34,6 @@ export default function LayoutToggler() {
                     onClick={() => setActive("container3")}
                 >
                     <KanbanViewIcon />
-                    {/* <p className={styles.title3}>Kanban View</p> */}
                 </button>
             </Tooltip>
 

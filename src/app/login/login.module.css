@@ -1,17 +1,21 @@
 .div {
-    width: 320px;
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 360px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 40px;
     background-color: #f5f4f1;
-    border-radius: 32px;
+    border-radius: 12px;
 }
 .title {
     color: #1e212a;
     letter-spacing: 0;
     font-size: 24px;
+    line-height: 36px;
     font-weight: 400;
     margin-bottom: 40px;
 }
@@ -21,14 +25,13 @@
 }
 .googleBtn {
     border: none;
-    width: 100%;
-    padding-left: 32px;
-    padding-right: 8px;
+    width: 320px;
+    padding-left: 17px;
     height: 52px;
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 20px;
+    gap: 16px;
 
     background-color: #f5f4f1;
     border: 1px solid #dcdcd9;
@@ -92,7 +95,8 @@
 }
 
 .input {
-    width: 295px;
+    width: 320px;
+    height: 52px;
     padding: 12px;
     border: 1px solid #dcdcd9;
     border-radius: 4px;
@@ -126,11 +130,18 @@
 }
 
 .passwordToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 52px;
     position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 0;
+    top: 0;
     background: none;
     border: none;
     cursor: pointer;
+}
+.passwordToggle:hover{
+    background: rgba(40, 40, 40, 0.15)
 }
