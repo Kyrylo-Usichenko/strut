@@ -74,11 +74,11 @@ function Login() {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                     >
-                        {showPassword ? <Eye /> : <EyeBlocked /> }
+                        {showPassword ? <Eye /> : <EyeBlocked />}
                     </button>
                 </div>
 
-                <Link href="/forgot-password" className={styles.forgotLink}>
+                <Link href="/reset-password" className={styles.forgotLink}>
                     Forgot password?
                 </Link>
 
