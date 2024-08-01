@@ -23,7 +23,11 @@ import СircleWithoutQueaterIcon from "~/components/icons/СircleWithoutQueaterI
 import styles from "./StageIconMenu.module.css";
 import MenuButton from "../buttonMenu/menuButton";
 
-type stageIconProps = { activeColor?: string; onIconSelect?: (icon: JSX.Element, color: string) => void, menuRef?: React.RefObject<HTMLDivElement> };
+type stageIconProps = {
+    activeColor?: string;
+    onIconSelect?: (icon: JSX.Element, color: string) => void;
+    menuRef?: React.RefObject<HTMLDivElement>;
+};
 
 const icons: React.ComponentType[] = [
     DashedCircleIcon,

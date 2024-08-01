@@ -16,7 +16,7 @@ type Props = {
 function PopupMenu({ items, direction, visible = false }: Props) {
     if (!visible) return null;
     return (
-         <div className={`${styles.menu} ${direction ? styles[direction] : ''}`}>
+        <div className={`${styles.menu} ${direction ? styles[direction] : ""}`}>
             <div className={styles.items}>
                 {items.map((item, index) => (
                     <PopupMenuItem key={index} {...item} />
@@ -26,4 +26,4 @@ function PopupMenu({ items, direction, visible = false }: Props) {
     );
 }
 
-export { PopupMenu};
+export { PopupMenu };

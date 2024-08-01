@@ -12,9 +12,8 @@ type Props = {
 };
 
 export default function BoardListViewBottomItem({ text, icon, iconColor }: Props) {
-
-    function doNothing(){
-        return
+    function doNothing() {
+        return;
     }
     return (
         <div className={styles.container}>
@@ -26,9 +25,9 @@ export default function BoardListViewBottomItem({ text, icon, iconColor }: Props
             </div>
 
             <div className={styles.rightSide}>
-                <ButtonIconOnly onClick={doNothing} icon={<TagIcon/>}/>
+                <ButtonIconOnly onClick={doNothing} icon={<TagIcon />} />
                 <ButtonIconOnly onClick={doNothing} icon={icon} color={iconColor} />
-                <ButtonIconOnly onClick={doNothing} icon={<ThreeDotsIcon/>} />
+                <ButtonIconOnly onClick={doNothing} icon={<ThreeDotsIcon />} />
             </div>
         </div>
     );

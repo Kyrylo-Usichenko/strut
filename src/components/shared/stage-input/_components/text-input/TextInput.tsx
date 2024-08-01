@@ -23,7 +23,7 @@ export default function TextInput({ value, width, styleMode, onChange, setWidth 
                 placeholder="Untitled"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                style={{ width: `${width}px`}}
+                style={{ width: `${width}px` }}
             />
         </>
     );

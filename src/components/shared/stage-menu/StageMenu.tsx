@@ -8,7 +8,6 @@ interface StageMenuProps {
     direction?: "top" | "bottom" | "left" | "right";
 }
 
-
 const StageMenu: React.FC<StageMenuProps> = ({ visible, direction, items }) => {
     return <PopupMenu items={items} direction={direction} visible={visible} />;
 };

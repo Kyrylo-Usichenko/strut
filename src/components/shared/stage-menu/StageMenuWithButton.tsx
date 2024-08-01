@@ -25,11 +25,11 @@ function StageMenuWithButton() {
         <div className={menu.container} ref={ref}>
             <ButtonIconOnly
                 onClick={handleButtonClick}
-                icon={<ThreeDotsIcon/>}
+                icon={<ThreeDotsIcon />}
                 tooltipLabel="More Options"
                 tooltipVisible={!isVisible}
             />
-            <StageMenu items={stageItems} visible={isVisible} direction="bottom"/>
+            <StageMenu items={stageItems} visible={isVisible} direction="bottom" />
         </div>
     );
 }

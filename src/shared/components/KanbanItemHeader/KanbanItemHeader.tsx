@@ -14,7 +14,7 @@ type Props = {
 export default function KanbanItemHeader({ icon, title = "Untilted", number, color }: Props) {
     return (
         <div className={styles.container}>
-            <StageInput viewMode="kanban" icon={icon} width={200} value={title} amount={number} color={color}/>
+            <StageInput viewMode="kanban" icon={icon} width={200} value={title} amount={number} color={color} />
             <div className={styles.hidden}>
                 <div className={styles.plusIcon}>
                     <PlusIcon />

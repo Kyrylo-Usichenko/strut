@@ -17,10 +17,10 @@ type StageInputProps = {
     amount?: number;
 };
 
-export default function StageInput({ viewMode, icon, color, value, width, amount}: StageInputProps) {
-    const [currentIcon, setCurrentIcon] = useState(icon || DashedCircleIcon as unknown as JSX.Element);
+export default function StageInput({ viewMode, icon, color, value, width, amount }: StageInputProps) {
+    const [currentIcon, setCurrentIcon] = useState(icon || (DashedCircleIcon as unknown as JSX.Element));
     const [currentColor, setCurrentColor] = useState(color || "rgba(255, 255, 255, 0.5)");
-    const {ref: menuRef, isVisible: showMenu, setIsVisible: setShowMenu} = useVisible(false);
+    const { ref: menuRef, isVisible: showMenu, setIsVisible: setShowMenu } = useVisible(false);
     const [currentValue, setValue] = useState(value || "Untitled");
     const [currentWidth, setWidth] = useState(width || 67);
 
@@ -40,7 +40,13 @@ export default function StageInput({ viewMode, icon, color, value, width, amount
                 toggleMenu={() => setShowMenu(!showMenu)}
                 menuRef={menuRef}
             />
-            <TextInput value={currentValue} width={currentWidth} styleMode={viewMode} onChange={setValue} setWidth={setWidth} />
+            <TextInput
+                value={currentValue}
+                width={currentWidth}
+                styleMode={viewMode}
+                onChange={setValue}
+                setWidth={setWidth}
+            />
             <DocsAmount amount={amount || 0} styleMode={viewMode} />
         </div>
     );

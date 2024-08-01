@@ -11,7 +11,6 @@ function AccountButton() {
         setIsVisible(!isVisible);
     };
 
-
     return (
         <div className={s.wrapper} ref={ref}>
             <ButtonIconOnly

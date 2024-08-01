@@ -59,7 +59,7 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
                 <ul className={styles.list}>
                     {textData.map((text, index) => (
                         <li key={index}>
-                            <BoardListViewBottomItem text={text} icon={icon} iconColor={iconColor}/>
+                            <BoardListViewBottomItem text={text} icon={icon} iconColor={iconColor} />
                         </li>
                     ))}
                 </ul>
