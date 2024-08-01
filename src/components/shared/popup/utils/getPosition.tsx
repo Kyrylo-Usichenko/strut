@@ -5,7 +5,6 @@ export interface Position {
     left?: string;
 }
 
-
 export function getPosition(position: Position) {
     const finalPosition: Partial<Position> = {};
     if (position) {

@@ -12,21 +12,23 @@ const dataHeader1 = [
     }
 ];
 
-const dataHeader2 = [{
-  header: "To do",
-  data: ["Programming", "sleep"]
-}];
+const dataHeader2 = [
+    {
+        header: "To do",
+        data: ["Programming", "sleep"]
+    }
+];
 
 const dataHeader3 = [
-  {
-    header: "Big booom",
-    data: ["bla bla bla"]
-  },
-  {
-    header: "Small boom",
-    data: ["wooo", "foo", "booo"]
-  }
-]
+    {
+        header: "Big booom",
+        data: ["bla bla bla"]
+    },
+    {
+        header: "Small boom",
+        data: ["wooo", "foo", "booo"]
+    }
+];
 
 export default function KanbanView() {
     return (

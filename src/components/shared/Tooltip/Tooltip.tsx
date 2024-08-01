@@ -92,22 +92,24 @@ function Tooltip({ label, keys, direction = "bottom", children, display = "inlin
     }
 
     return (
-        <div
-            className={`${styles.tooltip} ${styles[direction]}`}
-            style={{ padding: keys ? "4px 4px 4px 8px" : undefined }}
-            ref={tooltipRef}
-        >
-            <span>{label}</span>
-            {keys && (
-                <div className={styles.keys}>
-                    {keys.map((key, index) => (
-                        <span key={index} className={styles.key}>
-                            {key}
-                        </span>
-                    ))}
-                </div>
-            )}
-        </div>
+        visible && (
+            <div
+                className={`${styles.tooltip} ${styles[direction]}`}
+                style={{ padding: keys ? "4px 4px 4px 8px" : undefined }}
+                ref={tooltipRef}
+            >
+                <span>{label}</span>
+                {keys && (
+                    <div className={styles.keys}>
+                        {keys.map((key, index) => (
+                            <span key={index} className={styles.key}>
+                                {key}
+                            </span>
+                        ))}
+                    </div>
+                )}
+            </div>
+        )
     );
 }
 

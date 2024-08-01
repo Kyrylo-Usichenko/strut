@@ -1,22 +1,22 @@
-.ButtonIconOnly{
+.ButtonIconOnly {
     opacity: 0;
 }
-.smallArrow{
+.smallArrow {
     position: relative;
     top: -2px;
     left: 0px;
 }
-.smallArrowClicked{
+.smallArrowClicked {
     position: relative;
     left: 2px;
     transform: rotate(90deg);
 }
 
-.leftPart{
+.leftPart {
     display: flex;
 }
 
-.topPart{
+.topPart {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,17 +24,17 @@
     box-shadow: rgba(255, 255, 255, 0.024) 0px 1px 0px;
 }
 
-.rightPart{
+.rightPart {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.container:hover .ButtonIconOnly{
+.container:hover .ButtonIconOnly {
     opacity: 1;
 }
 
-.list{
+.list {
     list-style: none;
     list-style-type: none;
 }

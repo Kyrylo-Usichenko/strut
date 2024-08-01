@@ -13,7 +13,7 @@ type Props = {
 function TaskPopup({ items, docInfo, direction, visible = false }: Props) {
     if (!visible) return null;
     return (
-        <div className={`${styles.menu} ${direction ? styles[direction] : ''}`}>
+        <div className={`${styles.menu} ${direction ? styles[direction] : ""}`}>
             <div className={styles.items}>
                 {items.map((item, index) => (
                     <PopupMenuItem key={index} {...item} />
@@ -37,4 +37,4 @@ function TaskPopup({ items, docInfo, direction, visible = false }: Props) {
     );
 }
 
-export { TaskPopup};
+export { TaskPopup };

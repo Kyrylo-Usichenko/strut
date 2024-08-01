@@ -7,7 +7,6 @@ type ButtonProps = {
 };
 
 export default function MenuButton({ icon, onClick }: ButtonProps) {
-
     return (
         <button className={styles.button} style={{ color: "inherit" }} onClick={onClick}>
             {icon}

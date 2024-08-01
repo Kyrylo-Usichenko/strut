@@ -1,4 +1,4 @@
-.item{
+.item {
     width: 100%;
     background-color: transparent;
     height: 52px;
@@ -16,7 +16,7 @@
 }
 
 .title,
-.number{
+.number {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;

@@ -13,17 +13,26 @@ export default function LayoutToggler() {
     return (
         <div className={styles.div}>
             <Tooltip label="List View" direction="bottom">
-                <button className={`${active === "container1" ? styles.container : styles.container1}`} onClick={() => setActive("container1")}>
+                <button
+                    className={`${active === "container1" ? styles.container : styles.container1}`}
+                    onClick={() => setActive("container1")}
+                >
                     <ListViewIcon />
                 </button>
             </Tooltip>
             <Tooltip label="Grid View" direction="bottom">
-                <button className={`${active === "container2" ? styles.container : styles.container2}`} onClick={() => setActive("container2")}>
+                <button
+                    className={`${active === "container2" ? styles.container : styles.container2}`}
+                    onClick={() => setActive("container2")}
+                >
                     <GridViewIcon />
                 </button>
             </Tooltip>
             <Tooltip label="Kanban View" direction="bottom">
-                <button className={`${active === "container3" ? styles.container : styles.container3}`} onClick={() => setActive("container3")}>
+                <button
+                    className={`${active === "container3" ? styles.container : styles.container3}`}
+                    onClick={() => setActive("container3")}
+                >
                     <KanbanViewIcon />
                 </button>
             </Tooltip>

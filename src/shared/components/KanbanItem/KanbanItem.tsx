@@ -1,12 +1,11 @@
-import KanbanItemHeader from "../KanbanItemHeader/KanbanItemHeader"
+import KanbanItemHeader from "../KanbanItemHeader/KanbanItemHeader";
 import KanbanViewBottom from "../KanbanViewBottom/KanbanViewBottom";
 import styles from "./KanbanItem.module.css";
 
-
 type HeaderProps = {
     header: string;
-    data: string[] 
-}
+    data: string[];
+};
 
 type Props = {
   icon: React.ReactElement;

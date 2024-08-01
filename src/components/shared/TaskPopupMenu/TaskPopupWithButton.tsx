@@ -22,16 +22,16 @@ function TaskPopupWithButton() {
     };
 
     return (
-            <div className={menu.container} ref={ref}>
+        <div className={menu.container} ref={ref}>
             <ButtonIconOnly
                 onClick={handleButtonClick}
-                icon={<ThreeDotsIcon/>}
+                icon={<ThreeDotsIcon />}
                 tooltipLabel="More Options"
                 tooltipVisible={!isVisible}
             />
-                <TaskPopup items={taskItems} docInfo={docInfo} direction="bottom" visible={isVisible} />
-            </div>
+            <TaskPopup items={taskItems} docInfo={docInfo} direction="bottom" visible={isVisible} />
+        </div>
     );
-};
+}
 
 export { TaskPopupWithButton };

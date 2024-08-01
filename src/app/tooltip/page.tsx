@@ -3,6 +3,6 @@ import { ButtonWithTooltips } from "~/components/shared/buttons-with-tooltips/Bu
 
 function TooltipPage() {
     return <ButtonWithTooltips />;
-};
+}
 
 export default TooltipPage;

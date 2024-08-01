@@ -19,7 +19,7 @@ function Sidebar({ isOpen }: Props) {
         <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
             <div className={styles.top}>
                 <div className={styles.header}>
-                   <AccountButton/>
+                    <AccountButton />
                 </div>
                 <div className={styles.items}>
                     <Tooltip label="Search" direction="right" keys={["CTRL", "/"]}>
@@ -33,7 +33,11 @@ function Sidebar({ isOpen }: Props) {
                 <div className={styles.items}>
                     <SidebarItem label="Getting Started Guide" icon={<FolderIcon />} link="" hasMenu={true} />
                     <SidebarItem label="Browse all" icon={<ListAllIcon />} link="" />
-                    <SidebarItem label="Add a workspace" icon={<PlusIcon width={8} height={8} className={styles.plusIcon}/>} link="" />
+                    <SidebarItem
+                        label="Add a workspace"
+                        icon={<PlusIcon width={8} height={8} className={styles.plusIcon} />}
+                        link=""
+                    />
                 </div>
             </div>
             <div className={`${styles.items} ${styles.bottom}`}>

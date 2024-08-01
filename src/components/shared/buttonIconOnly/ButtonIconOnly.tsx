@@ -13,7 +13,16 @@ type ButtonProps = {
     tooltipDirection?: "top" | "bottom" | "left" | "right";
 };
 
-export default function ButtonIconOnly({ icon, tooltipLabel, color, onClick, tooltipVisible = true, tooltipDirection = "bottom", tooltipKeys, className }: ButtonProps) {
+export default function ButtonIconOnly({
+    icon,
+    tooltipLabel,
+    color,
+    onClick,
+    tooltipVisible = true,
+    tooltipDirection = "bottom",
+    tooltipKeys,
+    className
+}: ButtonProps) {
     const [show, setShow] = useState<boolean>(false);
 
     return (
@@ -32,9 +41,15 @@ export default function ButtonIconOnly({ icon, tooltipLabel, color, onClick, too
                 {...(color && { style: { color } })}
             >
                 {icon}
-                {tooltipLabel && show && (<Tooltip label={tooltipLabel} keys={tooltipKeys} direction={tooltipDirection} visible={tooltipVisible}/>)}
+                {tooltipLabel && show && (
+                    <Tooltip
+                        label={tooltipLabel}
+                        keys={tooltipKeys}
+                        direction={tooltipDirection}
+                        visible={tooltipVisible}
+                    />
+                )}
             </button>
-            
         </>
     );
 }
