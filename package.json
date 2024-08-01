@@ -41,11 +41,14 @@
     "lint-staged": {
         "*.ts": [
             "eslint --fix",
-            "prettier --write"
+            "prettier --write",
+            "tsc --noEmit"
+            
         ],
         "*.tsx": [
             "eslint --fix",
-            "prettier --write"
+            "prettier --write",
+            "tsc --noEmit"
         ]
     }
 }
