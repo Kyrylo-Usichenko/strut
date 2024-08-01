@@ -1,8 +1,6 @@
 import styles from "./WorkSpaceGridVIew.module.css";
 import WorkSpaceGridViewIcon from "~/components/icons/WorkSpaceGridViewIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
-import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
-import { PopupMenuWithButton } from "~/components/shared/PopupMenu/PopupMenuWithButton";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { items } from "~/components/shared/PopupMenu/PopupMenuWithButton";
 import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
