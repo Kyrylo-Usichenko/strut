@@ -25,6 +25,7 @@ import WorkspaceModal from "./workspace-modal/page";
 import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/shared/components/LabelMenuItem/LabelMenuItem";
+import GridView from "~/shared/components/GridView/GridView";
 
 export default function Home() {
     return (
@@ -124,7 +125,7 @@ export default function Home() {
                 <span className={s.title} style={{ width: "900px", paddingLeft: "350px" }}>
                     Grid view
                 </span>
-                {/* <GridView /> */}
+                <GridView />
             </div>
             <div className={s.item}>
                 <span className={s.title} style={{ width: "700px", paddingLeft: "250px" }}>
