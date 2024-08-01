@@ -8,6 +8,7 @@
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write .",
+        "type-check": "tsc",
         "prepare": "husky"
     },
     "dependencies": {
@@ -42,13 +43,13 @@
         "*.ts": [
             "eslint --fix",
             "prettier --write",
-            "tsc --noEmit"
+            " bash -c tsc"
             
         ],
         "*.tsx": [
             "eslint --fix",
             "prettier --write",
-            "tsc --noEmit"
+            "bash -c tsc"
         ]
     }
 }

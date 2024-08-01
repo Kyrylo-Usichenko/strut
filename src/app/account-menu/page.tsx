@@ -58,5 +58,3 @@ export default function AccountMenu() {
         </div>
     );
 }
-
-//for test commit delete later
