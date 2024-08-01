@@ -13,7 +13,15 @@ type ButtonProps = {
     onClick?: () => void;
 };
 
-export default function Button({ icon, text, tooltipLabel, tooltipKeys, withoutBackground, state, onClick }: ButtonProps) {
+export default function Button({
+    icon,
+    text,
+    tooltipLabel,
+    tooltipKeys,
+    withoutBackground,
+    state,
+    onClick
+}: ButtonProps) {
     const [show, setShow] = useState<boolean>(state === "hovered");
 
     return (
@@ -38,7 +46,7 @@ export default function Button({ icon, text, tooltipLabel, tooltipKeys, withoutB
             >
                 {icon && <>{icon}</>}
                 <p className={styles.text}>{text}</p>
-                {tooltipLabel && show && <Tooltip label={tooltipLabel || ''} keys={tooltipKeys} direction="bottom" />}
+                {tooltipLabel && show && <Tooltip label={tooltipLabel || ""} keys={tooltipKeys} direction="bottom" />}
             </button>
         </>
     );
