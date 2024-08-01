@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import PlusIcon from "~/components/icons/PlusIcon";
 import WorkSpaceGridVIew from "~/shared/components/WorkSpaceGridVIew/WorkSpaceGridVIew";
 
-export default function page() {
+export default function Page() {
     return (
         <div className={styles.container}>
             <a className={styles.createContainer}>
