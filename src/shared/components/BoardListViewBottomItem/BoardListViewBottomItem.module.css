@@ -10,7 +10,13 @@
     display: flex;
     align-items: center;
 }
+.chekedIconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 .chekedIcon {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +26,38 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
     background: transparent;
     color: rgba(255, 255, 255, 0);
+}
+
+.focusedIcon {
+    /* cursor: pointer; */
+    /* position: absolute; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.chekedIconWrapper:hover .focusedIcon {
+    display: flex;
+}
+.chekedIconWrapper:hover .chekedIcon {
+    display: none;
+}
+.focusedIconActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
 }
 
 .text {
@@ -36,17 +74,11 @@
         rgba(255, 255, 255, 0.024) 0px 1px 0px 0px,
         rgba(255, 255, 255, 0.024) 0px 1px 0p;
 }
-.chekedIcon:hover {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    color: rgba(255, 255, 255, 0.5);
-    background-color: rgb(39, 40, 41);
-}
-
 .container:hover .chekedIcon {
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    color: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.2);
 }
-.rightSide{
+.rightSide {
     display: flex;
     align-items: center;
     gap: 8px;

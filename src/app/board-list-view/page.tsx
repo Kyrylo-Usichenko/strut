@@ -8,7 +8,8 @@ const data1 = {
     icon: <ShopBagIcon />,
     iconColor: "rgb(255, 181, 70)",
     number: 3,
-    textData: ["Task1", "TAsk2", "Task3"]
+    textData: ["Task1", "TAsk2", "Task3"],
+    position: "top",
 }
 
 const data2 = {

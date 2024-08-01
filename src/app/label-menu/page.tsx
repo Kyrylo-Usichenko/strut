@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 
-export default function Page() {
+export default function LabelMenu() {
     const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
     const [inputValue, setInputValue] = useState<string>("");
     const menuRef = useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ export default function Page() {
         ) {
             setTimeout(() => {
                 setIsMenuOpened(false);
-            }, 100); // Затримка в 100 мілісекунд
+            }, 100);
         }
     }
 
