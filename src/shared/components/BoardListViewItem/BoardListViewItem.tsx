@@ -22,15 +22,24 @@ type Props = {
     iconColor: string;
     number: number;
     textData: string[];
-    position?: string;
+    position: "bottom" | "center" | "top" | string;
 };
 
-const stageItems: MenuItem[] = [
+const stageItemsTop: MenuItem[] = [
     { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
     { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
 ];
+const stageItemsCenter: MenuItem[] = [
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
+    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+];
+const stageItemsBottom: MenuItem[] = [
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+];
 
-export default function BoardListViewItem({ title, icon, iconColor, number, textData, position = "bottom" }: Props) {
+export default function BoardListViewItem({ title, icon, iconColor, number, textData, position }: Props) {
     const [isBottomMenuOpenes, setIsBottomMenuOpenes] = useState<boolean>(false);
     const { isVisible, setIsVisible, ref } = useVisible(false);
     const handleButtonClick = () => {
@@ -39,6 +48,15 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
 
     function handleOpenBottomMenu() {
         setIsBottomMenuOpenes(!isBottomMenuOpenes);
+    }
+
+    function determinePosition(position: string) {
+        if (position === "top") {
+            return stageItemsTop;
+        } else if (position === "bottom") {
+            return stageItemsBottom;
+        }
+        return stageItemsCenter;
     }
 
     function SmallArrow() {
@@ -72,19 +90,15 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
                         icon={<PlusIcon width={12} height={12} />}
                         tooltipLabel="New Doc"
                     />
-                    {position === "top" ? (
-                        <div className={menu.container} ref={ref}>
-                            <ButtonIconOnly
-                                onClick={handleButtonClick}
-                                icon={<ThreeDotsIcon />}
-                                tooltipLabel="More Options"
-                                tooltipVisible={!isVisible}
-                            />
-                            <StageMenu items={stageItems} visible={isVisible} direction="bottom" />
-                        </div>
-                    ) : (
-                        <StageMenuWithButton />
-                    )}
+                    <div className={menu.container} ref={ref}>
+                        <ButtonIconOnly
+                            onClick={handleButtonClick}
+                            icon={<ThreeDotsIcon />}
+                            tooltipLabel="More Options"
+                            tooltipVisible={!isVisible}
+                        />
+                        <StageMenu items={determinePosition(position)} visible={isVisible} direction="bottom" />
+                    </div>
                 </div>
             </div>
 

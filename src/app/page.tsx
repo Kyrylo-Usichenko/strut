@@ -26,7 +26,6 @@ import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/shared/components/LabelMenuItem/LabelMenuItem";
 
-
 export default function Home() {
     return (
         <main className={s.wrapper}>
@@ -103,15 +102,14 @@ export default function Home() {
                 <span className={s.title}>Tooltips</span>
                 <Button text="Button with tooltip" tooltipLabel="tooltip" />
             </div>
-
             <div className={s.item}>
-                <span className={s.title} style={{width: "900px", paddingLeft: "350px"}}>Grid view</span>
-                <GridView />
-            </div>
-            <div className={s.item}>
-                <span className={s.title} style={{width: "300px"}}>Label Menu</span>
+                <span className={s.title} style={{ width: "300px" }}>
+                    Label Menu
+                </span>
                 <LabelMenuItem />
-                <span className={s.title} style={{marginTop: "10px", marginBottom: "0px"}}>Usage</span>
+                <span className={s.title} style={{ marginTop: "10px", marginBottom: "0px" }}>
+                    Usage
+                </span>
                 <LabelMenu />
             </div>
             <div className={s.item}>
@@ -135,18 +133,24 @@ export default function Home() {
                 <BoardListView />
             </div>
             {/* <Link href="/stage-icon-menu">Stage Icon Menu</Link> */}
-            <div className={s.item} >
+            <div className={s.item}>
                 <span className={s.title}>Stage icon menu</span>
                 <StageIconMenuComponent />
-                <span className={s.title} style={{marginTop: "10px"}}>Usage</span>
-                <StageInput  viewMode="list"/>
+                <span className={s.title} style={{ marginTop: "10px" }}>
+                    Usage
+                </span>
+                <StageInput viewMode="list" />
             </div>
-            <div className={s.item} >
-                <span className={s.title} style={{paddingLeft: "350px"}}>Kanban View</span>
+            <div className={s.item}>
+                <span className={s.title} style={{ paddingLeft: "350px" }}>
+                    Kanban View
+                </span>
                 <KanbanView />
             </div>
-            <div className={s.item} style={{height: "100px"}}>
-                <span className={s.title} style={{paddingLeft: "312px"}}>Workspace modal</span>
+            <div className={s.item} style={{ height: "100px" }}>
+                <span className={s.title} style={{ paddingLeft: "312px" }}>
+                    Workspace modal
+                </span>
                 <WorkspaceModal />
             </div>
             <Link href="/buttons">Brand Voice Buttons</Link>

@@ -2,7 +2,7 @@
 import styles from "./KanbanItemHeader.module.css";
 import PlusIcon from "~/components/icons/PlusIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
-import StageInput from "~/app/stage-input/page";
+import StageInput from "~/components/shared/stage-input/StageInput";
 import { MenuItem } from "~/components/shared/PopupMenu/PopupMenu";
 import ArrowIcon from "~/components/icons/ArrowIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
@@ -61,11 +61,7 @@ export default function KanbanItemHeader({ icon, title = "Untilted", number, col
                         tooltipLabel="More Options"
                         tooltipVisible={!isVisible}
                     />
-                    <StageMenu
-                        items={determinePosition(position)}
-                        visible={isVisible}
-                        direction="bottom"
-                    />
+                    <StageMenu items={determinePosition(position)} visible={isVisible} direction="bottom" />
                 </div>
             </div>
         </div>
