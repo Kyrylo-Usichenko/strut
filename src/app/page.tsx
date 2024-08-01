@@ -20,6 +20,7 @@ import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/Tas
 import AccountMenu from "./account-menu/page";
 import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
+import CreateTask from "~/components/shared/create-task/CreateTask";
 import s from "./styles.module.css";
 
 export default function Home() {
@@ -28,6 +29,12 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Sidebar</span>
                 <Sidebar />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Create Task</span>
+                <div style={{ position: "relative", height: 500, width: 600, backgroundColor: "black" }}>
+                    <CreateTask />
+                </div>
             </div>
             <div className={s.item}>
                 <span className={s.title}>Account menu</span>
