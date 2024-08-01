@@ -118,7 +118,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Search Input</span>
-                <SearchInput onInputActiveChange={(isActive = true) => {}} />
+                <SearchInput />
             </div>
             <div className={s.item}>
                 <span className={s.title} style={{ width: "900px", paddingLeft: "350px" }}>
