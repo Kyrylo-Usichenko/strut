@@ -1,4 +1,4 @@
-.container{
+.container {
     cursor: pointer;
     position: relative;
     z-index: 10;
@@ -7,21 +7,42 @@
     border-radius: 12px;
     padding: 6px 12px 12px 12px;
     background: rgb(39, 40, 41);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0.25rem 0.5rem 0px, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px;
+    box-shadow:
+        rgba(0, 0, 0, 0.05) 0px 0.25rem 0.5rem 0px,
+        rgba(255, 255, 255, 0.1) 0px 0px 0px 1px;
 }
-.container:hover{
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0.25rem 0.5rem 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
+.containerActive {
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 12px;
+    padding: 6px 12px 12px 12px;
+    background: rgb(39, 40, 41);
+    box-shadow:
+        rgba(0, 0, 0, 0.05) 0px 0.25rem 0.5rem 0px,
+        rgba(255, 255, 255, 0.2) 0px 0px 0px 2px;
 }
-.tag{
+.container:hover {
+    box-shadow:
+        rgba(0, 0, 0, 0.05) 0px 0.25rem 0.5rem 0px,
+        rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
+}
+.tag {
     display: none;
     position: absolute;
     top: 8px;
     right: 8px;
 }
-.container:hover .tag{
+.container:hover .tag {
     display: flex;
 }
-.title{
+
+.containerActive:hover .tag {
+    display: flex;
+}
+.title {
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
@@ -30,7 +51,7 @@
     cursor: pointer;
 }
 
-.item{
+.item {
     font-size: 8px;
     line-height: 12px;
     margin: 8px 0;
@@ -38,7 +59,7 @@
     cursor: pointer;
 }
 
-.icon{
+.icon {
     position: relative;
     left: -6px;
     width: 28px;
@@ -48,12 +69,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #995CBF;
+    color: #995cbf;
 }
-.icon:hover{
-    background-color: rgba(255, 255, 255, 0.05);;
+.icon:hover {
+    background-color: rgba(255, 255, 255, 0.05);
 }
-.chekedIcon{
+.chekedIcon {
     position: absolute;
     top: -8px;
     left: -8px;
@@ -68,11 +89,26 @@
     background: rgb(39, 40, 41);
     display: none;
 }
-.chekedIcon:hover{
+.chekedIcon:hover {
     border: 1px solid rgba(255, 255, 255, 0.8);
     color: rgba(255, 255, 255, 0.8);
 }
 
-.container:hover .chekedIcon{
+.chekedIconActive {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(1rem);
+}
+
+.container:hover .chekedIcon {
     display: flex;
 }

@@ -19,20 +19,20 @@ export default function WorkSpaceGridVIew({ title }: Props) {
     };
 
     return (
-        <div className={styles.container}>
+        <a className={styles.container}>
             <div className={styles.start}>
                 <WorkSpaceGridViewIcon />
                 <p className={styles.title}>{title}</p>
             </div>
-            <div className={menu.container} ref={ref}>
-            <ButtonIconOnly
-                onClick={handleButtonClick}
-                icon={<ThreeDotsIcon />}
-                tooltipLabel="More Options"
-                tooltipVisible={!isVisible}
-            />
-            <PopupMenu items={items} direction="bottom" visible={isVisible} />
-        </div>
-        </div>
+            <div className={`${menu.container} ${styles.workSpace}`} ref={ref}>
+                <ButtonIconOnly
+                    onClick={handleButtonClick}
+                    icon={<ThreeDotsIcon />}
+                    tooltipLabel="More Options"
+                    tooltipVisible={!isVisible}
+                />
+                <PopupMenu items={items} direction="bottom" visible={isVisible} />
+            </div>
+        </a>
     );
 }

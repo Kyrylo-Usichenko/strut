@@ -6,10 +6,10 @@ export default function GridView() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.createContainer}>
+      <a className={styles.createContainer}>
         <PlusIcon />
         <p className={styles.createDivTitle}>New workspace</p>
-      </div>
+      </a>
       <WorkSpaceGridVIew title="Worspace1"/>
       <WorkSpaceGridVIew title="Worspace2"/>
     </div>

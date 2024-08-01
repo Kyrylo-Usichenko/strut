@@ -13,13 +13,14 @@ type Props = {
   title?: string;
   number: number;
   dataHeader: HeaderProps[];
-  color: string
+  color: string;
+  position?: "left" | "right" | "center";
 }
 
-export default function KanbanItem({icon, title, number, dataHeader, color}: Props) {
+export default function KanbanItem({icon, title, number, dataHeader, color, position}: Props) {
   return (
     <div className={styles.container}>
-      <KanbanItemHeader icon={icon} number={number} title={title} color={color}/>
+      <KanbanItemHeader icon={icon} number={number} title={title} color={color} position={position}/>
       <KanbanViewBottom icon={icon} dataHeader={dataHeader} color={color}/>
     </div>
   )
