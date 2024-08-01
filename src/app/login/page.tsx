@@ -74,7 +74,7 @@ function Login() {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                     >
-                        {showPassword ? <EyeBlocked /> : <Eye />}
+                        {showPassword ? <Eye /> : <EyeBlocked /> }
                     </button>
                 </div>
 

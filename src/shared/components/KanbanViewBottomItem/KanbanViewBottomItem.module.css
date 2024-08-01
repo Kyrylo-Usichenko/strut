@@ -1,7 +1,6 @@
 .container {
     cursor: pointer;
     position: relative;
-    z-index: 10;
     width: 100%;
     min-height: 80px;
     border-radius: 12px;
