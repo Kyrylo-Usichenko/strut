@@ -7,7 +7,7 @@ import CalendarIcon from "~/components/icons/CalendarIcon";
 
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "../components/shared/stage-input/StageInput";
-import GridView from "./grid-view/page";
+// import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
 import SearchInput from "./search-input/page";
@@ -124,7 +124,7 @@ export default function Home() {
                 <span className={s.title} style={{ width: "900px", paddingLeft: "350px" }}>
                     Grid view
                 </span>
-                <GridView />
+                {/* <GridView /> */}
             </div>
             <div className={s.item}>
                 <span className={s.title} style={{ width: "700px", paddingLeft: "250px" }}>
