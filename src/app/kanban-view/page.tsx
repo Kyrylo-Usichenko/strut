@@ -12,28 +12,48 @@ const dataHeader1 = [
     }
 ];
 
-const dataHeader2 = [{
-  header: "To do",
-  data: ["Programming", "sleep"]
-}];
+const dataHeader2 = [
+    {
+        header: "To do",
+        data: ["Programming", "sleep"]
+    }
+];
 
 const dataHeader3 = [
-  {
-    header: "Big booom",
-    data: ["bla bla bla"]
-  },
-  {
-    header: "Small boom",
-    data: ["wooo", "foo", "booo"]
-  }
-]
+    {
+        header: "Big booom",
+        data: ["bla bla bla"]
+    },
+    {
+        header: "Small boom",
+        data: ["wooo", "foo", "booo"]
+    }
+];
 
 export default function KanbanView() {
     return (
         <div className={styles.wrapper}>
-            <KanbanItem icon={<PersonIcon />} number={0} title="In process" dataHeader={dataHeader1} color="rgb(1, 114, 100)"/>
-            <KanbanItem icon={<CalendarIcon />} number={5} title="TO DO" dataHeader={dataHeader2} color="rgb(255, 181, 70)"/>
-            <KanbanItem icon={<LaptopIcon />} number={7} title="Something" dataHeader={dataHeader3} color="rgb(188, 87, 73)"/>
+            <KanbanItem
+                icon={<PersonIcon />}
+                number={0}
+                title="In process"
+                dataHeader={dataHeader1}
+                color="rgb(1, 114, 100)"
+            />
+            <KanbanItem
+                icon={<CalendarIcon />}
+                number={5}
+                title="TO DO"
+                dataHeader={dataHeader2}
+                color="rgb(255, 181, 70)"
+            />
+            <KanbanItem
+                icon={<LaptopIcon />}
+                number={7}
+                title="Something"
+                dataHeader={dataHeader3}
+                color="rgb(188, 87, 73)"
+            />
         </div>
     );
 }

@@ -18,6 +18,6 @@ function ButtonWithTooltips() {
             </Tooltip>
         </div>
     );
-};
+}
 
 export { ButtonWithTooltips };

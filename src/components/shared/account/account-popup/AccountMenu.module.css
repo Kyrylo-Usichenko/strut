@@ -1,41 +1,41 @@
 .toggler {
     position: relative;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 2px; 
+    padding: 2px;
     margin-bottom: 4px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05); 
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .mod {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: calc(100% / 3);
     height: 64px;
-    font-weight: 400; 
+    font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: rgba(255, 255, 255, 0.5); 
+    color: rgba(255, 255, 255, 0.5);
     gap: 4px;
 }
 
 .mod:hover,
 .mod:focus {
-    color: rgba(255, 255, 255, 0.8); 
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .item {
-    display: flex; 
+    display: flex;
     align-items: center;
     padding: 8px 12px;
     border-radius: 8px;
     gap: 10px;
-    color: rgba(255, 255, 255, 0.5); 
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .itemTitle {
@@ -50,13 +50,13 @@
 }
 
 .shadow {
-    position: absolute; 
+    position: absolute;
     top: 1.5px;
     left: 2px;
     z-index: -1;
-    width: calc(100% / 3); 
+    width: calc(100% / 3);
     height: 64px;
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(255, 255, 255, 0.1);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
     border-radius: 6px;
     transition: left 0.1s ease-in-out;
@@ -67,9 +67,9 @@
 }
 
 .shadow.light {
-    left: 2px; 
+    left: 2px;
 }
 
 .shadow.auto {
-    left: 148px; 
+    left: 148px;
 }

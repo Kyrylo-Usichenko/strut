@@ -1,4 +1,4 @@
-.inputDiv{
+.inputDiv {
     display: flex;
     flex-direction: row;
     -webkit-box-align: center;
@@ -6,5 +6,3 @@
     overflow: visible;
     position: relative;
 }
-
-

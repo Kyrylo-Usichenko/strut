@@ -53,10 +53,7 @@ export default function BrandVoiceButton() {
                 onClick={() => console.log("Brand Voice button clicked")}
             />
             <Tooltip label="Search" direction="bottom" keys={["CTRL", "/"]}>
-                <ButtonIconOnly
-                    icon={<PlusSignIcon />}
-                    onClick={() => console.log("PlusButton clicked")}
-                />
+                <ButtonIconOnly icon={<PlusSignIcon />} onClick={() => console.log("PlusButton clicked")} />
             </Tooltip>
             <Button
                 // icon={<SvgIcon />}

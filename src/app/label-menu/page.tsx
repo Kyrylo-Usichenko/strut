@@ -81,7 +81,11 @@ export default function Page() {
                         placeholder="Add a tag..."
                         autoComplete="off"
                     />
-                    {inputValue ? <button className={styles.createBtn}>{`Create "${inputValue}"`}</button> : <p className={styles.tagText}>No tags yet</p>}
+                    {inputValue ? (
+                        <button className={styles.createBtn}>{`Create "${inputValue}"`}</button>
+                    ) : (
+                        <p className={styles.tagText}>No tags yet</p>
+                    )}
                 </div>
             )}
         </div>

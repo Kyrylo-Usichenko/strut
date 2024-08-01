@@ -46,7 +46,7 @@
     border-color: rgba(255, 255, 255, 0.2) !important;
     color: rgba(255, 255, 255, 0.2) !important;
 }
-.rightSide{
+.rightSide {
     display: flex;
     align-items: center;
     gap: 8px;

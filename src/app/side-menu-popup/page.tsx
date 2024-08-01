@@ -7,6 +7,6 @@ function PopupMenuPage() {
             <PopupMenuWithButton />
         </div>
     );
-};
+}
 
 export default PopupMenuPage;

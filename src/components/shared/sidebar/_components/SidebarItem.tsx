@@ -13,7 +13,7 @@ type Props = {
     label: string;
     link: string;
     hasMenu?: boolean;
-}
+};
 
 function SidebarItem({ icon, label, link, hasMenu = false }: Props) {
     const { isVisible, setIsVisible, ref } = useVisible(false);
@@ -31,7 +31,7 @@ function SidebarItem({ icon, label, link, hasMenu = false }: Props) {
                 </div>
                 {hasMenu && (
                     <div className={styles.right} ref={ref}>
-                          {/* <ButtonIconOnly onClick={handleButtonClick} icon={<ThreeDotsIcon/>} tooltipLabel="More Options" className={styles} ></ButtonIconOnly>  */}
+                        {/* <ButtonIconOnly onClick={handleButtonClick} icon={<ThreeDotsIcon/>} tooltipLabel="More Options" className={styles} ></ButtonIconOnly>  */}
                         <Tooltip label="More Options" direction="right" visible={!isVisible}>
                             <button onClick={handleButtonClick} className={styles.button}>
                                 <ThreeDotsIcon />
