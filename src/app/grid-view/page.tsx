@@ -1,3 +1,5 @@
+"use cient";
+
 import styles from "./styles.module.css";
 import PlusIcon from "~/components/icons/PlusIcon";
 import WorkSpaceGridVIew from "~/shared/components/WorkSpaceGridVIew/WorkSpaceGridVIew";
