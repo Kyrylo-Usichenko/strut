@@ -55,6 +55,16 @@ export default function Home() {
                 <span className={s.title}>Usage</span>
                 <PopupMenuWithButton />
             </div>
+            <div className={s.item}>
+                <span className={s.title}>Stage menu</span>
+                <div style={{ position: "relative", width: 178, height: 150 }}>
+                    <StageMenu items={stageItems} visible={true} />
+                </div>
+                <span className={s.title}>Usage</span>
+                <div style={{ marginLeft: "150px" }}>
+                    <StageMenuWithButton />
+                </div>
+            </div>
             <div>
                 <span className={s.title}>Buttons</span>
                 <Button icon={<CalendarIcon />} text="Default Button" tooltipLabel="With tooltip below" />
@@ -80,30 +90,9 @@ export default function Home() {
                 />
             </div>
             <div className={s.item}>
-                <span className={s.title}>Stage menu</span>
-                <div style={{ position: "relative", width: 178, height: 150 }}>
-                    <StageMenu items={stageItems} visible={true} />
-                </div>
-                <span className={s.title}>Usage</span>
-                <div style={{ marginLeft: "150px" }}>
-                    <StageMenuWithButton />
-                </div>
-            </div>
-            <div className={s.item}>
                 <span className={s.title}>Stage Input</span>
                 <StageInput viewMode="kanban" />
                 <StageInput viewMode="list" />
-            </div>
-            <div className={s.item}>
-                <span className={s.title}>Tooltips</span>
-                <Button text="Button with tooltip" tooltipLabel="tooltip" />
-            </div>
-
-            <div className={s.item}>
-                <span className={s.title} style={{ width: "900px", paddingLeft: "350px" }}>
-                    Grid view
-                </span>
-                <GridView />
             </div>
             <div className={s.item}>
                 <span className={s.title} style={{ width: "300px" }}>
@@ -120,21 +109,23 @@ export default function Home() {
                 <SearchInput />
             </div>
             <div className={s.item}>
+                <span className={s.title} style={{ width: "900px", paddingLeft: "350px" }}>
+                    Grid view
+                </span>
+                <GridView />
+            </div>
+            <div className={s.item}>
                 <span className={s.title} style={{ width: "700px", paddingLeft: "250px" }}>
                     Board list view
                 </span>
                 <BoardListView />
             </div>
-            <Link href="/stage-icon-menu">Stage Icon Menu</Link>
             <div className={s.item}>
                 <span className={s.title} style={{ paddingLeft: "350px" }}>
                     Kanban View
                 </span>
                 <KanbanView />
             </div>
-            <Link href="/buttons">Brand Voice Buttons</Link>
-            <Link href="/tooltip">Buttons with tooltips</Link>
-            <Link href="/sidebar">Sidebar</Link>
         </main>
     );
 }

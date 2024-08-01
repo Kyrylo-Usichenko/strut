@@ -17,6 +17,7 @@ function SidebarPage() {
         <div className={styles.wrapper}>
             <ButtonIconOnly
                 tooltipLabel="Open Sidebar"
+                tooltipKeys={["CTRL", "`"]}
                 icon={<SidebarIcon />}
                 onClick={toggleSidebar}
                 className={styles.button}
