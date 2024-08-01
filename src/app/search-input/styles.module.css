@@ -1,28 +1,56 @@
 .container {
     position: relative;
     width: 192px;
+    height: 28px;
     border-radius: 28px;
-    cursor: pointer;
+}
+.container:hover{
+    background-color: rgb(50, 51, 51);
 }
 
 .searchIcon {
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 5px;
+    top: 8px;
     left: 12px;
     z-index: 10;
     color: rgba(255, 255, 255, 0.5);
 }
 
 .search {
-    width: 192px;
+    width: 191px;
     height: 28px;
     padding: 6px 32px;
     border: none;
     border-radius: 28px;
     outline: none;
     background-color: transparent;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 20px;
     color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+.search::placeholder{
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.searchActive{
+    width: 191px;
+    height: 28px;
+    padding: 6px 32px;
+    border: none;
+    border-radius: 28px;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer
 }
 
 .crossIcon {
@@ -36,6 +64,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
+    color: rgb(27, 28, 28);
     background-color: rgba(255, 255, 255, 0.5);
 }
 
