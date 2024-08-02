@@ -21,3 +21,18 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 32px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
     overflow: hidden;
 }
+
+.buttons{
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    align-items: center;
+    column-gap: 8px;
+    display: flex;
+}
+
+.contentBox{
+    width: 100%;
+    padding: 48px 80px 160px;
+    min-height: 880px;
+}

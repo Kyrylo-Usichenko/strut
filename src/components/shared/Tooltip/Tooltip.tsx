@@ -16,9 +16,11 @@ type Props = {
 function getTooltipPosition(tooltipRef: HTMLDivElement | null) {
     if (tooltipRef) {
         const rect = tooltipRef.getBoundingClientRect();
+        const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
         return {
-            x: Math.max(MIN_MARGIN, Math.min(rect.x, window.innerWidth - rect.width - MIN_MARGIN)),
-            y: Math.max(MIN_MARGIN, Math.min(rect.y, window.innerHeight - rect.height - MIN_MARGIN))
+            x: Math.max(MIN_MARGIN, Math.min(rect.x + scrollX, window.innerWidth + scrollX - rect.width - MIN_MARGIN)),
+            y: Math.max(MIN_MARGIN, Math.min(rect.y + scrollY, window.innerHeight + scrollY - rect.height - MIN_MARGIN))
         };
     }
     return { x: MIN_MARGIN, y: MIN_MARGIN };

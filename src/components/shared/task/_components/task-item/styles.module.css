@@ -1,0 +1,56 @@
+.documentTitle:focus, .h1:focus, .h2:focus, .h3:focus, .h4:focus, .p:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.documentTitle, .h1, .h2, .h3, .h4, .p{
+    color: var(--text-color);
+    background-color: transparent;
+    box-sizing: content-box;
+    border: none;
+}
+
+.documentTitle, .h1, .h2, .h3, .h4{
+    font-weight: 700;
+}
+
+.documentTitle{
+    font-size: 28px;
+    line-height: 36px;
+    margin: 14px 0px;
+    padding: 0px;
+}
+
+.h1{
+    font-size: 28px;
+    margin: 19px 0px;
+}
+
+.h2{
+    font-size: 24px;
+    margin: 20px 0px;
+}
+
+.h3{
+    font-size: 20px;
+    margin: 20px 0px;
+}
+
+.h4{
+    font-size: 16px;
+    margin: 21px 0px;
+}
+
+.p{
+    margin: 16px 0px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.toDoDiv{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0px;
+}
