@@ -20,6 +20,7 @@ type Props = {
 
 function Sidebar({ isOpen }: Props) {
     const [isSearchActive, setIsSearchActive] = useState(false);
+    const [activeItem, setActiveItem] = useState<string>("gettingStarted");
 
     return (
         <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
@@ -29,7 +30,16 @@ function Sidebar({ isOpen }: Props) {
                 </div>
                 <div className={styles.items}>
                     <SearchInput onInputActiveChange={setIsSearchActive} />
-                    {!isSearchActive && <SidebarItem label="Inbox" icon={<InboxIcon />} link="" />}
+                    {!isSearchActive && (
+                        <SidebarItem
+                            key="inbox"
+                            label="Inbox"
+                            icon={<InboxIcon />}
+                            link=""
+                            isActive={activeItem === "inbox"}
+                            onClick={() => setActiveItem("inbox")}
+                        />
+                    )}
                 </div>
                 {!isSearchActive && (
                     <div className={styles.divider}>
@@ -38,8 +48,23 @@ function Sidebar({ isOpen }: Props) {
                 )}
                 {!isSearchActive && (
                     <div className={styles.items}>
-                        <SidebarItem label="Getting Started Guide" icon={<FolderIcon />} link="" hasMenu={true} />
-                        <SidebarItem label="Browse all" icon={<ListAllIcon />} link="" />
+                        <SidebarItem
+                            key="gettingStarted"
+                            label="Getting Started Guide"
+                            icon={<FolderIcon />}
+                            link=""
+                            hasMenu={true}
+                            isActive={activeItem === "gettingStarted"}
+                            onClick={() => setActiveItem("gettingStarted")}
+                        />
+                        <SidebarItem
+                            key="browseAll"
+                            label="Browse all"
+                            icon={<ListAllIcon />}
+                            link=""
+                            isActive={activeItem === "browseAll"}
+                            onClick={() => setActiveItem("browseAll")}
+                        />
                         <SidebarItem
                             label="Add a workspace"
                             icon={<PlusIcon width={8} height={8} className={styles.plusIcon} />}
@@ -48,10 +73,19 @@ function Sidebar({ isOpen }: Props) {
                     </div>
                 )}
             </div>
-            <div className={`${styles.items} ${styles.bottom}`}>
-                <SidebarItem label="Brand" icon={<BullHornIcon />} link="" />
-                <SidebarItem label="Help & Support" icon={<InfoIcon />} link="" />
-            </div>
+            {!isSearchActive && (
+                <div className={`${styles.items} ${styles.bottom}`}>
+                    <SidebarItem
+                        key="brand"
+                        label="Brand"
+                        icon={<BullHornIcon />}
+                        link=""
+                        isActive={activeItem === "brand"}
+                        onClick={() => setActiveItem("brand")}
+                    />
+                    <SidebarItem label="Help & Support" icon={<InfoIcon />} link="" />
+                </div>
+            )}
         </div>
     );
 }

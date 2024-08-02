@@ -5,7 +5,6 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "../components/shared/stage-input/StageInput";
-// import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
 import SearchInput from "./search-input/page";
@@ -20,12 +19,11 @@ import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
-import s from "./styles.module.css";
 import WorkspaceModal from "./workspace-modal/page";
-import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/shared/components/LabelMenuItem/LabelMenuItem";
 import GridView from "~/shared/components/GridView/GridView";
+import s from "./styles.module.css";
 
 export default function Home() {
     return (
@@ -143,7 +141,7 @@ export default function Home() {
                 </span>
                 <BoardListView />
             </div>
-            {/* <Link href="/stage-icon-menu">Stage Icon Menu</Link> */}
+
             <div className={s.item}>
                 <span className={s.title}>Stage icon menu</span>
                 <StageIconMenuComponent />

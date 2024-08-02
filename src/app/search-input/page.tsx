@@ -1,22 +1,24 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 import CircleWithCrossIcon from "~/components/icons/CircleWithCrossIcon";
 import SearchIcon from "~/components/icons/SearchIcon";
 import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
 
-// type Props = {
-//     onInputActiveChange?: (isActive: boolean) => void;
-// };
+type Props = {
+    onInputActiveChange?: (isActive: boolean) => void;
+};
 
-export default function SearchInput({ onInputActiveChange }: any) {
+export default function SearchInput({ onInputActiveChange = () => {} }: Props) {
     const [isInputActive, setIsInputActive] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
     function toggle() {
         setIsInputActive(!isInputActive);
-        onInputActiveChange(!isInputActive); // Оновлюємо зовнішній стан
+        if (inputRef.current) {
+            inputRef.current.value = "";
+        }
+        onInputActiveChange(!isInputActive);
     }
 
     useEffect(() => {
@@ -34,8 +36,11 @@ export default function SearchInput({ onInputActiveChange }: any) {
     function handleKeyDown(event: KeyboardEvent) {
         if (event.key === "Escape") {
             setIsInputActive(false);
+            if (inputRef.current) {
+                inputRef.current.value = "";
+            }
             inputRef.current?.blur();
-            onInputActiveChange(false); // Оновлюємо зовнішній стан
+            onInputActiveChange(false);
         }
     }
 
@@ -44,13 +49,10 @@ export default function SearchInput({ onInputActiveChange }: any) {
             <div className={`${isInputActive ? styles.containerActive : styles.container}`}>
                 <div
                     className={styles.searchIcon}
-                    style={{
-                        color: isInputActive ? "rgba(255, 255, 255, 0.8)" : "rgba(255, 255, 255, 0.5)"
-                    }}
                     onClick={() => {
                         setIsInputActive(true);
                         inputRef.current?.focus();
-                        onInputActiveChange(true); // Оновлюємо зовнішній стан
+                        onInputActiveChange(true);
                     }}
                 >
                     <SearchIcon />
@@ -64,7 +66,7 @@ export default function SearchInput({ onInputActiveChange }: any) {
                     onClick={() => {
                         setIsInputActive(true);
                         inputRef.current?.focus();
-                        onInputActiveChange(true); // Оновлюємо зовнішній стан
+                        onInputActiveChange(true);
                     }}
                     autoComplete="off"
                     style={{
