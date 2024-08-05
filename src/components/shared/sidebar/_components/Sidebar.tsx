@@ -6,13 +6,11 @@ import InboxIcon from "~/components/icons/InboxIcon";
 import InfoIcon from "~/components/icons/InfoIcon";
 import ListAllIcon from "~/components/icons/ListAllIcon";
 import PlusIcon from "~/components/icons/PlusIcon";
-import SearchIcon from "~/components/icons/SearchIcon";
-import { Tooltip } from "../../Tooltip/Tooltip";
 import { SidebarItem } from "./SidebarItem";
-import styles from "./sidebar.module.css";
 import AccountButton from "../../account/AccountButton";
-import SearchInput from "~/app/search-input/page";
+import { SearchInput } from "~/components/shared/search-input/SearchInput";
 import { useState } from "react";
+import styles from "./sidebar.module.css";
 
 type Props = {
     isOpen: boolean;
