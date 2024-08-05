@@ -72,6 +72,7 @@
     line-height: 20px;
     gap: 1px;
     padding: 7px 4px 7px 12px;
+    border-radius: 15px;
     color: var(--dark-text-secondary);
     text-decoration: none;
 
@@ -94,15 +95,23 @@
     text-overflow: ellipsis;
 }
 
-.sidebar .item:hover,
-.sidebar .open .item {
-    border-radius: 15px;
-    background-color: rgb(50, 51, 51);
+.sidebar .item:hover, .sidebar .active {
+    background-color: rgb(39, 40, 40);
     color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
+}
+
+.sidebar .item:hover.active,
+.sidebar .active:hover,
+.sidebar .open .item {
+    background-color: rgb(50, 51, 51);
+}
+
+.sidebar.open .item .button:hover {
+    background-color: rgb(60, 61, 61);
 }
 
 .sidebar .open .item .button {
+    background-color: rgb(60, 61, 61);
     color: var(--dark-text-secondary);
 }
 
@@ -126,7 +135,7 @@
 
 .button:hover,
 .sidebar .open .button {
-    background-color: rgb(60, 61, 61);
+    background-color: rgb(50, 51, 51);
 }
 
 .right {

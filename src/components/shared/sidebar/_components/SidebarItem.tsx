@@ -11,10 +11,12 @@ type Props = {
     icon: JSX.Element;
     label: string;
     link: string;
+    isActive?: boolean;
     hasMenu?: boolean;
+    onClick?: () => void;
 };
 
-function SidebarItem({ icon, label, link, hasMenu = false }: Props) {
+function SidebarItem({ icon, label, link, isActive = false, hasMenu = false, onClick = () => {} }: Props) {
     const { isVisible, setIsVisible, ref } = useVisible(false);
 
     const handleButtonClick = () => {
@@ -23,7 +25,7 @@ function SidebarItem({ icon, label, link, hasMenu = false }: Props) {
 
     return (
         <Link href={link} className={isVisible ? styles.open : ""}>
-            <div className={styles.item}>
+            <div className={`${styles.item} ${isActive ? styles.active : ""}`} onClick={onClick}>
                 <div className={styles.left}>
                     {icon}
                     <span>{label}</span>

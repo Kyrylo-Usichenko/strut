@@ -10,6 +10,7 @@ import DashedCircleIcon from "../../components/icons/DashedCircleIcon";
 import СircleIcon from "../../components/icons/СircleIcon";
 import СircleWithoutQueaterIcon from "../../components/icons/СircleWithoutQueaterIcon";
 import styles from "./WorkspaceModal.module.css";
+import Button from "~/components/shared/button/Button";
 
 type ButtonType = "first" | "second" | "third";
 
@@ -71,13 +72,8 @@ export default function WorkspaceModal() {
                     </div>
 
                     <div className={styles.cancelCreateContainer}>
-                        <button className={styles.cancelBtn}>Cancel</button>
-                        <button
-                            className={`${inputValue ? styles.createBtn : styles.createBtnBlur}`}
-                            disabled={!inputValue}
-                        >
-                            Create
-                        </button>
+                        <Button text="Cancel" />
+                        <Button text="Create" state={!inputValue ? "disabled" : undefined} />
                     </div>
                 </div>
             </div>

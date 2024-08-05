@@ -4,8 +4,18 @@
     height: 28px;
     border-radius: 28px;
 }
-.container:hover{
-    background-color: rgb(50, 51, 51);
+
+.container:hover {
+    background-color: rgb(39, 40, 40);
+    & .search::placeholder {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.containerActive {
+    & .searchIcon {
+        color: rgba(255, 255, 255, 0.8);
+    }
 }
 
 .searchIcon {
@@ -23,8 +33,7 @@
 
 .search {
     width: 191px;
-    height: 28px;
-    padding: 6px 32px;
+    padding: 4px 32px;
     border: none;
     border-radius: 28px;
     outline: none;
@@ -34,12 +43,12 @@
     color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
 }
-.search::placeholder{
+.search::placeholder {
     font-weight: 400;
     color: rgba(255, 255, 255, 0.5);
 }
 
-.searchActive{
+.searchActive {
     width: 191px;
     height: 28px;
     padding: 6px 32px;
@@ -50,7 +59,7 @@
     font-size: 14px;
     line-height: 20px;
     color: rgba(255, 255, 255, 0.8);
-    cursor: pointer
+    cursor: pointer;
 }
 
 .crossIcon {
