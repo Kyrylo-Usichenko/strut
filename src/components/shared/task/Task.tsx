@@ -6,6 +6,7 @@ import SmallCrossedCircleIcon from "~/components/icons/SmallCrossedCircleIcon";
 import CrossIcon from "~/components/icons/CrossIcon";
 import { TaskPopupWithButton } from "../TaskPopupMenu/TaskPopupWithButton";
 import TaskContent from "./_components/task-content/TaskContent";
+import FormattingPopupMenu from "./_components/formatting-popup-menu/FormattingPopupMenu";
 import { useState } from "react";
 import { ContentType } from "./Task.types";
 
@@ -44,6 +45,19 @@ export default function Task({ content }: { content: ContentType }) {
                 </div>
                 <div className={styles.contentBox}>
                     <TaskContent content={currentContent} setContent={setCurrentContent} />
+                    <FormattingPopupMenu
+                        isOpened={true}
+                        onTextFormatClick={() => {}}
+                        onBoldClick={() => {}}
+                        onItalicClick={() => {}}
+                        onStrikethroughClick={() => {}}
+                        onLinkClick={() => {}}
+                        onMarkClick={() => {}}
+                        onBulletedListClick={() => {}}
+                        onOrderedListClick={() => {}}
+                        onToDoListClick={() => {}}
+                        onAiEditClick={() => {}}
+                    />
                 </div>
             </div>
         </div>

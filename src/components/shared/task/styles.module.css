@@ -35,4 +35,6 @@
     width: 100%;
     padding: 48px 80px 160px;
     min-height: 880px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }

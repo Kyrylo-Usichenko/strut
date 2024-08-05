@@ -1,0 +1,19 @@
+.separator{
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 4px 2px;
+    height: 20px;
+}
+
+.popupContent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(39, 40, 41);
+    backdrop-filter: blur(8px);
+    box-shadow:
+        rgba(0, 0, 0, 0.1) 0px 4px 8px,
+        rgba(0, 0, 0, 0.1) 0px 8px 24px,
+        rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border-radius: 12px;
+    padding: 4px;
+}

@@ -5,9 +5,9 @@
 
 .documentTitle, .h1, .h2, .h3, .h4, .p{
     color: var(--text-color);
-    background-color: transparent;
-    box-sizing: content-box;
+    box-sizing: border-box;
     border: none;
+    width: fit-content;
 }
 
 .documentTitle, .h1, .h2, .h3, .h4{
@@ -45,12 +45,4 @@
     margin: 16px 0px;
     font-size: 16px;
     line-height: 24px;
-}
-
-.toDoDiv{
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0px;
 }

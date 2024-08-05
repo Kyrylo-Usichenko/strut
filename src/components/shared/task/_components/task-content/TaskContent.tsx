@@ -25,9 +25,13 @@ function mapContent(
                 if (listItems.length > 0) {
                     elements.push(
                         currentListType === "bulleted" ? (
-                            <ul key={`ul-${index}`}>{listItems}</ul>
+                            <ul key={`ul-${index}`} className={styles.ul}>
+                                {listItems}
+                            </ul>
                         ) : (
-                            <ol key={`ol-${index}`}>{listItems}</ol>
+                            <ol key={`ol-${index}`} className={styles.ol}>
+                                {listItems}
+                            </ol>
                         )
                     );
                     listItems = [];
@@ -39,9 +43,13 @@ function mapContent(
             if (listItems.length > 0) {
                 elements.push(
                     currentListType === "bulleted" ? (
-                        <ul key={`ul-${index}`}>{listItems}</ul>
+                        <ul key={`ul-${index}`} className={styles.ul}>
+                            {listItems}
+                        </ul>
                     ) : (
-                        <ol key={`ol-${index}`}>{listItems}</ol>
+                        <ol key={`ol-${index}`} className={styles.ol}>
+                            {listItems}
+                        </ol>
                     )
                 );
                 listItems = [];
@@ -52,7 +60,13 @@ function mapContent(
     });
 
     if (listItems.length > 0) {
-        elements.push(currentListType === "bulleted" ? <ul>{listItems}</ul> : <ol>{listItems}</ol>);
+        elements.push(
+            currentListType === "bulleted" ? (
+                <ul className={styles.ul}>{listItems}</ul>
+            ) : (
+                <ol className={styles.ol}>{listItems}</ol>
+            )
+        );
     }
 
     return elements;
@@ -70,5 +84,14 @@ export default function TaskContent({ content, setContent }: TaskContentProps) {
         setContent(newContent);
     }
 
-    return <div className={styles.taskContent}>{mapContent(currentContent, handleChange)}</div>;
+    return (
+        <div
+            className={styles.taskContent}
+            contentEditable={true}
+            suppressContentEditableWarning={true}
+            style={{ outline: "none", border: "none", boxShadow: "none", WebkitBoxShadow: "none" }}
+        >
+            {mapContent(currentContent, handleChange)}
+        </div>
+    );
 }

@@ -51,7 +51,9 @@ export default function Home() {
                                 italic: true,
                                 strikethrough: true,
                                 highlighted: true
-                            }
+                            },
+                            { text: "This is a task 11", textType: "p", link: "https://www.google.com" },
+                            { text: "This is a task 12", highlighted: true, link: "https://www.google.com" }
                         ]}
                     />
                 </div>
