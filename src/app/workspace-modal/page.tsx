@@ -73,7 +73,12 @@ export default function WorkspaceModal() {
 
                     <div className={styles.cancelCreateContainer}>
                         <Button text="Cancel" />
-                        <Button text="Create" state={!inputValue ? "disabled" : undefined} />
+                        <button
+                            className={`${inputValue ? styles.createBtn : styles.createBtnBlur}`}
+                            disabled={!inputValue}
+                        >
+                            Create
+                        </button>
                     </div>
                 </div>
             </div>

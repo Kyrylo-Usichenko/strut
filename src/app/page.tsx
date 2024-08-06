@@ -23,6 +23,7 @@ import WorkspaceModal from "./workspace-modal/page";
 import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/shared/components/LabelMenuItem/LabelMenuItem";
 import GridView from "~/shared/components/GridView/GridView";
+import BoardGridView from "./board-grid-view/page";
 import s from "./styles.module.css";
 
 export default function Home() {
@@ -116,8 +117,12 @@ export default function Home() {
                     Label Menu
                 </span>
                 <LabelMenuItem />
-                <span className={s.title}>Usage</span>
-                <LabelMenu />
+                <span className={s.title} style={{ marginTop: "10px", marginBottom: "0px" }}>
+                    Usage
+                </span>
+                <div style={{ paddingLeft: "230px" }}>
+                    <LabelMenu />
+                </div>
             </div>
             <div className={s.item}>
                 <span className={s.title}>Layout Toggler</span>
@@ -159,6 +164,12 @@ export default function Home() {
                     Workspace modal
                 </span>
                 <WorkspaceModal />
+            </div>
+            <div className={s.item} style={{ width: "900px" }}>
+                <span className={s.title} style={{ paddingLeft: "350px", width: "800px" }}>
+                    Board grid view
+                </span>
+                <BoardGridView />
             </div>
         </main>
     );

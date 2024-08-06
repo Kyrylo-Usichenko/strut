@@ -1,6 +1,6 @@
 .container {
     position: relative;
-    padding-left: 233px;
+    /* padding-left: 233px; */
 }
 
 .labelDiv {
@@ -59,7 +59,7 @@
     position: absolute;
     z-index: 10;
     bottom: -83px;
-    left: 6px;
+    left: -228px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
