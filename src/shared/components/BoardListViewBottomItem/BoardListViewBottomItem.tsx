@@ -8,6 +8,8 @@ import TagIcon from "~/components/icons/TagIcon";
 import { ReactElement, useState } from "react";
 import { TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
 import LabelMenu from "~/app/label-menu/page";
+import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
+import { StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 
 type Props = {
     icon: ReactElement;
@@ -43,7 +45,7 @@ export default function BoardListViewBottomItem({ text, icon, iconColor }: Props
 
             <div className={styles.rightSide}>
                 <LabelMenu />
-                <ButtonIconOnly onClick={doNothing} icon={icon} color={iconColor} />
+                <StatusMenuWithButton />
                 <TaskPopupWithButton />
             </div>
         </div>

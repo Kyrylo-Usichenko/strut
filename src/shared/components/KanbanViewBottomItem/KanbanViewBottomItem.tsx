@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./KanbanViewBottomItem.module.css";
 import LabelMenu from "~/app/label-menu/page";
 import SmallChekIcon from "~/components/icons/SmallChekIcon";
+import { StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 
 type Props = {
     icon: React.ReactElement;
@@ -37,7 +38,7 @@ export default function KanbanViewBottomItem({ icon, header, data, color }: Prop
                 </p>
             ))}
             <div className={styles.icon} style={{ color: color }}>
-                {icon}
+                <StatusMenuWithButton />
             </div>
         </div>
     );
