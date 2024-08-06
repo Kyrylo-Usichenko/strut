@@ -5,10 +5,9 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "../components/shared/stage-input/StageInput";
-// import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
-import SearchInput from "./search-input/page";
+import { SearchInput } from "../components/shared/search-input/SearchInput";
 import { stageItems, StageMenuWithButton } from "~/components/shared/stage-menu/StageMenuWithButton";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
 import { items, PopupMenuWithButton } from "~/components/shared/PopupMenu/PopupMenuWithButton";
@@ -20,13 +19,13 @@ import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
-import s from "./styles.module.css";
 import WorkspaceModal from "./workspace-modal/page";
-import StageIconMenu from "~/components/shared/stage-icon-menu/StageIconMenu";
 import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/shared/components/LabelMenuItem/LabelMenuItem";
 import GridView from "~/shared/components/GridView/GridView";
 import BoardGridView from "./board-grid-view/page";
+import s from "./styles.module.css";
+
 
 export default function Home() {
     return (
@@ -37,7 +36,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Account menu</span>
-                <div style={{ position: "relative", height: 220 }}>
+                <div style={{ position: "relative" }}>
                     <AccountMenu />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -45,7 +44,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Task menu</span>
-                <div style={{ position: "relative", width: 175, height: 212 }}>
+                <div style={{ position: "relative", width: 175, height: 178 }}>
                     <TaskPopup items={taskItems} docInfo={docInfo} visible={true} />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -55,7 +54,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Side menu</span>
-                <div style={{ position: "relative", width: 197, height: 186 }}>
+                <div style={{ position: "relative", width: 197, height: 152 }}>
                     <PopupMenu items={items} visible={true} />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -63,7 +62,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage menu</span>
-                <div style={{ position: "relative", width: 178, height: 150 }}>
+                <div style={{ position: "relative", width: 178, height: 116 }}>
                     <StageMenu items={stageItems} visible={true} />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -73,7 +72,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Status menu</span>
-                <div style={{ position: "relative", width: 216, height: 205 }}>
+                <div style={{ position: "relative", width: 216, height: 171 }}>
                     <StatusMenu items={statusItems} onItemClick={() => {}} visible={true} />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -115,7 +114,7 @@ export default function Home() {
                 <Button text="Button with tooltip" tooltipLabel="tooltip" />
             </div>
             <div className={s.item}>
-                <span className={s.title} style={{ width: "300px" }}>
+                <span className={s.title} style={{ width: "200px" }}>
                     Label Menu
                 </span>
                 <LabelMenuItem />
@@ -146,7 +145,7 @@ export default function Home() {
                 </span>
                 <BoardListView />
             </div>
-            {/* <Link href="/stage-icon-menu">Stage Icon Menu</Link> */}
+
             <div className={s.item}>
                 <span className={s.title}>Stage icon menu</span>
                 <StageIconMenuComponent />
