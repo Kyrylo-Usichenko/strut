@@ -26,21 +26,12 @@ export default function WorkSpaceGridVIew({ title }: Props) {
         setIsVisible(!isVisible);
     };
     return (
-        <a className={styles.container}>
+        <a className={`${isVisible ? styles.containerActive : styles.container}`}>
             <div className={styles.start}>
                 <WorkSpaceGridViewIcon />
                 <p className={styles.title}>{title}</p>
             </div>
-            {/* <div className={`${menu.container} ${styles.workSpace}`} ref={ref}>
-                <ButtonIconOnly
-                    onClick={handleButtonClick}
-                    icon={<ThreeDotsIcon />}
-                    tooltipLabel="More Options"
-                    tooltipVisible={!isVisible}
-                />
-                <PopupMenu items={items} direction="bottom" visible={isVisible} />
-            </div> */}
-            <div className={`${menu.container} ${styles.workSpace}`} ref={ref}>
+            <div className={`${menu.container} ${isVisible ? styles.workSpaceActive : styles.workSpace}`} ref={ref}>
                 <ButtonIconOnly
                     onClick={handleButtonClick}
                     icon={<ThreeDotsIcon />}
