@@ -13,11 +13,11 @@
     justify-content: center;
     width: calc(100% / 3 - 32px);
     height: 224px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--hover-item-color);
     border-radius: 12px;
     padding: 0;
     gap: 8px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -25,6 +25,6 @@
 }
 
 .createContainer:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
+    border-color: var(--box-border-color);
+    color: var(--text-hover-color);
 }

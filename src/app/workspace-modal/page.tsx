@@ -7,10 +7,10 @@ import CheckIcon from "../../components/icons/CheckIcon";
 import CircleHalfIcon from "../../components/icons/CircleHalfIcon";
 import CircleQuaterIcon from "../../components/icons/CircleQuaterIcon";
 import DashedCircleIcon from "../../components/icons/DashedCircleIcon";
-import СircleIcon from "../../components/icons/СircleIcon";
-import СircleWithoutQueaterIcon from "../../components/icons/СircleWithoutQueaterIcon";
-import styles from "./WorkspaceModal.module.css";
+import CircleIcon from "../../components/icons/CircleIcon";
+import CircleWithoutQueaterIcon from "../../components/icons/CircleWithoutQueaterIcon";
 import Button from "~/components/shared/button/Button";
+import styles from "./WorkspaceModal.module.css";
 
 type ButtonType = "first" | "second" | "third";
 
@@ -73,12 +73,7 @@ export default function WorkspaceModal() {
 
                     <div className={styles.cancelCreateContainer}>
                         <Button text="Cancel" />
-                        <button
-                            className={`${inputValue ? styles.createBtn : styles.createBtnBlur}`}
-                            disabled={!inputValue}
-                        >
-                            Create
-                        </button>
+                        <Button text="Create" state={!inputValue ? "disabled" : undefined} />
                     </div>
                 </div>
             </div>
@@ -94,7 +89,7 @@ export default function WorkspaceModal() {
                                 <WorkspaceItem icon={<DashedCircleIcon />} title="Ideas" number={0} color="black" />
                             </li>
                             <li className={styles.item}>
-                                <WorkspaceItem icon={<СircleIcon />} title="Research" number={0} color="#995CBF" />
+                                <WorkspaceItem icon={<CircleIcon />} title="Research" number={0} color="#995CBF" />
                             </li>
                             <li className={styles.item}>
                                 <WorkspaceItem icon={<CircleQuaterIcon />} title="Outline" number={0} color="#D2461B" />
@@ -104,7 +99,7 @@ export default function WorkspaceModal() {
                             </li>
                             <li className={styles.item}>
                                 <WorkspaceItem
-                                    icon={<СircleWithoutQueaterIcon />}
+                                    icon={<CircleWithoutQueaterIcon />}
                                     title="In Review"
                                     number={0}
                                     color="#5C6AE4"

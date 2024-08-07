@@ -1,14 +1,12 @@
 "use client";
-
 import { useState } from "react";
-import styles from "./KanbanViewBottomItem.module.css";
-import LabelMenu from "~/app/label-menu/page";
+import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
 import SmallChekIcon from "~/components/icons/SmallChekIcon";
 import { StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import TagIcon from "~/components/icons/TagIcon";
-import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
 import LabelMenuItem from "../LabelMenuItem/LabelMenuItem";
+import styles from "./KanbanViewBottomItem.module.css";
 
 type Props = {
     icon: React.ReactElement;

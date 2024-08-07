@@ -6,11 +6,11 @@
 .button {
     padding: 10px;
     cursor: pointer;
-    color: var(--dark-text-secondary);
+    color: var(--text-color);
 }
 
 .button:hover {
     border-radius: 15px;
-    background-color: var(--dark-secondary);
-    color: var(--dark-text-primary);
+    background-color: var(--text-color);
+    color: var(--text-hover-color);
 }

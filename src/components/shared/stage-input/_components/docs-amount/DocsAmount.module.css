@@ -1,9 +1,9 @@
 .pAmount {
-    font-weight: 400;
+    margin-left: 8px;
     font-size: 14px;
     line-height: 20px;
-    color: rgba(255, 255, 255, 0.5);
-    margin-left: 8px;
+    font-weight: 400;
+    color: var(--text-color);
     user-select: none;
 }
 

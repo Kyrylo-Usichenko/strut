@@ -1,14 +1,14 @@
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
-import styles from "./WorkSpaceGridVIew.module.css";
 import WorkSpaceGridViewIcon from "~/components/icons/WorkSpaceGridViewIcon";
 import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
 import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
-import menu from "~/components/shared/PopupMenu/menu.module.css";
 import ExportIcon from "~/components/icons/ExportIcon";
 import EyeIcon from "~/components/icons/EyeIcon";
 import DuplicateIcon from "~/components/icons/DuplicateIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
+import styles from "./WorkSpaceGridVIew.module.css";
+import menu from "~/components/shared/PopupMenu/menu.module.css";
 
 type Props = {
     title: string;

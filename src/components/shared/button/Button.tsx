@@ -40,8 +40,8 @@ export default function Button({
                 }}
                 style={{
                     transform: state === "active" ? "scale(0.95)" : undefined,
-                    color: state === "hovered" ? "rgba(255, 255, 255, 0.8)" : undefined,
-                    backgroundColor: state === "hovered" ? "rgba(255, 255, 255, 0.1)" : undefined
+                    color: state === "hovered" ? "var(--text-hover-color)" : undefined,
+                    backgroundColor: state === "hovered" ? "var(--button-hover-color)" : undefined
                 }}
             >
                 {icon && <>{icon}</>}

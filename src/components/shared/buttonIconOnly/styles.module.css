@@ -7,25 +7,23 @@
     height: 28px;
     width: 28px;
     border: none;
-    outline: none;
     border-radius: 16px;
-    color: rgb(255, 255, 255, 0.5);
+    color: var(--text-color);
     transition: background-color 0.1s ease-in-out 0s;
 }
 
 .button:hover {
-    background-color: rgb(255, 255, 255, 0.05);
-    color: rgb(255, 255, 255, 0.8);
+    background-color: var(--button-bg-color);
+    color: var(--text-hover-color);
     cursor: "pointer";
 }
 
 .button:focus-visible {
-    outline: none;
-    background-color: rgb(255, 255, 255, 0.05);
-    color: rgb(255, 255, 255, 0.8);
+    background-color: var(--button-bg-color);
+    color: var(--text-hover-color);
 }
 
 .button:active {
-    background-color: rgb(255, 255, 255, 0.05);
+    background-color: var(--button-bg-color);
     transform: scale(0.95);
 }

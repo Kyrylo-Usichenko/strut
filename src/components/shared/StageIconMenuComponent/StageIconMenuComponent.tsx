@@ -18,8 +18,8 @@ import LaptopIcon from "~/components/icons/LaptopIcon";
 import ShopBagIcon from "~/components/icons/ShopBagIcon";
 import StarIcon from "~/components/icons/StarIcon";
 import TwoPagesIcon from "~/components/icons/TwoPagesIcon";
-import СircleIcon from "~/components/icons/СircleIcon";
-import СircleWithoutQueaterIcon from "~/components/icons/СircleWithoutQueaterIcon";
+import CircleIcon from "~/components/icons/CircleIcon";
+import CircleWithoutQueaterIcon from "~/components/icons/CircleWithoutQueaterIcon";
 import styles from "./StageIconMenuComponent.module.css";
 import MenuButton from "~/components/shared/buttonMenu/menuButton";
 
@@ -31,10 +31,10 @@ type stageIconProps = {
 
 const icons: React.ComponentType[] = [
     DashedCircleIcon,
-    СircleIcon,
+    CircleIcon,
     CircleQuaterIcon,
     CircleHalfIcon,
-    СircleWithoutQueaterIcon,
+    CircleWithoutQueaterIcon,
     CheckedCircleIcon,
     CircleWithStarIcon,
     BlankIcon,

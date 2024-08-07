@@ -18,8 +18,8 @@ import LaptopIcon from "~/components/icons/LaptopIcon";
 import ShopBagIcon from "~/components/icons/ShopBagIcon";
 import StarIcon from "~/components/icons/StarIcon";
 import TwoPagesIcon from "~/components/icons/TwoPagesIcon";
-import СircleIcon from "~/components/icons/СircleIcon";
-import СircleWithoutQueaterIcon from "~/components/icons/СircleWithoutQueaterIcon";
+import CircleIcon from "~/components/icons/CircleIcon";
+import CircleWithoutQueaterIcon from "~/components/icons/CircleWithoutQueaterIcon";
 import styles from "./StageIconMenu.module.css";
 import MenuButton from "../buttonMenu/menuButton";
 
@@ -31,10 +31,10 @@ type stageIconProps = {
 
 const icons: React.ComponentType[] = [
     DashedCircleIcon,
-    СircleIcon,
+    CircleIcon,
     CircleQuaterIcon,
     CircleHalfIcon,
-    СircleWithoutQueaterIcon,
+    CircleWithoutQueaterIcon,
     CheckedCircleIcon,
     CircleWithStarIcon,
     BlankIcon,
@@ -102,7 +102,6 @@ export default function StageIconMenu({ activeColor, onIconSelect, menuRef }: st
                 {icons.map((IconComponent, index) => {
                     return (
                         <li className={styles.item} key={index}>
-                            {/* <IconComponent /> */}
                             <MenuButton
                                 icon={<IconComponent />}
                                 onClick={() => (onIconSelect ? onIconSelect(<IconComponent />, color) : undefined)}

@@ -7,8 +7,8 @@ import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 import { PopupMenu } from "./PopupMenu";
 import { useVisible } from "./utils/useVisible";
-import menu from "~/components/shared/PopupMenu/menu.module.css";
 import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
+import menu from "~/components/shared/PopupMenu/menu.module.css";
 
 export const items = [
     { icon: <ExportIcon />, label: "Export to Markdown", link: "" },

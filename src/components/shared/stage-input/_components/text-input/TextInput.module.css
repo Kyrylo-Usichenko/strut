@@ -1,58 +1,59 @@
 .input {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    padding: 4px 0px 4px 12px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.1s ease-in-out 0s;
     box-sizing: content-box;
-    background: transparent;
     border: none;
     border-radius: 16px;
-    color: rgba(255, 255, 255, 0.8);
-    transition: background-color 0.1s ease-in-out 0s;
+    padding: 4px 0px 4px 12px;
+    box-shadow: var(--box-shadow-color) 0px 0px 0px 1px;
+    background: transparent;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--text-color);
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .input:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--hover-item-color);
     cursor: text;
 }
 
 .input:focus {
-    background-color: rgb(39, 40, 41);
+    background-color: var(--item-bg-color);
     outline: none;
-    box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 .kanbanInput {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    padding: 4px 12px;
-    width: 101px;
-    box-sizing: content-box;
-    background: transparent;
-    border: none;
-    border-radius: 16px;
-    color: rgba(255, 255, 255, 0.8);
-    transition: background-color 0.1s ease-in-out 0s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     position: absolute;
     z-index: 999;
     left: 28px;
+    transition: background-color 0.1s ease-in-out 0s;
+    width: 101px;
+    padding: 4px 12px;
+    box-sizing: content-box;
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow-color) 0px 0px 0px 1px;
+    background: transparent;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .kanbanInput:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--hover-item-color);
     cursor: text;
 }
 
 .kanbanInput:focus {
-    background-color: rgb(39, 40, 41);
+    background-color: var(--item-bg-color);
     outline: none;
-    box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     width: 182px;
 }
