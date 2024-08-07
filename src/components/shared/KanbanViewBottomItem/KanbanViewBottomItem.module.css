@@ -32,9 +32,16 @@
         var(--box-border-thick) 0px 0px 0px 1px;
 }
 .tag {
-    opacity: 0;
-    display: flex;
     position: absolute;
+    display: flex;
+    opacity: 0;
+    top: 8px;
+    right: 8px;
+}
+.tagActive{
+    position: absolute;
+    display: flex;
+    opacity: 1;
     top: 8px;
     right: 8px;
 }
@@ -42,7 +49,7 @@
     opacity: 1;
 }
 
-.containerActive:hover .tag {
+.containerActive:hover .tag{
     opacity: 1;
 }
 
@@ -118,3 +125,11 @@
 .container:hover .chekedIcon {
     display: flex;
 }
+
+.labelMenu{
+    position: absolute;
+    top: 32px;
+    right: 0;
+    z-index: 20;
+}
+
