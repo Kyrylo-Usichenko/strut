@@ -47,6 +47,7 @@
     cursor: pointer;
     color: var(--text-color);
 }
+
 .workSpaceActive {
     display: flex;
 }

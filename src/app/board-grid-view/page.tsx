@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import ShopBagIcon from "~/components/icons/ShopBagIcon";
 import LaptopIcon from "~/components/icons/LaptopIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
-import BoardGridViewItem from "~/shared/components/BoardGridViewItem/BoardGridViewItem";
+import BoardGridViewItem from "~/components/shared/BoardGridViewItem/BoardGridViewItem";
 const data1 = {
     title: "Some text",
     icon: <ShopBagIcon />,

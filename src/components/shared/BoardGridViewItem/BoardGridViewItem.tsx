@@ -13,7 +13,7 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import StageInput from "~/components/shared/stage-input/StageInput";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
-import KanbanViewBottomItem from "../KanbanViewBottomItem/KanbanViewBottomItem";
+import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
 
 const stageItemsTop: MenuItem[] = [
     { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
@@ -75,25 +75,30 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
     function distributeItems(data: textData[], position: string) {
         const columns: textData[][] = [[], [], [], []];
         const totalItems = data.length;
-        const baseCount = Math.floor(totalItems / 4);
-        const extraItems = totalItems % 4;
-
         let index = 0;
 
-        // Додаємо елемент "New doc" до першої колонки, якщо позиція "top"
         if (position === "top") {
-            columns[0].push({
-                title: "New doc",
-                textData: [] // Порожній масив або будь-які дані, які потрібно для "New doc"
+            const baseCount = Math.floor(totalItems / 4);
+            const extraItems = totalItems % 4;
+
+            for (let i = 1; i < columns.length && index < totalItems; i++) {
+                columns[i].push(...data.slice(index, index + baseCount + (i - 1 < extraItems ? 1 : 0)));
+                index += baseCount + (i - 1 < extraItems ? 1 : 0);
+            }
+            for (let i = 0; i < 1 && index < totalItems; i++) {
+                columns[i].push(...data.slice(index, index + baseCount + (i < extraItems ? 1 : 0)));
+                index += baseCount + (i < extraItems ? 1 : 0);
+            }
+        } else {
+            const baseCount = Math.floor(totalItems / 4);
+            const extraItems = totalItems % 4;
+
+            columns.forEach((column, columnIndex) => {
+                const count = baseCount + (columnIndex < extraItems ? 1 : 0);
+                column.push(...data.slice(index, index + count));
+                index += count;
             });
         }
-
-        // Розподіл елементів між колонками з основною кількістю
-        columns.forEach((column, columnIndex) => {
-            const count = baseCount + (columnIndex < extraItems ? 1 : 0);
-            column.push(...data.slice(index, index + count));
-            index += count;
-        });
 
         return columns;
     }
@@ -139,21 +144,20 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                 <div className={styles.columns}>
                     {columns.map((column, columnIndex) => (
                         <div key={columnIndex} className={styles.column}>
+                            {position === "top" && columnIndex === 0 && (
+                                <a className={styles.createContainer}>
+                                    <PlusIcon width={12} height={12} />
+                                    <p className={styles.createDivTitle}>New doc</p>
+                                </a>
+                            )}
                             {column.map((item: textData, index) => (
                                 <div key={index} className={styles.item}>
-                                    {item.title === "New doc" && position === "top" && columnIndex === 0 ? (
-                                        <a className={styles.createContainer}>
-                                            <PlusIcon width={12} height={12} />
-                                            <p className={styles.createDivTitle}>New doc</p>
-                                        </a>
-                                    ) : (
-                                        <KanbanViewBottomItem
-                                            icon={icon}
-                                            header={item.title}
-                                            data={item.textData}
-                                            color={iconColor}
-                                        />
-                                    )}
+                                    <KanbanViewBottomItem
+                                        icon={icon}
+                                        header={item.title}
+                                        data={item.textData}
+                                        color={iconColor}
+                                    />
                                 </div>
                             ))}
                         </div>
