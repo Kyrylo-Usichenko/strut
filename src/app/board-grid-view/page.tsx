@@ -8,22 +8,53 @@ const data1 = {
     icon: <ShopBagIcon />,
     iconColor: "rgb(255, 181, 70)",
     number: 3,
-    // textData: ["Task1", "TAsk2", "Task3", "Task4", "Task5", "Task5", "Task5"],
     data: [
         {
-            title: "Some text",
+            title: "Some text1",
             textData: ["bla bla bla", "lalala", "omg"]
         },
         {
-            title: "Great news",
+            title: "Great news2",
             textData: ["Fly me to the moon", "USA", "Obama", "Obama", "Obama"]
         },
         {
-            title: "Great news",
+            title: "Great news3",
             textData: ["Fly me to the moon", "USA"]
         },
         {
-            title: "Great news",
+            title: "Great news4",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news5",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news6",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news7",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news8",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news9",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news10",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great new11",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news12",
             textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
         }
     ],
@@ -37,36 +68,44 @@ const data2 = {
     number: 2,
     data: [
         {
-            title: "Some text",
+            title: "Some text1",
             textData: ["bla bla bla", "lalala", "omg"]
         },
         {
-            title: "Great news",
+            title: "Great news2",
             textData: ["Fly me to the moon", "USA", "Obama", "Obama", "Obama"]
         },
         {
-            title: "Great news",
+            title: "Great news3",
             textData: ["Fly me to the moon", "USA"]
         },
         {
-            title: "Great news",
-            textData: ["Fly me to the moon", "USA"]
+            title: "Great news4",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
         },
         {
-            title: "Great news",
-            textData: ["Fly me to the moon", "USA"]
+            title: "Great news5",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
         },
         {
-            title: "Great news",
-            textData: ["Fly me to the moon", "USA"]
+            title: "Great news6",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
         },
         {
-            title: "Great news",
-            textData: ["Fly me to the moon", "USA"]
+            title: "Great news7",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
         },
         {
-            title: "Great news",
-            textData: ["Fly me to the moon", "USA"]
+            title: "Great news8",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news9",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
+        },
+        {
+            title: "Great news10",
+            textData: ["Fly me to the moon", "USA", "Obama", "Biden"]
         }
     ],
     position: "center"
@@ -84,7 +123,7 @@ const data3 = {
         },
         {
             title: "Great news",
-            textData: ["Fly me to the moon", "USA", "Obama", "Obama", "Obama"]
+            textData: ["Fly me to the moon", "USA", "Obama", "Obama", "Obama", "Fly me to the moon"]
         },
         {
             title: "Great news",
@@ -92,7 +131,7 @@ const data3 = {
         },
         {
             title: "Great news",
-            textData: ["Fly me to the moon", "USA"]
+            textData: ["Fly me to the moon", "USA", "Fly me to the moon", "Fly me to the moon"]
         },
         {
             title: "Great news",
