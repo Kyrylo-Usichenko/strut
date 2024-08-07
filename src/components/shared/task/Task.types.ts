@@ -1,12 +1,13 @@
 export type ItemType = {
-    text?: string;
-    textType?: "documentTitle" | "h1" | "h2" | "h3" | "h4" | "p";
-    bold?: boolean;
-    italic?: boolean;
-    strikethrough?: boolean;
-    link?: string;
+    text: string;
+    textType: "documentTitle" | "h1" | "h2" | "h3" | "h4" | "p";
     listType?: "bulleted" | "numbered" | "toDoChecked" | "toDoUnchecked";
-    highlighted?: boolean;
+    boldParts?: { start: number; end: number }[];
+    italicParts?: { start: number; end: number }[];
+    strikethroughParts?: { start: number; end: number }[];
+    highlightedParts?: { start: number; end: number }[];
+    linkParts?: { start: number; end: number; url: string }[];
+    id?: string;
     onChange?: (updatedItem: ItemType) => void;
 };
 

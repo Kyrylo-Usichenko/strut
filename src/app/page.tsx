@@ -43,17 +43,7 @@ export default function Home() {
                             { text: "This is a task 5", textType: "p", listType: "numbered" },
                             { text: "This is a task 6", textType: "p", listType: "numbered" },
                             { text: "This is a task 8", textType: "p", listType: "toDoChecked" },
-                            { text: "This is a task 9", textType: "p", listType: "toDoUnchecked" },
-                            {
-                                text: "This is a task 10",
-                                textType: "p",
-                                bold: true,
-                                italic: true,
-                                strikethrough: true,
-                                highlighted: true
-                            },
-                            { text: "This is a task 11", textType: "p", link: "https://www.google.com" },
-                            { text: "This is a task 12", highlighted: true, link: "https://www.google.com" }
+                            { text: "This is a task 9", textType: "p", listType: "toDoUnchecked" }
                         ]}
                     />
                 </div>

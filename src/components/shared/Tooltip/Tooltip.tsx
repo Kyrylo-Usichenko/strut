@@ -16,8 +16,8 @@ type Props = {
 function getTooltipPosition(tooltipRef: HTMLDivElement | null) {
     if (tooltipRef) {
         const rect = tooltipRef.getBoundingClientRect();
-        const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollX = document.documentElement.scrollLeft;
+        const scrollY = document.documentElement.scrollTop;
         return {
             x: Math.max(MIN_MARGIN, Math.min(rect.x + scrollX, window.innerWidth + scrollX - rect.width - MIN_MARGIN)),
             y: Math.max(MIN_MARGIN, Math.min(rect.y + scrollY, window.innerHeight + scrollY - rect.height - MIN_MARGIN))

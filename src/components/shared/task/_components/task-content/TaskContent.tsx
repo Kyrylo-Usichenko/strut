@@ -1,3 +1,4 @@
+"use client";
 import { useState, ReactElement } from "react";
 import styles from "./styles.module.css";
 import { ContentType, TaskContentProps, ItemType } from "../../Task.types";
@@ -16,6 +17,7 @@ function mapContent(
             <TaskItem
                 key={index}
                 {...contentItem}
+                id={index.toString()}
                 onChange={(updatedItem: ItemType) => handleChange(index, updatedItem)}
             />
         );

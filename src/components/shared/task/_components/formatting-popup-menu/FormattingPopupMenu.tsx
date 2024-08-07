@@ -12,6 +12,7 @@ import OrderedListIcon from "./icons/OrderedListIcon";
 import ToDoListIcon from "./icons/ToDoListIcon";
 import styles from "./styles.module.css";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 type isCurrentlyClickedType = {
     bold: boolean;
@@ -26,6 +27,7 @@ type isCurrentlyClickedType = {
 
 type FormattingPopupMenuProps = {
     isOpened: boolean;
+    position: { top: number; left: number };
     onTextFormatClick: () => void;
     onBoldClick: () => void;
     onItalicClick: () => void;
@@ -40,6 +42,7 @@ type FormattingPopupMenuProps = {
 
 export default function FormattingPopupMenu({
     isOpened,
+    position,
     onTextFormatClick,
     onBoldClick,
     onItalicClick,
@@ -51,7 +54,6 @@ export default function FormattingPopupMenu({
     onToDoListClick,
     onAiEditClick
 }: FormattingPopupMenuProps) {
-    const [isCurrentlyOpened, setIsCurrentlyOpened] = useState<boolean>(isOpened || false);
     const [propertiesClicked, setPropertiesClicked] = useState<isCurrentlyClickedType>({
         bold: false,
         italic: false,
@@ -63,12 +65,20 @@ export default function FormattingPopupMenu({
         toDoList: false
     });
 
-    return (
-        <div className={styles.popupContent}>
+    if (!isOpened) {
+        return <></>;
+    }
+    return createPortal(
+        <div
+            className={styles.popupContent}
+            style={{
+                top: position.top,
+                left: position.left
+            }}
+        >
             <PopupButtonLong
                 onClick={() => {
                     onTextFormatClick();
-                    setIsCurrentlyOpened(!isCurrentlyOpened);
                 }}
                 text="Text"
             />
@@ -150,11 +160,11 @@ export default function FormattingPopupMenu({
             <PopupButtonLong
                 onClick={() => {
                     onAiEditClick();
-                    setIsCurrentlyOpened(!isCurrentlyOpened);
                 }}
                 text="Ai edit"
                 icon={<AiEditIcon />}
             />
-        </div>
+        </div>,
+        document.body
     );
 }
