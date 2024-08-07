@@ -67,10 +67,6 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
         );
     }
 
-    function doingNothing() {
-        return;
-    }
-
     return (
         <div className={styles.container}>
             <div className={styles.topPart}>
@@ -85,11 +81,7 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
                     <StageInput viewMode="list" color={iconColor} icon={icon} amount={number} value={title} />
                 </div>
                 <div className={styles.rightPart}>
-                    <ButtonIconOnly
-                        onClick={doingNothing}
-                        icon={<PlusIcon width={12} height={12} />}
-                        tooltipLabel="New Doc"
-                    />
+                    <ButtonIconOnly icon={<PlusIcon width={12} height={12} />} tooltipLabel="New Doc" />
                     <div className={menu.container} ref={ref}>
                         <ButtonIconOnly
                             onClick={handleButtonClick}

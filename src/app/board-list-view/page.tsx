@@ -1,14 +1,14 @@
-import styles from "./styles.module.css";
 import ShopBagIcon from "~/components/icons/ShopBagIcon";
 import LaptopIcon from "~/components/icons/LaptopIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
-import BoardListViewItem from "~/shared/components/BoardListViewItem/BoardListViewItem";
+import BoardListViewItem from "~/components/shared/BoardListViewItem/BoardListViewItem";
+import styles from "./styles.module.css";
 const data1 = {
     title: "Some text",
     icon: <ShopBagIcon />,
     iconColor: "rgb(255, 181, 70)",
     number: 3,
-    textData: ["Task1", "TAsk2", "Task3"],
+    textData: ["Task1", "Task2", "Task3"],
     position: "top"
 };
 

@@ -1,10 +1,9 @@
 "use client";
 import { useState } from "react";
 import SidebarIcon from "~/components/icons/SidebarIcon";
-import "~/styles/global.css";
 import { Sidebar } from "./_components/Sidebar";
-import styles from "./styles.module.css";
 import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
+import styles from "./styles.module.css";
 
 function SidebarPage() {
     const [isOpen, setIsOpen] = useState<boolean>(true);

@@ -7,7 +7,7 @@
     height: 28px;
     padding: 2px;
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--hover-item-color);
 }
 
 .container1,
@@ -15,7 +15,7 @@
 .container3 {
     position: relative;
     z-index: 100;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
     padding: 6px 12px;
 }
 
@@ -25,49 +25,15 @@
 .container2:focus,
 .container3:hover,
 .container3:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-hover-color);
 }
 
 .container {
     position: relative;
     z-index: 100;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
     padding: 6px 12px;
 }
-
-/* .title1,
-.title2,
-.title3 {
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-    display: none;
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 4px;
-    border-radius: 8px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.title1 {
-    width: 75px;
-}
-
-.title2 {
-    width: 80px;
-}
-
-.title3 {
-    width: 100px;
-}
-
-.container1:hover .title1,
-.container2:hover .title2,
-.container3:hover .title3 {
-    display: inline;
-} */
 
 .shadow {
     position: absolute;
@@ -77,8 +43,8 @@
     width: 36px;
     height: 25px;
     border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+    background-color: var(--active-item-color);
+    box-shadow: var(--box-shadow-color) 0px 1px 1px;
     transition: left 0.1s ease-in-out;
 }
 

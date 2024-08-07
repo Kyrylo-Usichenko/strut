@@ -1,17 +1,15 @@
 .div {
-    /* position: absolute;
-    top: calc(100% + 4px); */
+    z-index: 10000;
     width: 224px;
-    background-color: rgb(39, 40, 41);
+    background-color: var(--item-bg-color);
     box-shadow:
-        rgba(0, 0, 0, 0.1) 0px 4px 8px,
-        rgba(0, 0, 0, 0.1) 0px 8px 24px,
-        rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        var(--box-shadow-color) 0px 4px 8px,
+        var(--box-shadow-color) 0px 8px 24px,
+        var(--box-border-color) 0px 0px 0px 1px;
     backdrop-filter: blur(1rem);
     border-radius: 12px;
     padding: 16px;
     opacity: 1;
-    z-index: 10000;
 }
 
 .list {
@@ -20,21 +18,21 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 4px;
-    /* gap: 8px; */
     list-style: none;
     list-style-type: none;
 }
+
 .item {
-    /* padding: 4px; */
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     cursor: pointer;
 }
+
 .item:hover,
 .item:focus {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--stage-icon-hover);
 }
 
 .selectColor {
@@ -52,12 +50,12 @@
 
 .selectColor::after {
     content: " ";
-    background: rgba(255, 255, 255, 0.024);
-    height: 1px;
-    width: 224px;
     position: absolute;
     bottom: -10px;
     left: -15px;
+    background: var(--border-thin-color);
+    height: 1px;
+    width: 224px;
 }
 
 .border {

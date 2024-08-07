@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px 16px 8px;
-    box-shadow: rgba(255, 255, 255, 0.024) 0px 1px 0px;
+    box-shadow: var(--border-thin-color) 0px 1px 0px;
 }
 
 .rightPart {

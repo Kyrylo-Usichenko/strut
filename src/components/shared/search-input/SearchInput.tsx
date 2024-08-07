@@ -71,8 +71,7 @@ function SearchInput({ onInputActiveChange = () => {} }: Props) {
                     autoComplete="off"
                     style={{
                         cursor: isInputActive ? "text" : "pointer",
-                        border: isInputActive ? "1px solid rgba(255, 255, 255, 0.1)" : " ",
-                        boxShadow: isInputActive ? "rgba(255, 255, 255, 0.1) 0px 0px 0px 0.1px inset" : " "
+                        border: isInputActive ? "1px solid var(--box-border-color)" : " "
                     }}
                     ref={inputRef}
                 />

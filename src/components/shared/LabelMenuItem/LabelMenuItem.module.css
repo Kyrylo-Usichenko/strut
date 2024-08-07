@@ -13,13 +13,13 @@
     border: none;
     border-radius: 50%;
     outline: none;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
 }
 
 .labelDiv:hover {
     border: none;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.8);
+    background-color: var(--hover-item-color);
+    color: var(--text-hover-color);
 }
 
 .labelDivPressed {
@@ -32,7 +32,7 @@
     border: none;
     border-radius: 50%;
     outline: none;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
 }
 
 .title {
@@ -44,11 +44,11 @@
     width: 75px;
     padding: 4px;
     border-radius: 8px;
+    background-color: var(--tooltip-bg-color);
     font-size: 12px;
     font-weight: 600;
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-hover-color);
 }
 
 .labelDiv:hover .title {
@@ -64,54 +64,56 @@
     height: 80px;
     padding: 4px;
     border-radius: 12px;
-    background: rgb(39, 40, 41);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0.25rem 0.5rem 0px, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px;
+    background: var(--item-bg-color);
+    box-shadow:
+        var(--box-shadow-color) 0px 4px 8px,
+        var(--box-shadow-color) 0px 8px 24px,
+        var(--box-border-color) 0px 0px 0px 1px;
 }
-.menu::after{
+
+.menu::after {
     position: absolute;
     top: 40px;
     left: -1px;
     content: " ";
     width: 258px;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--hover-item-color);
 }
+
 .input {
     position: relative;
     width: 100%;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
     border: none;
     outline: none;
     background-color: transparent;
     padding: 8px 12px;
     font-size: 14px;
+    color: var(--text-hover-color);
 }
 
 .tagText {
     position: relative;
-    font-size: 16px;
     padding: 8px 12px;
-    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
+    color: var(--text-hover-color);
 }
 
-
-.createBtn{
+.createBtn {
     display: flex;
     flex-wrap: nowrap;
     align-items: start;
-    font-size: 14px;
-    padding: 8px 12px;
     width: 248px;
     height: 32px;
     border: none;
     border-radius: 8px;
-    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
     background-color: transparent;
     overflow: hidden;
+    font-size: 14px;
+    color: var(--text-hover-color);
 }
 
-.createBtn:hover{
-    background-color: rgba(255, 255, 255, 0.05);
+.createBtn:hover {
+    background-color: var(--hover-item-color);
 }

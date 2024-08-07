@@ -5,5 +5,5 @@
     min-height: 44.8px;
     padding: 8px;
     border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.024);
+    background-color: var(--border-thin-color);
 }

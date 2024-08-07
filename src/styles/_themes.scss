@@ -1,0 +1,31 @@
+html[data-theme="dark"] {
+    --page-bg-color: rgb(27, 28, 28);
+
+    --item-bg-color: rgb(39, 40, 41);
+    --hover-item-color: rgba(255, 255, 255, 0.05);
+    --active-item-color: rgba(255, 255, 255, 0.1);
+
+    --text-color: rgba(255, 255, 255, 0.5);
+    --text-hover-color: rgba(255, 255, 255, 0.8);
+
+    --tooltip-bg-color: rgba(255, 255, 255, 0.2);
+    --tooltip-text: rgb(255, 255, 255);
+
+    --button-bg-color: rgba(255, 255, 255, 0.05);
+    --button-hover-color: rgba(255, 255, 255, 0.1);
+    --button-disabled-color: rgba(255, 255, 255, 0.01);
+    --button-disabled-text: rgba(255, 255, 255, 0.2);
+
+    --checked-icon-hover: rgba(255, 255, 255, 0.2);
+    --checked-icon-hover-bg: transparent;
+    --stage-icon-hover: rgba(0, 0, 0, 0.05);
+
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --border-thin-color: rgba(255, 255, 255, 0.025);
+    --box-border-color: rgba(255, 255, 255, 0.1);
+    --box-border-thick: rgba(255, 255, 255, 0.15);
+}
+
+// html[data-theme="light"] {
+
+// }

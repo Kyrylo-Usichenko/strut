@@ -1,5 +1,4 @@
 "use client";
-import styles from "./KanbanItemHeader.module.css";
 import PlusIcon from "~/components/icons/PlusIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 import StageInput from "~/components/shared/stage-input/StageInput";
@@ -7,9 +6,10 @@ import { MenuItem } from "~/components/shared/PopupMenu/PopupMenu";
 import ArrowIcon from "~/components/icons/ArrowIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
-import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
+import menu from "~/components/shared/PopupMenu/menu.module.css";
+import styles from "./KanbanItemHeader.module.css";
 
 type Props = {
     icon: React.ReactElement;
@@ -51,9 +51,7 @@ export default function KanbanItemHeader({ icon, title = "Untilted", number, col
         <div className={styles.container}>
             <StageInput viewMode="kanban" icon={icon} width={200} value={title} amount={number} color={color} />
             <div className={styles.hidden}>
-                <div className={styles.plusIcon}>
-                    <PlusIcon width={12} height={12} />
-                </div>
+                <ButtonIconOnly icon={<PlusIcon width={12} height={12} />} tooltipLabel="New Doc" />
                 <div className={menu.container} ref={ref}>
                     <ButtonIconOnly
                         onClick={handleButtonClick}
