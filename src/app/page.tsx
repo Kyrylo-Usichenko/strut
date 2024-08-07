@@ -116,7 +116,7 @@ export default function Home() {
                 <span className={s.title} style={{ width: "200px" }}>
                     Label Menu
                 </span>
-                <LabelMenuItem />
+                <LabelMenuItem isVisible={false} />
                 <span className={s.title} style={{ marginTop: "10px", marginBottom: "0px" }}>
                     Usage
                 </span>

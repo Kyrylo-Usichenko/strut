@@ -1,9 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./LabelMenuItem.module.css";
 
-export default function LabelMenuItem() {
+type Props = {
+    isVisible: boolean;
+};
+
+export default function LabelMenuItem({ isVisible }: Props) {
     const [inputValue, setInputValue] = useState<string>("");
     const inputRef = useRef<HTMLInputElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -11,6 +15,12 @@ export default function LabelMenuItem() {
     function handleInputEnter(e: React.ChangeEvent<HTMLInputElement>) {
         setInputValue(e.target.value);
     }
+
+    useEffect(() => {
+        if (isVisible) {
+            inputRef.current?.focus();
+        }
+    }, [isVisible]);
     return (
         <div>
             <div ref={menuRef} className={styles.menu}>
