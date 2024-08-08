@@ -52,6 +52,7 @@ export default function Task({ content }: { content: ContentType }) {
         const selection = window.getSelection();
         if (
             selection &&
+            !selection.isCollapsed &&
             selection.rangeCount > 0 &&
             selection.anchorNode &&
             selection.anchorNode.parentElement &&
@@ -80,8 +81,12 @@ export default function Task({ content }: { content: ContentType }) {
                     firstItemStart,
                     lastItemEnd
                 });
-            } else {
+            }
+        } else {
+            if (isPopupOpen) {
                 setIsPopupOpen(false);
+            }
+            if (selectedItems.firstId !== 1 || selectedItems.lastId !== 0) {
                 setSelectedItems({
                     firstId: 1,
                     lastId: 0,
@@ -216,22 +221,22 @@ export default function Task({ content }: { content: ContentType }) {
                 </div>
                 <div className={styles.contentBox}>
                     <TaskContent content={currentContent} setContent={setCurrentContent} />
-                    <FormattingPopupMenu
-                        isOpened={isPopupOpen}
-                        position={popupPosition}
-                        onTextFormatClick={() => {}}
-                        onBoldClick={handleBoldClick}
-                        // onBoldClick={() => {}}
-                        onItalicClick={() => {}}
-                        onStrikethroughClick={() => {}}
-                        onLinkClick={() => {}}
-                        onMarkClick={() => {}}
-                        onBulletedListClick={() => {}}
-                        onOrderedListClick={() => {}}
-                        onToDoListClick={() => {}}
-                        onAiEditClick={() => {}}
-                    />
                 </div>
+                <FormattingPopupMenu
+                    isOpened={isPopupOpen}
+                    position={popupPosition}
+                    onTextFormatClick={() => {}}
+                    onBoldClick={handleBoldClick}
+                    // onBoldClick={() => {}}
+                    onItalicClick={() => {}}
+                    onStrikethroughClick={() => {}}
+                    onLinkClick={() => {}}
+                    onMarkClick={() => {}}
+                    onBulletedListClick={() => {}}
+                    onOrderedListClick={() => {}}
+                    onToDoListClick={() => {}}
+                    onAiEditClick={() => {}}
+                />
             </div>
         </div>
     );
