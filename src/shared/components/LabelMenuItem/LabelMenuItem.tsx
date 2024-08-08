@@ -33,7 +33,9 @@ export default function LabelMenuItem({ isVisible }: Props) {
                     autoComplete="off"
                 />
                 {inputValue ? (
-                    <button className={styles.createBtn}>{`Create "${inputValue}"`}</button>
+                    <button className={styles.createBtn}>
+                        Create&nbsp; <span>{`"${inputValue}"`}</span>
+                    </button>
                 ) : (
                     <p className={styles.tagText}>No tags yet</p>
                 )}

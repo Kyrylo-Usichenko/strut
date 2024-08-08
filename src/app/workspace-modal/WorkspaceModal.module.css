@@ -4,6 +4,7 @@
     display: flex;
     background-color: #272829;
     border-radius: 24px;
+    position: relative;
 }
 
 .leftSide {
