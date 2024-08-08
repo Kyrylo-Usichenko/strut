@@ -119,4 +119,19 @@ function applyAllFormattings(
     return formattedText;
 }
 
-export { applyAllFormattings };
+function mergeOverlappingIntervals(intervals: { start: number; end: number }[]) {
+    const sortedIntervals = intervals.sort((a, b) => a.start - b.start);
+    const mergedIntervals = [sortedIntervals[0]];
+    for (let i = 1; i < sortedIntervals.length; i++) {
+        const currentInterval = sortedIntervals[i];
+        const lastMergedInterval = mergedIntervals[mergedIntervals.length - 1];
+        if (currentInterval.start <= lastMergedInterval.end) {
+            lastMergedInterval.end = Math.max(currentInterval.end, lastMergedInterval.end);
+        } else {
+            mergedIntervals.push(currentInterval);
+        }
+    }
+    return mergedIntervals;
+}
+
+export { applyAllFormattings, mergeOverlappingIntervals };

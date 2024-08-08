@@ -11,27 +11,13 @@ import TaskContent from "./_components/task-content/TaskContent";
 import FormattingPopupMenu from "./_components/formatting-popup-menu/FormattingPopupMenu";
 import { useState, useEffect } from "react";
 import { ContentType } from "./Task.types";
+import { mergeOverlappingIntervals } from "./_components/utils/utils";
 
 const modes = {
     regular: { icon: <SmallCircleIcon />, tooltipLabel: "Zoom Mode" },
     zoom: { icon: <DoubleCircleIcon />, tooltipLabel: "Deep Focus Mode" },
     deepFocus: { icon: <SmallCrossedCircleIcon />, tooltipLabel: "Regular Mode" }
 };
-
-function mergeOverlappingIntervals(intervals: { start: number; end: number }[]) {
-    const sortedIntervals = intervals.sort((a, b) => a.start - b.start);
-    const mergedIntervals = [sortedIntervals[0]];
-    for (let i = 1; i < sortedIntervals.length; i++) {
-        const currentInterval = sortedIntervals[i];
-        const lastMergedInterval = mergedIntervals[mergedIntervals.length - 1];
-        if (currentInterval.start <= lastMergedInterval.end) {
-            lastMergedInterval.end = Math.max(currentInterval.end, lastMergedInterval.end);
-        } else {
-            mergedIntervals.push(currentInterval);
-        }
-    }
-    return mergedIntervals;
-}
 
 export default function Task({ content }: { content: ContentType }) {
     const [activeMode, setActiveMode] = useState<"regular" | "zoom" | "deepFocus">("regular");
@@ -45,12 +31,12 @@ export default function Task({ content }: { content: ContentType }) {
         lastItemEnd: number;
     }>({ firstId: 1, lastId: 0, firstItemStart: 0, lastItemEnd: 0 });
 
-    // useEffect(() => {
-    //     document.addEventListener("mouseup", handleMouseUp);
-    //     return () => {
-    //         document.removeEventListener("mouseup", handleMouseUp);
-    //     };
-    // }, []);
+    useEffect(() => {
+        document.addEventListener("mouseup", handleMouseUp);
+        return () => {
+            document.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, []);
 
     function toggleMode() {
         if (activeMode === "regular") {
