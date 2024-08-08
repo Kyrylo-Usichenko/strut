@@ -11,6 +11,8 @@ import AccountButton from "../../account/AccountButton";
 import { SearchInput } from "~/components/shared/search-input/SearchInput";
 import { useState } from "react";
 import styles from "./sidebar.module.css";
+import Modal from "../../Modal/Modal";
+import WorkspaceModal from "~/app/workspace-modal/page";
 
 type Props = {
     isOpen: boolean;
@@ -19,6 +21,11 @@ type Props = {
 function Sidebar({ isOpen }: Props) {
     const [isSearchActive, setIsSearchActive] = useState(false);
     const [activeItem, setActiveItem] = useState<string>("gettingStarted");
+    const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
+
+    function closeMenu() {
+        setIsModalOpened(!isModalOpened);
+    }
 
     return (
         <div className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
@@ -63,11 +70,13 @@ function Sidebar({ isOpen }: Props) {
                             isActive={activeItem === "browseAll"}
                             onClick={() => setActiveItem("browseAll")}
                         />
-                        <SidebarItem
-                            label="Add a workspace"
-                            icon={<PlusIcon width={8} height={8} className={styles.plusIcon} />}
-                            link=""
-                        />
+                        <div onClick={() => setIsModalOpened(true)}>
+                            <SidebarItem
+                                label="Add a workspace"
+                                icon={<PlusIcon width={8} height={8} className={styles.plusIcon} />}
+                                link=""
+                            />
+                        </div>
                     </div>
                 )}
             </div>
@@ -83,6 +92,11 @@ function Sidebar({ isOpen }: Props) {
                     />
                     <SidebarItem label="Help & Support" icon={<InfoIcon />} link="" />
                 </div>
+            )}
+            {isModalOpened && (
+                <Modal isOpen={isModalOpened} onClose={closeMenu}>
+                    <WorkspaceModal />
+                </Modal>
             )}
         </div>
     );

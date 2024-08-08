@@ -25,6 +25,8 @@ import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
 import GridView from "~/components/shared/GridView/GridView";
 import BoardGridView from "./board-grid-view/page";
 import s from "./styles.module.css";
+import ShareModal from "./share-modal/page";
+import ShareButton from "~/components/shared/ShareButton/ShareButton";
 
 export default function Home() {
     return (
@@ -170,6 +172,14 @@ export default function Home() {
                     Board grid view
                 </span>
                 <BoardGridView />
+            </div>
+            <div className={s.item}>
+                <span className={s.title} style={{ width: "400px" }}>
+                    Share Modal
+                </span>
+                <ShareModal />
+                <span className={s.title}>Usage</span>
+                <ShareButton />
             </div>
         </main>
     );

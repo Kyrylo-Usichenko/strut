@@ -4,6 +4,7 @@
     height: 432px;
     border-radius: 24px;
     background-color: var(--item-bg-color);
+    position: relative;
 }
 
 .leftSide {

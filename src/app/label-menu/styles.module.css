@@ -109,11 +109,15 @@
     padding: 8px 12px;
     width: 248px;
     height: 32px;
+    line-height: 20px;
     border: none;
     border-radius: 8px;
     color: var(--text-hover-color);
     background-color: transparent;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    overflow:hidden;
 }
 
 .createBtn:hover {
