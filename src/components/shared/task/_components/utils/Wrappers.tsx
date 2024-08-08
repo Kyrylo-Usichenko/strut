@@ -2,38 +2,6 @@ import styles from "./styles.module.css";
 import ToDoButton from "../to-do-button/ToDoButton";
 import { ReactElement } from "react";
 
-function BoldWrapper({ condition, children }: { condition: boolean | undefined; children: ReactElement }) {
-    if (!condition) {
-        return children;
-    }
-    return <strong>{children}</strong>;
-}
-
-function ItalicWrapper({ condition, children }: { condition: boolean | undefined; children: ReactElement }) {
-    if (!condition) {
-        return children;
-    }
-    return <em>{children}</em>;
-}
-
-function StrikethroughWrapper({ condition, children }: { condition: boolean | undefined; children: ReactElement }) {
-    if (!condition) {
-        return children;
-    }
-    return <s>{children}</s>;
-}
-
-function LinkWrapper({ link, children }: { link: string | undefined; children: ReactElement }) {
-    if (!link) {
-        return children;
-    }
-    return (
-        <a href={link} className={styles.link}>
-            {children}
-        </a>
-    );
-}
-
 function BulletedListItemWrapper({ condition, children }: { condition: boolean | undefined; children: ReactElement }) {
     if (!condition) {
         return children;
@@ -91,11 +59,4 @@ function ListWrapper({ listType, children }: { listType: string | undefined; chi
     }
 }
 
-function MarkWrapper({ condition, children }: { condition: boolean | undefined; children: ReactElement }) {
-    if (!condition) {
-        return children;
-    }
-    return <mark className={styles.mark}>{children}</mark>;
-}
-
-export { BoldWrapper, ItalicWrapper, StrikethroughWrapper, LinkWrapper, ListWrapper, MarkWrapper };
+export { ListWrapper };

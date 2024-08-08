@@ -45,12 +45,12 @@ export default function Task({ content }: { content: ContentType }) {
         lastItemEnd: number;
     }>({ firstId: 1, lastId: 0, firstItemStart: 0, lastItemEnd: 0 });
 
-    useEffect(() => {
-        document.addEventListener("mouseup", handleMouseUp);
-        return () => {
-            document.removeEventListener("mouseup", handleMouseUp);
-        };
-    }, []);
+    // useEffect(() => {
+    //     document.addEventListener("mouseup", handleMouseUp);
+    //     return () => {
+    //         document.removeEventListener("mouseup", handleMouseUp);
+    //     };
+    // }, []);
 
     function toggleMode() {
         if (activeMode === "regular") {
@@ -77,17 +77,17 @@ export default function Task({ content }: { content: ContentType }) {
             const range = selection.getRangeAt(0);
             if (range && !range.collapsed && range.toString().length > 0) {
                 const rect = range.getBoundingClientRect();
-                setPopupPosition({
-                    top: rect.y + window.scrollY - 8 - 36,
-                    left: rect.x + window.scrollX + rect.width / 2 - 402 / 2
-                });
-                setIsPopupOpen(true);
                 const firstId = parseInt(selection.anchorNode.parentElement.id) || 1;
                 const lastId = parseInt(
                     selection.focusNode.parentElement.id || (selection.focusNode.previousSibling as any).id || "0"
                 );
                 const firstItemStart = range.startOffset;
                 const lastItemEnd = range.endOffset || (selection.focusNode.previousSibling as any).textContent.length;
+                setPopupPosition({
+                    top: rect.y + window.scrollY - 8 - 36,
+                    left: rect.x + window.scrollX + rect.width / 2 - 402 / 2
+                });
+                setIsPopupOpen(true);
                 setSelectedItems({
                     firstId,
                     lastId,

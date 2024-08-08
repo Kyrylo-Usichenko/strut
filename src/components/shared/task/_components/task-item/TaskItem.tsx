@@ -1,7 +1,8 @@
 import { useState, createElement } from "react";
 import styles from "./styles.module.css";
 import { ItemType } from "../../Task.types";
-import { ListWrapper } from "../util-wrappers/Wrappers";
+import { ListWrapper } from "../utils/Wrappers";
+import { applyAllFormattings } from "../utils/utils";
 
 type TaskItemProps = {
     text: string;
@@ -41,42 +42,14 @@ export default function TaskItem({
         }
     }
 
-    function applyFormatting(text: string, tag: string, parts?: { start: number; end: number }[]) {
-        if (!parts) return text;
-        let formattedText = "";
-        let lastIndex = 0;
-
-        parts.forEach((part) => {
-            formattedText += text.slice(lastIndex, part.start);
-            formattedText += `<${tag} class=${tag}>` + text.slice(part.start, part.end || undefined) + `</${tag}>`;
-            lastIndex = part.end;
-        });
-
-        formattedText += text.slice(lastIndex);
-        return formattedText;
-    }
-
-    function applyLinks(text: string, parts?: { start: number; end: number; url: string }[]) {
-        if (!parts) return text;
-        let linkedText = "";
-        let lastIndex = 0;
-
-        parts.forEach((part) => {
-            linkedText += text.slice(lastIndex, part.start);
-            linkedText +=
-                `<a href="${part.url}" class=${styles.link}>` + text.slice(part.start, part.end || undefined) + `</a>`;
-            lastIndex = part.end;
-        });
-
-        linkedText += text.slice(lastIndex);
-        return linkedText;
-    }
-
-    let formattedText = applyFormatting(currentText, "strong", boldParts);
-    formattedText = applyFormatting(formattedText, "em", italicParts);
-    formattedText = applyFormatting(formattedText, "s", strikethroughParts);
-    formattedText = applyFormatting(formattedText, "mark", highlightedParts);
-    formattedText = applyLinks(formattedText, linkParts);
+    const formattedText = applyAllFormattings(
+        currentText,
+        boldParts,
+        italicParts,
+        strikethroughParts,
+        highlightedParts,
+        linkParts
+    );
 
     const textElement = createElement(textType === "documentTitle" ? "h1" : textType || "p", {
         className: `${listType ? styles[listType] : ""} ${styles[textType || "p"]} ${currentText === "" ? styles.isEmpty : ""}`,
@@ -84,7 +57,7 @@ export default function TaskItem({
         dataplaceholder: textType === "documentTitle" ? "Untitled" : "Type something...",
         id: id,
         istaskitem: "true",
-        onChange: handleChange,
+        onBlur: handleChange,
         dangerouslySetInnerHTML: { __html: formattedText }
     });
 

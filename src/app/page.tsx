@@ -36,7 +36,15 @@ export default function Home() {
                     <Task
                         content={[
                             { text: "Test doc", textType: "documentTitle" },
-                            { text: "This is a task", textType: "p" },
+                            {
+                                text: "0123456789",
+                                textType: "p",
+                                boldParts: [{ start: 3, end: 7 }],
+                                italicParts: [{ start: 0, end: 9 }],
+                                strikethroughParts: [{ start: 2, end: 8 }],
+                                highlightedParts: [{ start: 1, end: 10 }],
+                                linkParts: [{ start: 4, end: 6, url: "https://google.com" }]
+                            },
                             { text: "This is a task 2", textType: "p", listType: "bulleted" },
                             { text: "This is a task 3", textType: "p", listType: "bulleted" },
                             { text: "This is a task 4", textType: "p" },

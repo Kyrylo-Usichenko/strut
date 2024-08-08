@@ -3,7 +3,7 @@ import Task from "~/components/shared/task/Task";
 
 export default function Page() {
     return (
-        <div style={{ position: "relative", height: 800, width: 600, backgroundColor: "rgb(27, 28, 28)" }}>
+        <div style={{ position: "relative", height: 800, width: 900, backgroundColor: "rgb(27, 28, 28)" }}>
             <Task
                 content={[
                     { text: "Test doc", textType: "documentTitle" },
