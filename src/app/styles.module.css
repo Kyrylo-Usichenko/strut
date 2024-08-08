@@ -13,6 +13,6 @@
 .title {
     margin: 10px 5px;
     font-size: 1.5em;
-    color: #fafafa;
+    color: var(--text-hover-color);
     white-space: nowrap;
 }

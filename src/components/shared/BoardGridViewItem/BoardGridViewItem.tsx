@@ -13,7 +13,7 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import StageInput from "~/components/shared/stage-input/StageInput";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
-import KanbanViewBottomItem from "../KanbanViewBottomItem/KanbanViewBottomItem";
+import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
 
 const stageItemsTop: MenuItem[] = [
     { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },

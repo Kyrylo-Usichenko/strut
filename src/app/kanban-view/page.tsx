@@ -1,4 +1,4 @@
-import KanbanItem from "~/shared/components/KanbanItem/KanbanItem";
+import KanbanItem from "~/components/shared/KanbanItem/KanbanItem";
 import styles from "./KanbanView.module.css";
 import PersonIcon from "~/components/icons/AvatarIcon";
 import CalendarIcon from "~/components/icons/CalendarIcon";

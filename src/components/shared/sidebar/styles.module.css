@@ -10,10 +10,6 @@
     padding: 6px;
     border-radius: 20px;
     width: fit-content;
-    color: var(--dark-text-secondary);
+    color: var(--text-color);
 }
 
-.button:hover {
-    background-color: var(--dark-secondary);
-    color: var(--dark-text-primary);
-}

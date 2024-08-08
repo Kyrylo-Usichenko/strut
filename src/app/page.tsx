@@ -20,9 +20,9 @@ import KanbanView from "./kanban-view/page";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 import WorkspaceModal from "./workspace-modal/page";
-import StageIconMenuComponent from "~/shared/components/StageIconMenuComponent/StageIconMenuComponent";
-import LabelMenuItem from "~/shared/components/LabelMenuItem/LabelMenuItem";
-import GridView from "~/shared/components/GridView/GridView";
+import StageIconMenuComponent from "~/components/shared/StageIconMenuComponent/StageIconMenuComponent";
+import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
+import GridView from "~/components/shared/GridView/GridView";
 import BoardGridView from "./board-grid-view/page";
 import s from "./styles.module.css";
 import ShareModal from "./share-modal/page";
@@ -81,7 +81,7 @@ export default function Home() {
                     <StatusMenuWithButton />
                 </div>
             </div>
-            <div>
+            <div className={s.item}>
                 <span className={s.title}>Buttons</span>
                 <Button icon={<CalendarIcon />} text="Default Button" tooltipLabel="With tooltip below" />
                 <Button text="Button (no icon)" onClick={() => console.log("Brand Voice button clicked")} />

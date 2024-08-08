@@ -1,98 +1,100 @@
 .div {
+    display: flex;
     width: 800px;
     height: 432px;
-    display: flex;
-    background-color: #272829;
     border-radius: 24px;
+    background-color: var(--item-bg-color);
     position: relative;
 }
 
 .leftSide {
+    display: grid;
     width: 357px;
     height: 100%;
-    display: grid;
-    padding: 24px 32px;
     border-radius: 24px 0 0 24px;
+    padding: 24px 32px;
 }
 
 .title {
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-hover-color);
 }
 
 .enterName {
-    width: 293px;
-    height: 56px;
     display: flex;
     flex-direction: column;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05);
+    width: 293px;
+    height: 56px;
     border-radius: 16px;
+    padding: 8px 16px;
+    background: var(--hover-item-color);
 }
 
 .label {
     font-size: 12px;
     line-height: 16px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
 }
 
 .input {
     width: 100%;
-    padding: 0;
     background: transparent;
     border: none;
     outline: none;
-    color: rgba(255, 255, 255, 0.8);
+    padding: 0;
     font-size: 16px;
     line-height: 24px;
+    color: var(--text-hover-color);
 }
 
 .pickUpTitle {
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-hover-color);
 }
 
 .pickUpText {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
     margin-bottom: 8px;
 }
 
 .btnDiv {
-    padding: 2px;
-    background: rgba(255, 255, 255, 0.05);
     border-radius: 14px;
+    padding: 2px;
+    background: var(--hover-item-color);
     cursor: pointer;
 }
 
 .checkButton {
+    display: flex;
     width: 100%;
     height: 33px;
-    font-size: 14px;
     border-radius: 12px;
     padding: 1rem 2rem;
     background-color: transparent;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
+    font-size: 14px;
     align-items: center;
     justify-content: space-between;
 }
 
 .clicked {
+    display: flex;
     width: 100%;
     height: 33px;
-    font-size: 14px;
     border-radius: 12px;
     padding: 1rem 2rem;
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px;
+    background-color: var(--active-item-color);
+    box-shadow: var(--box-shadow-color) 0px 1px 1px 0px;
+    color: var(--text-hover-color);
+    font-size: 14px;
     align-items: center;
     justify-content: space-between;
 }
@@ -105,38 +107,12 @@
     margin-top: 40px;
 }
 
-.cancelBtn,
-.createBtn {
-    font-size: 14px;
-    line-height: 20px;
-    border-radius: 16px;
-    padding: 4px 12px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.cancelBtn:hover,
-.createBtn:hover,
-.cancelBtn:focus,
-.createBtn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.createBtnBlur {
-    font-size: 14px;
-    border-radius: 2rem;
-    padding: 4px 12px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.5);
-    opacity: 0.2;
-}
-
 .rightSide {
     width: 100%;
     height: 100%;
-    padding: 32px 0px 32px 40px;
-    background-color: rgba(255, 255, 255, 0.024);
     border-radius: 0 24px 24px 0;
+    padding: 32px 0px 32px 40px;
+    background-color: var(--border-thin-color);
 }
 
 .rightSideText {
@@ -144,17 +120,19 @@
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
     margin-bottom: 16px;
 }
 
 .itemsDiv {
     width: 100%;
     height: 312px;
-    background-color: rgba(255, 255, 255, 0.024);
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 24px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    background-color: var(--hover-item-color);
+    box-shadow: 
+        var(--box-shadow-color) 0px 0px 24px 0px,
+        var(--box-border-color) 0px 0px 0px 1px;
 }
 
 .list {
@@ -162,7 +140,7 @@
 }
 
 .item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.024);
+    border-bottom: 1px solid var(--border-thin-color);
 }
 
 .item:last-child {

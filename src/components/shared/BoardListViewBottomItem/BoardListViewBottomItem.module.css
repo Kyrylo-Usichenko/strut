@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px 16px 36px;
-    box-shadow: rgba(255, 255, 255, 0.024) 0px 1px 0px;
+    box-shadow: var(--border-thin-color) 0px 1px 0px 0px;
 }
 
 .leftSide {
@@ -23,9 +23,9 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--hover-item-color);
     background: transparent;
-    color: rgba(255, 255, 255, 0);
+    color: transparent;
 }
 
 .focusedIcon {
@@ -37,9 +37,9 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--text-hover-color);
     background: transparent;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-hover-color);
 }
 
 .chekedIconWrapper:hover .focusedIcon {
@@ -55,8 +55,8 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-hover-color);
+    background: var(--text-color);
     border: none;
 }
 
@@ -64,19 +64,18 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-hover-color);
     margin-left: 16px;
 }
 
 .container:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    box-shadow:
-        rgba(255, 255, 255, 0.024) 0px 1px 0px 0px,
-        rgba(255, 255, 255, 0.024) 0px 1px 0p;
+    background-color: var(--hover-item-color);
 }
+
 .container:hover .chekedIcon {
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.2);
+    border-color: var(--checked-icon-hover);
+    background-color: var(--checked-icon-hover-bg);
+    color: var(--checked-icon-hover);
 }
 .rightSide {
     display: flex;
