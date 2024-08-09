@@ -105,7 +105,7 @@ export default function Home() {
                     state="hovered"
                 />
             </div>
-            <div className={s.item}>
+            <div className={s.item} style={{ width: "200px" }}>
                 <span className={s.title}>Stage Input</span>
                 <StageInput viewMode="kanban" />
                 <StageInput viewMode="list" />

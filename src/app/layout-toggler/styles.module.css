@@ -44,7 +44,7 @@
     width: 36px;
     height: 25px;
     border-radius: 16px;
-    background-color: var(--active-item-color);
+    background-color: var(--selected-item-color);
     box-shadow: var(--box-shadow-color) 0px 1px 1px;
     transition: left 0.1s ease-in-out;
 }

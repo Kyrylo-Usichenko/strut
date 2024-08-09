@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 8px;
     margin-top: 4px;
-    border-top: 1px solid var(--hover-item-color);
+    border-top: 1px solid var(--border-thin-color);
     padding: 12px;
     padding-top: 17px;
     font-size: 12px;

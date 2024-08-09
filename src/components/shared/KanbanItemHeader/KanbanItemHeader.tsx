@@ -33,7 +33,7 @@ const stageItemsForRight: MenuItem[] = [
     { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
 ];
 
-export default function KanbanItemHeader({ icon, title = "Untilted", number, color, position = "left" }: Props) {
+export default function KanbanItemHeader({ icon, title = "Untitlted", number, color, position = "left" }: Props) {
     const { isVisible, setIsVisible, ref } = useVisible(false);
     const handleButtonClick = () => {
         setIsVisible(!isVisible);

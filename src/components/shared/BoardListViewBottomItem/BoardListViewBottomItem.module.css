@@ -38,7 +38,7 @@
     height: 20px;
     border-radius: 50%;
     border: 1px solid var(--text-hover-color);
-    background: transparent;
+    background-color: var(--item-bg-color);
     color: var(--text-hover-color);
 }
 
@@ -55,8 +55,8 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    color: var(--text-hover-color);
-    background: var(--text-color);
+    color: var(--checked-icon-color);
+    background: var(--checked-icon-bg);
     border: none;
 }
 
@@ -73,9 +73,8 @@
 }
 
 .container:hover .chekedIcon {
-    border-color: var(--checked-icon-hover);
-    background-color: var(--checked-icon-hover-bg);
-    color: var(--checked-icon-hover);
+    border-color: var(--box-border-thick);
+    color: var(--box-border-thick);
 }
 .rightSide {
     display: flex;
