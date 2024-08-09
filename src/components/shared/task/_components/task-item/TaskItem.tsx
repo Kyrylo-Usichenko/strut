@@ -42,14 +42,10 @@ export default function TaskItem({
         }
     }
 
-    const formattedText = applyAllFormattings(
-        currentText,
-        boldParts,
-        italicParts,
-        strikethroughParts,
-        highlightedParts,
-        linkParts
-    );
+    const formattedText =
+        textType === "documentTitle"
+            ? currentText
+            : applyAllFormattings(currentText, boldParts, italicParts, strikethroughParts, highlightedParts, linkParts);
 
     const textElement = createElement(textType === "documentTitle" ? "h1" : textType || "p", {
         className: `${listType ? styles[listType] : ""} ${styles[textType || "p"]} ${currentText === "" ? styles.isEmpty : ""}`,

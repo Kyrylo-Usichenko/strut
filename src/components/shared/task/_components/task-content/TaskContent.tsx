@@ -1,5 +1,5 @@
 "use client";
-import { useState, ReactElement } from "react";
+import { useState, ReactElement, useEffect } from "react";
 import styles from "./styles.module.css";
 import { ContentType, TaskContentProps, ItemType } from "../../Task.types";
 import TaskItem from "../task-item/TaskItem";
@@ -8,6 +8,10 @@ export default function TaskContent({ content, setContent }: TaskContentProps) {
     const [currentContent, setCurrentContent] = useState<ContentType>(
         content.length > 0 ? content : [{ text: "", textType: "documentTitle" }]
     );
+
+    useEffect(() => {
+        setCurrentContent(content.length > 0 ? content : [{ text: "", textType: "documentTitle" }]);
+    }, [content]);
 
     function handleChange(index: number, updatedItem: ItemType) {
         const newContent = [...currentContent];

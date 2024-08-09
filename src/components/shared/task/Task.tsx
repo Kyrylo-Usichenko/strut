@@ -9,7 +9,7 @@ import CrossIcon from "~/components/icons/CrossIcon";
 import { TaskPopupWithButton } from "../TaskPopupMenu/TaskPopupWithButton";
 import TaskContent from "./_components/task-content/TaskContent";
 import FormattingPopupMenu from "./_components/formatting-popup-menu/FormattingPopupMenu";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { ContentType } from "./Task.types";
 import { mergeOverlappingIntervals } from "./_components/utils/utils";
 
@@ -31,6 +31,42 @@ export default function Task({ content }: { content: ContentType }) {
         lastItemEnd: number;
     }>({ firstId: 1, lastId: 0, firstItemStart: 0, lastItemEnd: 0 });
 
+    const isAlreadySelected = useRef<boolean>(false);
+
+    useEffect(() => {
+        if (selectedItems.firstId !== 1 || selectedItems.lastId !== 0) {
+            try {
+                console.log(selectedItems);
+                console.log(isAlreadySelected.current);
+                const range = document.createRange();
+                const startContainer = document.getElementById(selectedItems.firstId.toString());
+                const endContainer = document.getElementById(selectedItems.lastId.toString());
+                const startOffset = selectedItems.firstItemStart;
+                const endOffset = selectedItems.lastItemEnd;
+                if (!startContainer || !endContainer) return;
+                range.setStart(startContainer.childNodes[0], startOffset);
+                range.setEnd(endContainer.childNodes[0], endOffset);
+                const selection = window.getSelection();
+                selection?.removeAllRanges();
+                selection?.addRange(range);
+            } catch (e) {
+                try {
+                    const range = document.createRange();
+                    const startContainer = document.getElementById(selectedItems.firstId.toString());
+                    const startOffset = selectedItems.firstItemStart;
+                    if (!startContainer) return;
+                    range.setStart(startContainer.childNodes[0], startOffset);
+                    range.setEnd(startContainer.childNodes[0], startOffset);
+                    const selection = window.getSelection();
+                    selection?.removeAllRanges();
+                    selection?.addRange(range);
+                } catch (e2) {
+                    console.log(e2);
+                }
+            }
+        }
+    });
+
     useEffect(() => {
         document.addEventListener("mouseup", handleMouseUp);
         return () => {
@@ -50,49 +86,58 @@ export default function Task({ content }: { content: ContentType }) {
 
     function handleMouseUp() {
         const selection = window.getSelection();
+        console.log(selection);
         if (
             selection &&
-            !selection.isCollapsed &&
-            selection.rangeCount > 0 &&
             selection.anchorNode &&
             selection.anchorNode.parentElement &&
-            "istaskitem" in selection.anchorNode.parentElement.attributes &&
-            selection.focusNode &&
-            selection.focusNode.parentElement &&
-            ("istaskitem" in selection.focusNode.parentElement.attributes || selection.focusNode.previousSibling)
+            "istaskitem" in selection.anchorNode.parentElement.attributes
         ) {
-            const range = selection.getRangeAt(0);
-            if (range && !range.collapsed && range.toString().length > 0) {
-                const rect = range.getBoundingClientRect();
-                const firstId = parseInt(selection.anchorNode.parentElement.id) || 1;
-                const lastId = parseInt(
-                    selection.focusNode.parentElement.id || (selection.focusNode.previousSibling as any).id || "0"
-                );
-                const firstItemStart = range.startOffset;
-                const lastItemEnd = range.endOffset || (selection.focusNode.previousSibling as any).textContent.length;
-                setPopupPosition({
-                    top: rect.y + window.scrollY - 8 - 36,
-                    left: rect.x + window.scrollX + rect.width / 2 - 402 / 2
-                });
-                setIsPopupOpen(true);
+            if (!selection.isCollapsed) {
+                if (
+                    selection.rangeCount > 0 &&
+                    selection.focusNode &&
+                    selection.focusNode.parentElement &&
+                    ("istaskitem" in selection.focusNode.parentElement.attributes ||
+                        selection.focusNode.previousSibling)
+                ) {
+                    const range = selection.getRangeAt(0);
+                    if (range && !range.collapsed && range.toString().length > 0) {
+                        const rect = range.getBoundingClientRect();
+                        const firstId = parseInt(selection.anchorNode.parentElement.id);
+                        const lastId = parseInt(
+                            selection.focusNode.parentElement.id ||
+                                (selection.focusNode.previousSibling as any).id ||
+                                "0"
+                        );
+                        const firstItemStart = range.startOffset;
+                        const lastItemEnd =
+                            range.endOffset || (selection.focusNode.previousSibling as any).textContent.length;
+                        setPopupPosition({
+                            top: rect.y + window.scrollY - 8 - 36,
+                            left: rect.x + window.scrollX + rect.width / 2 - 402 / 2
+                        });
+                        setIsPopupOpen(true);
+                        setSelectedItems({
+                            firstId,
+                            lastId,
+                            firstItemStart,
+                            lastItemEnd
+                        });
+                        isAlreadySelected.current = true;
+                    }
+                }
+            } else {
+                setIsPopupOpen(false);
+                const firstId = parseInt(selection.anchorNode.parentElement.id);
+                const firstItemStart = selection.anchorOffset;
                 setSelectedItems({
                     firstId,
-                    lastId,
+                    lastId: firstId,
                     firstItemStart,
-                    lastItemEnd
+                    lastItemEnd: firstItemStart
                 });
-            }
-        } else {
-            if (isPopupOpen) {
-                setIsPopupOpen(false);
-            }
-            if (selectedItems.firstId !== 1 || selectedItems.lastId !== 0) {
-                setSelectedItems({
-                    firstId: 1,
-                    lastId: 0,
-                    firstItemStart: 0,
-                    lastItemEnd: 0
-                });
+                isAlreadySelected.current = false;
             }
         }
     }
@@ -206,6 +251,27 @@ export default function Task({ content }: { content: ContentType }) {
         setCurrentContent(updatedContent);
     }
 
+    function handleMarkClick() {
+        const updatedContent = currentContent.map((item, index) => {
+            if (index >= selectedItems.firstId && index <= selectedItems.lastId) {
+                let start = index === selectedItems.firstId ? selectedItems.firstItemStart : 0;
+                let end = index === selectedItems.lastId ? selectedItems.lastItemEnd : 0;
+                if (item.highlightedParts) {
+                    return {
+                        ...item,
+                        highlightedParts: mergeOverlappingIntervals([...item.highlightedParts, { start, end }])
+                    };
+                }
+                return {
+                    ...item,
+                    highlightedParts: [{ start, end }]
+                };
+            }
+            return item;
+        });
+        setCurrentContent(updatedContent);
+    }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.main}>
@@ -216,7 +282,23 @@ export default function Task({ content }: { content: ContentType }) {
                         tooltipKeys={["CTRL", "+"]}
                         onClick={() => toggleMode()}
                     />
-                    <TaskPopupWithButton docInfo={{ words: 0, chars: 0, time: 0 }} />
+                    <TaskPopupWithButton
+                        docInfo={{
+                            words: currentContent
+                                .map((item) => item.text.split(" ").length)
+                                .reduce((partialSum, a) => partialSum + a, 0),
+                            chars: currentContent
+                                .map((item) => item.text.length)
+                                .reduce((partialSum, a) => partialSum + a, 0),
+                            time: Math.ceil(
+                                (currentContent
+                                    .map((item) => item.text.split(" ").length)
+                                    .reduce((partialSum, a) => partialSum + a, 0) /
+                                    200) *
+                                    60
+                            )
+                        }}
+                    />
                     <ButtonIconOnly icon={<CrossIcon />} tooltipLabel="Close" />
                 </div>
                 <div className={styles.contentBox}>
@@ -227,11 +309,10 @@ export default function Task({ content }: { content: ContentType }) {
                     position={popupPosition}
                     onTextFormatClick={() => {}}
                     onBoldClick={handleBoldClick}
-                    // onBoldClick={() => {}}
-                    onItalicClick={() => {}}
-                    onStrikethroughClick={() => {}}
+                    onItalicClick={handleItalicClick}
+                    onStrikethroughClick={handleStrikethroughClick}
                     onLinkClick={() => {}}
-                    onMarkClick={() => {}}
+                    onMarkClick={handleMarkClick}
                     onBulletedListClick={() => {}}
                     onOrderedListClick={() => {}}
                     onToDoListClick={() => {}}
