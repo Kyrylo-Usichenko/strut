@@ -18,7 +18,7 @@
     background-color: var(--dark-secondary);
     color: var(--dark-text-primary);
     border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 32px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
+    box-shadow: var(--box-shadow-color) 0px 4px 32px, var(--box-border-thick) 0px 0px 0px 1px;
     overflow: hidden;
 }
 

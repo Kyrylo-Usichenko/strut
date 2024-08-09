@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
-import SmallArrowIcon from "../formatting-popup-menu/icons/SmallArrow";
+import SmallArrowIcon from "../../../../icons/SmallArrow";
 
 type PopupButtonLongProps = {
     onClick: () => void;
