@@ -1,0 +1,84 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px 16px 36px;
+    box-shadow: var(--border-thin-color) 0px 1px 0px 0px;
+}
+
+.leftSide {
+    display: flex;
+    align-items: center;
+}
+.chekedIconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.chekedIcon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--hover-item-color);
+    background: transparent;
+    color: transparent;
+}
+
+.focusedIcon {
+    /* cursor: pointer; */
+    /* position: absolute; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--text-hover-color);
+    background: transparent;
+    color: var(--text-hover-color);
+}
+
+.chekedIconWrapper:hover .focusedIcon {
+    display: flex;
+}
+.chekedIconWrapper:hover .chekedIcon {
+    display: none;
+}
+.focusedIconActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: var(--text-hover-color);
+    background: var(--text-color);
+    border: none;
+}
+
+.text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-hover-color);
+    margin-left: 16px;
+}
+
+.container:hover {
+    background-color: var(--hover-item-color);
+}
+
+.container:hover .chekedIcon {
+    border-color: var(--checked-icon-hover);
+    background-color: var(--checked-icon-hover-bg);
+    color: var(--checked-icon-hover);
+}
+.rightSide {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

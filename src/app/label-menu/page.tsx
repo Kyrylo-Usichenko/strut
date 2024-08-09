@@ -3,75 +3,40 @@
 import TagIcon from "~/components/icons/TagIcon";
 import { useState, useEffect, useRef } from "react";
 import styles from "./styles.module.css";
-import { Tooltip } from "~/components/shared/Tooltip/Tooltip";
+import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
+import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
 
-export default function Page() {
-    const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
+export default function LabelMenu() {
     const [inputValue, setInputValue] = useState<string>("");
     const menuRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const { isVisible, setIsVisible, ref } = useVisible(false);
 
     function handleInputEnter(e: React.ChangeEvent<HTMLInputElement>) {
         setInputValue(e.target.value);
     }
 
-    function handleMenuOpen() {
-        setIsMenuOpened((prev) => !prev);
-    }
-
-    function handleKeyDown(event: KeyboardEvent) {
-        if (event.key === "Escape") {
-            setIsMenuOpened(false);
-        }
-    }
-
-    function handleClickOutside(event: MouseEvent) {
-        if (
-            menuRef.current &&
-            !menuRef.current.contains(event.target as Node) &&
-            buttonRef.current &&
-            !buttonRef.current.contains(event.target as Node)
-        ) {
-            setTimeout(() => {
-                setIsMenuOpened(false);
-            }, 100); // Затримка в 100 мілісекунд
-        }
+    function handleOpenMenu() {
+        setIsVisible(!isVisible);
+        setInputValue("");
     }
 
     useEffect(() => {
-        if (isMenuOpened && inputRef.current) {
+        if (isVisible && inputRef.current) {
             inputRef.current.focus();
         }
-    }, [isMenuOpened]);
-
-    useEffect(() => {
-        document.addEventListener("keydown", handleKeyDown);
-        document.addEventListener("mousedown", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
+    }, [isVisible]);
 
     return (
-        <div className={styles.container}>
-            {isMenuOpened ? (
-                <button ref={buttonRef} className={styles.labelDivPressed} onClick={handleMenuOpen}>
-                    <TagIcon />
-                    {/* <p className={styles.title}>Add a tag</p> */}
-                </button>
-            ) : (
-                <Tooltip label="Add a tag">
-                    <button ref={buttonRef} className={styles.labelDiv} onClick={handleMenuOpen}>
-                        <TagIcon />
-                        {/* <p className={styles.title}>Add a tag</p> */}
-                    </button>
-                </Tooltip>
-            )}
+        <div className={styles.container} ref={ref}>
+            <ButtonIconOnly
+                onClick={handleOpenMenu}
+                icon={<TagIcon />}
+                tooltipLabel="Add a tag"
+                tooltipVisible={!isVisible}
+            />
 
-            {isMenuOpened && (
+            {isVisible && (
                 <div ref={menuRef} className={styles.menu}>
                     <input
                         ref={inputRef}
@@ -82,7 +47,10 @@ export default function Page() {
                         autoComplete="off"
                     />
                     {inputValue ? (
-                        <button className={styles.createBtn}>{`Create "${inputValue}"`}</button>
+                        <button className={styles.createBtn}>
+                            Create&nbsp;
+                            <span>{`"${inputValue}"`}</span>
+                        </button>
                     ) : (
                         <p className={styles.tagText}>No tags yet</p>
                     )}

@@ -2,8 +2,8 @@
 import AvatarIcon from "~/components/icons/AvatarIcon";
 import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
 import AccountPopup from "./account-popup/AccountPopup";
-import s from "./styles.module.css";
 import { useVisible } from "../PopupMenu/utils/useVisible";
+import s from "./styles.module.css";
 
 function AccountButton() {
     const { isVisible, setIsVisible, ref } = useVisible(false);

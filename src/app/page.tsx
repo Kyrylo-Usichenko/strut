@@ -1,16 +1,13 @@
 "use client";
-import Link from "next/link";
 import AccountButton from "~/components/shared/account/AccountButton";
 import Button from "~/components/shared/button/Button";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
-
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "../components/shared/stage-input/StageInput";
-import GridView from "./grid-view/page";
 import LabelMenu from "./label-menu/page";
 import LayoutToggler from "./layout-toggler/page";
-import SearchInput from "./search-input/page";
+import { SearchInput } from "../components/shared/search-input/SearchInput";
 import { stageItems, StageMenuWithButton } from "~/components/shared/stage-menu/StageMenuWithButton";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
 import { items, PopupMenuWithButton } from "~/components/shared/PopupMenu/PopupMenuWithButton";
@@ -20,8 +17,17 @@ import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/Tas
 import AccountMenu from "./account-menu/page";
 import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
+import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
+import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
+import WorkspaceModal from "./workspace-modal/page";
+import StageIconMenuComponent from "~/components/shared/StageIconMenuComponent/StageIconMenuComponent";
+import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
+import GridView from "~/components/shared/GridView/GridView";
+import BoardGridView from "./board-grid-view/page";
 import Task from "~/components/shared/task/Task";
 import s from "./styles.module.css";
+import ShareModal from "./share-modal/page";
+import ShareButton from "~/components/shared/ShareButton/ShareButton";
 
 export default function Home() {
     return (
@@ -32,7 +38,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Account menu</span>
-                <div style={{ position: "relative", height: 220 }}>
+                <div style={{ position: "relative" }}>
                     <AccountMenu />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -40,7 +46,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Task menu</span>
-                <div style={{ position: "relative", width: 175, height: 212 }}>
+                <div style={{ position: "relative", width: 175, height: 178 }}>
                     <TaskPopup items={taskItems} docInfo={docInfo} visible={true} />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -50,7 +56,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Side menu</span>
-                <div style={{ position: "relative", width: 197, height: 186 }}>
+                <div style={{ position: "relative", width: 197, height: 152 }}>
                     <PopupMenu items={items} visible={true} />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -58,7 +64,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Stage menu</span>
-                <div style={{ position: "relative", width: 178, height: 150 }}>
+                <div style={{ position: "relative", width: 178, height: 116 }}>
                     <StageMenu items={stageItems} visible={true} />
                 </div>
                 <span className={s.title}>Usage</span>
@@ -66,7 +72,17 @@ export default function Home() {
                     <StageMenuWithButton />
                 </div>
             </div>
-            <div>
+            <div className={s.item}>
+                <span className={s.title}>Status menu</span>
+                <div style={{ position: "relative", width: 216, height: 171 }}>
+                    <StatusMenu items={statusItems} onItemClick={() => {}} visible={true} />
+                </div>
+                <span className={s.title}>Usage</span>
+                <div style={{ marginLeft: "188px" }}>
+                    <StatusMenuWithButton />
+                </div>
+            </div>
+            <div className={s.item}>
                 <span className={s.title}>Buttons</span>
                 <Button icon={<CalendarIcon />} text="Default Button" tooltipLabel="With tooltip below" />
                 <Button text="Button (no icon)" onClick={() => console.log("Brand Voice button clicked")} />
@@ -96,10 +112,20 @@ export default function Home() {
                 <StageInput viewMode="list" />
             </div>
             <div className={s.item}>
-                <span className={s.title} style={{ width: "300px" }}>
+                <span className={s.title}>Tooltips</span>
+                <Button text="Button with tooltip" tooltipLabel="tooltip" />
+            </div>
+            <div className={s.item}>
+                <span className={s.title} style={{ width: "200px" }}>
                     Label Menu
                 </span>
-                <LabelMenu />
+                <LabelMenuItem isVisible={false} />
+                <span className={s.title} style={{ marginTop: "10px", marginBottom: "0px" }}>
+                    Usage
+                </span>
+                <div style={{ paddingLeft: "230px" }}>
+                    <LabelMenu />
+                </div>
             </div>
             <div className={s.item}>
                 <span className={s.title}>Layout Toggler</span>
@@ -121,11 +147,40 @@ export default function Home() {
                 </span>
                 <BoardListView />
             </div>
+
+            <div className={s.item}>
+                <span className={s.title}>Stage icon menu</span>
+                <StageIconMenuComponent />
+                <span className={s.title} style={{ marginTop: "10px" }}>
+                    Usage
+                </span>
+                <StageInput viewMode="list" />
+            </div>
             <div className={s.item}>
                 <span className={s.title} style={{ paddingLeft: "350px" }}>
                     Kanban View
                 </span>
                 <KanbanView />
+            </div>
+            <div className={s.item} style={{ height: "100px" }}>
+                <span className={s.title} style={{ paddingLeft: "312px" }}>
+                    Workspace modal
+                </span>
+                <WorkspaceModal />
+            </div>
+            <div className={s.item} style={{ width: "900px" }}>
+                <span className={s.title} style={{ paddingLeft: "350px", width: "800px" }}>
+                    Board grid view
+                </span>
+                <BoardGridView />
+            </div>
+            <div className={s.item}>
+                <span className={s.title} style={{ width: "400px" }}>
+                    Share Modal
+                </span>
+                <ShareModal />
+                <span className={s.title}>Usage</span>
+                <ShareButton />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Create Task</span>

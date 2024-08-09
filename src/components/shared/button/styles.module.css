@@ -8,14 +8,13 @@
     padding: 4px 12px;
     border: none;
     border-radius: 16px;
-
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
     transition: background-color 0.1s ease-in-out 0s;
     white-space: nowrap;
 }
 
 .button {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--button-bg-color);
 }
 
 .buttonNoBackground {
@@ -24,18 +23,18 @@
 
 .button:hover,
 .buttonNoBackground:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
+    background-color: var(--button-hover-color);
+    color: var(--text-hover-color);
     cursor: pointer;
 }
 
 .button:disabled {
-    background-color: #1e1e1e;
-    color: rgba(255, 255, 255, 0.2);
+    background-color: var(--button-disabled-color);
+    color: var(--button-disabled-text);
 }
 
 .buttonNoBackground:disabled {
-    color: rgba(255, 255, 255, 0.2);
+    color: var(--button-disabled-text);
 }
 
 .button:active {

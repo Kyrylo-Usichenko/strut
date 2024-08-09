@@ -1,40 +1,50 @@
 "use client";
-import styles from "./styles.module.css";
-import { useState } from "react";
+import { useContext } from "react";
 import AutoModeIcon from "~/components/icons/AutoModeIcon";
 import DarkModeIcon from "~/components/icons/DarkModeIcon";
 import DiscordIcon from "~/components/icons/DiscordIcon";
 import DownloadIcon from "~/components/icons/DownloadIcon";
 import LightModeIcon from "~/components/icons/LightModeIcon";
 import SignOutIcon from "~/components/icons/SignOutIcon";
-
-type Mode = "light" | "dark" | "auto";
+import { ThemeContext } from "~/context/themeContext";
+import styles from "./styles.module.css";
 
 export default function AccountMenu() {
-    const [mode, setMode] = useState("dark");
-
-    const handleModeChange = (newMode: Mode) => {
-        setMode(newMode);
-    };
-
+    const { theme, setTheme } = useContext(ThemeContext);
+    if (theme === null) return null;
     const shadowClass = {
         light: styles.light,
         dark: styles.dark,
         auto: styles.auto
-    }[mode];
+    }[theme];
 
     return (
         <div className={styles.inner}>
             <div className={styles.toggler}>
-                <button className={styles.mod} onClick={() => handleModeChange("light")}>
+                <button
+                    className={`${theme === "light" ? styles.modActive : styles.mod}`}
+                    onClick={() => {
+                        setTheme("light");
+                    }}
+                >
                     <LightModeIcon />
                     <p className={styles.togglerTitle}>Light</p>
                 </button>
-                <button className={styles.mod} onClick={() => handleModeChange("dark")}>
+                <button
+                    className={`${theme === "dark" ? styles.modActive : styles.mod}`}
+                    onClick={() => {
+                        setTheme("dark");
+                    }}
+                >
                     <DarkModeIcon />
                     <p className={styles.togglerTitle}>Dark</p>
                 </button>
-                <button className={styles.mod} onClick={() => handleModeChange("auto")}>
+                <button
+                    className={`${theme === "auto" ? styles.modActive : styles.mod}`}
+                    onClick={() => {
+                        setTheme("auto");
+                    }}
+                >
                     <AutoModeIcon />
                     <p className={styles.togglerTitle}>Auto</p>
                 </button>

@@ -1,4 +1,4 @@
-import KanbanItem from "~/shared/components/KanbanItem/KanbanItem";
+import KanbanItem from "~/components/shared/KanbanItem/KanbanItem";
 import styles from "./KanbanView.module.css";
 import PersonIcon from "~/components/icons/AvatarIcon";
 import CalendarIcon from "~/components/icons/CalendarIcon";
@@ -37,6 +37,7 @@ export default function KanbanView() {
                 icon={<PersonIcon />}
                 number={0}
                 title="In process"
+                position="left"
                 dataHeader={dataHeader1}
                 color="rgb(1, 114, 100)"
             />
@@ -44,6 +45,7 @@ export default function KanbanView() {
                 icon={<CalendarIcon />}
                 number={5}
                 title="TO DO"
+                position="center"
                 dataHeader={dataHeader2}
                 color="rgb(255, 181, 70)"
             />
@@ -51,6 +53,7 @@ export default function KanbanView() {
                 icon={<LaptopIcon />}
                 number={7}
                 title="Something"
+                position="right"
                 dataHeader={dataHeader3}
                 color="rgb(188, 87, 73)"
             />

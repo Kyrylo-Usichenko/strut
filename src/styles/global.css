@@ -5,17 +5,9 @@
     box-sizing: border-box;
 }
 
-:root {
-    --dark-primary: #1b1c1c;
-    --dark-secondary: rgb(255 255 255 / 5%);
-    --dark-text-primary: rgba(255, 255, 255, 0.8);
-    --dark-text-secondary: rgba(255, 255, 255, 0.5);
-    --popup-menu-bg-color: #272829;
-}
-
 body {
     height: 100%;
-    background-color: var(--dark-primary);
+    background-color: var(--page-bg-color);
     font-family: var(--font-inter), Helvetica, Arial, sans-serif;
 }
 
@@ -36,4 +28,8 @@ button {
 a {
     text-decoration: none;
     cursor: pointer;
+}
+
+.no-scroll {
+    overflow: hidden;
 }

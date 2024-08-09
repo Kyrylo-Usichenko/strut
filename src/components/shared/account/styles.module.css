@@ -1,5 +1,7 @@
 .wrapper {
     position: relative;
+    width: fit-content;
+    height: fit-content;
 }
 .icon {
     padding: 4px;

@@ -1,51 +1,50 @@
-.tooltip {
-    position: absolute;
-    z-index: 100000000000;
-    display: flex;
-    align-items: center;
-    background-color: #49494a;
-    color: white;
-    font-size: 12px;
-    font-weight: normal;
-    white-space: nowrap;
-    backdrop-filter: blur(16px);
-    padding: 4px 8px;
-    border-radius: 8px;
-    gap: 6px;
-}
-
 .wrapper {
     position: relative;
     display: inline-block;
-    /* margin: 10px; */
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 10000;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    backdrop-filter: blur(16px);
+    border-radius: 8px;
+    padding: 4px 8px;
+    background-color: var(--tooltip-bg-color);
+    color: var(--tooltip-text);
+    font-size: 12px;
+    font-weight: normal;
+    white-space: nowrap;
 }
 
 .tooltip.top,
 .wrapingTooltip.top {
-    transform: translateX(-50%);
     bottom: calc(100% + 4px);
     left: 50%;
+    transform: translateX(-50%);
 }
 
 .tooltip.bottom,
 .wrapingTooltip.bottom {
-    transform: translateX(-50%);
     top: calc(100% + 4px);
     left: 50%;
+    transform: translateX(-50%);
 }
 
 .tooltip.left,
 .wrapingTooltip.left {
-    transform: translateY(-50%);
     right: calc(100% + 4px);
     top: 50%;
+    transform: translateY(-50%);
 }
 
 .tooltip.right,
 .wrapingTooltip.right {
-    transform: translateY(-50%);
     left: calc(100% + 4px);
     top: 50%;
+    transform: translateY(-50%);
 }
 
 .wrappingKeys {
@@ -56,9 +55,9 @@
 }
 
 .wrappingKey {
-    padding: 2px 4px;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px 4px;
+    background-color: var(--tooltip-bg-color);
 }
 
 .keys {
@@ -68,8 +67,8 @@
 }
 
 .key {
-    padding: 2px 4px;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
     margin-left: 2px;
+    border-radius: 4px;
+    padding: 2px 4px;
+    background-color: var(--tooltip-bg-color);
 }

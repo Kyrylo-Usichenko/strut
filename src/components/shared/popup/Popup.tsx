@@ -1,5 +1,5 @@
-import s from "./styles.module.css";
 import { getPosition, Position } from "./utils/getPosition";
+import s from "./styles.module.css";
 
 type Props = {
     children: JSX.Element;

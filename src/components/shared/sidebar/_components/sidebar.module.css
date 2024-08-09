@@ -6,9 +6,9 @@
     width: 223px;
     transition: transform 0.1s ease;
     padding-left: 16px;
-    border-right: 1px solid var(--dark-secondary);
-    background-color: var(--dark-primary);
-    color: var(--dark-text-secondary);
+    border-right: 1px solid var(--border-thin-color);
+    background-color: var(--page-bg-color);
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 400;
 }
@@ -30,15 +30,10 @@
     margin-top: 20px;
     margin-bottom: 16px;
     margin-left: 40px;
-    border-radius: 20px;
     width: fit-content;
     height: fit-content;
-    color: var(--dark-text-secondary);
-}
-
-.sidebar .header:hover {
-    background-color: var(--dark-secondary);
-    color: var(--dark-text-primary);
+    border-radius: 20px;
+    color: var(--text-color);
 }
 
 .sidebar .items {
@@ -69,8 +64,11 @@
     align-items: center;
     justify-content: space-between;
     height: 28px;
+    line-height: 20px;
+    gap: 1px;
     padding: 7px 4px 7px 12px;
-    color: var(--dark-text-secondary);
+    border-radius: 15px;
+    color: var(--text-color);
     text-decoration: none;
 
     & .plusIcon {
@@ -93,15 +91,24 @@
 }
 
 .sidebar .item:hover,
+.sidebar .active {
+    background-color: var(--hover-item-color);
+    color: var(--text-hover-color);
+}
+
+.sidebar .item:hover.active,
+.sidebar .active:hover,
 .sidebar .open .item {
-    border-radius: 15px;
-    background-color: rgb(50, 51, 51);
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
+    background-color: var(--active-item-color);
+}
+
+.sidebar.open .item .button:hover {
+    background-color: var(--hover-item-color);
 }
 
 .sidebar .open .item .button {
-    color: var(--dark-text-secondary);
+    background-color: var(--hover-item-color);
+    color: var(--text-color);
 }
 
 .sidebar .item:hover .button,
@@ -118,14 +125,14 @@
     height: 20px;
     padding: 4px;
     border-radius: 15px;
-    color: var(--dark-text-primary);
+    color: var(--text-hover-color);
     opacity: 0;
 }
 
-.button:hover,
+/* .button:hover,
 .sidebar .open .button {
-    background-color: rgb(60, 61, 61);
-}
+    background-color: var(--hover-item-color);
+} */
 
 .right {
     position: relative;

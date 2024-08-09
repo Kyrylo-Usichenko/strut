@@ -1,6 +1,8 @@
 .wrapper {
     display: flex;
     gap: 50px;
+    width: fit-content;
+    margin: 0px;
 }
 
 .item {
@@ -9,8 +11,8 @@
 }
 
 .title {
-    margin-bottom: 10px;
+    margin: 10px 5px;
     font-size: 1.5em;
-    color: #fafafa;
+    color: var(--text-hover-color);
     white-space: nowrap;
 }

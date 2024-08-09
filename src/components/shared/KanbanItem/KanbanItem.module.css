@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-height: 44.8px;
+    padding: 8px;
+    border-radius: 16px;
+    background-color: var(--border-thin-color);
+}
