@@ -6,7 +6,6 @@
     border: none;
     border-radius: 16px;
     padding: 4px 0px 4px 12px;
-    box-shadow: var(--box-shadow-color) 0px 0px 0px 1px;
     background: transparent;
     font-size: 14px;
     line-height: 20px;
@@ -17,12 +16,13 @@
 }
 
 .input:hover {
-    background-color: var(--hover-item-color);
+    background-color: var(--item-bg-color);
     cursor: text;
 }
 
 .input:focus {
     background-color: var(--item-bg-color);
+    box-shadow: var(--hover-item-color) 0px 0px 0px 1px inset;
     outline: none;
 }
 
@@ -36,7 +36,6 @@
     box-sizing: content-box;
     border: none;
     border-radius: 16px;
-    box-shadow: var(--box-shadow-color) 0px 0px 0px 1px;
     background: transparent;
     font-size: 14px;
     line-height: 20px;
@@ -48,11 +47,12 @@
 }
 
 .kanbanInput:hover {
-    background-color: var(--hover-item-color);
+    background-color: var(--item-bg-color);
     cursor: text;
 }
 
 .kanbanInput:focus {
+    box-shadow: var(--hover-item-color) 0px 0px 0px 1px inset;
     background-color: var(--item-bg-color);
     outline: none;
     width: 182px;
