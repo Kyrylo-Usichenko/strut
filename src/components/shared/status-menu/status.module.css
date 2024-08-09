@@ -15,7 +15,7 @@
     content: "";
     width: 100%;
     height: 1px;
-    background-color: var(--hover-item-color);
+    background-color: var(--border-thin-color);
 }
 .items {
     display: flex;

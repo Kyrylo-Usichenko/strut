@@ -13,7 +13,7 @@
 
 .container:hover,
 .container:focus {
-    box-shadow: var(--box-border-color) 0px 0px 0px 1px;
+    box-shadow: var(--box-border-thick) 0px 0px 0px 1px;
     color: var(--text-hover-color);
 }
 
