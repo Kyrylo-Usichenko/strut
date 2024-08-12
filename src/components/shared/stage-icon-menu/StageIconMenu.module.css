@@ -33,7 +33,7 @@
 
 .item:hover,
 .item:focus {
-    background-color: var(--stage-icon-hover);
+    background-color: var(--box-shadow-color);
 }
 
 .selectColor {

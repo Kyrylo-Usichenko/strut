@@ -51,7 +51,7 @@ const icons: React.ComponentType[] = [
 ];
 
 const colors: string[] = [
-    "rgba(255, 255, 255, 0.5)",
+    "var(--text-color)",
     "rgb(153, 92, 191)",
     "rgb(188, 87, 73)",
     "rgb(255, 181, 70)",

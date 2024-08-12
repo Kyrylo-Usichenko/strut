@@ -105,10 +105,6 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
 
     const columns = distributeItems(data, position);
 
-    function doingNothing() {
-        return;
-    }
-
     return (
         <div className={styles.container}>
             <div className={styles.topPart}>
@@ -123,11 +119,7 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                     <StageInput viewMode="list" color={iconColor} icon={icon} amount={number} value={title} />
                 </div>
                 <div className={styles.rightPart}>
-                    <ButtonIconOnly
-                        onClick={doingNothing}
-                        icon={<PlusIcon width={12} height={12} />}
-                        tooltipLabel="New Doc"
-                    />
+                    <ButtonIconOnly icon={<PlusIcon width={12} height={12} />} tooltipLabel="New Doc" />
                     <div className={menu.container} ref={ref}>
                         <ButtonIconOnly
                             onClick={handleButtonClick}
