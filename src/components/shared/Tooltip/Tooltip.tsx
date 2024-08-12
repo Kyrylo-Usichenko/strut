@@ -6,7 +6,6 @@ type Props = {
     label: string;
     keys?: string[];
     direction?: "top" | "bottom" | "left" | "right";
-    display?: "inline-block" | "flex";
     children?: React.ReactNode;
     visible?: boolean;
 };
@@ -43,7 +42,7 @@ function outOfScreenHandler(tooltipRef: HTMLDivElement | null) {
     }
 }
 
-function Tooltip({ label, keys, direction = "bottom", children, display = "inline-block", visible = true }: Props) {
+function Tooltip({ label, keys, direction = "bottom", children, visible = true }: Props) {
     const [isHovered, setHovered] = useState<boolean>(false);
     const tooltipRef = useRef<HTMLDivElement | null>(null);
 

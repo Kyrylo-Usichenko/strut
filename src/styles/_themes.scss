@@ -1,5 +1,6 @@
 html[data-theme="dark"] {
     --page-bg-color: rgb(27, 28, 28);
+    --selected-item-color: rgba(255, 255, 255, 0.05);
 
     --item-bg-color: rgb(39, 40, 41);
     --hover-item-color: rgba(255, 255, 255, 0.05);
@@ -9,6 +10,7 @@ html[data-theme="dark"] {
     --text-hover-color: rgba(255, 255, 255, 0.8);
 
     --tooltip-bg-color: rgba(255, 255, 255, 0.2);
+    --tooltip-keys-color: rgba(255, 255, 255, 0.2);;
     --tooltip-text: rgb(255, 255, 255);
 
     --button-bg-color: rgba(255, 255, 255, 0.05);
@@ -16,16 +18,48 @@ html[data-theme="dark"] {
     --button-disabled-color: rgba(255, 255, 255, 0.01);
     --button-disabled-text: rgba(255, 255, 255, 0.2);
 
-    --checked-icon-hover: rgba(255, 255, 255, 0.2);
-    --checked-icon-hover-bg: transparent;
-    --stage-icon-hover: rgba(0, 0, 0, 0.05);
+    --checked-icon-color: rgba(255, 255, 255, 0.8);
+    --checked-icon-bg: rgba(255, 255, 255, 0.5);
 
-    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --input-bg-color: rgb(39, 40, 41);
+    --input-border-color: rgba(255, 255, 255, 0.1);
+
+    --box-shadow-color: rgba(0, 0, 0, 0.05);
+
     --border-thin-color: rgba(255, 255, 255, 0.025);
     --box-border-color: rgba(255, 255, 255, 0.1);
     --box-border-thick: rgba(255, 255, 255, 0.15);
 }
 
-// html[data-theme="light"] {
+html[data-theme="light"] {
+    --page-bg-color: rgb(245, 244, 241);
+    --selected-item-color: rgba(255, 255, 255, 1);
 
-// }
+    --item-bg-color: rgb(255, 255, 255);
+    --hover-item-color: rgba(0, 0, 0, 0.05);
+    --active-item-color: rgba(0, 0, 0, 0.1);
+
+    --text-color: rgba(0, 0, 0, 0.5);
+    --text-hover-color: rgba(0, 0, 0, 0.8);
+
+    --tooltip-bg-color: rgba(0, 0, 0, 0.6);
+    --tooltip-keys-color: rgba(255, 255, 255, 0.2);
+    --tooltip-text: rgb(255, 255, 255);
+
+    --button-bg-color: rgba(0, 0, 0, 0.05);
+    --button-hover-color: rgba(0, 0, 0, 0.1);
+    --button-disabled-color: rgba(0, 0, 0, 0.01);
+    --button-disabled-text: rgba(0, 0, 0, 0.2);
+
+    --checked-icon-color: rgb(255, 255, 255);
+    --checked-icon-bg: rgba(0, 0, 0, 0.8);
+
+    --input-bg-color: rgb(221, 220, 217);
+    --input-border-color: rgba(0, 0, 0, 0.15);
+
+    --box-shadow-color: rgba(0, 0, 0, 0.05);
+
+    --border-thin-color: rgba(0, 0, 0, 0.05);
+    --box-border-color: rgba(0, 0, 0, 0.1);
+    --box-border-thick: rgba(0, 0, 0, 0.2);
+}

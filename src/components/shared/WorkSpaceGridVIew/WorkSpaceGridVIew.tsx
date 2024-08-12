@@ -1,6 +1,6 @@
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import WorkSpaceGridViewIcon from "~/components/icons/WorkSpaceGridViewIcon";
-import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
+import { MenuItem, PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
 import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
 import ExportIcon from "~/components/icons/ExportIcon";
 import EyeIcon from "~/components/icons/EyeIcon";
@@ -13,7 +13,7 @@ import menu from "~/components/shared/PopupMenu/menu.module.css";
 type Props = {
     title: string;
 };
-const items = [
+const items: MenuItem[] = [
     { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
     { icon: <EyeIcon />, label: "Hide from Sidebar", link: "" },
     { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" },
