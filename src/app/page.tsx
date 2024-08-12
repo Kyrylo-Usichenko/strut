@@ -29,6 +29,8 @@ import ShareModal from "./share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
 import BrandVoices from "./brand-voices/page";
 import s from "./styles.module.css";
+import BrandVoiceMenu from "../components/shared/brand-voice-menu/page";
+import BrandVoiceButton, { initialData } from "~/components/shared/brand-voice-button/BrandVoiceButton";
 
 export default function Home() {
     return (
@@ -190,6 +192,14 @@ export default function Home() {
                 <div style={{ width: "" }}>
                     <BrandVoices />
                 </div>
+            </div>
+            <div className={s.item}>
+                <span className={s.title} style={{ width: "400px" }}>
+                    Brand voice modal
+                </span>
+                <BrandVoiceMenu onMenuClick={() => {}} initialData={initialData} />
+                <span className={s.title}>Usage</span>
+                <BrandVoiceButton />
             </div>
         </main>
     );

@@ -2,7 +2,8 @@
     width: 400px;
     min-height: 276.6px;
     border-radius: 20px;
-    background: rgb(39, 40, 41);
+    /* background: rgb(39, 40, 41); */
+    background: var(--item-bg-color);
     padding: 12px;
     display: flex;
     align-items: center;
@@ -17,7 +18,8 @@
     height: 40px;
     width: 100%;
     border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--hover-item-color);
+    /* background-color: rgba(255, 255, 255, 0.05); */
 }
 .input {
     width: 274.2px;
@@ -26,12 +28,14 @@
     border: none;
     padding: 8px 16px;
     line-height: 24px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-hover-color);
+    /* color: rgba(255, 255, 255, 0.8); */
     font-size: 16px;
     line-height: 24px;
 }
 .input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
+    /* color: rgba(255, 255, 255, 0.5); */
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
@@ -43,13 +47,17 @@
     margin: 7px;
     padding: 3px 7px;
     border-radius: 8px;
-    color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    background-color: var(--hover-item-color);
+    /* color: rgba(255, 255, 255, 0.5); */
+    /* background-color: rgba(255, 255, 255, 0.05); */
 }
 .sendBtn:hover,
 .copyLinkBtn:hover {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-hover-color);
+    background-color: var(--button-hover-color);
+    /* color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1); */
 }
 
 .contactContainer {
@@ -65,23 +73,28 @@
     list-style-type: none;
 }
 .contactContainer::-webkit-scrollbar {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--hover-item-color);
+    /* background-color: rgba(255, 255, 255, 0.05); */
 }
-.contactContainer::-webkit-scrollbar-button{
-    background-color: rgba(255, 255, 255, 0.1);
-}
+/* .contactContainer::-webkit-scrollbar-button{
+    background-color: var(--button-hover-color);
+} */
 .contactContainer::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    /* background: rgba(255, 255, 255, 0.1); */
+    background: var(--button-hover-color);
 }
 .contactContainer::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    /* background: rgba(255, 255, 255, 0.2); */
+    background: var(--tooltip-bg-color);
 }
 .contactContainer::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    /* background: rgba(255, 255, 255, 0.05); */
+    background-color: var(--hover-item-color);
   }
 .conatiner::after {
     content: " ";
-    background-color: rgba(255, 255, 255, 0.05);
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    background-color: var(--hover-item-color);
     height: 1px;
     width: 100%;
     position: absolute;
@@ -97,9 +110,11 @@
     height: 40px;
     width: 100%;
     padding: 9px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--hover-item-color);
+    /* border: 1px solid rgba(255, 255, 255, 0.05); */
     border-radius: 12px;
-    color: rgba(255, 255, 255, 0.5);
+    /* color: rgba(255, 255, 255, 0.5); */
+    color: var(--text-color);
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
