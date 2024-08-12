@@ -19,14 +19,16 @@ import BoardListView from "./board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
-import WorkspaceModal from "./workspace-modal/page";
+import { CreateVoiceModal } from "~/components/shared/CreateVoiceModal/CreateVoiceModal";
+import { WorkspaceModal } from "../components/shared/workspace-modal/WorkspaceModal";
 import StageIconMenuComponent from "~/components/shared/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
 import GridView from "~/components/shared/GridView/GridView";
 import BoardGridView from "./board-grid-view/page";
-import s from "./styles.module.css";
 import ShareModal from "./share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
+import BrandVoices from "./brand-voices/page";
+import s from "./styles.module.css";
 
 export default function Home() {
     return (
@@ -180,6 +182,14 @@ export default function Home() {
                 <ShareModal />
                 <span className={s.title}>Usage</span>
                 <ShareButton />
+            </div>
+            <div className={s.item} style={{ width: "600px" }}>
+                <span className={s.title}>Create Brand Voice Modal</span>
+                <CreateVoiceModal />
+                <span className={s.title}>Usage</span>
+                <div style={{ width: "" }}>
+                    <BrandVoices />
+                </div>
             </div>
         </main>
     );
