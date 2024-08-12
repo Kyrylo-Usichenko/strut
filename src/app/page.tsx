@@ -27,7 +27,7 @@ import BoardGridView from "./board-grid-view/page";
 import s from "./styles.module.css";
 import ShareModal from "./share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
-import BrandVoiceMenu from "./brand-voice-menu/page";
+import BrandVoiceMenu from "../components/shared/brand-voice-menu/page";
 import BrandVoiceButton, { initialData } from "~/components/shared/brand-voice-button/BrandVoiceButton";
 
 export default function Home() {
@@ -187,7 +187,7 @@ export default function Home() {
                 <span className={s.title} style={{ width: "400px" }}>
                     Brand voice modal
                 </span>
-                <BrandVoiceMenu onClick={() => {}} initialData={initialData} />
+                <BrandVoiceMenu onMenuClick={() => {}} initialData={initialData} />
                 <span className={s.title}>Usage</span>
                 <BrandVoiceButton />
             </div>

@@ -8,11 +8,11 @@ import PlusIcon from "~/components/icons/PlusIcon";
 export type InitialDataType = { text: string; isChecked: boolean }[];
 
 type Props = {
-    onClick: (test: string, data: InitialDataType) => void;
+    onMenuClick: (test: string, data: InitialDataType) => void;
     initialData: InitialDataType;
 };
 
-export default function BrandVoiceMenu({ onClick, initialData }: Props) {
+export default function BrandVoiceMenu({ onMenuClick, initialData }: Props) {
     const [data, setData] = useState<InitialDataType>(initialData);
     const [selectedText, setSelectedText] = useState<string>(
         data.find((item) => item.isChecked)?.text || "Brand Voice"
@@ -32,14 +32,14 @@ export default function BrandVoiceMenu({ onClick, initialData }: Props) {
             const newData = data.map((item) => ({ ...item, isChecked: false }));
             setData(newData);
             setSelectedText("Brand Voice");
-            onClick("Brand Voice", newData);
+            onMenuClick("Brand Voice", newData);
         } else {
             const newData = data.map((item) =>
                 item.text === text ? { ...item, isChecked: true } : { ...item, isChecked: false }
             );
             setData(newData);
             setSelectedText(text);
-            onClick(text, newData);
+            onMenuClick(text, newData);
         }
     }
 

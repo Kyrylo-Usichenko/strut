@@ -5,7 +5,7 @@ import Button from "../button/Button";
 import styles from "./BrandVoiceButton.module.css";
 import BullHornIcon from "~/components/icons/BullHornIcon";
 import { useVisible } from "../PopupMenu/utils/useVisible";
-import BrandVoiceMenu, { InitialDataType } from "~/app/brand-voice-menu/page";
+import BrandVoiceMenu, { InitialDataType } from "~/components/shared/brand-voice-menu/page";
 import { Tooltip } from "../Tooltip/Tooltip";
 
 export const initialData = [
@@ -34,7 +34,7 @@ export default function BrandVoiceButton() {
             </Tooltip>
             {isVisible && (
                 <div ref={ref} className={styles.brandVoiceMenu}>
-                    <BrandVoiceMenu onClick={onMenuItemClick} initialData={data} />
+                    <BrandVoiceMenu onMenuClick={onMenuItemClick} initialData={data} />
                 </div>
             )}
         </div>
