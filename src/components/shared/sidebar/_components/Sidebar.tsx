@@ -12,7 +12,7 @@ import { SearchInput } from "~/components/shared/search-input/SearchInput";
 import { useState } from "react";
 import styles from "./sidebar.module.css";
 import Modal from "../../Modal/Modal";
-import WorkspaceModal from "~/app/workspace-modal/page";
+import { WorkspaceModal } from "~/components/shared/workspace-modal/WorkspaceModal";
 
 type Props = {
     isOpen: boolean;
@@ -95,7 +95,7 @@ function Sidebar({ isOpen }: Props) {
             )}
             {isModalOpened && (
                 <Modal isOpen={isModalOpened} onClose={closeMenu}>
-                    <WorkspaceModal />
+                    <WorkspaceModal onClose={closeMenu} />
                 </Modal>
             )}
         </div>
