@@ -14,6 +14,7 @@ import StageInput from "~/components/shared/stage-input/StageInput";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
 import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
+import { Tags } from "../label-menu/LabelMenu";
 
 const stageItemsTop: MenuItem[] = [
     { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
@@ -32,6 +33,7 @@ const stageItemsBottom: MenuItem[] = [
 type textData = {
     title: string;
     textData: string[];
+    tags: Tags;
 };
 
 type Props = {
@@ -149,6 +151,7 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                                         header={item.title}
                                         data={item.textData}
                                         color={iconColor}
+                                        tags={item.tags}
                                     />
                                 </div>
                             ))}

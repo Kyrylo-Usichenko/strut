@@ -51,3 +51,19 @@
 .workSpaceActive {
     display: flex;
 }
+
+@container (max-width: 621px) and (min-width: 436px) {
+    .container,
+    .containerActive {
+        flex: 1 1 calc((100%) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
+}
+
+@container (max-width: 435px) {
+    .container,
+    .containerActive {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

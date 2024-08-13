@@ -1,5 +1,6 @@
 .container {
     position: relative;
+    width: fit-content;
     /* padding-left: 233px; */
 }
 
@@ -57,13 +58,13 @@
 .menu {
     position: absolute;
     z-index: 10;
-    bottom: -83px;
-    left: -228px;
+    top: 32px;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 256px;
-    height: 80px;
+    min-height: 80px;
     padding: 4px;
     border-radius: 12px;
     background: var(--item-bg-color);
@@ -122,4 +123,62 @@
 
 .createBtn:hover {
     background-color: var(--hover-item-color);
+}
+
+.list {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    top: 4px;
+    right: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 252px;
+    max-height: 200px;
+    overflow-y: auto;
+    outline: none;
+}
+.list::-webkit-scrollbar {
+    border-bottom-right-radius: 8px;
+    background-color: var(--hover-item-color);
+}
+/* .list::-webkit-scrollbar-button {
+    background-color: var(--button-hover-color);
+} */
+.list::-webkit-scrollbar-thumb {
+    border-bottom-right-radius: 8px;
+    background: var(--button-hover-color);
+}
+.list::-webkit-scrollbar-thumb:hover {
+    background: var(--tooltip-bg-color);
+}
+.list::-webkit-scrollbar-track {
+    border-bottom-right-radius: 8px;
+    background-color: var(--hover-item-color);
+} 
+
+.item {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-color);
+    height: 36px;
+    width: 100%;
+    padding: 8px 12px 8px 32px;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+/* .item:hover{
+    background-color: var(--hover-item-color);
+    color: var(--text-hover-color);
+} */
+.checkedIcon {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+}
+.item.hovered {
+    background-color: var(--hover-item-color);
+    color: var(--text-hover-color);
 }
