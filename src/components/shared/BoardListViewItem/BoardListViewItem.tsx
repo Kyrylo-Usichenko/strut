@@ -14,14 +14,14 @@ import { MenuItem } from "~/components/shared/PopupMenu/PopupMenu";
 import ArrowIcon from "~/components/icons/ArrowIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
-import { StageMenuWithButton } from "~/components/shared/stage-menu/StageMenuWithButton";
+import { Tags } from "../label-menu/LabelMenu";
 
 type Props = {
     title: string;
     icon: ReactElement;
     iconColor: string;
     number: number;
-    textData: string[];
+    textData: { text: string; tags: Tags }[];
     position: "bottom" | "center" | "top" | string;
 };
 
@@ -98,7 +98,12 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
                 <ul className={styles.list}>
                     {textData.map((text, index) => (
                         <li key={index}>
-                            <BoardListViewBottomItem text={text} icon={icon} iconColor={iconColor} />
+                            <BoardListViewBottomItem
+                                tags={text.tags}
+                                text={text.text}
+                                icon={icon}
+                                iconColor={iconColor}
+                            />
                         </li>
                     ))}
                 </ul>

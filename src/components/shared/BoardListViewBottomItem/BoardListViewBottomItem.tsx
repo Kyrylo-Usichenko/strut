@@ -7,7 +7,7 @@ import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
 import TagIcon from "~/components/icons/TagIcon";
 import { ReactElement, useState } from "react";
 import { TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
-import LabelMenu from "~/app/label-menu/page";
+import LabelMenu, { Tags } from "~/components/shared/label-menu/LabelMenu";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 
@@ -15,13 +15,15 @@ type Props = {
     icon: ReactElement;
     text: string;
     iconColor: string;
+    tags: Tags;
 };
 
-export default function BoardListViewBottomItem({ text, icon, iconColor }: Props) {
+export default function BoardListViewBottomItem({ tags, text, icon, iconColor }: Props) {
     const [isActive, setIsActive] = useState<boolean>(false);
+    const [initialTags, setInitialTags] = useState<Tags>(tags);
 
-    function doNothing() {
-        return;
+    function selectTag(data: Tags) {
+        setInitialTags(data);
     }
 
     function handleClick() {
@@ -40,11 +42,20 @@ export default function BoardListViewBottomItem({ text, icon, iconColor }: Props
                         <SmallCheckIcon />
                     </a>
                 </div>
-                <p className={styles.text}>{text}</p>
+                <div className={styles.textWithTags}>
+                    <p className={styles.text}>{text}</p>
+                    {initialTags.map((item, index) =>
+                        item.isChecked ? (
+                            <div key={index} className={styles.tag}>
+                                {item.text}
+                            </div>
+                        ) : null
+                    )}
+                </div>
             </div>
 
             <div className={styles.rightSide}>
-                <LabelMenu />
+                <LabelMenu tags={tags} onTagChecked={selectTag} />
                 <StatusMenuWithButton />
                 <TaskPopupWithButton />
             </div>

@@ -75,16 +75,19 @@
 .icon {
     position: relative;
     left: -6px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
-.icon:hover {
+.tagText {
     background-color: var(--hover-item-color);
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
 }
 .chekedIcon {
     position: absolute;

@@ -13,7 +13,7 @@ export default function LabelMenuItem({ isVisible }: Props) {
     const menuRef = useRef<HTMLDivElement>(null);
 
     function handleInputEnter(e: React.ChangeEvent<HTMLInputElement>) {
-        setInputValue(e.target.value);
+        setInputValue(e.target.value.trim());
     }
 
     useEffect(() => {

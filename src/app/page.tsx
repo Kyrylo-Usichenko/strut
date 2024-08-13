@@ -5,7 +5,7 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "../components/shared/stage-input/StageInput";
-import LabelMenu from "./label-menu/page";
+import LabelMenu from "../components/shared/label-menu/LabelMenu";
 import LayoutToggler from "./layout-toggler/page";
 import { SearchInput } from "../components/shared/search-input/SearchInput";
 import { stageItems, StageMenuWithButton } from "~/components/shared/stage-menu/StageMenuWithButton";
@@ -15,7 +15,7 @@ import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
 import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
 import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
 import AccountMenu from "./account-menu/page";
-import BoardListView from "./board-list-view/page";
+import BoardListView, { tags } from "../components/shared/board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
@@ -127,7 +127,7 @@ export default function Home() {
                     Usage
                 </span>
                 <div style={{ paddingLeft: "230px" }}>
-                    <LabelMenu />
+                    <LabelMenu tags={tags} onTagChecked={() => {}} />
                 </div>
             </div>
             <div className={s.item}>
