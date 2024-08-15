@@ -28,6 +28,7 @@ import Task from "~/components/shared/task/Task";
 import s from "./styles.module.css";
 import ShareModal from "./share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
+import HelpSupportPopup from "~/components/shared/help-support-popup/HelpSupportPopup";
 
 export default function Home() {
     return (
@@ -35,6 +36,25 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Sidebar</span>
                 <Sidebar />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Help Support Popup</span>
+                <HelpSupportPopup
+                    messages={[
+                        {
+                            imagePath:
+                                "https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg",
+                            name: "Alexander",
+                            messagePreview: "Hey, how are you?",
+                            timeAgo: "2h ago"
+                        },
+                        {
+                            name: "Denis",
+                            messagePreview: "Pummel Party go?",
+                            timeAgo: "3w ago"
+                        }
+                    ]}
+                />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Account menu</span>

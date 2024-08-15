@@ -1,0 +1,61 @@
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    padding: 8px;
+    transition:
+        min-height 150ms ease-out 0s,
+        max-height 150ms ease-out 0s,
+        background-color 150ms ease-in-out 0s;
+    min-height: 64px;
+    max-height: 64px;
+    background-color: rgb(245, 244, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerSpan {
+    padding: 8px 4px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+}
+
+.inputWrapper{
+    padding: 8px;
+}
+
+.input{
+    width: 100%;
+    padding: 11.5px 10px;
+    font-size: 14px;
+    color: rgb(26, 26, 26);
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    resize: none;
+}
+
+.input:focus{
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.content {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
+    width: 100%;
+    overflow-y: scroll;
+    position: relative;
+}

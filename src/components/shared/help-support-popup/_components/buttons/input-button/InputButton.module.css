@@ -1,0 +1,13 @@
+.wrapper{
+    color: rgb(118, 118, 118);
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    opacity: 0.8;
+    transition: opacity 200ms ease 0s;
+    width: 16px;
+}
+
+.wrapper:hover{
+    opacity: 1;
+}
