@@ -10,15 +10,19 @@ import { TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopup
 import LabelMenu, { Tags } from "~/components/shared/label-menu/LabelMenu";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
+import { ActiveCard } from "../board-list-view/page";
 
 type Props = {
     icon: ReactElement;
     text: string;
     iconColor: string;
     tags: Tags;
+    index: number;
+    setActiveCard: (card: ActiveCard) => void;
+    status: string;
 };
 
-export default function BoardListViewBottomItem({ tags, text, icon, iconColor }: Props) {
+export default function BoardListViewBottomItem({ tags, text, icon, iconColor, index, setActiveCard, status }: Props) {
     const [isActive, setIsActive] = useState<boolean>(false);
     const [initialTags, setInitialTags] = useState<Tags>(tags);
 
@@ -30,7 +34,18 @@ export default function BoardListViewBottomItem({ tags, text, icon, iconColor }:
         setIsActive(!isActive);
     }
     return (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            draggable
+            onDragStart={() =>
+                setActiveCard({
+                    index,
+                    status,
+                    content: { text, tags }
+                })
+            }
+            onDragEnd={() => setActiveCard(null)}
+        >
             <div className={styles.leftSide}>
                 <div className={styles.chekedIconWrapper}>
                     {!isActive && (

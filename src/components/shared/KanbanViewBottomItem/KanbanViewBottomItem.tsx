@@ -8,6 +8,7 @@ import TagIcon from "~/components/icons/TagIcon";
 import LabelMenuItem from "../LabelMenuItem/LabelMenuItem";
 import styles from "./KanbanViewBottomItem.module.css";
 import LabelMenu, { Tags } from "../label-menu/LabelMenu";
+import { ActiveCard } from "../kanban-view/page";
 
 type Props = {
     icon: React.ReactElement;
@@ -15,11 +16,13 @@ type Props = {
     data: string[];
     color: string;
     tags: Tags;
+    index: number;
+    setActiveCard: (card: ActiveCard) => void;
+    status: string;
 };
 
-export default function KanbanViewBottomItem({ icon, header, data, color, tags }: Props) {
+export default function KanbanViewBottomItem({ icon, header, data, color, tags, index, setActiveCard, status }: Props) {
     const [isChekIconActive, setIsChekIconActive] = useState<boolean>(false);
-    // const { isVisible, setIsVisible, ref } = useVisible(false);
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const [initialTags, setInitialTags] = useState<Tags>(tags);
 
@@ -36,7 +39,18 @@ export default function KanbanViewBottomItem({ icon, header, data, color, tags }
     }
 
     return (
-        <div className={`${isChekIconActive ? styles.containerActive : styles.container}`}>
+        <div
+            className={`${isChekIconActive ? styles.containerActive : styles.container}`}
+            draggable
+            onDragStart={() =>
+                setActiveCard({
+                    index,
+                    status,
+                    content: { header, data, tags }
+                })
+            }
+            onDragEnd={() => setActiveCard(null)}
+        >
             <a
                 className={`${isChekIconActive ? styles.chekedIconActive : styles.chekedIcon}`}
                 onClick={hahdleCheckIcon}

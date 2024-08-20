@@ -16,7 +16,7 @@ import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
 import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
 import AccountMenu from "./account-menu/page";
 import BoardListView, { tags } from "../components/shared/board-list-view/page";
-import KanbanView from "./kanban-view/page";
+import KanbanView from "../components/shared/kanban-view/page";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 import { CreateVoiceModal } from "~/components/shared/CreateVoiceModal/CreateVoiceModal";
@@ -25,7 +25,7 @@ import StageIconMenuComponent from "~/components/shared/StageIconMenuComponent/S
 import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
 import GridView from "~/components/shared/GridView/GridView";
 import BoardGridView from "./board-grid-view/page";
-import ShareModal from "./share-modal/page";
+import ShareModal from "../components/shared/share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
 import BrandVoices from "./brand-voices/page";
 import s from "./styles.module.css";
