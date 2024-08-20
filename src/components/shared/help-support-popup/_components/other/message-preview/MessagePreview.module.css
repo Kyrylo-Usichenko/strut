@@ -1,4 +1,4 @@
-.message{
+.message, .messageWithHover{
     position: relative;
     padding: 16px 20px;
     transition: color 250ms ease 0s, background-color 250ms ease 0s;
@@ -6,6 +6,10 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.messageWithHover:hover{
+    background-color: rgba(0, 0, 0, 0.06);
 }
 
 .image {
@@ -47,7 +51,6 @@
 }
 
 .arrowIcon{
-    margin-right: 20px;
     color: rgb(102, 102, 102);
 }
 

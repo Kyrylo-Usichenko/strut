@@ -1,15 +1,10 @@
 import styles from "./MessagesScreen.module.css";
 import NavigationButton from "../../buttons/navigation-button/NavigationButton";
 import SendMessageButton from "../../buttons/send-message-button/SendMessageButton";
-import { Message } from "../../../types.module";
+import { MessagesScreenProps } from "../../../types.module";
 import MessagePreview from "../../other/message-preview/MessagePreview";
 
-type MessagesScreenProps = {
-    messages?: Message[];
-    onSendMessageClick?: () => void;
-};
-
-export default function MessagesScreen({ messages, onSendMessageClick }: MessagesScreenProps) {
+export default function MessagesScreen({ messages, onSendMessageClick, onChatClick }: MessagesScreenProps) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -18,7 +13,14 @@ export default function MessagesScreen({ messages, onSendMessageClick }: Message
             </div>
             <div className={styles.content}>
                 {messages ? (
-                    messages.map((message, index) => <MessagePreview key={index} message={message} separator={true} />)
+                    messages.map((message, index) => (
+                        <MessagePreview
+                            key={index}
+                            message={message}
+                            separator={true}
+                            clickHandler={() => (onChatClick ? onChatClick(message) : undefined)}
+                        />
+                    ))
                 ) : (
                     <></>
                 )}

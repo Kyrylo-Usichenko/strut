@@ -1,28 +1,17 @@
-import styles from "./CreateMessageScreen.module.css";
+import styles from "./ChatScreen.module.css";
 import { useRef, useLayoutEffect, useState, ReactNode } from "react";
 import Image from "next/image";
 import NavigationButton from "../../buttons/navigation-button/NavigationButton";
 import InputButton from "../../buttons/input-button/InputButton";
 import ArrowIcon from "~/components/icons/ArrowIconThin";
+import { ChatScreenProps } from "../../../types.module";
 
-type ChatMessage = {
-    id: number;
-    text: string;
-    date: string;
-    from: "user" | "support";
-};
-
-type CreateMessageScreenProps = {
-    chat?: ChatMessage[];
-    onBackHandler?: () => void;
-    onCloseHandler?: () => void;
-};
-
-export default function CreateMessageScreen({ chat, onBackHandler, onCloseHandler }: CreateMessageScreenProps) {
+export default function ChatScreen({ chat, onBackHandler, onCloseHandler }: ChatScreenProps) {
     chat = chat || [];
     const textbox = useRef<any>(null);
     const [message, setMessage] = useState<string>("");
-    const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(null);
+    const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(1);
+    const [hoveredMessageCords, setHoveredMessageCords] = useState<{ x: number; y: number } | null>(null);
 
     function adjustHeight() {
         if (textbox && textbox.current) {
@@ -38,8 +27,14 @@ export default function CreateMessageScreen({ chat, onBackHandler, onCloseHandle
         setMessage(textbox.current.value);
     }
 
-    function onChatMessageHoverHandler(id: number) {
+    function onChatMessageHoverHandler(id: number, event: React.MouseEvent<HTMLDivElement>) {
         setHoveredMessageId(id);
+        const rect = (event.target as any).getBoundingClientRect();
+        console.log(rect);
+        setHoveredMessageCords({
+            x: rect.x,
+            y: rect.y - 64
+        });
     }
 
     return (
@@ -80,10 +75,28 @@ export default function CreateMessageScreen({ chat, onBackHandler, onCloseHandle
                                     unoptimized={true}
                                 />
                             )}
+                            {hoveredMessageId === message.id && (
+                                <div
+                                    className={styles.timeSentTooltip}
+                                    style={
+                                        hoveredMessageCords
+                                            ? {
+                                                  top: hoveredMessageCords.y,
+                                                  left: hoveredMessageCords.x
+                                              }
+                                            : {}
+                                    }
+                                >
+                                    {message.time}
+                                </div>
+                            )}
                             <div
                                 className={message.from === "support" ? styles.supportBubble : styles.userBubble}
-                                onMouseOver={() => onChatMessageHoverHandler(message.id)}
-                                onMouseOut={() => setHoveredMessageId(null)}
+                                onMouseOver={(event) => onChatMessageHoverHandler(message.id, event)}
+                                onMouseOut={() => {
+                                    setHoveredMessageId(null);
+                                    setHoveredMessageCords(null);
+                                }}
                             >
                                 {message.text}
                             </div>

@@ -7,14 +7,7 @@ import HomeButton from "../../buttons/home-button/HomeButton";
 import SendMessageIcon from "~/components/icons/HelpSupportSendMessageIcon";
 import SearchIcon from "~/components/icons/HelpSupportSearchIcon";
 import { Message } from "../../../types.module";
-
-type HomeScreenProps = {
-    name: string;
-    recentMessage?: Message;
-    onMessageClick?: () => void;
-    onSearchClick?: () => void;
-    onRecentMessageClick?: () => void;
-};
+import { HomeScreenProps } from "../../../types.module";
 
 export default function HomeScreen({
     name,
@@ -53,7 +46,9 @@ export default function HomeScreen({
             </div>
             <div className={styles.buttonDivWrapper}>
                 <div className={styles.buttonDiv}>
-                    <HomeButton mainText="Recent message" message={recentMessage} onClick={onRecentMessageClick} />
+                    {recentMessage && (
+                        <HomeButton mainText="Recent message" message={recentMessage} onClick={onRecentMessageClick} />
+                    )}
                     <HomeButton
                         mainText="Send us a message"
                         subText="We'll reply as soon as we can"

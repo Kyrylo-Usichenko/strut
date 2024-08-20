@@ -173,3 +173,14 @@
     bottom: 10px;
     margin-right: 8px;
 }
+
+.timeSentTooltip {
+    position: absolute;
+    border-radius: 4px;
+    padding: 2px 4px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(111, 113, 122);
+    font-size: 12px;
+    z-index: 100000;
+    transform: translateX(-50%);
+}

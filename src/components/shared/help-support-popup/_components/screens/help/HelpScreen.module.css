@@ -30,11 +30,11 @@
     align-items: center;
 }
 
-.inputWrapper{
+.inputWrapper {
     padding: 8px;
 }
 
-.input{
+.input {
     width: 100%;
     padding: 11.5px 10px;
     font-size: 14px;
@@ -45,9 +45,12 @@
     resize: none;
 }
 
-.input:focus{
+.input:focus {
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.input:focus::placeholder {
+    color: transparent;
 }
 
 .content {
@@ -58,4 +61,109 @@
     width: 100%;
     overflow-y: scroll;
     position: relative;
+}
+
+.searchIcon {
+    color: rgb(111, 113, 122);
+    position: absolute;
+    top: 85px;
+    right: 20px;
+}
+
+.contentHeader {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.h2 {
+    font-weight: 600;
+    line-height: 24px;
+    color: rgb(26, 26, 26);
+    font-size: 100%;
+}
+
+.collectionPiece {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(0, 0, 0);
+}
+
+.collectionPiece:hover {
+    background-color: rgb(245, 244, 241);
+    color: rgb(111, 113, 122);
+}
+
+.collectionInfo {
+    flex: 1 1 0%;
+    font-size: 14px;
+    line-height: 21px;
+    min-width: 0px;
+    white-space: break-spaces;
+}
+
+.collectionTitle {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.collectionDescription {
+    color: rgb(26, 26, 26);
+    margin-bottom: 4px;
+}
+
+.collectionAmount {
+    color: rgb(115, 115, 115);
+}
+
+.arrowIcon {
+    color: rgb(111, 113, 122);
+    margin-left: 8px;
+    display: flex;
+    width: auto;
+    min-width: 16px;
+    height: 16px;
+}
+
+.separator {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.title {
+    font-weight: 600;
+    line-height: 24px;
+    color: rgb(26, 26, 26);
+}
+
+.description {
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 4px;
+    color: rgb(26, 26, 26);
+    word-break: break-word;
+}
+
+.amount {
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 12px;
+    color: rgb(115, 115, 115);
+}
+
+.articlePiece {
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(0, 0, 0);
+}
+
+.articlePiece:hover {
+    background-color: rgb(245, 244, 241);
+    color: rgb(111, 113, 122);
 }
