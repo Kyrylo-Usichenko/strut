@@ -24,7 +24,7 @@ import { WorkspaceModal } from "../components/shared/workspace-modal/WorkspaceMo
 import StageIconMenuComponent from "~/components/shared/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
 import GridView from "~/components/shared/GridView/GridView";
-import BoardGridView from "./board-grid-view/page";
+import BoardGridView from "../components/shared/board-grid-view/page";
 import ShareModal from "../components/shared/share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
 import BrandVoices from "./brand-voices/page";

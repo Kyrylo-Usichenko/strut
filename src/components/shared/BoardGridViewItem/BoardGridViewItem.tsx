@@ -13,7 +13,7 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import StageInput from "~/components/shared/stage-input/StageInput";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
-import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
+// import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
 import { Tags } from "../label-menu/LabelMenu";
 
 const stageItemsTop: MenuItem[] = [
@@ -144,7 +144,7 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                                     <p className={styles.createDivTitle}>New doc</p>
                                 </a>
                             )}
-                            {column.map((item: textData, index) => (
+                            {/* {column.map((item: textData, index) => (
                                 <div key={index} className={styles.item}>
                                     <KanbanViewBottomItem
                                         icon={icon}
@@ -154,7 +154,7 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                                         tags={item.tags}
                                     />
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     ))}
                 </div>
