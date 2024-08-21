@@ -167,3 +167,29 @@
     background-color: rgb(245, 244, 241);
     color: rgb(111, 113, 122);
 }
+
+.noResultsDiv{
+    padding: 20px 20px 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tryAgain{
+    display: block;
+    margin: 24px 0px 12px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.noResults{
+    color: rgb(26, 26, 26);
+    line-height: 21px;
+    font-size: 14px;
+}
+
+.bold{
+    font-weight: 600;
+}

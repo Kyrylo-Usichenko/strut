@@ -47,4 +47,8 @@ export type Collection = {
 export type HelpScreenProps = {
     collections: Collection[];
     autoFocus?: boolean;
+    searchValue?: string;
+    setSearchValue?: (value: string) => void;
+    activeCollection?: Collection | null;
+    setActiveCollection?: (collection: Collection | null) => void;
 };

@@ -6,7 +6,6 @@ import NavigationButton from "../../buttons/navigation-button/NavigationButton";
 import HomeButton from "../../buttons/home-button/HomeButton";
 import SendMessageIcon from "~/components/icons/HelpSupportSendMessageIcon";
 import SearchIcon from "~/components/icons/HelpSupportSearchIcon";
-import { Message } from "../../../types.module";
 import { HomeScreenProps } from "../../../types.module";
 
 export default function HomeScreen({
@@ -17,7 +16,7 @@ export default function HomeScreen({
     onRecentMessageClick
 }: HomeScreenProps) {
     return (
-        <>
+        <div className={styles.homeWrapper}>
             <div className={styles.headerWrapper}>
                 <div className={styles.header}>
                     <div className={styles.imageDiv}>
@@ -59,6 +58,6 @@ export default function HomeScreen({
                 </div>
             </div>
             <NavigationButton />
-        </>
+        </div>
     );
 }

@@ -2,11 +2,23 @@ import styles from "./HelpScreen.module.css";
 import NavigationButton from "../../buttons/navigation-button/NavigationButton";
 import HelpSupportSearchIcon from "~/components/icons/HelpSupportSearchIcon";
 import SmallArrowIcon from "~/components/icons/HelpSupportSmallArrowIcon";
-import { useState } from "react";
+import CrossIcon from "~/components/icons/CrossIconMedium";
 import { Collection, HelpScreenProps } from "../../../types.module";
+import SendMessageButton from "../../buttons/send-message-button/SendMessageButton";
 
-export default function HelpScreen({ collections, autoFocus }: HelpScreenProps) {
-    const [activeCollection, setActiveCollection] = useState<Collection | null>(null);
+export default function HelpScreen({
+    collections,
+    autoFocus = false,
+    searchValue = "",
+    setSearchValue = () => {},
+    activeCollection = null,
+    setActiveCollection = () => {}
+}: HelpScreenProps) {
+    function searchCollections() {
+        return collections.filter((collection) => {
+            return collection.title.toLowerCase().includes(searchValue.toLowerCase());
+        });
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -24,17 +36,34 @@ export default function HelpScreen({ collections, autoFocus }: HelpScreenProps) 
                     <NavigationButton styleMode="light" />
                 </div>
                 <div className={styles.inputWrapper}>
-                    <textarea rows={1} placeholder="Search for help" className={styles.input} autoFocus={autoFocus} />
+                    <textarea
+                        rows={1}
+                        placeholder="Search for help"
+                        className={styles.input}
+                        autoFocus={autoFocus}
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                    />
                     <div className={styles.searchIcon}>
-                        <HelpSupportSearchIcon />
+                        {searchValue === "" ? (
+                            <HelpSupportSearchIcon />
+                        ) : (
+                            <button onClick={() => setSearchValue("")}>
+                                <CrossIcon />
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
             <div className={styles.content}>
                 {activeCollection ? (
                     <CollectionContent collection={activeCollection} />
-                ) : (
+                ) : searchValue === "" ? (
                     <MainContent collections={collections} collectionClickHandler={setActiveCollection} />
+                ) : searchCollections().length === 0 ? (
+                    <NoResultsContent searchString={searchValue} />
+                ) : (
+                    <MainContent collections={searchCollections()} collectionClickHandler={setActiveCollection} />
                 )}
             </div>
         </div>
@@ -109,5 +138,17 @@ function CollectionContent({ collection }: CollectionContentProps) {
             </div>
             <div className={styles.separator} />
         </>
+    );
+}
+
+function NoResultsContent({ searchString }: { searchString: string }) {
+    return (
+        <div className={styles.noResultsDiv}>
+            <p className={styles.tryAgain}>Try Again</p>
+            <p className={styles.noResults}>
+                No results for <b className={styles.bold}>&apos;{searchString}&apos;</b>
+            </p>
+            <SendMessageButton colorMode="light" />
+        </div>
     );
 }

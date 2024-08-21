@@ -3,11 +3,12 @@ import SendMessageIcon from "~/components/icons/HelpSupportSendMessageIcon";
 
 type SendMessageButtonProps = {
     onClick?: () => void;
+    colorMode?: "light" | "dark";
 };
 
-export default function SendMessageButton({ onClick }: SendMessageButtonProps) {
+export default function SendMessageButton({ onClick, colorMode }: SendMessageButtonProps) {
     return (
-        <button className={styles.button} onClick={onClick}>
+        <button className={colorMode === "light" ? styles.buttonLight : styles.buttonDark} onClick={onClick}>
             <span>Send us a message</span>
             <SendMessageIcon />
         </button>

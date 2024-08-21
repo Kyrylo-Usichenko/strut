@@ -11,16 +11,22 @@ import MessagesScreen from "./_components/screens/messages/MessagesScreen";
 import ChatScreen from "./_components/screens/chat/ChatScreen";
 import HelpScreen from "./_components/screens/help/HelpScreen";
 import styles from "./styles.module.css";
-import { ChatScreenProps, HomeScreenProps, MessagesScreenProps } from "./types.module";
+import {
+    ChatScreenProps,
+    HomeScreenProps,
+    MessagesScreenProps,
+    ChatMessage,
+    Collection,
+    HelpScreenProps
+} from "./types.module";
 
 type TabType = "Home" | "Messages" | "Help" | "Chat" | "Collection";
 
 export default function HelpSupportPopup() {
-    const [activeTab, setActiveTab] = useState<TabType>("Home");
-    const [prevActiveTab, setPrevActiveTab] = useState<TabType>("Home");
+    const [tabs, setTabs] = useState<{ active: TabType; prev: TabType }>({ active: "Home", prev: "Home" });
     const [chatProps, setChatProps] = useState<ChatScreenProps>({
         chat: [],
-        onBackHandler: () => changeTab(prevActiveTab),
+        onBackHandler: returnToPreviousTab,
         onCloseHandler: () => {}
     });
     const [homeProps, setHomeProps] = useState<HomeScreenProps>({
@@ -41,45 +47,62 @@ export default function HelpSupportPopup() {
     });
     const [messagesProps, setMessagesProps] = useState<MessagesScreenProps>({
         messages: testMessagesData,
-        onSendMessageClick: () => {
-            changeTab("Chat");
-            setChatProps({ ...chatProps, chat: [] });
+        onSendMessageClick: () => handleSendMessageClick([]),
+        onChatClick: (message) => handleSendMessageClick(message.chat)
+    });
+    const [helpProps, setHelpProps] = useState<HelpScreenProps>({
+        collections: testCollectionsData,
+        autoFocus: false,
+        searchValue: "",
+        activeCollection: null,
+        setSearchValue: (value: string) => {
+            setHelpProps({ ...helpProps, searchValue: value });
         },
-        onChatClick: (message) => {
-            changeTab("Chat");
-            setChatProps({ ...chatProps, chat: message.chat, onBackHandler: () => changeTab(prevActiveTab) });
+        setActiveCollection: (collection: Collection | null) => {
+            setHelpProps({ ...helpProps, activeCollection: collection });
         }
     });
-    const [helpProps, setHelpProps] = useState({ collections: testCollectionsData, autoFocus: false });
 
     function changeTab(tab: TabType) {
-        setPrevActiveTab(activeTab);
-        setActiveTab(tab);
+        setTabs({ active: tab, prev: tabs.active });
+    }
+
+    function returnToPreviousTab() {
+        setTabs({ active: tabs.prev, prev: tabs.active });
+    }
+
+    function handleSendMessageClick(chat?: ChatMessage[]) {
+        changeTab("Chat");
+        setChatProps({
+            ...chatProps,
+            chat: chat || [],
+            onBackHandler: returnToPreviousTab
+        });
     }
 
     return (
         <div className={styles.main}>
-            {activeTab === "Chat" && <ChatScreen {...chatProps} />}
+            {tabs.active === "Chat" && <ChatScreen {...chatProps} />}
             <div className={styles.content}>
-                {activeTab === "Home" && <HomeScreen {...homeProps} />}
-                {activeTab === "Messages" && <MessagesScreen {...messagesProps} />}
-                {activeTab === "Help" && <HelpScreen {...helpProps} />}
+                {tabs.active === "Home" && <HomeScreen {...homeProps} />}
+                {tabs.active === "Messages" && <MessagesScreen {...messagesProps} />}
+                {tabs.active === "Help" && <HelpScreen {...helpProps} />}
             </div>
-            {activeTab != "Chat" && (
+            {tabs.active != "Chat" && (
                 <div className={styles.bottomMenu}>
                     <MenuButton
                         icon={<HelpSupportHomeIcon />}
                         activeIcon={<HelpSupportHomeActiveIcon />}
                         text="Home"
                         onClick={() => changeTab("Home")}
-                        active={activeTab === "Home"}
+                        active={tabs.active === "Home"}
                     />
                     <MenuButton
                         icon={<HelpSupportMessagesIcon />}
                         activeIcon={<HelpSupportMessagesActiveIcon />}
                         text="Messages"
                         onClick={() => changeTab("Messages")}
-                        active={activeTab === "Messages"}
+                        active={tabs.active === "Messages"}
                     />
                     <MenuButton
                         icon={<HelpSupportHelpIcon />}
@@ -89,7 +112,7 @@ export default function HelpSupportPopup() {
                             changeTab("Help");
                             setHelpProps({ ...helpProps, autoFocus: false });
                         }}
-                        active={activeTab === "Help"}
+                        active={tabs.active === "Help"}
                     />
                 </div>
             )}
