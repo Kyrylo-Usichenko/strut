@@ -14,6 +14,7 @@ import StageInput from "~/components/shared/stage-input/StageInput";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
 import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
+import { Tags } from "../label-menu/LabelMenu";
 
 const stageItemsTop: MenuItem[] = [
     { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
@@ -32,6 +33,7 @@ const stageItemsBottom: MenuItem[] = [
 type textData = {
     title: string;
     textData: string[];
+    tags: Tags;
 };
 
 type Props = {
@@ -105,10 +107,6 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
 
     const columns = distributeItems(data, position);
 
-    function doingNothing() {
-        return;
-    }
-
     return (
         <div className={styles.container}>
             <div className={styles.topPart}>
@@ -123,11 +121,7 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                     <StageInput viewMode="list" color={iconColor} icon={icon} amount={number} value={title} />
                 </div>
                 <div className={styles.rightPart}>
-                    <ButtonIconOnly
-                        onClick={doingNothing}
-                        icon={<PlusIcon width={12} height={12} />}
-                        tooltipLabel="New Doc"
-                    />
+                    <ButtonIconOnly icon={<PlusIcon width={12} height={12} />} tooltipLabel="New Doc" />
                     <div className={menu.container} ref={ref}>
                         <ButtonIconOnly
                             onClick={handleButtonClick}
@@ -157,6 +151,7 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                                         header={item.title}
                                         data={item.textData}
                                         color={iconColor}
+                                        tags={item.tags}
                                     />
                                 </div>
                             ))}

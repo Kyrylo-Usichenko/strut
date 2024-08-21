@@ -5,7 +5,7 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 import Sidebar from "~/components/shared/sidebar/Sidebar";
 import StageInput from "../components/shared/stage-input/StageInput";
-import LabelMenu from "./label-menu/page";
+import LabelMenu from "../components/shared/label-menu/LabelMenu";
 import LayoutToggler from "./layout-toggler/page";
 import { SearchInput } from "../components/shared/search-input/SearchInput";
 import { stageItems, StageMenuWithButton } from "~/components/shared/stage-menu/StageMenuWithButton";
@@ -15,19 +15,23 @@ import { PopupMenu } from "~/components/shared/PopupMenu/PopupMenu";
 import { TaskPopup } from "~/components/shared/TaskPopupMenu/TaskPopup";
 import { docInfo, taskItems, TaskPopupWithButton } from "~/components/shared/TaskPopupMenu/TaskPopupWithButton";
 import AccountMenu from "./account-menu/page";
-import BoardListView from "./board-list-view/page";
+import BoardListView, { tags } from "../components/shared/board-list-view/page";
 import KanbanView from "./kanban-view/page";
 import { StatusMenu } from "~/components/shared/status-menu/StatusMenu";
 import { statusItems, StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
-import WorkspaceModal from "./workspace-modal/page";
+import { CreateVoiceModal } from "~/components/shared/CreateVoiceModal/CreateVoiceModal";
+import { WorkspaceModal } from "../components/shared/workspace-modal/WorkspaceModal";
 import StageIconMenuComponent from "~/components/shared/StageIconMenuComponent/StageIconMenuComponent";
 import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
 import GridView from "~/components/shared/GridView/GridView";
 import BoardGridView from "./board-grid-view/page";
 import Task from "~/components/shared/task/Task";
-import s from "./styles.module.css";
 import ShareModal from "./share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
+import BrandVoices from "./brand-voices/page";
+import s from "./styles.module.css";
+import BrandVoiceMenu from "../components/shared/brand-voice-menu/page";
+import BrandVoiceButton, { initialData } from "~/components/shared/brand-voice-button/BrandVoiceButton";
 import HelpSupportPopup from "~/components/shared/help-support-popup/HelpSupportPopup";
 
 export default function Home() {
@@ -111,7 +115,7 @@ export default function Home() {
                     state="hovered"
                 />
             </div>
-            <div className={s.item}>
+            <div className={s.item} style={{ width: "200px" }}>
                 <span className={s.title}>Stage Input</span>
                 <StageInput viewMode="kanban" />
                 <StageInput viewMode="list" />
@@ -129,7 +133,7 @@ export default function Home() {
                     Usage
                 </span>
                 <div style={{ paddingLeft: "230px" }}>
-                    <LabelMenu />
+                    <LabelMenu tags={tags} onTagChecked={() => {}} />
                 </div>
             </div>
             <div className={s.item}>
@@ -186,6 +190,22 @@ export default function Home() {
                 <ShareModal />
                 <span className={s.title}>Usage</span>
                 <ShareButton />
+            </div>
+            <div className={s.item} style={{ width: "600px" }}>
+                <span className={s.title}>Create Brand Voice Modal</span>
+                <CreateVoiceModal />
+                <span className={s.title}>Usage</span>
+                <div style={{ width: "" }}>
+                    <BrandVoices />
+                </div>
+            </div>
+            <div className={s.item}>
+                <span className={s.title} style={{ width: "400px" }}>
+                    Brand voice modal
+                </span>
+                <BrandVoiceMenu onMenuClick={() => {}} initialData={initialData} />
+                <span className={s.title}>Usage</span>
+                <BrandVoiceButton />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Create Task</span>

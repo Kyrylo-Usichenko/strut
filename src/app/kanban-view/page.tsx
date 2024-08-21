@@ -3,30 +3,38 @@ import styles from "./KanbanView.module.css";
 import PersonIcon from "~/components/icons/AvatarIcon";
 import CalendarIcon from "~/components/icons/CalendarIcon";
 import LaptopIcon from "~/components/icons/LaptopIcon";
+import { Tags } from "~/components/shared/label-menu/LabelMenu";
+import { tags } from "~/components/shared/board-list-view/page";
+
+const cloneTags = (tags: Tags) => tags.map((tag) => ({ ...tag }));
 
 const dataHeader1 = [
-    { header: "Task1", data: ["Prepare for exams", "Read book", "Make tea"] },
+    { header: "Task1", data: ["Prepare for exams", "Read book", "Make tea"], tags: cloneTags(tags) },
     {
         header: "Task2",
-        data: ["Wake up"]
+        data: ["Wake up"],
+        tags: cloneTags(tags)
     }
 ];
 
 const dataHeader2 = [
     {
         header: "To do",
-        data: ["Programming", "sleep"]
+        data: ["Programming", "sleep"],
+        tags: cloneTags(tags)
     }
 ];
 
 const dataHeader3 = [
     {
         header: "Big booom",
-        data: ["bla bla bla"]
+        data: ["bla bla bla"],
+        tags: cloneTags(tags)
     },
     {
         header: "Small boom",
-        data: ["wooo", "foo", "booo"]
+        data: ["wooo", "foo", "booo"],
+        tags: cloneTags(tags)
     }
 ];
 

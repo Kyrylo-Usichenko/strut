@@ -7,20 +7,32 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import TagIcon from "~/components/icons/TagIcon";
 import LabelMenuItem from "../LabelMenuItem/LabelMenuItem";
 import styles from "./KanbanViewBottomItem.module.css";
+import LabelMenu, { Tags } from "../label-menu/LabelMenu";
 
 type Props = {
     icon: React.ReactElement;
     header: string;
     data: string[];
     color: string;
+    tags: Tags;
 };
 
-export default function KanbanViewBottomItem({ icon, header, data, color }: Props) {
+export default function KanbanViewBottomItem({ icon, header, data, color, tags }: Props) {
     const [isChekIconActive, setIsChekIconActive] = useState<boolean>(false);
-    const { isVisible, setIsVisible, ref } = useVisible(false);
+    // const { isVisible, setIsVisible, ref } = useVisible(false);
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const [initialTags, setInitialTags] = useState<Tags>(tags);
 
     function hahdleCheckIcon() {
         setIsChekIconActive(!isChekIconActive);
+    }
+
+    function onTagChecked(data: Tags) {
+        setInitialTags(data);
+    }
+
+    function handleCLickLabel(isVisible: boolean) {
+        setIsVisible(isVisible);
     }
 
     return (
@@ -31,19 +43,8 @@ export default function KanbanViewBottomItem({ icon, header, data, color }: Prop
             >
                 <SmallChekIcon />
             </a>
-            <div className={`${isVisible ? styles.tagActive : styles.tag}`} ref={ref}>
-                <ButtonIconOnly
-                    icon={<TagIcon />}
-                    tooltipLabel="Add a tag"
-                    tooltipVisible={!isVisible}
-                    onClick={() => setIsVisible(!isVisible)}
-                />
-
-                {isVisible && (
-                    <div className={styles.labelMenu}>
-                        <LabelMenuItem isVisible={isVisible} />
-                    </div>
-                )}
+            <div className={`${isVisible ? styles.tagActive : styles.tag}`}>
+                <LabelMenu tags={initialTags} onTagChecked={onTagChecked} handleCLickLabel={handleCLickLabel} />
             </div>
             <h3 className={styles.title}>{header}</h3>
             {data.map((item, index) => (
@@ -51,8 +52,15 @@ export default function KanbanViewBottomItem({ icon, header, data, color }: Prop
                     {item}
                 </p>
             ))}
-            <div className={styles.icon} style={{ color: color }}>
+            <div className={styles.icon}>
                 <StatusMenuWithButton />
+                {initialTags.map((item, index) =>
+                    item.isChecked ? (
+                        <div key={index} className={styles.tagText}>
+                            {item.text}
+                        </div>
+                    ) : null
+                )}
             </div>
         </div>
     );

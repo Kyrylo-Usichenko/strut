@@ -1,10 +1,12 @@
 import KanbanItemHeader from "../KanbanItemHeader/KanbanItemHeader";
 import KanbanViewBottom from "../KanbanViewBottom/KanbanViewBottom";
+import { Tags } from "../label-menu/LabelMenu";
 import styles from "./KanbanItem.module.css";
 
 type HeaderProps = {
     header: string;
     data: string[];
+    tags: Tags;
 };
 
 type Props = {

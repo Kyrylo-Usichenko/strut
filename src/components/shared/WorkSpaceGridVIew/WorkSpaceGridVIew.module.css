@@ -13,7 +13,7 @@
 
 .container:hover,
 .container:focus {
-    box-shadow: var(--box-border-color) 0px 0px 0px 1px;
+    box-shadow: var(--box-border-thick) 0px 0px 0px 1px;
     color: var(--text-hover-color);
 }
 
@@ -50,4 +50,20 @@
 
 .workSpaceActive {
     display: flex;
+}
+
+@container (max-width: 621px) and (min-width: 436px) {
+    .container,
+    .containerActive {
+        flex: 1 1 calc((100%) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
+}
+
+@container (max-width: 435px) {
+    .container,
+    .containerActive {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }

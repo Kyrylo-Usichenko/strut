@@ -10,9 +10,13 @@
     font-size: 14px;
     line-height: 20px;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--text-hover-color);
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.input::placeholder, .kanbanInput::placeholder {
+    color: var(--text-color);
 }
 
 .input:hover {
@@ -40,7 +44,7 @@
     font-size: 14px;
     line-height: 20px;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--text-hover-color);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -5,12 +5,12 @@ import EyeIcon from "~/components/icons/EyeIcon";
 import DuplicateIcon from "~/components/icons/DuplicateIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import ThreeDotsIcon from "~/components/icons/ThreeDotsIcon";
-import { PopupMenu } from "./PopupMenu";
+import { MenuItem, PopupMenu } from "./PopupMenu";
 import { useVisible } from "./utils/useVisible";
 import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 
-export const items = [
+export const items: MenuItem[] = [
     { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
     { icon: <EyeIcon />, label: "Hide from Sidebar", link: "" },
     { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" },
