@@ -31,19 +31,13 @@ export default function HelpSupportPopup() {
     });
     const [homeProps, setHomeProps] = useState<HomeScreenProps>({
         name: "Alexander",
-        onMessageClick: () => {
-            changeTab("Chat");
-            setChatProps({ ...chatProps, chat: [] });
-        },
+        onMessageClick: () => handleSendMessageClick(),
         onSearchClick: () => {
             changeTab("Help");
             setHelpProps({ ...helpProps, autoFocus: true });
         },
         recentMessage: testMessagesData[0],
-        onRecentMessageClick: () => {
-            changeTab("Chat");
-            setChatProps({ ...chatProps, chat: testChatData });
-        }
+        onRecentMessageClick: () => handleSendMessageClick(testMessagesData[0].chat)
     });
     const [messagesProps, setMessagesProps] = useState<MessagesScreenProps>({
         messages: testMessagesData,
@@ -60,7 +54,8 @@ export default function HelpSupportPopup() {
         },
         setActiveCollection: (collection: Collection | null) => {
             setHelpProps({ ...helpProps, activeCollection: collection });
-        }
+        },
+        onSendMessageClick: () => handleSendMessageClick()
     });
 
     function changeTab(tab: TabType) {
