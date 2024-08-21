@@ -1,0 +1,6 @@
+.ul, .ol {
+    padding: 0px 0px 0px 21px;
+    margin: 0;
+    color: var(--text-color)
+}
+
