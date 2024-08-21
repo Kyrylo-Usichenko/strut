@@ -64,15 +64,16 @@ export default function HelpSupportPopup() {
     });
 
     function changeTab(tab: TabType) {
-        setTabs({ active: tab, prev: tabs.active });
+        setTabs((prevState) => ({ active: tab, prev: prevState.active }));
     }
 
     function returnToPreviousTab() {
-        setTabs({ active: tabs.prev, prev: tabs.active });
+        setTabs((prevState) => ({ active: prevState.prev, prev: prevState.active }));
     }
 
     function handleSendMessageClick(chat?: ChatMessage[]) {
-        changeTab("Chat");
+        setTabs((prevState) => ({ active: "Chat", prev: prevState.active }));
+
         setChatProps({
             ...chatProps,
             chat: chat || [],

@@ -1,11 +1,15 @@
 .main{
     width: 400px;
     height: 666px;
+    min-height: 80px;
+    max-height: 704px;
     background-color: rgb(255, 255, 255);
-    border-radius: 12px;
+    border-radius: 16px;
     position: relative;
     overflow: hidden;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
+    transition: width 200ms, height 200ms, max-height 200ms, transform 300ms cubic-bezier(0, 1.2, 1, 1), opacity 83ms ease-out;
 }
 
 .content{
