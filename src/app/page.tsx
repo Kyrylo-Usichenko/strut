@@ -42,10 +42,6 @@ export default function Home() {
                 <Sidebar />
             </div>
             <div className={s.item}>
-                <span className={s.title}>Help Support Popup</span>
-                <HelpSupportPopup />
-            </div>
-            <div className={s.item}>
                 <span className={s.title}>Account menu</span>
                 <div style={{ position: "relative" }}>
                     <AccountMenu />
@@ -206,6 +202,10 @@ export default function Home() {
                 <BrandVoiceMenu onMenuClick={() => {}} initialData={initialData} />
                 <span className={s.title}>Usage</span>
                 <BrandVoiceButton />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Help Support Popup</span>
+                <HelpSupportPopup />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Create Task</span>
