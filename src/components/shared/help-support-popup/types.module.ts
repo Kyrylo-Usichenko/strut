@@ -51,4 +51,5 @@ export type HelpScreenProps = {
     setSearchValue?: (value: string) => void;
     activeCollection?: Collection | null;
     setActiveCollection?: (collection: Collection | null) => void;
+    onSendMessageClick?: () => void;
 };
