@@ -196,9 +196,7 @@ export default function Home() {
                 </div>
             </div>
             <div className={s.item}>
-                <span className={s.title} style={{ width: "400px" }}>
-                    Brand voice modal
-                </span>
+                <span className={s.title}>Brand voice modal</span>
                 <BrandVoiceMenu onMenuClick={() => {}} initialData={initialData} />
                 <span className={s.title}>Usage</span>
                 <BrandVoiceButton />

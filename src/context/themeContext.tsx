@@ -53,5 +53,3 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     if (!theme) return null;
     return <ThemeContext.Provider value={{ theme, setTheme: handleThemeChange }}>{children}</ThemeContext.Provider>;
 };
-
-export default ThemeProvider;

@@ -39,7 +39,7 @@ function SidebarItem({ icon, label, link, isActive = false, hasMenu = false, onC
                             tooltipDirection="right"
                             tooltipVisible={!isVisible}
                             className={styles.button}
-                        ></ButtonIconOnly>
+                        />
                         <PopupMenu items={items} direction="right" visible={isVisible} />
                     </div>
                 )}

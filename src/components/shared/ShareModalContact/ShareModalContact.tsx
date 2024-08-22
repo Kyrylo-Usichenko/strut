@@ -1,9 +1,7 @@
 "use client";
-
-import Image from "next/image";
-import styles from "./ShareModalContact.module.css";
-import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
 import React from "react";
+import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
+import styles from "./ShareModalContact.module.css";
 
 type Props = {
     name: string;
@@ -31,7 +29,7 @@ export default function ShareModalContact({ name, image, status, handleButtonCli
                             onClick={handleButtonClick}
                             data-button-id={contactIndex}
                         >
-                            Can edit{" "}
+                            Can edit
                             <span className={styles.arrow}>
                                 <SmallArrowIcon />
                             </span>

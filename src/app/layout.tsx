@@ -1,4 +1,4 @@
-import ThemeProvider from "~/context/themeContext";
+import { ThemeProvider } from "~/context/themeContext";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter, Roboto, Oxygen, Ubuntu, Cantarell, Fira_Sans } from "next/font/google";

@@ -9,7 +9,7 @@ export default function HiddenSpan({ text, setWidth }: HiddenSpanProps) {
         if (spanRef.current) {
             spanRef.current.textContent = text;
             const textWidth = Math.ceil(spanRef.current.getBoundingClientRect().width);
-            setWidth(textWidth + 12);
+            setWidth(textWidth);
         }
     }, [text, setWidth]);
 
