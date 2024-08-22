@@ -1,0 +1,132 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 32px;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 40px 0px 40px;
+    height: fit-content;
+}
+.backIcon {
+    transform: rotate(180deg);
+}
+.right {
+    position: relative;
+}
+
+.button,
+.button:hover {
+    background-color: var(--button-hover-color);
+    color: var(--text-hover-color);
+}
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.contentTitle {
+    line-height: 20px;
+    color: var(--text-color);
+    font-size: 14px;
+
+    & .title {
+        margin-bottom: 4px;
+        line-height: 28px;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-hover-color);
+    }
+}
+
+.inputContainer {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--box-border-color);
+}
+
+.textarea {
+    box-sizing: border-box;
+    min-height: 210px;
+    width: 100%;
+    line-height: 24px;
+    outline: none;
+    border: none;
+    border-radius: 16px;
+    padding: 24px 32px 160px;
+    background-color: var(--hover-item-color);
+    color: var(--text-hover-color);
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    font-size: 16px;
+    resize: none;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    white-space: break-spaces;
+}
+
+.textarea::placeholder {
+    color: var(--text-color);
+}
+
+.charCount {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    line-height: 16px;
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+.typing {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    padding: 10px 15px;
+    border-radius: 24px;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    box-shadow:
+        var(--box-shadow-color) 0px 4px 8px,
+        var(--box-shadow-color) 0px 8px 50px;
+}
+
+.typing p {
+    padding: 2px 0px;
+}
+
+.typing button {
+    font-size: 14px;
+    display: flex;
+    gap: 8px;
+    padding: 2px 10px;
+    color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.typing button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}

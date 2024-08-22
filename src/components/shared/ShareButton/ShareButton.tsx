@@ -2,8 +2,8 @@
 
 import ShareModal from "~/components/shared/share-modal/page";
 import Modal from "../Modal/Modal";
-import styles from "./ShareButton.module.css";
 import { useState } from "react";
+import Button from "../button/Button";
 
 export default function ShareButton() {
     const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
@@ -13,9 +13,7 @@ export default function ShareButton() {
     }
     return (
         <div>
-            <button className={styles.btn} onClick={() => setIsModalOpened(true)}>
-                Share
-            </button>
+            <Button text="Share" onClick={() => setIsModalOpened(true)} withoutBackground={true} />
             {isModalOpened && (
                 <Modal isOpen={isModalOpened} onClose={closeMenu}>
                     <ShareModal />

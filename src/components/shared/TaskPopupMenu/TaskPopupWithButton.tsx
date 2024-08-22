@@ -14,8 +14,8 @@ type TaskPopupWithButtonProps = {
 };
 
 export const taskItems: MenuItem[] = [
-    { icon: <TrashBinIcon />, label: "Delete Document", link: "" },
-    { icon: <ExportIcon />, label: "Export Markdown", link: "" }
+    { icon: <TrashBinIcon />, label: "Delete Document" },
+    { icon: <ExportIcon />, label: "Export Markdown" }
 ];
 
 export const docInfo = { words: 1, chars: 5, time: 1 };

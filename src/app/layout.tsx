@@ -1,4 +1,5 @@
-import ThemeProvider from "~/context/themeContext";
+import { ThemeProvider } from "~/context/themeContext";
+import { BrandVoiceProvider } from "~/context/brandVoiceContext";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter, Roboto, Oxygen, Ubuntu, Cantarell, Fira_Sans } from "next/font/google";
@@ -82,7 +83,9 @@ export default function RootLayout({
                 </Script>
             </head>
             <body>
-                <ThemeProvider>{children}</ThemeProvider>
+                <ThemeProvider>
+                    <BrandVoiceProvider>{children}</BrandVoiceProvider>
+                </ThemeProvider>
             </body>
         </html>
     );

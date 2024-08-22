@@ -5,18 +5,18 @@ import styles from "./menu.module.css";
 type Props = {
     icon: JSX.Element;
     label: string;
-    link: string;
+    onClick?: () => void;
     isActive?: boolean;
 };
 
-function PopupMenuItem({ icon, label, link, isActive = false }: Props) {
+function PopupMenuItem({ icon, label, isActive = false, onClick = () => {} }: Props) {
     return (
-        <Link href={link}>
-            <div className={`${styles.item} ${isActive ? styles.isActive : ""}`}>
+        <div>
+            <div className={`${styles.item} ${isActive ? styles.isActive : ""}`} onClick={onClick}>
                 {icon}
                 <span>{label}</span>
             </div>
-        </Link>
+        </div>
     );
 }
 

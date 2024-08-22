@@ -1,8 +1,8 @@
-import styles from "./TextInput.module.css";
 import { TextInputProps } from "./TextInput.types";
 import HiddenSpan from "../hidden-span/HiddenSpan";
+import styles from "./TextInput.module.css";
 
-export default function TextInput({ value, width, styleMode, onChange, setWidth }: TextInputProps) {
+export default function TextInput({ value, width, styleMode, onChange, setWidth, onBlur }: TextInputProps) {
     if (styleMode === "kanban") {
         return (
             <input
@@ -11,6 +11,7 @@ export default function TextInput({ value, width, styleMode, onChange, setWidth 
                 placeholder="Untitled"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
+                onBlur={onBlur}
             />
         );
     }
@@ -23,6 +24,7 @@ export default function TextInput({ value, width, styleMode, onChange, setWidth 
                 placeholder="Untitled"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
+                onBlur={() => onBlur?.()}
                 style={{ width: `${width}px` }}
             />
         </>

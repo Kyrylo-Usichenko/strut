@@ -10,8 +10,8 @@ html[data-theme="dark"] {
     --text-hover-color: rgba(255, 255, 255, 0.8);
 
     --tooltip-bg-color: rgba(255, 255, 255, 0.2);
-    --tooltip-keys-color: rgba(255, 255, 255, 0.2);;
-    --tooltip-text: rgb(255, 255, 255);
+    --tooltip-keys-color: rgba(255, 255, 255, 0.2);
+    --tooltip-keys-color: rgba(255, 255, 255, 0.2);
 
     --button-bg-color: rgba(255, 255, 255, 0.05);
     --button-hover-color: rgba(255, 255, 255, 0.1);
@@ -21,7 +21,7 @@ html[data-theme="dark"] {
     --checked-icon-color: rgba(255, 255, 255, 0.8);
     --checked-icon-bg: rgba(255, 255, 255, 0.5);
 
-    --input-bg-color: rgb(39, 40, 41);
+    --input-bg-color: rgb(43, 44, 44);
     --input-border-color: rgba(255, 255, 255, 0.1);
 
     --box-shadow-color: rgba(0, 0, 0, 0.05);
@@ -29,6 +29,9 @@ html[data-theme="dark"] {
     --border-thin-color: rgba(255, 255, 255, 0.025);
     --box-border-color: rgba(255, 255, 255, 0.1);
     --box-border-thick: rgba(255, 255, 255, 0.15);
+
+    --scrollbar-thumb-color: rgba(255, 255, 255, 0.25);
+    --scrollbar-track-color: rgba(255, 255, 255, 0.1);
 }
 
 html[data-theme="light"] {

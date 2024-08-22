@@ -20,17 +20,17 @@ import DropArea from "../DropArea/DropArea";
 import DropAreaForGridView from "../DropAreaForGridView/DropAreaForGridView";
 
 const stageItemsTop: MenuItem[] = [
-    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsCenter: MenuItem[] = [
-    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
-    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up" },
+    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsBottom: MenuItem[] = [
-    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 
 type textData = {

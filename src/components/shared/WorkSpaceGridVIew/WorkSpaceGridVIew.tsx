@@ -14,10 +14,10 @@ type Props = {
     title: string;
 };
 const items: MenuItem[] = [
-    { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
-    { icon: <EyeIcon />, label: "Hide from Sidebar", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" },
-    { icon: <DuplicateIcon />, label: "Duplicate Workspace", link: "" }
+    { icon: <ExportIcon />, label: "Export to Markdown" },
+    { icon: <EyeIcon />, label: "Hide from Sidebar" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" },
+    { icon: <DuplicateIcon />, label: "Duplicate Workspace" }
 ];
 
 export default function WorkSpaceGridVIew({ title }: Props) {
