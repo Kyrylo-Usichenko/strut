@@ -1,0 +1,186 @@
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    padding: 8px;
+    transition:
+        min-height 150ms ease-out 0s,
+        max-height 150ms ease-out 0s,
+        background-color 150ms ease-in-out 0s;
+    min-height: 64px;
+    max-height: 64px;
+    background-color: rgb(245, 244, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerSpan {
+    padding: 8px 4px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
+    width: 100%;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.upperPart {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px 50px 0px;
+    gap: 8px;
+}
+
+.image {
+    border-radius: 50%;
+}
+
+.textSpanMain {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    color: rgb(0, 0, 0);
+    display: block;
+}
+
+.textSpanSub {
+    font-size: 14px;
+    line-height: 21px;
+    text-wrap: wrap;
+    color: rgb(115, 115, 115);
+}
+
+.lowerPart {
+    bottom: 16px;
+    min-height: 48px;
+    max-height: 200px;
+    padding: 0px 20px 16px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input {
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px;
+    outline: rgb(111, 113, 122) solid 0px;
+    appearance: none;
+    resize: none;
+    border: none;
+    background: none;
+    font-size: 14px;
+    line-height: 20px;
+    max-height: 200px;
+    padding: 14px 72px 14px 16px;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    inset: 0px;
+    width: 100%;
+}
+
+.input:focus {
+    outline: rgb(111, 113, 122) solid 2px;
+}
+
+.buttons {
+    color: rgb(118, 118, 118);
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    position: absolute;
+    bottom: 26px;
+    right: 28px;
+}
+
+.sendButton {
+    color: rgb(255, 255, 255);
+    background: rgb(111, 113, 122);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sendButton:disabled {
+    color: rgba(111, 113, 122, 0.12);
+    background: rgba(111, 113, 122, 0.1);
+}
+
+.chat {
+    flex: 1 1 auto;
+    padding: 24px 20px 0px;
+    width: 100%;
+}
+
+.messageWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.messageWrapper.supportMessage {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.userBubble {
+    position: relative;
+    padding: 17px 20px;
+    border-radius: 10px;
+    width: auto;
+    max-width: 75%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(111, 113, 122);
+    float: right;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.supportBubble {
+    position: relative;
+    padding: 17px 20px;
+    border-radius: 10px;
+    width: auto;
+    max-width: 75%;
+    color: rgb(0, 0, 0);
+    background-color: rgb(242, 244, 242);
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.avatar {
+    position: relative;
+    left: 0px;
+    bottom: 10px;
+    margin-right: 8px;
+}
+
+.timeSentTooltip {
+    position: absolute;
+    border-radius: 4px;
+    padding: 2px 4px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(111, 113, 122);
+    font-size: 12px;
+    z-index: 100000;
+    transform: translateX(-50%);
+}

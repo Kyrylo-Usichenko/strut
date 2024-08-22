@@ -9,13 +9,18 @@ import { MenuItem } from "../PopupMenu/PopupMenu";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
 
+type TaskPopupWithButtonProps = {
+    docInfo?: { words: number; chars: number; time: number };
+};
+
 export const taskItems: MenuItem[] = [
     { icon: <TrashBinIcon />, label: "Delete Document", link: "" },
     { icon: <ExportIcon />, label: "Export Markdown", link: "" }
 ];
 
 export const docInfo = { words: 1, chars: 5, time: 1 };
-function TaskPopupWithButton() {
+function TaskPopupWithButton({ docInfo }: TaskPopupWithButtonProps) {
+    docInfo = docInfo || { words: 0, chars: 0, time: 0 };
     const { isVisible, setIsVisible, ref } = useVisible(false);
     const handleButtonClick = () => {
         setIsVisible(!isVisible);

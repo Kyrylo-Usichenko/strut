@@ -1,0 +1,38 @@
+.iconWrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto 8px;
+    pointer-events: none;
+}
+
+.menuButton, .activeMenuButton{
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 18px 3px;
+    cursor: pointer;
+    transition: all 150ms ease 0s;
+    line-height: 14px;
+    overflow: hidden;
+    text-overflow: clip;
+    text-align: center;
+}
+
+.menuButton{
+    color: rgb(26, 26, 26);
+}
+
+.activeMenuButton{
+    color: rgb(111, 113, 122);
+    font-weight: 600;   
+}
+
+.text{
+    display: block;
+    text-align: center;
+    margin: 0px auto;
+}
