@@ -19,6 +19,7 @@ type Props = {
     onDrop: (status: string, position: number) => void;
     status: string;
     activeCard: ActiveCard;
+    onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
 };
 
 export default function KanbanViewBottom({
@@ -28,10 +29,11 @@ export default function KanbanViewBottom({
     setActiveCard,
     status,
     onDrop,
-    activeCard
+    activeCard,
+    onTagChecked
 }: Props) {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{ position: "relative" }}>
             <DropArea onDrop={() => onDrop(status, 0)} activeCard={activeCard} position="top" />
             {dataHeader.map((item, index) => (
                 <div key={index} style={{ position: "relative", width: "100%" }}>
@@ -44,6 +46,8 @@ export default function KanbanViewBottom({
                         index={index}
                         status={status}
                         setActiveCard={setActiveCard}
+                        onTagChecked={onTagChecked}
+                        view="kanban"
                     />
                     <DropArea onDrop={() => onDrop(status, index + 1)} activeCard={activeCard} position="bottom" />
                 </div>

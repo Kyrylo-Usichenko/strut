@@ -28,6 +28,7 @@ type Props = {
     setActiveCard: (card: ActiveCard) => void;
     onDrop: (status: string, position: number) => void;
     activeCard: ActiveCard;
+    onTagChecked: (tags: Tags, status: string, index: number) => void;
 };
 
 const stageItemsTop: MenuItem[] = [
@@ -53,7 +54,8 @@ export default function BoardListViewItem({
     position,
     setActiveCard,
     onDrop,
-    activeCard
+    activeCard,
+    onTagChecked
 }: Props) {
     const [isBottomMenuOpenes, setIsBottomMenuOpenes] = useState<boolean>(false);
     const { isVisible, setIsVisible, ref } = useVisible(false);
@@ -83,7 +85,7 @@ export default function BoardListViewItem({
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{ position: "relative", width: "100%" }}>
             <div className={styles.topPart}>
                 <div className={styles.leftPart}>
                     <div className={styles.ButtonIconOnly}>
@@ -114,7 +116,7 @@ export default function BoardListViewItem({
                     <DropAreaForListView onDrop={() => onDrop(status, 0)} activeCard={activeCard} position="top" />
                     <ul className={styles.list}>
                         {textData.map((text, index) => (
-                            <React.Fragment key={index}>
+                            <div key={index} style={{ position: "relative", width: "100%" }}>
                                 <li>
                                     <BoardListViewBottomItem
                                         tags={text.tags}
@@ -124,6 +126,7 @@ export default function BoardListViewItem({
                                         index={index}
                                         status={status}
                                         setActiveCard={setActiveCard}
+                                        onTagChecked={onTagChecked}
                                     />
                                 </li>
                                 <DropAreaForListView
@@ -131,7 +134,7 @@ export default function BoardListViewItem({
                                     activeCard={activeCard}
                                     position="bottom"
                                 />
-                            </React.Fragment>
+                            </div>
                         ))}
                     </ul>
                 </>

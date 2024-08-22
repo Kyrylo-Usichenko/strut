@@ -72,6 +72,24 @@ export default function KanbanView() {
     const [data, setData] = useState<Column[]>(initialData);
     const [activeCard, setActiveCard] = useState<ActiveCard>(null);
 
+    function onTagChecked(tags: Tags, status: string, title?: string, index?: number) {
+        setData((prevData) => {
+            const newData = prevData.map((column) => {
+                if (column.status === status) {
+                    const newTaskData = column.taskData.map((task, taskIndex) => {
+                        if (taskIndex === index) {
+                            return { ...task, tags };
+                        }
+                        return task;
+                    });
+                    return { ...column, taskData: newTaskData };
+                }
+                return column;
+            });
+            return newData;
+        });
+    }
+
     const onDrop = (toStatus: string, position: number) => {
         if (activeCard) {
             const { index: fromIndex, status: fromStatus, content } = activeCard;
@@ -86,14 +104,11 @@ export default function KanbanView() {
                     fromColumn.taskData.splice(fromIndex, 1);
                     toColumn.taskData.splice(position, 0, content);
                 }
-
+                setActiveCard(null);
                 return newData;
             });
-
-            // console.log(
-            //     `Картка "${content.header}" із індексом ${fromIndex} із колонки "${fromStatus}" переміщується в колонку "${toStatus}" на місце ${position}`
-            // );
         }
+        setActiveCard(null);
     };
 
     return (
@@ -110,6 +125,7 @@ export default function KanbanView() {
                     setActiveCard={setActiveCard}
                     activeCard={activeCard}
                     onDrop={onDrop}
+                    onTagChecked={onTagChecked}
                 />
             ))}
         </div>

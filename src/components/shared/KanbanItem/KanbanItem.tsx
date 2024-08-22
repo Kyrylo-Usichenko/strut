@@ -20,6 +20,7 @@ type Props = {
     setActiveCard: (card: ActiveCard) => void;
     onDrop: (status: string, position: number) => void;
     activeCard: ActiveCard;
+    onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
 };
 
 export default function KanbanItem({
@@ -31,7 +32,8 @@ export default function KanbanItem({
     position,
     setActiveCard,
     onDrop,
-    activeCard
+    activeCard,
+    onTagChecked
 }: Props) {
     return (
         <div className={styles.container}>
@@ -44,6 +46,7 @@ export default function KanbanItem({
                 onDrop={onDrop}
                 status={title}
                 activeCard={activeCard}
+                onTagChecked={onTagChecked}
             />
         </div>
     );

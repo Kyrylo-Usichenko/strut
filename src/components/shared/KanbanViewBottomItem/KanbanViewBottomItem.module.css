@@ -4,7 +4,7 @@
     width: 100%;
     min-height: 80px;
     border-radius: 12px;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
     padding: 6px 12px 12px 12px;
     background-color: var(--item-bg-color);
     box-shadow:
@@ -19,7 +19,7 @@
     min-height: 80px;
     border-radius: 12px;
     padding: 6px 12px 12px 12px; */
-    opacity: 0.5;
+    opacity: 1;
     box-shadow: none;
     background-color: var(--button-disabled-color);
 }
@@ -33,7 +33,7 @@
     box-shadow:
         var(--box-shadow-color) 0px 4px 8px,
         var(--text-color) 0px 0px 0px 2px;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
 }
 
 .container:hover {

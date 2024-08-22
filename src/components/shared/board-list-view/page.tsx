@@ -101,25 +101,46 @@ export default function BoardListView() {
     const [data, setData] = useState<Column[]>(initialData);
     const [activeCard, setActiveCard] = useState<ActiveCard>(null);
 
-    const onDrop = (toStatus: string, position: number) => {
-        if (activeCard) {
-            const { index: fromIndex, status: fromStatus, content } = activeCard;
-
-            setData((prevData) => {
-                const newData = JSON.parse(JSON.stringify(prevData)) as Column[];
-
-                const fromColumn = newData.find((col) => col.status === fromStatus);
-                const toColumn = newData.find((col) => col.status === toStatus);
-
-                if (fromColumn && toColumn) {
-                    fromColumn.textData.splice(fromIndex, 1);
-                    toColumn.textData.splice(position, 0, content);
+    const onTagChecked = (tags: Tags, status: string, index: number) => {
+        setData((prevData) => {
+            return prevData.map((column) => {
+                if (column.status === status) {
+                    const newTextData = [...column.textData];
+                    newTextData[index] = {
+                        ...newTextData[index],
+                        tags: tags
+                    };
+                    return { ...column, textData: newTextData };
                 }
-
-                return newData;
+                return column;
             });
-        }
+        });
     };
+
+    const onDrop = useCallback(
+        (toStatus: string, position: number) => {
+            if (activeCard) {
+                const { index: fromIndex, status: fromStatus, content } = activeCard;
+
+                setData((prevData) => {
+                    const newData = JSON.parse(JSON.stringify(prevData)) as Column[];
+
+                    const fromColumn = newData.find((col) => col.status === fromStatus);
+                    const toColumn = newData.find((col) => col.status === toStatus);
+
+                    if (fromColumn && toColumn) {
+                        fromColumn.textData.splice(fromIndex, 1);
+                        toColumn.textData.splice(position, 0, content);
+                    }
+
+                    return newData;
+                });
+
+                setActiveCard(null);
+            }
+        },
+        [activeCard, setData, setActiveCard]
+    );
     return (
         <div className={styles.wrapper}>
             {data.map((item, index) => (
@@ -134,6 +155,7 @@ export default function BoardListView() {
                     activeCard={activeCard}
                     setActiveCard={setActiveCard}
                     onDrop={onDrop}
+                    onTagChecked={onTagChecked}
                 />
             ))}
         </div>

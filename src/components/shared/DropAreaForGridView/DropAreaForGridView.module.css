@@ -5,8 +5,27 @@
     border-radius: 12px;
     opacity: 1;
     /* transition: all 0.2s ease-in-out; */
-    margin-top: 8px;
-    /* margin-bottom: 8px; */
+    /* margin-top: 16px; */
+    margin-bottom: 16px;
+    border-radius: 12px;
+    padding: 6px 12px 12px 12px;
+    background-color: var(--item-bg-color);
+    box-shadow:
+        var(--box-shadow-color) 0px 4px 8px,
+        var(--box-border-color) 0px 0px 0px 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+.dropAreaBottom {
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 12px;
+    opacity: 1;
+    /* transition: all 0.2s ease-in-out; */
+    /* margin-top: 16px; */
+    margin-top: 16px;
+    /* margin-bottom: 16px; */
     border-radius: 12px;
     padding: 6px 12px 12px 12px;
     background-color: var(--item-bg-color);
@@ -19,7 +38,7 @@
 .hideDropTop {
     position: absolute;
     z-index: 1000;
-    top: 0;
+    top: 20px;
     left: 0;
     width: 100%;
     height: 40px;
@@ -35,7 +54,7 @@
     bottom: -40px;
     left: 0;
     width: 100%;
-    height: 40px;
+    height: 25px;
     opacity: 0;
     /* background-color: blue; */
 }

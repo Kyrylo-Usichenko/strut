@@ -1,7 +1,7 @@
 "use client";
 import { ActiveCard } from "../kanban-view/page";
 import { StatusMenuWithButton } from "../status-menu/StatusMenuWithButton";
-import styles from "./DropArea.module.css";
+import styles from "./DropAreaForGridView.module.css";
 import { useCallback, useMemo, useState } from "react";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
     position: string;
 };
 
-export default function DropArea({ onDrop, activeCard, position }: Props) {
+export default function DropAreaForGridView({ onDrop, activeCard, position }: Props) {
     const [showDrop, setShowDrop] = useState<boolean>(false);
 
     const handleDragEnter = useCallback((e: React.DragEvent) => {
@@ -43,7 +43,7 @@ export default function DropArea({ onDrop, activeCard, position }: Props) {
 
     const dropAreaClass = useMemo(() => {
         if (showDrop) {
-            return styles.dropArea;
+            return position === "top" ? styles.dropArea : styles.dropAreaBottom;
         }
         return position === "top" ? styles.hideDropTop : styles.hideDropBottom;
     }, [showDrop, position]);
