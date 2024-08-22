@@ -11,10 +11,10 @@ import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 
 export const items: MenuItem[] = [
-    { icon: <ExportIcon />, label: "Export to Markdown", link: "" },
-    { icon: <EyeIcon />, label: "Hide from Sidebar", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" },
-    { icon: <DuplicateIcon />, label: "Duplicate Workspace", link: "" }
+    { icon: <ExportIcon />, label: "Export to Markdown" },
+    { icon: <EyeIcon />, label: "Hide from Sidebar" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" },
+    { icon: <DuplicateIcon />, label: "Duplicate Workspace" }
 ];
 
 function PopupMenuWithButton() {

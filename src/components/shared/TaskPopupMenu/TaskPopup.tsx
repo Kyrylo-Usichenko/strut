@@ -4,7 +4,7 @@ import styles from "../PopupMenu/menu.module.css";
 import task from "./task.module.css";
 
 type Props = {
-    items: { icon: JSX.Element; label: string; link: string }[];
+    items: { icon: JSX.Element; label: string }[];
     direction?: "top" | "bottom" | "left" | "right";
     docInfo: { words: number; chars: number; time: number };
     visible: boolean;
