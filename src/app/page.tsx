@@ -25,12 +25,14 @@ import StageIconMenuComponent from "~/components/shared/StageIconMenuComponent/S
 import LabelMenuItem from "~/components/shared/LabelMenuItem/LabelMenuItem";
 import GridView from "~/components/shared/GridView/GridView";
 import BoardGridView from "./board-grid-view/page";
+import Task from "~/components/shared/task/Task";
 import ShareModal from "./share-modal/page";
 import ShareButton from "~/components/shared/ShareButton/ShareButton";
 import BrandVoices from "./brand-voices/page";
 import s from "./styles.module.css";
 import BrandVoiceMenu from "../components/shared/brand-voice-menu/page";
 import BrandVoiceButton, { initialData } from "~/components/shared/brand-voice-button/BrandVoiceButton";
+import HelpSupportPopup from "~/components/shared/help-support-popup/HelpSupportPopup";
 
 export default function Home() {
     return (
@@ -200,6 +202,36 @@ export default function Home() {
                 <BrandVoiceMenu onMenuClick={() => {}} initialData={initialData} />
                 <span className={s.title}>Usage</span>
                 <BrandVoiceButton />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Help Support Popup</span>
+                <HelpSupportPopup />
+            </div>
+            <div className={s.item}>
+                <span className={s.title}>Create Task</span>
+                <div style={{ position: "relative", height: 800, width: 600, backgroundColor: "rgb(27, 28, 28)" }}>
+                    <Task
+                        content={[
+                            { text: "Test doc", textType: "documentTitle" },
+                            {
+                                text: "This is really formatted task 1",
+                                textType: "p",
+                                boldParts: [{ start: 3, end: 7 }],
+                                italicParts: [{ start: 0, end: 9 }],
+                                strikethroughParts: [{ start: 2, end: 8 }],
+                                highlightedParts: [{ start: 1, end: 10 }],
+                                linkParts: [{ start: 4, end: 6, url: "https://google.com" }]
+                            },
+                            { text: "This is a task 2", textType: "p", listType: "bulleted" },
+                            { text: "This is a task 3", textType: "p", listType: "bulleted" },
+                            { text: "This is a task 4", textType: "p" },
+                            { text: "This is a task 5", textType: "p", listType: "numbered" },
+                            { text: "This is a task 6", textType: "p", listType: "numbered" },
+                            { text: "This is a task 8", textType: "p", listType: "toDoChecked" },
+                            { text: "This is a task 9", textType: "p", listType: "toDoUnchecked" }
+                        ]}
+                    />
+                </div>
             </div>
         </main>
     );

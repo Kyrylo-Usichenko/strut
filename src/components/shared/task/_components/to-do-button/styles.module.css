@@ -1,0 +1,21 @@
+.button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 16px;
+    width: 16px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    border: 2px solid var(--tooltip-bg-color);
+    color: var(--text-hover-color);
+    transition: background-color 0.1s ease-in-out 0s;
+}
+
+.button:hover {
+    border: 2px solid var(--text-color);
+    cursor: "pointer";
+}
+
