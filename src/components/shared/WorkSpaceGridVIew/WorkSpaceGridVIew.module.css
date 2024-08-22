@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     width: calc(100% / 3 - 32px);
     height: 224px;
@@ -37,7 +37,7 @@
 
 .containerActive {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     width: calc(100% / 3 - 32px);
     height: 224px;
