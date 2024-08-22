@@ -12,8 +12,7 @@ export default function HelpScreen({
     searchValue = "",
     setSearchValue = () => {},
     activeCollection = null,
-    setActiveCollection = () => {},
-    onSendMessageClick = () => {}
+    setActiveCollection = () => {}
 }: HelpScreenProps) {
     function searchCollections() {
         return collections.filter((collection) => {
@@ -62,7 +61,7 @@ export default function HelpScreen({
                 ) : searchValue === "" ? (
                     <MainContent collections={collections} collectionClickHandler={setActiveCollection} />
                 ) : searchCollections().length === 0 ? (
-                    <NoResultsContent searchString={searchValue} onClick={onSendMessageClick} />
+                    <NoResultsContent searchString={searchValue} />
                 ) : (
                     <MainContent collections={searchCollections()} collectionClickHandler={setActiveCollection} />
                 )}
@@ -142,14 +141,14 @@ function CollectionContent({ collection }: CollectionContentProps) {
     );
 }
 
-function NoResultsContent({ searchString, onClick }: { searchString: string; onClick?: () => void }) {
+function NoResultsContent({ searchString }: { searchString: string }) {
     return (
         <div className={styles.noResultsDiv}>
             <p className={styles.tryAgain}>Try Again</p>
             <p className={styles.noResults}>
                 No results for <b className={styles.bold}>&apos;{searchString}&apos;</b>
             </p>
-            <SendMessageButton colorMode="light" onClick={onClick} />
+            <SendMessageButton colorMode="light" />
         </div>
     );
 }
