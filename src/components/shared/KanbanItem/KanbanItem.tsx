@@ -1,3 +1,4 @@
+import { ActiveCard } from "../kanban-view/page";
 import KanbanItemHeader from "../KanbanItemHeader/KanbanItemHeader";
 import KanbanViewBottom from "../KanbanViewBottom/KanbanViewBottom";
 import { Tags } from "../label-menu/LabelMenu";
@@ -11,18 +12,42 @@ type HeaderProps = {
 
 type Props = {
     icon: React.ReactElement;
-    title?: string;
+    title: string;
     number: number;
     dataHeader: HeaderProps[];
     color: string;
     position?: "left" | "right" | "center";
+    setActiveCard: (card: ActiveCard) => void;
+    onDrop: (status: string, position: number) => void;
+    activeCard: ActiveCard;
+    onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
 };
 
-export default function KanbanItem({ icon, title, number, dataHeader, color, position }: Props) {
+export default function KanbanItem({
+    icon,
+    title,
+    number,
+    dataHeader,
+    color,
+    position,
+    setActiveCard,
+    onDrop,
+    activeCard,
+    onTagChecked
+}: Props) {
     return (
         <div className={styles.container}>
             <KanbanItemHeader icon={icon} number={number} title={title} color={color} position={position} />
-            <KanbanViewBottom icon={icon} dataHeader={dataHeader} color={color} />
+            <KanbanViewBottom
+                icon={icon}
+                dataHeader={dataHeader}
+                color={color}
+                setActiveCard={setActiveCard}
+                onDrop={onDrop}
+                status={title}
+                activeCard={activeCard}
+                onTagChecked={onTagChecked}
+            />
         </div>
     );
 }

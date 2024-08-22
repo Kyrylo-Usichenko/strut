@@ -1,6 +1,6 @@
 "use client";
 
-import ShareModal from "~/app/share-modal/page";
+import ShareModal from "~/components/shared/share-modal/page";
 import Modal from "../Modal/Modal";
 import styles from "./ShareButton.module.css";
 import { useState } from "react";

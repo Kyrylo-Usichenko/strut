@@ -1,13 +1,10 @@
 "use client";
 import { useState } from "react";
-import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
 import SmallChekIcon from "~/components/icons/SmallChekIcon";
 import { StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
-import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
-import TagIcon from "~/components/icons/TagIcon";
-import LabelMenuItem from "../LabelMenuItem/LabelMenuItem";
 import styles from "./KanbanViewBottomItem.module.css";
 import LabelMenu, { Tags } from "../label-menu/LabelMenu";
+import { ActiveCard } from "../kanban-view/page";
 
 type Props = {
     icon: React.ReactElement;
@@ -15,20 +12,39 @@ type Props = {
     data: string[];
     color: string;
     tags: Tags;
+    index: number;
+    setActiveCard: (card: ActiveCard) => void;
+    status: string;
+    view: "kanban" | "grid";
+    onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
 };
 
-export default function KanbanViewBottomItem({ icon, header, data, color, tags }: Props) {
+export default function KanbanViewBottomItem({
+    icon,
+    header,
+    data,
+    color,
+    tags,
+    index,
+    setActiveCard,
+    status,
+    onTagChecked,
+    view
+}: Props) {
     const [isChekIconActive, setIsChekIconActive] = useState<boolean>(false);
-    // const { isVisible, setIsVisible, ref } = useVisible(false);
     const [isVisible, setIsVisible] = useState<boolean>(false);
-    const [initialTags, setInitialTags] = useState<Tags>(tags);
+    // const [tags, setTags] = useState<Tags>(initialTags);
 
     function hahdleCheckIcon() {
         setIsChekIconActive(!isChekIconActive);
     }
 
-    function onTagChecked(data: Tags) {
-        setInitialTags(data);
+    function onTagCheckedInLabelMenu(tags: Tags) {
+        // setTags(tags);
+        if (view === "kanban") {
+            onTagChecked(tags, status, "", index);
+        }
+        onTagChecked(tags, status, header, index);
     }
 
     function handleCLickLabel(isVisible: boolean) {
@@ -36,7 +52,18 @@ export default function KanbanViewBottomItem({ icon, header, data, color, tags }
     }
 
     return (
-        <div className={`${isChekIconActive ? styles.containerActive : styles.container}`}>
+        <div
+            className={`${isChekIconActive ? styles.containerActive : styles.container}`}
+            draggable
+            onDragStart={() => {
+                setActiveCard({
+                    index,
+                    status,
+                    content: { header, data, tags }
+                });
+            }}
+            onDragEnd={() => setActiveCard(null)}
+        >
             <a
                 className={`${isChekIconActive ? styles.chekedIconActive : styles.chekedIcon}`}
                 onClick={hahdleCheckIcon}
@@ -44,7 +71,7 @@ export default function KanbanViewBottomItem({ icon, header, data, color, tags }
                 <SmallChekIcon />
             </a>
             <div className={`${isVisible ? styles.tagActive : styles.tag}`}>
-                <LabelMenu tags={initialTags} onTagChecked={onTagChecked} handleCLickLabel={handleCLickLabel} />
+                <LabelMenu tags={tags} onTagChecked={onTagCheckedInLabelMenu} handleCLickLabel={handleCLickLabel} />
             </div>
             <h3 className={styles.title}>{header}</h3>
             {data.map((item, index) => (
@@ -54,7 +81,7 @@ export default function KanbanViewBottomItem({ icon, header, data, color, tags }
             ))}
             <div className={styles.icon}>
                 <StatusMenuWithButton />
-                {initialTags.map((item, index) =>
+                {tags.map((item, index) =>
                     item.isChecked ? (
                         <div key={index} className={styles.tagText}>
                             {item.text}

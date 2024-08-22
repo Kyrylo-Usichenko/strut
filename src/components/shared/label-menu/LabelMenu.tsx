@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () => {} }: Props) {
-    const [tagsData, setTagsData] = useState<Tags>(tags);
+    // const [tagsData, setTagsData] = useState<Tags>(tags);
     const [inputValue, setInputValue] = useState<string>("");
     const [hoveredItem, setHoveredItem] = useState<number | null>(0);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () =>
     const ref = useRef<HTMLDivElement | null>(null);
     const { isVisible, setIsVisible } = useVisible(false);
 
-    const filteredTagsData = tagsData.filter((item) => item.text.toLowerCase().includes(inputValue.toLowerCase()));
+    const filteredTagsData = tags.filter((item) => item.text.toLowerCase().includes(inputValue.toLowerCase()));
 
     function handleInputEnter(e: React.ChangeEvent<HTMLInputElement>) {
         setInputValue(e.target.value.trim());
@@ -74,9 +74,9 @@ export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () =>
     };
 
     const onTagClick = (index: number) => {
-        const updatedTags = [...tagsData];
+        const updatedTags = [...tags];
         updatedTags[index].isChecked = !updatedTags[index].isChecked;
-        setTagsData(updatedTags);
+        // setTagsData(updatedTags);
         onTagChecked(updatedTags);
         setIsVisible(false);
         handleCLickLabel(false);
@@ -84,8 +84,8 @@ export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () =>
 
     const handleCreateTag = () => {
         const newTag = { text: inputValue, isChecked: true };
-        const updatedTags = [...tagsData, newTag];
-        setTagsData(updatedTags);
+        const updatedTags = [...tags, newTag];
+        // setTagsData(updatedTags);
         onTagChecked(updatedTags);
         setInputValue("");
         setIsVisible(false);
@@ -163,7 +163,7 @@ export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () =>
                         </button>
                     )}
 
-                    {tagsData.length === 0 && !inputValue && <p className={styles.tagText}>No tags yet</p>}
+                    {tags.length === 0 && !inputValue && <p className={styles.tagText}>No tags yet</p>}
                 </div>
             )}
         </div>

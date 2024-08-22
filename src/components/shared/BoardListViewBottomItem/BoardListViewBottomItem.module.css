@@ -1,9 +1,17 @@
 .container {
+    cursor: grab;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px 16px 36px;
     box-shadow: var(--border-thin-color) 0px 1px 0px 0px;
+    transition: transform 0.1s ease-out;
+}
+
+.container:active {
+    /* opacity: 0.7; */
+    box-shadow: var(--border-thin-color) 0px 1px 0px 0px;
+    background-color: var(--active-item-color);
 }
 
 .leftSide {
@@ -81,7 +89,7 @@
     gap: 8px;
 }
 
-.textWithTags{
+.textWithTags {
     margin-left: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -89,7 +97,7 @@
     gap: 8px;
 }
 
-.tag{
+.tag {
     background-color: var(--hover-item-color);
     padding: 2px 8px;
     border-radius: 20px;

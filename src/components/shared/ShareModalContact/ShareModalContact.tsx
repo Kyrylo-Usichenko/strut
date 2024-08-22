@@ -3,27 +3,18 @@
 import Image from "next/image";
 import styles from "./ShareModalContact.module.css";
 import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
-import { useVisible } from "../PopupMenu/utils/useVisible";
-import CheckIcon from "~/components/icons/CheckIcon";
+import React from "react";
 
 type Props = {
     name: string;
     image: string;
     status: string;
-    onRemove: () => void;
+    handleButtonClick: (event: React.MouseEvent) => void;
+    isVisible: boolean;
+    contactIndex: number;
 };
 
-export default function ShareModalContact({ name, image, status, onRemove }: Props) {
-    const { ref, isVisible, setIsVisible } = useVisible(false);
-
-    function handleOpenMenu() {
-        setIsVisible(!isVisible);
-    }
-
-    function deleteContact() {
-        onRemove();
-        setIsVisible(!isVisible);
-    }
+export default function ShareModalContact({ name, image, status, handleButtonClick, isVisible, contactIndex }: Props) {
     return (
         <div className={styles.container}>
             <div className={styles.contactDiv}>
@@ -35,23 +26,16 @@ export default function ShareModalContact({ name, image, status, onRemove }: Pro
                     <p className={styles.owner}>Owner</p>
                 ) : (
                     <div className={styles.meniDiv}>
-                        <div className={`${isVisible ? styles.editActive : styles.edit}`} onClick={handleOpenMenu}>
+                        <button
+                            className={`${isVisible ? styles.editActive : styles.edit}`}
+                            onClick={handleButtonClick}
+                            data-button-id={contactIndex}
+                        >
                             Can edit{" "}
                             <span className={styles.arrow}>
                                 <SmallArrowIcon />
                             </span>
-                        </div>
-                        {isVisible && (
-                            <div className={styles.menu} ref={ref}>
-                                <button className={styles.ediBtn}>
-                                    <CheckIcon />
-                                    Can edit
-                                </button>
-                                <button className={styles.removeBtn} onClick={deleteContact}>
-                                    Remove access
-                                </button>
-                            </div>
-                        )}
+                        </button>
                     </div>
                 )}
             </div>

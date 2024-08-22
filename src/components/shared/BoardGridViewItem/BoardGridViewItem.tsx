@@ -13,8 +13,11 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import StageInput from "~/components/shared/stage-input/StageInput";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
-import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
 import { Tags } from "../label-menu/LabelMenu";
+import KanbanViewBottomItem from "../KanbanViewBottomItem/KanbanViewBottomItem";
+import { ActiveCard } from "../kanban-view/page";
+import DropArea from "../DropArea/DropArea";
+import DropAreaForGridView from "../DropAreaForGridView/DropAreaForGridView";
 
 const stageItemsTop: MenuItem[] = [
     { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
@@ -43,9 +46,24 @@ type Props = {
     number: number;
     data: textData[];
     position: "bottom" | "center" | "top" | string;
+    onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
+    setActiveCard: (card: ActiveCard) => void;
+    onDrop: (postition: string, status: string, title: string) => void;
+    activeCard: ActiveCard;
 };
 
-export default function BoardGridViewItem({ title, icon, iconColor, number, data, position }: Props) {
+export default function BoardGridViewItem({
+    title,
+    icon,
+    iconColor,
+    number,
+    data,
+    position,
+    onTagChecked,
+    setActiveCard,
+    onDrop,
+    activeCard
+}: Props) {
     const [isBottomMenuOpenes, setIsBottomMenuOpenes] = useState<boolean>(false);
     const { isVisible, setIsVisible, ref } = useVisible(false);
 
@@ -145,13 +163,28 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                                 </a>
                             )}
                             {column.map((item: textData, index) => (
-                                <div key={index} className={styles.item}>
+                                <div key={index} className={styles.item} style={{ position: "relative" }}>
+                                    <DropAreaForGridView
+                                        onDrop={() => onDrop("top", title, item.title)}
+                                        activeCard={activeCard}
+                                        position="top"
+                                    />
                                     <KanbanViewBottomItem
                                         icon={icon}
                                         header={item.title}
                                         data={item.textData}
                                         color={iconColor}
                                         tags={item.tags}
+                                        index={index}
+                                        status={title}
+                                        setActiveCard={setActiveCard}
+                                        onTagChecked={onTagChecked}
+                                        view="grid"
+                                    />
+                                    <DropAreaForGridView
+                                        onDrop={() => onDrop("bottom", title, item.title)}
+                                        activeCard={activeCard}
+                                        position="bottom"
                                     />
                                 </div>
                             ))}
