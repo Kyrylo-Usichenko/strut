@@ -22,7 +22,7 @@ export default function Button({
     state,
     onClick
 }: ButtonProps) {
-    const [show, setShow] = useState<boolean>(false);
+    const [show, setShow] = useState<boolean>(state === "hovered");
 
     return (
         <>
