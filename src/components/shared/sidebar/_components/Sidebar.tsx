@@ -86,7 +86,7 @@ function Sidebar({ isOpen }: Props) {
                         key="brand"
                         label="Brand"
                         icon={<BullHornIcon />}
-                        link=""
+                        link="brand-voices"
                         isActive={activeItem === "brand"}
                         onClick={() => setActiveItem("brand")}
                     />

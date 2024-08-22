@@ -15,12 +15,13 @@
     text-overflow: ellipsis;
 }
 
-.input::placeholder, .kanbanInput::placeholder {
+.input::placeholder,
+.kanbanInput::placeholder {
     color: var(--text-color);
 }
 
 .input:hover {
-    background-color: var(--item-bg-color);
+    background-color: var(--hover-item-color);
     cursor: text;
 }
 
@@ -51,13 +52,13 @@
 }
 
 .kanbanInput:hover {
-    background-color: var(--item-bg-color);
+    background-color: var(--input-bg-color);
     cursor: text;
 }
 
 .kanbanInput:focus {
-    box-shadow: var(--hover-item-color) 0px 0px 0px 1px inset;
-    background-color: var(--item-bg-color);
+    background-color: var(--input-bg-color);
+    box-shadow: var(--box-border-color) 0px 0px 0px 1px inset;
     outline: none;
     width: 182px;
 }

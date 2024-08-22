@@ -6,7 +6,6 @@
     justify-content: center;
     gap: 8px;
     width: fit-content;
-    max-width: 124px;
     line-height: 20px;
     padding: 4px 12px;
     border: none;
@@ -56,9 +55,6 @@
 }
 
 .text {
-    max-width: 80px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-size: 14px;
+    white-space: nowrap;
 }
