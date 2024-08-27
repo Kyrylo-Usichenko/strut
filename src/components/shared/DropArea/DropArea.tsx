@@ -2,7 +2,7 @@
 import { ActiveCard } from "../kanban-view/page";
 import { StatusMenuWithButton } from "../status-menu/StatusMenuWithButton";
 import styles from "./DropArea.module.css";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 type Props = {
     onDrop: () => void;
@@ -12,48 +12,50 @@ type Props = {
 
 export default function DropArea({ onDrop, activeCard, position }: Props) {
     const [showDrop, setShowDrop] = useState<boolean>(false);
+    const ref = useRef<HTMLDivElement>(null);
 
-    const handleDragEnter = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-        setShowDrop(true);
-    }, []);
-
-    const handleDragLeave = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-        const relatedTarget = e.relatedTarget as Node;
-        if (!e.currentTarget.contains(relatedTarget)) {
-            setTimeout(() => {
-                setShowDrop(false);
-            }, 100);
-        }
-    }, []);
-
-    const handleDrop = useCallback(
-        (e: React.DragEvent) => {
-            e.preventDefault();
-            onDrop();
-            setShowDrop(false);
+    const checkOverlap = useCallback(
+        (e: MouseEvent) => {
+            if (ref.current && activeCard) {
+                const rect = ref.current.getBoundingClientRect();
+                if (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                ) {
+                    setShowDrop(true);
+                } else {
+                    setShowDrop(false);
+                }
+            }
         },
-        [onDrop]
+        [activeCard]
     );
 
-    const handleDragOver = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-    }, []);
+    const handleMouseUp = useCallback(
+        (e: MouseEvent) => {
+            if (showDrop) {
+                console.log("From drop Area");
+                onDrop();
+                setShowDrop(false);
+            }
+        },
+        [showDrop, onDrop]
+    );
 
-    const dropAreaClass = useMemo(() => {
-        if (showDrop) {
-            return styles.dropArea;
-        }
-        return position === "top" ? styles.hideDropTop : styles.hideDropBottom;
-    }, [showDrop, position]);
+    useEffect(() => {
+        document.addEventListener("mousemove", checkOverlap);
+        document.addEventListener("mouseup", handleMouseUp);
+        return () => {
+            document.removeEventListener("mousemove", checkOverlap);
+            document.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [checkOverlap, handleMouseUp]);
     return (
         <div
-            onDragEnter={handleDragEnter}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            className={dropAreaClass}
+            ref={ref}
+            className={showDrop ? styles.dropArea : position === "top" ? styles.hideDropTop : styles.hideDropBottom}
             style={activeCard !== null ? { display: "block" } : { display: "none" }}
         >
             {showDrop && (

@@ -4,24 +4,32 @@
     width: 100%;
     min-height: 80px;
     border-radius: 12px;
-    /* margin-bottom: 8px; */
+    margin-bottom: 8px;
     padding: 6px 12px 12px 12px;
     background-color: var(--item-bg-color);
     box-shadow:
         var(--box-shadow-color) 0px 4px 8px,
         var(--box-border-color) 0px 0px 0px 1px;
+    /* transition: all 0.1s ease-in-out; */
+    user-select: none;
 }
 
-.container:active{
-    /* cursor: pointer;
-    position: relative;
-    width: 100%;
-    min-height: 80px;
+.dragging {
+    width: 234px;
     border-radius: 12px;
-    padding: 6px 12px 12px 12px; */
+    padding: 6px 12px 12px 12px;
+    background-color: var(--item-bg-color);
     opacity: 1;
-    box-shadow: none;
-    background-color: var(--button-disabled-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: none;
+    pointer-events: none;
+    /* cursor: grabbing; */
+}
+
+.container,
+.containerActive {
+    cursor: grab;
+    user-select: none;
 }
 .containerActive {
     position: relative;
@@ -33,7 +41,7 @@
     box-shadow:
         var(--box-shadow-color) 0px 4px 8px,
         var(--text-color) 0px 0px 0px 2px;
-    /* margin-bottom: 8px; */
+    margin-bottom: 8px;
 }
 
 .container:hover {
@@ -73,7 +81,6 @@
     line-height: 18px;
     color: var(--text-hover-color);
     padding: 6px 16px 4px 0px;
-    cursor: pointer;
 }
 
 .item {

@@ -21,6 +21,8 @@ type Props = {
     onDrop: (status: string, position: number) => void;
     activeCard: ActiveCard;
     onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
+    onDragEnterColumn: string | null;
+    setOnDragEnterColumn: (status: string) => void;
 };
 
 export default function KanbanItem({

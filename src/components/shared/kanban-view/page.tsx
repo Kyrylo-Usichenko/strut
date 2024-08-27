@@ -71,6 +71,7 @@ const initialData = [
 export default function KanbanView() {
     const [data, setData] = useState<Column[]>(initialData);
     const [activeCard, setActiveCard] = useState<ActiveCard>(null);
+    const [onDragEnterColumn, setOnDragEnterColumn] = useState<string | null>(null);
 
     function onTagChecked(tags: Tags, status: string, title?: string, index?: number) {
         setData((prevData) => {
@@ -91,6 +92,7 @@ export default function KanbanView() {
     }
 
     const onDrop = (toStatus: string, position: number) => {
+        console.log("from function onDrop");
         if (activeCard) {
             const { index: fromIndex, status: fromStatus, content } = activeCard;
 
@@ -126,6 +128,8 @@ export default function KanbanView() {
                     activeCard={activeCard}
                     onDrop={onDrop}
                     onTagChecked={onTagChecked}
+                    onDragEnterColumn={onDragEnterColumn}
+                    setOnDragEnterColumn={setOnDragEnterColumn}
                 />
             ))}
         </div>
