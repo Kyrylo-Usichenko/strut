@@ -3,7 +3,7 @@ import { ActiveCard } from "../board-list-view/page";
 import LabelMenu from "../label-menu/LabelMenu";
 import { StatusMenuWithButton } from "../status-menu/StatusMenuWithButton";
 import styles from "./DropAreaForListView.module.css";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import SmallCheckIcon from "~/components/icons/SmallCheckIcon";
 import { TaskPopupWithButton } from "../TaskPopupMenu/TaskPopupWithButton";
 
@@ -15,34 +15,46 @@ type Props = {
 
 export default function DropAreaForListView({ onDrop, activeCard, position }: Props) {
     const [showDrop, setShowDrop] = useState<boolean>(false);
+    const ref = useRef<HTMLDivElement>(null);
 
-    const handleDragEnter = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-        setShowDrop(true);
-    }, []);
-
-    const handleDragLeave = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-        const relatedTarget = e.relatedTarget as Node;
-        if (!e.currentTarget.contains(relatedTarget)) {
-            setTimeout(() => {
-                setShowDrop(false);
-            }, 100);
-        }
-    }, []);
-
-    const handleDrop = useCallback(
-        (e: React.DragEvent) => {
-            e.preventDefault();
-            onDrop();
-            setShowDrop(false);
+    const checkOverlap = useCallback(
+        (e: MouseEvent) => {
+            if (ref.current && activeCard) {
+                const rect = ref.current.getBoundingClientRect();
+                if (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                ) {
+                    setShowDrop(true);
+                } else {
+                    setShowDrop(false);
+                }
+            }
         },
-        [onDrop]
+        [activeCard]
     );
 
-    const handleDragOver = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-    }, []);
+    const handleMouseUp = useCallback(
+        (e: MouseEvent) => {
+            if (showDrop) {
+                console.log("From drop Area");
+                onDrop();
+                setShowDrop(false);
+            }
+        },
+        [showDrop, onDrop]
+    );
+
+    useEffect(() => {
+        document.addEventListener("mousemove", checkOverlap);
+        document.addEventListener("mouseup", handleMouseUp);
+        return () => {
+            document.removeEventListener("mousemove", checkOverlap);
+            document.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [checkOverlap, handleMouseUp]);
 
     const dropAreaClass = useMemo(() => {
         if (showDrop) {
@@ -51,13 +63,7 @@ export default function DropAreaForListView({ onDrop, activeCard, position }: Pr
         return position === "top" ? styles.hideDropTop : styles.hideDropBottom;
     }, [showDrop, position]);
     return (
-        <div
-            onDragEnter={handleDragEnter}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            className={dropAreaClass}
-        >
+        <div ref={ref} className={dropAreaClass}>
             {showDrop && (
                 <>
                     <div className={styles.leftSide}>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import SmallChekIcon from "~/components/icons/SmallChekIcon";
 import { StatusMenuWithButton } from "~/components/shared/status-menu/StatusMenuWithButton";
 import styles from "./KanbanViewBottomItem.module.css";
@@ -33,14 +33,18 @@ export default function KanbanViewBottomItem({
 }: Props) {
     const [isChekIconActive, setIsChekIconActive] = useState<boolean>(false);
     const [isVisible, setIsVisible] = useState<boolean>(false);
-    // const [tags, setTags] = useState<Tags>(initialTags);
+    const [isDragging, setIsDragging] = useState(false);
+    const [initialWidth, setInitialWidth] = useState<string>("");
+    const ref = useRef<HTMLDivElement>(null);
+    const iconRef = useRef<HTMLAnchorElement>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
+    const offsetRef = useRef({ x: 0, y: 0 });
 
     function hahdleCheckIcon() {
         setIsChekIconActive(!isChekIconActive);
     }
 
     function onTagCheckedInLabelMenu(tags: Tags) {
-        // setTags(tags);
         if (view === "kanban") {
             onTagChecked(tags, status, "", index);
         }
@@ -51,26 +55,95 @@ export default function KanbanViewBottomItem({
         setIsVisible(isVisible);
     }
 
-    return (
-        <div
-            className={`${isChekIconActive ? styles.containerActive : styles.container}`}
-            draggable
-            onDragStart={() => {
+    const handleMouseDown = useCallback(
+        (e: React.MouseEvent) => {
+            if (
+                iconRef.current?.contains(e.target as Node) ||
+                menuRef.current?.contains(e.target as Node) ||
+                isVisible
+            ) {
+                return;
+            }
+
+            if (ref.current) {
+                const rect = ref.current.getBoundingClientRect();
+                offsetRef.current = {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
+                setInitialWidth(`${rect.width}px`);
+                setIsDragging(true);
                 setActiveCard({
                     index,
                     status,
                     content: { header, data, tags }
                 });
-            }}
-            onDragEnd={() => setActiveCard(null)}
+            }
+        },
+        [setActiveCard, index, status, header, data, tags, isVisible]
+    );
+
+    const handleMouseMove = useCallback(
+        (e: MouseEvent) => {
+            if (isDragging && ref.current) {
+                requestAnimationFrame(() => {
+                    const left = e.clientX - offsetRef.current.x;
+                    const top = e.clientY - offsetRef.current.y;
+                    ref.current!.style.position = "fixed";
+                    ref.current!.style.left = `${left}px`;
+                    ref.current!.style.top = `${top}px`;
+                    ref.current!.style.zIndex = "1000";
+                    ref.current!.style.pointerEvents = "none";
+                    ref.current!.style.width = initialWidth;
+                    ref.current!.style.backgroundColor = "var(--item-bg-color)";
+                    ref.current!.style.boxShadow = "var(--box-shadow-color) 0px 4px 8px";
+                });
+            }
+        },
+        [isDragging, initialWidth]
+    );
+
+    const handleMouseUp = useCallback(() => {
+        if (isDragging && ref.current) {
+            setIsDragging(false);
+            // handleCLickLabel(false);
+            ref.current.style.position = "";
+            ref.current.style.left = "";
+            ref.current.style.top = "";
+            ref.current.style.zIndex = "";
+            ref.current.style.pointerEvents = "";
+            ref.current!.style.width = "";
+            ref.current!.style.backgroundColor = "";
+            ref.current!.style.boxShadow = "";
+            setTimeout(() => {
+                setActiveCard(null);
+            }, 50);
+        }
+    }, [isDragging, setActiveCard]);
+
+    useEffect(() => {
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+        return () => {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [handleMouseMove, handleMouseUp]);
+
+    return (
+        <div
+            ref={ref}
+            className={`${isChekIconActive ? styles.containerActive : styles.container}`}
+            onMouseDown={handleMouseDown}
         >
             <a
+                ref={iconRef} // Додаємо реф для іконки
                 className={`${isChekIconActive ? styles.chekedIconActive : styles.chekedIcon}`}
                 onClick={hahdleCheckIcon}
             >
                 <SmallChekIcon />
             </a>
-            <div className={`${isVisible ? styles.tagActive : styles.tag}`}>
+            <div ref={menuRef} className={`${isVisible ? styles.tagActive : styles.tag}`}>
                 <LabelMenu tags={tags} onTagChecked={onTagCheckedInLabelMenu} handleCLickLabel={handleCLickLabel} />
             </div>
             <h3 className={styles.title}>{header}</h3>
