@@ -1,0 +1,13 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    margin: 16px 0px 32px 32px;
+    overflow: hidden;
+}
+
+.ref {
+    position: relative; 
+    width: calc(100% - 32px);
+}
