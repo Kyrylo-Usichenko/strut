@@ -1,0 +1,44 @@
+.modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 304px;
+    border-radius: 16px;
+    padding: 8px;
+    background-color: var(--item-bg-color);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 16px 12px 16px;
+
+    & .title {
+        color: var(--text-hover-color);
+        font-size: 16px;
+    }
+}
+.textarea {
+    height: 100%;
+    width: 100%;
+    line-height: 20px;
+    border: 1px solid var(--box-border-color);
+    border-radius: 8px;
+    padding: 16px 20px;
+    background-color: var(--hover-item-color);
+    color: var(--text-hover-color);
+    font-size: 14px;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    outline: none;
+    resize: none;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    white-space: break-spaces;
+}
+
+.textarea::placeholder {
+    color: var(--text-color);
+}
