@@ -6,12 +6,13 @@
         var(--hover-item-color) 0px 0px 1px inset;
     background-color: var(--item-bg-color);
     border-radius: 12px;
-    padding: 0 4px 4px 4px;
+    padding: 0 4px 0 4px;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    /* gap: 4px; */
     outline: none;
+    overflow: hidden;
 }
 .container::after {
     content: " ";
@@ -37,10 +38,13 @@
 
 .list {
     right: 0px;
+    /* top: -4px; */
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     width: 252px;
     max-height: 200px;
     overflow-y: auto;
@@ -86,6 +90,8 @@
     align-items: baseline;
     gap: 8px;
     border-radius: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 .noResultsButton:hover {
     background-color: var(--hover-item-color);
