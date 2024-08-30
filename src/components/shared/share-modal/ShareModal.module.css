@@ -72,26 +72,8 @@
     list-style: none;
     list-style-type: none;
     z-index: 1;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
-.contactContainer::-webkit-scrollbar {
-    background-color: var(--hover-item-color);
-    /* background-color: rgba(255, 255, 255, 0.05); */
-}
-/* .contactContainer::-webkit-scrollbar-button{
-    background-color: var(--button-hover-color);
-} */
-.contactContainer::-webkit-scrollbar-thumb {
-    /* background: rgba(255, 255, 255, 0.1); */
-    background: var(--button-hover-color);
-}
-.contactContainer::-webkit-scrollbar-thumb:hover {
-    /* background: rgba(255, 255, 255, 0.2); */
-    background: var(--tooltip-bg-color);
-}
-.contactContainer::-webkit-scrollbar-track {
-    /* background: rgba(255, 255, 255, 0.05); */
-    background-color: var(--hover-item-color);
-  }
 .conatiner::after {
     content: " ";
     /* background-color: rgba(255, 255, 255, 0.05); */

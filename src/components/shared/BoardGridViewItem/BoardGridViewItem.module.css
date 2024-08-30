@@ -85,3 +85,11 @@
 .createContainer {
     width: 100%;
 }
+
+.container {
+}
+
+.containerHovered {
+    background-color: var(--box-shadow-color);
+    transition: background-color 0.1s ease-in-out;
+}

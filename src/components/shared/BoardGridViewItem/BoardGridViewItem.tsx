@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import styles from "./BoardGridViewItem.module.css";
 import ArrowIcon from "~/components/icons/ArrowIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
@@ -66,6 +66,30 @@ export default function BoardGridViewItem({
 }: Props) {
     const [isBottomMenuOpenes, setIsBottomMenuOpenes] = useState<boolean>(false);
     const { isVisible, setIsVisible, ref } = useVisible(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            if (containerRef.current && activeCard !== null) {
+                const rect = containerRef.current.getBoundingClientRect();
+                const isInside =
+                    event.clientX >= rect.left &&
+                    event.clientX <= rect.right &&
+                    event.clientY >= rect.top &&
+                    event.clientY <= rect.bottom;
+                setIsHovered(isInside);
+            } else {
+                setIsHovered(false);
+            }
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, [activeCard]);
 
     const handleButtonClick = () => {
         setIsVisible(!isVisible);
@@ -126,7 +150,10 @@ export default function BoardGridViewItem({
     const columns = distributeItems(data, position);
 
     return (
-        <div className={styles.container}>
+        <div
+            ref={containerRef}
+            className={isHovered && activeCard !== null ? styles.containerHovered : styles.container}
+        >
             <div className={styles.topPart}>
                 <div className={styles.leftPart}>
                     <div className={styles.ButtonIconOnly}>
@@ -157,10 +184,17 @@ export default function BoardGridViewItem({
                     {columns.map((column, columnIndex) => (
                         <div key={columnIndex} className={styles.column}>
                             {position === "top" && columnIndex === 0 && (
-                                <a className={styles.createContainer}>
-                                    <PlusIcon width={12} height={12} />
-                                    <p className={styles.createDivTitle}>New doc</p>
-                                </a>
+                                <div style={{ position: "relative" }}>
+                                    <a className={styles.createContainer}>
+                                        <PlusIcon width={12} height={12} />
+                                        <p className={styles.createDivTitle}>New doc</p>
+                                    </a>
+                                    <DropAreaForGridView
+                                        position="bottom"
+                                        activeCard={activeCard}
+                                        onDrop={() => onDrop("bottom", title, "balbalbal")}
+                                    />
+                                </div>
                             )}
                             {column.map((item: textData, index) => (
                                 <div key={index} className={styles.item} style={{ position: "relative" }}>
@@ -180,6 +214,7 @@ export default function BoardGridViewItem({
                                         setActiveCard={setActiveCard}
                                         onTagChecked={onTagChecked}
                                         view="grid"
+                                        activeCard={activeCard}
                                     />
                                     <DropAreaForGridView
                                         onDrop={() => onDrop("bottom", title, item.title)}

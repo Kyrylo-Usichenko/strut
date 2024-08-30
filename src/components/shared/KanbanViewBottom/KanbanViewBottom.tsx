@@ -48,6 +48,7 @@ export default function KanbanViewBottom({
                         setActiveCard={setActiveCard}
                         onTagChecked={onTagChecked}
                         view="kanban"
+                        activeCard={activeCard}
                     />
                     <DropArea onDrop={() => onDrop(status, index + 1)} activeCard={activeCard} position="bottom" />
                 </div>

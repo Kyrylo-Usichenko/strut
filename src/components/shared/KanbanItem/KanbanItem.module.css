@@ -6,4 +6,17 @@
     padding: 8px 8px 0 8px;
     border-radius: 16px;
     background-color: var(--border-thin-color);
+    transition: background-color 0.1s ease-in-out;
+}
+
+.containerHovered {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-height: 44.8px;
+    padding: 8px 8px 0 8px;
+    border-radius: 16px;
+    /* background-color: var(--border-thin-color); */
+    background-color: var(--box-shadow-color);
+    transition: background-color 0.1s ease-in-out;
 }

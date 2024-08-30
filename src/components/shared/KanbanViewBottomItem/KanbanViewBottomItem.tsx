@@ -17,6 +17,7 @@ type Props = {
     status: string;
     view: "kanban" | "grid";
     onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
+    activeCard: ActiveCard;
 };
 
 export default function KanbanViewBottomItem({
@@ -29,7 +30,8 @@ export default function KanbanViewBottomItem({
     setActiveCard,
     status,
     onTagChecked,
-    view
+    view,
+    activeCard
 }: Props) {
     const [isChekIconActive, setIsChekIconActive] = useState<boolean>(false);
     const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -96,7 +98,8 @@ export default function KanbanViewBottomItem({
                     ref.current!.style.pointerEvents = "none";
                     ref.current!.style.width = initialWidth;
                     ref.current!.style.backgroundColor = "var(--item-bg-color)";
-                    ref.current!.style.boxShadow = "var(--box-shadow-color) 0px 4px 8px";
+                    ref.current!.style.boxShadow =
+                        "var(--box-shadow-color) 0px 8px 16px, var(--box-border-color) 0px 0px 0px 1px";
                 });
             }
         },
@@ -107,11 +110,11 @@ export default function KanbanViewBottomItem({
         if (isDragging && ref.current) {
             setIsDragging(false);
             // handleCLickLabel(false);
-            ref.current.style.position = "";
-            ref.current.style.left = "";
-            ref.current.style.top = "";
-            ref.current.style.zIndex = "";
-            ref.current.style.pointerEvents = "";
+            ref.current!.style.position = "";
+            ref.current!.style.left = "";
+            ref.current!.style.top = "";
+            ref.current!.style.zIndex = "";
+            ref.current!.style.pointerEvents = "";
             ref.current!.style.width = "";
             ref.current!.style.backgroundColor = "";
             ref.current!.style.boxShadow = "";
@@ -130,10 +133,14 @@ export default function KanbanViewBottomItem({
         };
     }, [handleMouseMove, handleMouseUp]);
 
+    function detectIsActiveCard() {
+        return activeCard ? styles.containerIsActiveCard : styles.container;
+    }
+
     return (
         <div
             ref={ref}
-            className={`${isChekIconActive ? styles.containerActive : styles.container}`}
+            className={`${isChekIconActive ? styles.containerActive : detectIsActiveCard()}`}
             onMouseDown={handleMouseDown}
         >
             <a
