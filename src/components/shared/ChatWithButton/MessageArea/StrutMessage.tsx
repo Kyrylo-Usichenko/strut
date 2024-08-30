@@ -3,6 +3,8 @@ import DuplicateIcon from "~/components/icons/DuplicateIcon";
 import SmallBlankIcon from "~/components/icons/SmallBlankIcon";
 import LocalStorage from "~/storage/LocalStorage";
 import styles from "./message.module.css";
+import Modal from "../../Modal/Modal";
+import { ChatSettingsModal } from "../../ChatSettingsModal/ChatSettingsModal";
 
 type Props = {
     text: string;
@@ -18,7 +20,11 @@ const StrutMessage: React.FC<Props> = ({ text, isLast, onTypingStopped, inputRef
     const [isStopped, setStopped] = useState<boolean>(false);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const [isVisible, setIsVisible] = useState(true);
+    const [isModalOpen, setModalOpen] = useState<boolean>(false);
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
+
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
 
     useEffect(() => {
         if (isLast && lastMessageRef.current && containerRef.current) {
@@ -126,7 +132,9 @@ const StrutMessage: React.FC<Props> = ({ text, isLast, onTypingStopped, inputRef
         >
             <div className={styles.header}>
                 <div className={styles.icon}></div>
-                <span>Strut</span>
+                <span className={styles.title} onClick={openModal}>
+                    Strut
+                </span>
             </div>
             <div
                 className={styles.text}
@@ -167,6 +175,9 @@ const StrutMessage: React.FC<Props> = ({ text, isLast, onTypingStopped, inputRef
                     <button onClick={stopTyping}>Stop Writing</button>
                 </div>
             )}
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <ChatSettingsModal />
+            </Modal>
         </div>
     );
 };
