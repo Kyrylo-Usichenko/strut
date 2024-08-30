@@ -151,3 +151,18 @@
     top: 32px;
     right: 0;
 }
+
+.containerIsActiveCard{
+   cursor: grab;
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    padding: 6px 12px 12px 12px;
+    background-color: var(--item-bg-color);
+    box-shadow:
+        var(--box-shadow-color) 0px 4px 8px,
+        var(--box-border-color) 0px 0px 0px 1px;
+    user-select: none; 
+}

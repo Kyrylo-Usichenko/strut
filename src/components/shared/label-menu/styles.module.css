@@ -139,25 +139,9 @@
     max-height: 200px;
     overflow-y: auto;
     outline: none;
+    border-bottom-left-radius: 12px;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
-.list::-webkit-scrollbar {
-    border-bottom-right-radius: 8px;
-    background-color: var(--hover-item-color);
-}
-/* .list::-webkit-scrollbar-button {
-    background-color: var(--button-hover-color);
-} */
-.list::-webkit-scrollbar-thumb {
-    border-bottom-right-radius: 8px;
-    background: var(--button-hover-color);
-}
-.list::-webkit-scrollbar-thumb:hover {
-    background: var(--tooltip-bg-color);
-}
-.list::-webkit-scrollbar-track {
-    border-bottom-right-radius: 8px;
-    background-color: var(--hover-item-color);
-} 
 
 .item {
     font-size: 14px;

@@ -17,6 +17,7 @@ type Props = {
     setActiveCard: (card: ActiveCard) => void;
     status: string;
     onTagChecked: (tags: Tags, status: string, index: number) => void;
+    activeCard: ActiveCard;
 };
 
 export default function BoardListViewBottomItem({
@@ -27,7 +28,8 @@ export default function BoardListViewBottomItem({
     index,
     setActiveCard,
     status,
-    onTagChecked
+    onTagChecked,
+    activeCard
 }: Props) {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const [isActive, setIsActive] = useState<boolean>(false);
@@ -114,6 +116,7 @@ export default function BoardListViewBottomItem({
             ref.current!.style.width = "";
             ref.current!.style.backgroundColor = "";
             ref.current!.style.boxShadow = "";
+            ref.current!.style.borderRadius = "";
             setTimeout(() => {
                 setActiveCard(null);
             }, 50);
@@ -129,7 +132,11 @@ export default function BoardListViewBottomItem({
         };
     }, [handleMouseMove, handleMouseUp]);
     return (
-        <div ref={ref} className={styles.container} onMouseDown={handleMouseDown}>
+        <div
+            ref={ref}
+            className={activeCard ? styles.containerIsActiveCard : styles.container}
+            onMouseDown={handleMouseDown}
+        >
             <div className={styles.leftSide}>
                 <div className={styles.chekedIconWrapper}>
                     {!isActive && (

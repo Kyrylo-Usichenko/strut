@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { ActiveCard } from "../kanban-view/page";
 import KanbanItemHeader from "../KanbanItemHeader/KanbanItemHeader";
 import KanbanViewBottom from "../KanbanViewBottom/KanbanViewBottom";
@@ -37,8 +40,37 @@ export default function KanbanItem({
     activeCard,
     onTagChecked
 }: Props) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            if (containerRef.current && activeCard !== null) {
+                const rect = containerRef.current.getBoundingClientRect();
+                const isInside =
+                    event.clientX >= rect.left &&
+                    event.clientX <= rect.right &&
+                    event.clientY >= rect.top &&
+                    event.clientY <= rect.bottom;
+                setIsHovered(isInside);
+            } else {
+                setIsHovered(false);
+            }
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, [activeCard]);
+
     return (
-        <div className={styles.container}>
+        <div
+            ref={containerRef}
+            className={isHovered && activeCard !== null ? styles.containerHovered : styles.container}
+        >
             <KanbanItemHeader icon={icon} number={number} title={title} color={color} position={position} />
             <KanbanViewBottom
                 icon={icon}

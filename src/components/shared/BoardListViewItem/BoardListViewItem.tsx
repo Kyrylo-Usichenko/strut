@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useRef, useState } from "react";
 import styles from "./BoardListViewItem.module.css";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
@@ -63,6 +63,32 @@ export default function BoardListViewItem({
         setIsVisible(!isVisible);
     };
 
+    const [isHovered, setIsHovered] = useState(false);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            if (containerRef.current && activeCard !== null) {
+                const rect = containerRef.current.getBoundingClientRect();
+                const isInside =
+                    event.clientX >= rect.left &&
+                    event.clientX <= rect.right &&
+                    event.clientY >= rect.top &&
+                    event.clientY <= rect.bottom;
+                setIsHovered(isInside);
+            } else {
+                setIsHovered(false);
+            }
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, [activeCard]);
+
     function handleOpenBottomMenu() {
         setIsBottomMenuOpenes(!isBottomMenuOpenes);
     }
@@ -85,7 +111,11 @@ export default function BoardListViewItem({
     }
 
     return (
-        <div className={styles.container} style={{ position: "relative", width: "100%" }}>
+        <div
+            ref={containerRef}
+            className={isHovered && activeCard !== null ? styles.containerHovered : styles.container}
+            style={{ position: "relative", width: "100%" }}
+        >
             <div className={styles.topPart}>
                 <div className={styles.leftPart}>
                     <div className={styles.ButtonIconOnly}>
@@ -127,6 +157,7 @@ export default function BoardListViewItem({
                                         status={status}
                                         setActiveCard={setActiveCard}
                                         onTagChecked={onTagChecked}
+                                        activeCard={activeCard}
                                     />
                                 </li>
                                 <DropAreaForListView
