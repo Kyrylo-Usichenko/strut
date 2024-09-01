@@ -27,7 +27,7 @@ export default function ShareModalContact({ name, image, status, onRemove }: Pro
     return (
         <div className={styles.container}>
             <div className={styles.contactDiv}>
-                <img src={image} alt="contact" className={styles.img} />
+                <Image src={image} alt="contact" className={styles.img} width={24} height={24} unoptimized={true} />
                 <p className={styles.name}>{name}</p>
             </div>
             <div>

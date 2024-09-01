@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Button from "~/components/shared/button/Button";
 import styles from "./styles.module.css";
 
@@ -15,24 +15,27 @@ function CreateVoiceModal({ onClose = () => {}, onCreate = () => {} }: Props) {
         setInputValue(e.target.value);
     }
 
-    function handleCreateClick() {
+    const handleCreateClick = useCallback(() => {
         if (inputValue.trim()) {
             onCreate(inputValue);
         }
-    }
+    }, [inputValue, onCreate]);
 
-    function handleEnterKey(event: KeyboardEvent) {
-        if (event.key === "Enter") {
-            handleCreateClick();
-        }
-    }
+    const handleEnterKey = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === "Enter") {
+                handleCreateClick();
+            }
+        },
+        [handleCreateClick]
+    );
 
     useEffect(() => {
         document.addEventListener("keydown", handleEnterKey);
         return () => {
             document.removeEventListener("keydown", handleEnterKey);
         };
-    }, [inputValue]);
+    }, [handleEnterKey]);
 
     return (
         <div className={styles.modal}>
