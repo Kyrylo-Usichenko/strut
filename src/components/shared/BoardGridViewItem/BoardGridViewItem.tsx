@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import styles from "./BoardGridViewItem.module.css";
 import ArrowIcon from "~/components/icons/ArrowIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
@@ -13,21 +13,24 @@ import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import StageInput from "~/components/shared/stage-input/StageInput";
 import menu from "~/components/shared/PopupMenu/menu.module.css";
 import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
-import KanbanViewBottomItem from "~/components/shared/KanbanViewBottomItem/KanbanViewBottomItem";
 import { Tags } from "../label-menu/LabelMenu";
+import KanbanViewBottomItem from "../KanbanViewBottomItem/KanbanViewBottomItem";
+import { ActiveCard } from "../kanban-view/page";
+import DropArea from "../DropArea/DropArea";
+import DropAreaForGridView from "../DropAreaForGridView/DropAreaForGridView";
 
 const stageItemsTop: MenuItem[] = [
-    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsCenter: MenuItem[] = [
-    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
-    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up" },
+    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsBottom: MenuItem[] = [
-    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 
 type textData = {
@@ -43,11 +46,50 @@ type Props = {
     number: number;
     data: textData[];
     position: "bottom" | "center" | "top" | string;
+    onTagChecked: (tags: Tags, status: string, title?: string, index?: number) => void;
+    setActiveCard: (card: ActiveCard) => void;
+    onDrop: (postition: string, status: string, title: string) => void;
+    activeCard: ActiveCard;
 };
 
-export default function BoardGridViewItem({ title, icon, iconColor, number, data, position }: Props) {
+export default function BoardGridViewItem({
+    title,
+    icon,
+    iconColor,
+    number,
+    data,
+    position,
+    onTagChecked,
+    setActiveCard,
+    onDrop,
+    activeCard
+}: Props) {
     const [isBottomMenuOpenes, setIsBottomMenuOpenes] = useState<boolean>(false);
     const { isVisible, setIsVisible, ref } = useVisible(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            if (containerRef.current && activeCard !== null) {
+                const rect = containerRef.current.getBoundingClientRect();
+                const isInside =
+                    event.clientX >= rect.left &&
+                    event.clientX <= rect.right &&
+                    event.clientY >= rect.top &&
+                    event.clientY <= rect.bottom;
+                setIsHovered(isInside);
+            } else {
+                setIsHovered(false);
+            }
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, [activeCard]);
 
     const handleButtonClick = () => {
         setIsVisible(!isVisible);
@@ -108,7 +150,10 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
     const columns = distributeItems(data, position);
 
     return (
-        <div className={styles.container}>
+        <div
+            ref={containerRef}
+            className={isHovered && activeCard !== null ? styles.containerHovered : styles.container}
+        >
             <div className={styles.topPart}>
                 <div className={styles.leftPart}>
                     <div className={styles.ButtonIconOnly}>
@@ -139,19 +184,42 @@ export default function BoardGridViewItem({ title, icon, iconColor, number, data
                     {columns.map((column, columnIndex) => (
                         <div key={columnIndex} className={styles.column}>
                             {position === "top" && columnIndex === 0 && (
-                                <a className={styles.createContainer}>
-                                    <PlusIcon width={12} height={12} />
-                                    <p className={styles.createDivTitle}>New doc</p>
-                                </a>
+                                <div style={{ position: "relative" }}>
+                                    <a className={styles.createContainer}>
+                                        <PlusIcon width={12} height={12} />
+                                        <p className={styles.createDivTitle}>New doc</p>
+                                    </a>
+                                    <DropAreaForGridView
+                                        position="bottom"
+                                        activeCard={activeCard}
+                                        onDrop={() => onDrop("bottom", title, "balbalbal")}
+                                    />
+                                </div>
                             )}
                             {column.map((item: textData, index) => (
-                                <div key={index} className={styles.item}>
+                                <div key={index} className={styles.item} style={{ position: "relative" }}>
+                                    <DropAreaForGridView
+                                        onDrop={() => onDrop("top", title, item.title)}
+                                        activeCard={activeCard}
+                                        position="top"
+                                    />
                                     <KanbanViewBottomItem
                                         icon={icon}
                                         header={item.title}
                                         data={item.textData}
                                         color={iconColor}
                                         tags={item.tags}
+                                        index={index}
+                                        status={title}
+                                        setActiveCard={setActiveCard}
+                                        onTagChecked={onTagChecked}
+                                        view="grid"
+                                        activeCard={activeCard}
+                                    />
+                                    <DropAreaForGridView
+                                        onDrop={() => onDrop("bottom", title, item.title)}
+                                        activeCard={activeCard}
+                                        position="bottom"
                                     />
                                 </div>
                             ))}

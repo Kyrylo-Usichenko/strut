@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useRef, useState } from "react";
 import styles from "./BoardListViewItem.module.css";
 import ButtonIconOnly from "~/components/shared/buttonIconOnly/ButtonIconOnly";
 import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
@@ -15,36 +15,79 @@ import ArrowIcon from "~/components/icons/ArrowIcon";
 import TrashBinIcon from "~/components/icons/TrashBinIcon";
 import { useVisible } from "~/components/shared/PopupMenu/utils/useVisible";
 import { Tags } from "../label-menu/LabelMenu";
+import { ActiveCard } from "../board-list-view/page";
+import DropAreaForListView from "../DropAreaForListView/DropAreaForListView";
 
 type Props = {
-    title: string;
+    status: string;
     icon: ReactElement;
     iconColor: string;
     number: number;
     textData: { text: string; tags: Tags }[];
     position: "bottom" | "center" | "top" | string;
+    setActiveCard: (card: ActiveCard) => void;
+    onDrop: (status: string, position: number) => void;
+    activeCard: ActiveCard;
+    onTagChecked: (tags: Tags, status: string, index: number) => void;
 };
 
 const stageItemsTop: MenuItem[] = [
-    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsCenter: MenuItem[] = [
-    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
-    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up" },
+    { icon: <ArrowIcon direction="down" />, label: "Move Stage Down" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsBottom: MenuItem[] = [
-    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="up" />, label: "Move Stage Up" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 
-export default function BoardListViewItem({ title, icon, iconColor, number, textData, position }: Props) {
+export default function BoardListViewItem({
+    status,
+    icon,
+    iconColor,
+    number,
+    textData,
+    position,
+    setActiveCard,
+    onDrop,
+    activeCard,
+    onTagChecked
+}: Props) {
     const [isBottomMenuOpenes, setIsBottomMenuOpenes] = useState<boolean>(false);
     const { isVisible, setIsVisible, ref } = useVisible(false);
     const handleButtonClick = () => {
         setIsVisible(!isVisible);
     };
+
+    const [isHovered, setIsHovered] = useState(false);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            if (containerRef.current && activeCard !== null) {
+                const rect = containerRef.current.getBoundingClientRect();
+                const isInside =
+                    event.clientX >= rect.left &&
+                    event.clientX <= rect.right &&
+                    event.clientY >= rect.top &&
+                    event.clientY <= rect.bottom;
+                setIsHovered(isInside);
+            } else {
+                setIsHovered(false);
+            }
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, [activeCard]);
 
     function handleOpenBottomMenu() {
         setIsBottomMenuOpenes(!isBottomMenuOpenes);
@@ -68,7 +111,11 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
     }
 
     return (
-        <div className={styles.container}>
+        <div
+            ref={containerRef}
+            className={isHovered && activeCard !== null ? styles.containerHovered : styles.container}
+            style={{ position: "relative", width: "100%" }}
+        >
             <div className={styles.topPart}>
                 <div className={styles.leftPart}>
                     <div className={styles.ButtonIconOnly}>
@@ -78,7 +125,7 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
                             tooltipLabel={isBottomMenuOpenes ? "Collapse stage" : "Expand Stage"}
                         />
                     </div>
-                    <StageInput viewMode="list" color={iconColor} icon={icon} amount={number} value={title} />
+                    <StageInput viewMode="list" color={iconColor} icon={icon} amount={number} value={status} />
                 </div>
                 <div className={styles.rightPart}>
                     <ButtonIconOnly icon={<PlusIcon width={12} height={12} />} tooltipLabel="New Doc" />
@@ -95,18 +142,33 @@ export default function BoardListViewItem({ title, icon, iconColor, number, text
             </div>
 
             {isBottomMenuOpenes && (
-                <ul className={styles.list}>
-                    {textData.map((text, index) => (
-                        <li key={index}>
-                            <BoardListViewBottomItem
-                                tags={text.tags}
-                                text={text.text}
-                                icon={icon}
-                                iconColor={iconColor}
-                            />
-                        </li>
-                    ))}
-                </ul>
+                <>
+                    <DropAreaForListView onDrop={() => onDrop(status, 0)} activeCard={activeCard} position="top" />
+                    <ul className={styles.list}>
+                        {textData.map((text, index) => (
+                            <div key={index} style={{ position: "relative", width: "100%" }}>
+                                <li>
+                                    <BoardListViewBottomItem
+                                        tags={text.tags}
+                                        text={text.text}
+                                        icon={icon}
+                                        iconColor={iconColor}
+                                        index={index}
+                                        status={status}
+                                        setActiveCard={setActiveCard}
+                                        onTagChecked={onTagChecked}
+                                        activeCard={activeCard}
+                                    />
+                                </li>
+                                <DropAreaForListView
+                                    onDrop={() => onDrop(status, index + 1)}
+                                    activeCard={activeCard}
+                                    position="bottom"
+                                />
+                            </div>
+                        ))}
+                    </ul>
+                </>
             )}
         </div>
     );

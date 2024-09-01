@@ -20,17 +20,17 @@ type Props = {
 };
 
 const stageItems: MenuItem[] = [
-    { icon: <ArrowIcon direction="left" />, label: "Move Stage Left", link: "" },
-    { icon: <ArrowIcon direction="right" />, label: "Move Stage Right", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="left" />, label: "Move Stage Left" },
+    { icon: <ArrowIcon direction="right" />, label: "Move Stage Right" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsForLeft: MenuItem[] = [
-    { icon: <ArrowIcon direction="right" />, label: "Move Stage Right", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="right" />, label: "Move Stage Right" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 const stageItemsForRight: MenuItem[] = [
-    { icon: <ArrowIcon direction="left" />, label: "Move Stage Left", link: "" },
-    { icon: <TrashBinIcon />, label: "Delete Workspace", link: "" }
+    { icon: <ArrowIcon direction="left" />, label: "Move Stage Left" },
+    { icon: <TrashBinIcon />, label: "Delete Workspace" }
 ];
 
 export default function KanbanItemHeader({ icon, title = "Untitlted", number, color, position = "left" }: Props) {

@@ -1,0 +1,21 @@
+.wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+
+.button {
+    position: absolute;
+    z-index: 1000;
+    top: 20px;
+    right: 24px;
+    padding: 6px;
+    border-radius: 20px;
+    width: fit-content;
+    color: var(--text-color);
+}
+
+.icon {
+    transform: rotate(180deg);
+}

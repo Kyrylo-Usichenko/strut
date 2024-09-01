@@ -71,26 +71,9 @@
     padding: 8px 0;
     list-style: none;
     list-style-type: none;
+    z-index: 1;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
-.contactContainer::-webkit-scrollbar {
-    background-color: var(--hover-item-color);
-    /* background-color: rgba(255, 255, 255, 0.05); */
-}
-/* .contactContainer::-webkit-scrollbar-button{
-    background-color: var(--button-hover-color);
-} */
-.contactContainer::-webkit-scrollbar-thumb {
-    /* background: rgba(255, 255, 255, 0.1); */
-    background: var(--button-hover-color);
-}
-.contactContainer::-webkit-scrollbar-thumb:hover {
-    /* background: rgba(255, 255, 255, 0.2); */
-    background: var(--tooltip-bg-color);
-}
-.contactContainer::-webkit-scrollbar-track {
-    /* background: rgba(255, 255, 255, 0.05); */
-    background-color: var(--hover-item-color);
-  }
 .conatiner::after {
     content: " ";
     /* background-color: rgba(255, 255, 255, 0.05); */
@@ -118,4 +101,53 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
+}
+
+.menu {
+    visibility: visible;
+    width: 192px;
+    height: 80px;
+    padding: 4px;
+    /* background-color: rgb(39, 40, 41); */
+    background-color: var(--item-bg-color);
+    box-shadow:
+        rgba(0, 0, 0, 0.1) 0px 4px 8px,
+        rgba(0, 0, 0, 0.1) 0px 8px 24px,
+        var(--hover-item-color) 0px 0px 0px 1px inset;
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    position: absolute;
+    z-index: 100;
+}
+
+.ediBtn,
+.removeBtn{
+    width: 100%;
+    height: 36px;
+    padding: 8px 12px;
+    /* color: rgba(255, 255, 255, 0.5); */
+    color: var(--text-color);
+    border-radius: 8px;
+    line-height: 20px;
+}
+
+.ediBtn:hover,
+.removeBtn:hover{
+    /* color: rgba(255, 255, 255, 0.8); */
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    color: var(--text-hover-color);
+    background-color: var(--hover-item-color);
+}
+
+.removeBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25px;
+}
+
+.ediBtn{
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }

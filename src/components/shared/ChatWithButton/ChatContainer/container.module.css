@@ -1,0 +1,50 @@
+.container {
+    position: fixed;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 16px);
+    max-height: calc(100vh - 16px);
+    width: calc(100% / 2);
+    min-width: 200px;
+    margin: 8px;
+    transition: transform 0.15s ease;
+    border: 1px solid var(--box-border-color);
+    border-radius: 8px;
+    background-color: var(--page-bg-color);
+    color: var(--text-color);
+}
+
+.container.open {
+    transform: translateX(0);
+}
+
+.container.closed {
+    transform: translateX(calc(100% + 8px));
+}
+.resizer {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+    height: 100%;
+    left: -6px; 
+    width: 4px; 
+    cursor: col-resize; 
+    border-radius: 4px; 
+    background-color: var(--box-border-color); 
+    z-index: 2; 
+}
+
+.resizer:hover {
+    opacity: 1;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 48px;
+}

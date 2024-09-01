@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    height: 48px;
+    border-radius: 24px;
+    padding: 12px 12px 12px 20px;
+    background-color: var(--hover-item-color);
+    color: var(--text-hover-color);
+}
+
+.container input {
+    flex: 1;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--text-hover-color);
+    font-size: 16px;
+
+    &::placeholder {
+        color: var(--text-color);
+    }
+}
+
+.icon {
+    background-color: var(--hover-item-color);
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+        background-color: var(--active-item-color);
+        color: var(--hover-text-color);
+    }
+}
+

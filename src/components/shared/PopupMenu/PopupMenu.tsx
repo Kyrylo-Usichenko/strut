@@ -5,7 +5,7 @@ import styles from "./menu.module.css";
 export interface MenuItem {
     icon: JSX.Element;
     label: string;
-    link: string;
+    onClick?: () => void;
 }
 
 type Props = {

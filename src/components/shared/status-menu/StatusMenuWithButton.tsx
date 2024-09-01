@@ -8,9 +8,9 @@ import { useVisible } from "../PopupMenu/utils/useVisible";
 import ButtonIconOnly from "../buttonIconOnly/ButtonIconOnly";
 
 export const statusItems: MenuItem[] = [
-    { icon: <DashedIcon fill="rgb(1, 114, 100)" />, label: "Start here", link: "" },
-    { icon: <DashedIcon fill="rgb(92, 106, 228)" />, label: "What you need to know", link: "" },
-    { icon: <StarIcon fill="rgb(255, 181, 70)" />, label: "Pro tips", link: "" }
+    { icon: <DashedIcon fill="rgb(1, 114, 100)" />, label: "Start here" },
+    { icon: <DashedIcon fill="rgb(92, 106, 228)" />, label: "What you need to know" },
+    { icon: <StarIcon fill="rgb(255, 181, 70)" />, label: "Pro tips" }
 ];
 
 function StatusMenuWithButton() {

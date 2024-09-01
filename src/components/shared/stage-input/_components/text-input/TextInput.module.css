@@ -5,7 +5,7 @@
     box-sizing: content-box;
     border: none;
     border-radius: 16px;
-    padding: 4px 0px 4px 12px;
+    padding: 4px 12px 4px 12px;
     background: transparent;
     font-size: 14px;
     line-height: 20px;
@@ -15,7 +15,8 @@
     text-overflow: ellipsis;
 }
 
-.input::placeholder, .kanbanInput::placeholder {
+.input::placeholder,
+.kanbanInput::placeholder {
     color: var(--text-color);
 }
 
@@ -25,8 +26,8 @@
 }
 
 .input:focus {
-    background-color: var(--item-bg-color);
-    box-shadow: var(--hover-item-color) 0px 0px 0px 1px inset;
+    background-color: var(--hover-item-color);
+    box-shadow: var(--box-border-color) 0px 0px 0px 1px inset;
     outline: none;
 }
 
@@ -51,7 +52,7 @@
 }
 
 .kanbanInput:hover {
-    background-color: var(--item-bg-color);
+    background-color: var(--input-bg-color);
     cursor: text;
 }
 
