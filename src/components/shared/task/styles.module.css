@@ -18,11 +18,13 @@
     background-color: var(--dark-secondary);
     color: var(--dark-text-primary);
     border-radius: 6px;
-    box-shadow: var(--box-shadow-color) 0px 4px 32px, var(--box-border-thick) 0px 0px 0px 1px;
+    box-shadow:
+        var(--box-shadow-color) 0px 4px 32px,
+        var(--box-border-thick) 0px 0px 0px 1px;
     overflow: hidden;
 }
 
-.buttons{
+.buttons {
     position: absolute;
     top: 12px;
     right: 16px;
@@ -31,7 +33,7 @@
     display: flex;
 }
 
-.contentBox{
+.contentBox {
     width: 100%;
     padding: 48px 80px 160px;
     min-height: 880px;

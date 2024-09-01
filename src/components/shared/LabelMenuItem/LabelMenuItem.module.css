@@ -78,7 +78,7 @@
     content: " ";
     width: 258px;
     height: 1px;
-    background-color: var(--border-thin-color);;
+    background-color: var(--border-thin-color);
 }
 
 .input {

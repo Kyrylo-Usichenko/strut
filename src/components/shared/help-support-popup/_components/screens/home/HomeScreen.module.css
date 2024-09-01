@@ -45,7 +45,7 @@
     display: block;
 }
 
-.buttonDiv{
+.buttonDiv {
     padding: 0 16px;
     display: flex;
     flex-direction: column;
@@ -53,6 +53,6 @@
     margin-top: 14px;
 }
 
-.buttonDivWrapper{
+.buttonDivWrapper {
     flex: 1 1 auto;
 }

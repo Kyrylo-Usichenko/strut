@@ -1,11 +1,11 @@
-.separator{
+.separator {
     border-right: 1px solid var(--hover-item-color);
     margin: 4px 2px;
     height: 20px;
 }
 
-.popupContent{
-    position:absolute;
+.popupContent {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     backdrop-filter: blur(8px);
     box-shadow:
         var(--box-shadow-color) 0px 4px 8px,
-        var(--box-shadow-color)  0px 8px 24px,
+        var(--box-shadow-color) 0px 8px 24px,
         var(--hover-item-color) 0px 0px 0px 1px inset;
     border-radius: 12px;
     padding: 4px;

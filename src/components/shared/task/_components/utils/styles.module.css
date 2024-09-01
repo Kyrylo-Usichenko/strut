@@ -1,27 +1,28 @@
-.toDoChecked, .toDoUnchecked{
+.toDoChecked,
+.toDoUnchecked {
     margin: 3px 0px;
 }
 
-.orderedList, .unorderedList{
+.orderedList,
+.unorderedList {
     margin: 6px 0px;
 }
 
-
-.toDoDiv{
+.toDoDiv {
     display: flex;
     justify-content: left;
     align-items: center;
     gap: 8px;
 }
 
-.mark{
+.mark {
     background-color: rgba(255, 181, 70, 0.2);
     border-radius: 2px;
     padding: 0;
     color: var(--text-hover-color);
 }
 
-.link{
+.link {
     color: var(--text-hover-color);
     text-decoration: underline;
     cursor: "pointer";

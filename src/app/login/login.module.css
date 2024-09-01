@@ -142,6 +142,6 @@
     border: none;
     cursor: pointer;
 }
-.passwordToggle:hover{
-    background: rgba(40, 40, 40, 0.15)
+.passwordToggle:hover {
+    background: rgba(40, 40, 40, 0.15);
 }

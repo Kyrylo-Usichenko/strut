@@ -1,14 +1,17 @@
-.message, .messageWithHover{
+.message,
+.messageWithHover {
     position: relative;
     padding: 16px 20px;
-    transition: color 250ms ease 0s, background-color 250ms ease 0s;
+    transition:
+        color 250ms ease 0s,
+        background-color 250ms ease 0s;
     color: rgb(0, 0, 0);
     cursor: pointer;
     display: flex;
     align-items: center;
 }
 
-.messageWithHover:hover{
+.messageWithHover:hover {
     background-color: rgba(0, 0, 0, 0.06);
 }
 
@@ -17,13 +20,13 @@
     margin-right: 8px;
 }
 
-.messageContent{
+.messageContent {
     display: flex;
     flex-flow: column;
     flex: 1 1 auto;
 }
 
-.messagePreviewContainer{
+.messagePreviewContainer {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -31,31 +34,32 @@
     font-weight: 400;
 }
 
-.messagePreview, .messageInfoContainer{
+.messagePreview,
+.messageInfoContainer {
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
-    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
 }
 
-.messagePreview{
+.messagePreview {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.messageInfoContainer{
+.messageInfoContainer {
     color: rgb(102, 102, 102);
     display: flex;
     white-space: break-spaces;
 }
 
-.arrowIcon{
+.arrowIcon {
     color: rgb(102, 102, 102);
 }
 
-
-.imagePlaceholder{
+.imagePlaceholder {
     margin: 0px auto;
     border-radius: 50%;
     vertical-align: middle;
@@ -75,7 +79,7 @@
     margin-right: 8px;
 }
 
-.separator{
+.separator {
     position: absolute;
     height: 1px;
     bottom: 0px;

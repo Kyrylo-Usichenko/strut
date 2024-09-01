@@ -131,7 +131,7 @@
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
     background-color: var(--hover-item-color);
-    box-shadow: 
+    box-shadow:
         var(--box-shadow-color) 0px 0px 24px 0px,
         var(--box-border-color) 0px 0px 0px 1px;
 }
