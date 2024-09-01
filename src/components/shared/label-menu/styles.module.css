@@ -107,7 +107,7 @@
 .createBtn {
     display: flex;
     flex-wrap: nowrap;
-    align-items: start;
+    align-items: flex-start;
     font-size: 14px;
     padding: 8px 12px;
     width: 248px;
@@ -119,7 +119,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     overflow: hidden;
 }
 

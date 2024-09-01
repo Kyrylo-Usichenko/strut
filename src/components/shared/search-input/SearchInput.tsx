@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./styles.module.css";
 import CircleWithCrossIcon from "~/components/icons/CircleWithCrossIcon";
 import SearchIcon from "~/components/icons/SearchIcon";
@@ -21,6 +21,20 @@ function SearchInput({ onInputActiveChange = () => {} }: Props) {
         onInputActiveChange(!isInputActive);
     }
 
+    const handleKeyDown = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsInputActive(false);
+                if (inputRef.current) {
+                    inputRef.current.value = "";
+                }
+                inputRef.current?.blur();
+                onInputActiveChange(false);
+            }
+        },
+        [onInputActiveChange]
+    );
+
     useEffect(() => {
         if (isInputActive) {
             document.addEventListener("keydown", handleKeyDown);
@@ -31,18 +45,7 @@ function SearchInput({ onInputActiveChange = () => {} }: Props) {
         return () => {
             document.removeEventListener("keydown", handleKeyDown);
         };
-    }, [isInputActive]);
-
-    function handleKeyDown(event: KeyboardEvent) {
-        if (event.key === "Escape") {
-            setIsInputActive(false);
-            if (inputRef.current) {
-                inputRef.current.value = "";
-            }
-            inputRef.current?.blur();
-            onInputActiveChange(false);
-        }
-    }
+    }, [isInputActive, handleKeyDown]);
 
     return (
         <Tooltip label="Search" direction="right" keys={["CTRL", "/"]} visible={!isInputActive}>
@@ -60,7 +63,6 @@ function SearchInput({ onInputActiveChange = () => {} }: Props) {
                 <input
                     type="text"
                     name="search"
-                    id="search"
                     placeholder="Search"
                     className={`${isInputActive ? styles.searchActive : styles.search}`}
                     onClick={() => {

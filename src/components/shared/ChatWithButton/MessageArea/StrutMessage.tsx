@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import DuplicateIcon from "~/components/icons/DuplicateIcon";
 import SmallBlankIcon from "~/components/icons/SmallBlankIcon";
 import LocalStorage from "~/storage/LocalStorage";
@@ -39,17 +39,18 @@ const StrutMessage: React.FC<Props> = ({ text, isLast, onTypingStopped, inputRef
                 }
             );
 
-            observer.observe(lastMessageRef.current);
+            const currentMessageRef = lastMessageRef.current;
+            observer.observe(currentMessageRef);
 
             return () => {
-                if (lastMessageRef.current) {
-                    observer.unobserve(lastMessageRef.current);
+                if (currentMessageRef) {
+                    observer.unobserve(currentMessageRef);
                 }
             };
         }
-    }, [isLast]);
+    }, [isLast, containerRef]);
 
-    const typingEffect = () => {
+    const typingEffect = useCallback(() => {
         let index = 0;
         const speed = 1;
         let insideTag = false;
@@ -77,7 +78,7 @@ const StrutMessage: React.FC<Props> = ({ text, isLast, onTypingStopped, inputRef
         };
 
         typeNextCharacter();
-    };
+    }, [text, isStopped]);
 
     useEffect(() => {
         if (!isLast) {
@@ -94,7 +95,7 @@ const StrutMessage: React.FC<Props> = ({ text, isLast, onTypingStopped, inputRef
                 clearTimeout(timeoutRef.current);
             }
         };
-    }, [text, isLast]);
+    }, [text, isLast, typingEffect]);
 
     const stopTyping = () => {
         if (timeoutRef.current) {

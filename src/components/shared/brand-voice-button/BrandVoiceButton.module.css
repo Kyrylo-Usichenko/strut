@@ -1,9 +1,9 @@
-.container{
+.container {
     position: relative;
     width: fit-content;
 }
 
-.brandVoiceMenu{
+.brandVoiceMenu {
     position: absolute;
     top: 29px;
     right: 0;

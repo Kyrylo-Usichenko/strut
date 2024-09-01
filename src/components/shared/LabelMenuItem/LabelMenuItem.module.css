@@ -78,7 +78,7 @@
     content: " ";
     width: 258px;
     height: 1px;
-    background-color: var(--border-thin-color);;
+    background-color: var(--border-thin-color);
 }
 
 .input {
@@ -102,7 +102,7 @@
 .createBtn {
     display: flex;
     flex-wrap: nowrap;
-    align-items: start;
+    align-items: flex-start;
     width: 248px;
     height: 32px;
     border: none;

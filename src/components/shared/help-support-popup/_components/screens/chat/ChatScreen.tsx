@@ -30,7 +30,6 @@ export default function ChatScreen({ chat, onBackHandler, onCloseHandler }: Chat
     function onChatMessageHoverHandler(id: number, event: React.MouseEvent<HTMLDivElement>) {
         setHoveredMessageId(id);
         const rect = (event.target as any).getBoundingClientRect();
-        console.log(rect);
         setHoveredMessageCords({
             x: rect.x,
             y: rect.y - 64

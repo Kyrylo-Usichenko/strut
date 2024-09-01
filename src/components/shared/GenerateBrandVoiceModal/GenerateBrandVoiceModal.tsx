@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Button from "~/components/shared/button/Button";
 import styles from "./styles.module.css";
 
@@ -15,7 +15,7 @@ function GenerateBrandVoiceModal({ onClose = () => {}, onCreate = (text: string)
         setInputValue(e.target.value);
     }
 
-    function handleCreateClick() {
+    const handleCreateClick = useCallback(() => {
         if (inputValue.trim() !== "") {
             const generatedText = `This is an example of Brand Voice generated based on your website link:
 Tone: Be informative, encouraging, and forward-thinking to engage and inspire developers.
@@ -26,20 +26,23 @@ Do this: Provide valuable insights and updates on Chrome and web technologies.
 Dont do this: do this: Use jargon or complex language that may confuse readers.`;
             onCreate(generatedText);
         }
-    }
+    }, [inputValue, onCreate]);
 
-    function handleEnterKey(event: KeyboardEvent) {
-        if (event.key === "Enter") {
-            handleCreateClick();
-        }
-    }
+    const handleEnterKey = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === "Enter") {
+                handleCreateClick();
+            }
+        },
+        [handleCreateClick]
+    );
 
     useEffect(() => {
         document.addEventListener("keydown", handleEnterKey);
         return () => {
             document.removeEventListener("keydown", handleEnterKey);
         };
-    }, [inputValue]);
+    }, [inputValue, handleEnterKey]);
 
     return (
         <div className={styles.modal}>

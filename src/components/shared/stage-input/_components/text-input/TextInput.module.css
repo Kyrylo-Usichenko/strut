@@ -21,7 +21,7 @@
 }
 
 .input:hover {
-    background-color: var(--hover-item-color);
+    background-color: var(--item-bg-color);
     cursor: text;
 }
 
@@ -57,8 +57,8 @@
 }
 
 .kanbanInput:focus {
-    background-color: var(--input-bg-color);
-    box-shadow: var(--box-border-color) 0px 0px 0px 1px inset;
+    box-shadow: var(--hover-item-color) 0px 0px 0px 1px inset;
+    background-color: var(--item-bg-color);
     outline: none;
     width: 182px;
 }

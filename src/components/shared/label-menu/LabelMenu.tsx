@@ -92,19 +92,25 @@ export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () =>
         handleCLickLabel(false);
     };
 
-    const handleClickOutside = useCallback((event: MouseEvent) => {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-            setIsVisible(false);
-            handleCLickLabel(false);
-        }
-    }, []);
+    const handleClickOutside = useCallback(
+        (event: MouseEvent) => {
+            if (ref.current && !ref.current.contains(event.target as Node)) {
+                setIsVisible(false);
+                handleCLickLabel(false);
+            }
+        },
+        [setIsVisible, handleCLickLabel]
+    );
 
-    const handleEscapePress = (event: KeyboardEvent) => {
-        if (event.key === "Escape") {
-            setIsVisible(false);
-            handleCLickLabel(false);
-        }
-    };
+    const handleEscapePress = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsVisible(false);
+                handleCLickLabel(false);
+            }
+        },
+        [setIsVisible, handleCLickLabel]
+    );
 
     useEffect(() => {
         if (isVisible) {

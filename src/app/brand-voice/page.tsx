@@ -13,7 +13,7 @@ export default function BrandVoicePage() {
         } else {
             setIsValid(false);
         }
-    }, []);
+    }, [brandVoices, selectedTitle]);
 
     if (!isValid || !selectedTitle) {
         return <></>;

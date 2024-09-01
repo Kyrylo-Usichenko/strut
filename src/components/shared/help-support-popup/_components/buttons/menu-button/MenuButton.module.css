@@ -1,4 +1,4 @@
-.iconWrapper{
+.iconWrapper {
     position: relative;
     display: flex;
     align-items: center;
@@ -7,7 +7,8 @@
     pointer-events: none;
 }
 
-.menuButton, .activeMenuButton{
+.menuButton,
+.activeMenuButton {
     flex: 1 1 0%;
     display: flex;
     flex-direction: column;
@@ -22,16 +23,16 @@
     text-align: center;
 }
 
-.menuButton{
+.menuButton {
     color: rgb(26, 26, 26);
 }
 
-.activeMenuButton{
+.activeMenuButton {
     color: rgb(111, 113, 122);
-    font-weight: 600;   
+    font-weight: 600;
 }
 
-.text{
+.text {
     display: block;
     text-align: center;
     margin: 0px auto;

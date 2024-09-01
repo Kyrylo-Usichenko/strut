@@ -84,12 +84,8 @@ function MainContent({ collections, collectionClickHandler }: MainContentProps) 
             </div>
             <div className={styles.collections}>
                 {collections.map((collection) => (
-                    <>
-                        <div
-                            key={collection.id}
-                            className={styles.collectionPiece}
-                            onClick={() => collectionClickHandler(collection)}
-                        >
+                    <div key={collection.id}>
+                        <div className={styles.collectionPiece} onClick={() => collectionClickHandler(collection)}>
                             <div className={styles.collectionInfo}>
                                 <p className={styles.collectionTitle}>{collection.title}</p>
                                 <p className={styles.collectionDescription}>{collection.description}</p>
@@ -102,7 +98,7 @@ function MainContent({ collections, collectionClickHandler }: MainContentProps) 
                             </div>
                         </div>
                         <div className={styles.separator} />
-                    </>
+                    </div>
                 ))}
             </div>
         </>

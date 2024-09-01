@@ -42,8 +42,8 @@ function WorkspaceModal({ onClose = () => {} }: Props) {
                         onChange={handleInputChange}
                         className={styles.input}
                         type="text"
-                        name="name"
-                        id="name"
+                        name="WorkspaceModalNameInput"
+                        id="WorkspaceModalNameInput"
                         placeholder="Workspace name..."
                         autoComplete="off"
                     />

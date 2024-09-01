@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1 1 calc(100% / 3); 
+    flex: 1 1 calc(100% / 3);
     gap: 8px;
     max-width: calc((100% - 32px) / 3);
     min-width: 170px;
@@ -34,14 +34,14 @@
 
 @container (max-width: 621px) and (min-width: 436px) {
     .createContainer {
-        flex: 1 1 calc((100%) / 2); 
+        flex: 1 1 calc((100%) / 2);
         max-width: calc((100% - 16px) / 2);
     }
 }
 
 @container (max-width: 435px) {
     .createContainer {
-        flex: 1 1 100%; 
+        flex: 1 1 100%;
         max-width: 100%;
     }
 }

@@ -8,26 +8,26 @@
     align-items: center;
 }
 
-.textWrapper{
+.textWrapper {
     font-size: 14px;
     line-height: 21px;
     flex-grow: 1;
     text-align: left;
 }
 
-.mainText{
+.mainText {
     padding: 0;
     display: block;
     font-weight: 600;
     color: black;
 }
 
-.subText{
+.subText {
     padding: 0;
     display: block;
     color: rgb(115, 115, 115);
 }
 
-.iconWrapper{
+.iconWrapper {
     color: rgb(115, 115, 115);
 }

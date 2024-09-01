@@ -15,7 +15,7 @@
     line-height: 20px;
     color: var(--text-color);
     font-size: 14px;
-    word-wrap: break-word; 
+    word-wrap: break-word;
     overflow-wrap: break-word;
 
     & .title {
@@ -30,6 +30,6 @@
 .buttons {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 8px;
 }

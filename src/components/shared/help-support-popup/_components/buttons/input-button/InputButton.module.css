@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     color: rgb(118, 118, 118);
     cursor: pointer;
     display: inline-block;
@@ -8,6 +8,6 @@
     width: 16px;
 }
 
-.wrapper:hover{
+.wrapper:hover {
     opacity: 1;
 }

@@ -5,7 +5,6 @@
     background-color: inherit;
     color: var(--text-hover-color);
     outline: none;
-
 }
 
 .menu::after {
@@ -28,5 +27,3 @@
     padding: 8px 12px;
     height: 36px;
 }
-
-

@@ -12,11 +12,14 @@ function useVisible(initialIsVisible: boolean) {
         }
     }, []);
 
-    const handleEscapePress = (event: KeyboardEvent) => {
-        if (event.key === "Escape") {
-            setIsVisible(false);
-        }
-    };
+    const handleEscapePress = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsVisible(false);
+            }
+        },
+        [setIsVisible]
+    );
 
     useEffect(() => {
         if (isVisible) {

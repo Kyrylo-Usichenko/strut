@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import SmallArrowIcon from "~/components/icons/SmallArrowIcon";
 import styles from "./ShareModalContact.module.css";
 
@@ -16,7 +17,7 @@ export default function ShareModalContact({ name, image, status, handleButtonCli
     return (
         <div className={styles.container}>
             <div className={styles.contactDiv}>
-                <img src={image} alt="contact" className={styles.img} />
+                <Image src={image} alt="contact" className={styles.img} width={24} height={24} unoptimized={true} />
                 <p className={styles.name}>{name}</p>
             </div>
             <div>

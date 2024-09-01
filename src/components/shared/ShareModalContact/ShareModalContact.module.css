@@ -48,7 +48,7 @@
 .arrow {
     transform: rotate(90deg);
 }
-.meniDiv{
+.meniDiv {
     position: relative;
 }
 .menu {
@@ -70,7 +70,7 @@
 }
 
 .ediBtn,
-.removeBtn{
+.removeBtn {
     width: 100%;
     height: 36px;
     padding: 8px 12px;
@@ -80,19 +80,19 @@
 }
 
 .ediBtn:hover,
-.removeBtn:hover{
+.removeBtn:hover {
     color: var(--text-hover-color);
     background-color: var(--hover-item-color);
 }
 
-.removeBtn{
+.removeBtn {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 25px;
 }
 
-.ediBtn{
+.ediBtn {
     display: flex;
     align-items: center;
     gap: 16px;

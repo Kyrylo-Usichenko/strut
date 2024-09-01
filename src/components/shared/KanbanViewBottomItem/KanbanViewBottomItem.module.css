@@ -152,8 +152,8 @@
     right: 0;
 }
 
-.containerIsActiveCard{
-   cursor: grab;
+.containerIsActiveCard {
+    cursor: grab;
     position: relative;
     width: 100%;
     min-height: 80px;
@@ -164,5 +164,5 @@
     box-shadow:
         var(--box-shadow-color) 0px 4px 8px,
         var(--box-border-color) 0px 0px 0px 1px;
-    user-select: none; 
+    user-select: none;
 }

@@ -36,8 +36,6 @@ export default function Task({ content }: { content: ContentType }) {
     useEffect(() => {
         if (selectedItems.firstId !== 1 || selectedItems.lastId !== 0) {
             try {
-                console.log(selectedItems);
-                console.log(isAlreadySelected.current);
                 const range = document.createRange();
                 const startContainer = document.getElementById(selectedItems.firstId.toString());
                 const endContainer = document.getElementById(selectedItems.lastId.toString());
@@ -60,9 +58,7 @@ export default function Task({ content }: { content: ContentType }) {
                     const selection = window.getSelection();
                     selection?.removeAllRanges();
                     selection?.addRange(range);
-                } catch (e2) {
-                    console.log(e2);
-                }
+                } catch (e2) {}
             }
         }
     });
@@ -86,7 +82,6 @@ export default function Task({ content }: { content: ContentType }) {
 
     function handleMouseUp() {
         const selection = window.getSelection();
-        console.log(selection);
         if (
             selection &&
             selection.anchorNode &&

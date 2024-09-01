@@ -28,12 +28,12 @@
     display: flex;
     opacity: 0;
     height: 100%;
-    left: -6px; 
-    width: 4px; 
-    cursor: col-resize; 
-    border-radius: 4px; 
-    background-color: var(--box-border-color); 
-    z-index: 2; 
+    left: -6px;
+    width: 4px;
+    cursor: col-resize;
+    border-radius: 4px;
+    background-color: var(--box-border-color);
+    z-index: 2;
 }
 
 .resizer:hover {
