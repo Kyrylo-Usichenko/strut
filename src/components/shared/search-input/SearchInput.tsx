@@ -63,7 +63,6 @@ function SearchInput({ onInputActiveChange = () => {} }: Props) {
                 <input
                     type="text"
                     name="search"
-                    id="search"
                     placeholder="Search"
                     className={`${isInputActive ? styles.searchActive : styles.search}`}
                     onClick={() => {
