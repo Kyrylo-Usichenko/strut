@@ -62,6 +62,13 @@ export default function BrandVoiceButton() {
                 withoutBackground={true}
                 onClick={() => console.log("Share button clicked")}
             />
+            <Button
+                // icon={<SvgIcon />}
+                text="ShareEEEEEEEEEEEEEEEEEEEEEEEEEEE"
+                tooltipLabel="Share Workspace"
+                onClick={() => console.log("Share button clicked")}
+                maxWidth={100}
+            />
             <div style={{ position: "absolute", right: "20px", bottom: "20px" }}>
                 <ButtonIconOnly
                     icon={<PlusSignIcon />}
