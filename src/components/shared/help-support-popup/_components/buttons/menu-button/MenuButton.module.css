@@ -27,6 +27,10 @@
     color: rgb(26, 26, 26);
 }
 
+.menuButton:hover {
+    color: rgb(111, 113, 122);
+}
+
 .activeMenuButton {
     color: rgb(111, 113, 122);
     font-weight: 600;
@@ -36,4 +40,33 @@
     display: block;
     text-align: center;
     margin: 0px auto;
+}
+
+.outerNotificationCircle{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerNotificationCircle{
+    top: 0px;
+    right: 0px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #FF4C4C;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    font-weight: 600;
 }

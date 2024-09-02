@@ -62,3 +62,11 @@
     outline: none;
     width: 182px;
 }
+
+.isCreated{
+    width: 200px;
+}
+
+.isKanbanCreated{
+    width: 182px;
+}

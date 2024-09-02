@@ -99,6 +99,7 @@ export default function HelpSupportPopup() {
                         text="Messages"
                         onClick={() => changeTab("Messages")}
                         active={tabs.active === "Messages"}
+                        notificationsCount={1}
                     />
                     <MenuButton
                         icon={<HelpSupportHelpIcon />}
