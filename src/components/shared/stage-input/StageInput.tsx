@@ -17,7 +17,7 @@ type StageInputProps = {
     value?: string;
     width?: number;
     amount?: number;
-    onCreateClick?: () => void;
+    onCreateClick?: (inputColor: string, inputIcon: JSX.Element, inputText: string) => void;
     onCancelClick?: () => void;
 };
 
@@ -46,7 +46,7 @@ export default function StageInput({
     }
 
     function createHandler() {
-        onCreateClick?.();
+        onCreateClick?.(currentColor, currentIcon, currentValue);
         setIsNewStage(false);
     }
 
