@@ -189,10 +189,11 @@ export default function BoardGridView() {
     }
 
     function createStage(title: string, icon: React.ReactElement, iconColor: string) {
+        const parsedTitle = title.trim() ? title : "Untitled";
         setData((prevData) => [
             ...prevData,
             {
-                status: title,
+                status: parsedTitle,
                 icon,
                 iconColor,
                 data: []

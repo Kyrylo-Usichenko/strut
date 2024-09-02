@@ -17,7 +17,7 @@ type StageInputProps = {
     value?: string;
     width?: number;
     amount?: number;
-    onCreateClick?: (inputColor: string, inputIcon: JSX.Element, inputText: string) => void;
+    createStage?: (title: string, icon: React.ReactElement, iconColor: string) => void;
     onCancelClick?: () => void;
 };
 
@@ -29,7 +29,7 @@ export default function StageInput({
     value,
     width,
     amount,
-    onCreateClick,
+    createStage = () => {},
     onCancelClick
 }: StageInputProps) {
     const [currentIcon, setCurrentIcon] = useState(icon || (DashedCircleIcon as unknown as JSX.Element));
@@ -45,7 +45,7 @@ export default function StageInput({
     }
 
     function createHandler() {
-        onCreateClick?.(currentColor, currentIcon, currentValue);
+        createStage(currentValue, currentIcon, currentColor);
     }
 
     return isCreated ? (

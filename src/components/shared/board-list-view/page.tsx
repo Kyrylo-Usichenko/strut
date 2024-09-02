@@ -147,10 +147,12 @@ export default function BoardListView() {
 
     function createStage(title: string, icon: React.ReactElement, iconColor: string) {
         console.log(title, icon, iconColor);
+
+        const parsedTitle = title.trim() ? title : "Untitled";
         setData((prevData) => [
             ...prevData,
             {
-                status: title,
+                status: parsedTitle,
                 icon,
                 iconColor,
                 textData: []

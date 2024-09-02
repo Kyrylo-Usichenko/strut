@@ -5,6 +5,7 @@ import styles from "./CreateStageForListAndBoardView.module.css";
 import PlusIcon from "~/components/icons/PlusIcon";
 import Button from "../button/Button";
 import DashedCircleIcon from "~/components/icons/DashedCircleIcon";
+import StageInput from "../stage-input/StageInput";
 
 type Props = {
     createStage: (title: string, icon: React.ReactElement, iconColor: string) => void;
@@ -12,22 +13,21 @@ type Props = {
 
 export default function CreateStageForListAndBoardView({ createStage }: Props) {
     const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
-    const [title, setTitle] = useState<string>("Untitled");
-    const [icon, setIcon] = useState<React.ReactElement>(<DashedCircleIcon />);
-    const [color, setColor] = useState<string>("rgba(255, 255, 255, 0.5)");
 
-    function handleCreateStage() {
+    function handleCreateStage(title: string, icon: React.ReactElement, iconColor: string) {
         setIsMenuOpened(false);
-        createStage(title, icon, color);
+        createStage(title, icon, iconColor);
     }
 
     return (
         <div className={styles.container}>
             {isMenuOpened ? (
-                <div className={styles.menu}>
-                    <Button text="Create" onClick={handleCreateStage} />
-                    <Button text="Cancel" onClick={() => setIsMenuOpened(false)} />
-                </div>
+                <StageInput
+                    viewMode="list"
+                    isCreated={true}
+                    createStage={handleCreateStage}
+                    onCancelClick={() => setIsMenuOpened(false)}
+                />
             ) : (
                 <button className={styles.createBtn} onClick={() => setIsMenuOpened(true)}>
                     <PlusIcon width={12} height={12} /> Add a Stage

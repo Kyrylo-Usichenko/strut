@@ -129,11 +129,13 @@ export default function KanbanView() {
     };
 
     function createStage(title: string, icon: React.ReactElement, iconColor: string) {
-        console.log(title, icon, iconColor);
+        // console.log(title, icon, iconColor);
+        const parsedTitle = title.trim() ? title : "Untitled";
+
         setData((prevData) => [
             ...prevData,
             {
-                status: title,
+                status: parsedTitle,
                 icon,
                 color: iconColor,
                 taskData: []

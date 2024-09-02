@@ -8,7 +8,7 @@ function ExampleUsage() {
         console.log(`You can do anything with selected color (${color}), icon (${icon}) and text(${text})`);
     }
 
-    return <StageInput viewMode="list" isCreated={true} value={"Try me!"} onCreateClick={handleCreateClick} />;
+    return <StageInput viewMode="list" isCreated={true} value={"Try me!"} createStage={handleCreateClick} />;
 }
 
 export default function StageInputPage() {
