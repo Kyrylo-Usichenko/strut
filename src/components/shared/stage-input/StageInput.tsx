@@ -35,7 +35,7 @@ export default function StageInput({
     const [currentIcon, setCurrentIcon] = useState(icon || (DashedCircleIcon as unknown as JSX.Element));
     const [currentColor, setCurrentColor] = useState(color || "var(--text-color)");
     const { ref: menuRef, isVisible: showMenu, setIsVisible: setShowMenu } = useVisible(false);
-    const [currentValue, setValue] = useState(value || "Untitled");
+    const [currentValue, setValue] = useState(value || "");
     const [currentWidth, setWidth] = useState(width || 67);
 
     function handleIconChange(icon: JSX.Element, color: string) {
