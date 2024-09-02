@@ -9,6 +9,7 @@ import { Tags } from "~/components/shared/label-menu/LabelMenu";
 import { tags } from "~/components/shared/board-list-view/page";
 import { ReactElement, useState } from "react";
 import { ActiveCard } from "../kanban-view/page";
+import CreateStageForListAndBoardView from "../CreateStageForListAndBoardView/CreateStageForListAndBoardView";
 
 const cloneTags = (tags: Tags) => tags.map((tag) => ({ ...tag }));
 
@@ -43,8 +44,7 @@ const initialData = [
                 textData: ["Fly me to the moon", "USA", "Obama", "Biden"],
                 tags: cloneTags(tags)
             }
-        ],
-        position: "top"
+        ]
     },
     {
         status: "Hello world",
@@ -81,8 +81,7 @@ const initialData = [
                 textData: ["Fly me to the moon", "USA", "Obama", "Biden"],
                 tags: cloneTags(tags)
             }
-        ],
-        position: "center"
+        ]
     },
     {
         status: "Fly me to the Moon",
@@ -109,8 +108,7 @@ const initialData = [
                 textData: ["Fly me to the moon", "USA", "Fly me to the moon", "Fly me to the moon"],
                 tags: cloneTags(tags)
             }
-        ],
-        position: "bottom"
+        ]
     }
 ];
 
@@ -121,7 +119,6 @@ type InitialData = {
     icon: ReactElement;
     iconColor: string;
     data: ColumnItem[];
-    position: string;
 };
 
 export default function BoardGridView() {
@@ -191,6 +188,18 @@ export default function BoardGridView() {
         setActiveCard(null);
     }
 
+    function createStage(title: string, icon: React.ReactElement, iconColor: string) {
+        setData((prevData) => [
+            ...prevData,
+            {
+                status: title,
+                icon,
+                iconColor,
+                data: []
+            }
+        ]);
+    }
+
     return (
         <div className={styles.container}>
             {data.map((item, index) => (
@@ -201,13 +210,14 @@ export default function BoardGridView() {
                     iconColor={item.iconColor}
                     number={item.data.length}
                     data={item.data}
-                    position={item.position}
+                    position={index === 0 ? "top" : index === data.length - 1 ? "bottom" : "center"}
                     onTagChecked={onTagChecked}
                     setActiveCard={setActiveCard}
                     onDrop={onDrop}
                     activeCard={activeCard}
                 />
             ))}
+            <CreateStageForListAndBoardView createStage={createStage} />
         </div>
     );
 }

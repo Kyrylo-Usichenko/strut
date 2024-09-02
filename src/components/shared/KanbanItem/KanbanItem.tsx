@@ -6,6 +6,7 @@ import KanbanItemHeader from "../KanbanItemHeader/KanbanItemHeader";
 import KanbanViewBottom from "../KanbanViewBottom/KanbanViewBottom";
 import { Tags } from "../label-menu/LabelMenu";
 import styles from "./KanbanItem.module.css";
+import DashedCircleIcon from "~/components/icons/DashedCircleIcon";
 
 type HeaderProps = {
     header: string;
@@ -14,11 +15,11 @@ type HeaderProps = {
 };
 
 type Props = {
-    icon: React.ReactElement;
-    title: string;
-    number: number;
-    dataHeader: HeaderProps[];
-    color: string;
+    icon?: React.ReactElement;
+    title?: string;
+    number?: number;
+    dataHeader?: HeaderProps[];
+    color?: string;
     position?: "left" | "right" | "center";
     setActiveCard: (card: ActiveCard) => void;
     onDrop: (status: string, position: number) => void;
@@ -29,11 +30,11 @@ type Props = {
 };
 
 export default function KanbanItem({
-    icon,
-    title,
-    number,
-    dataHeader,
-    color,
+    icon = <DashedCircleIcon />,
+    title = "Undefined",
+    number = 0,
+    dataHeader = [],
+    color = "rgba(255, 255, 255, 0.5)",
     position,
     setActiveCard,
     onDrop,

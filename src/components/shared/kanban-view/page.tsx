@@ -7,7 +7,9 @@ import CalendarIcon from "~/components/icons/CalendarIcon";
 import LaptopIcon from "~/components/icons/LaptopIcon";
 import { Tags } from "~/components/shared/label-menu/LabelMenu";
 import { tags } from "~/components/shared/board-list-view/page";
-import { useState } from "react";
+import React, { useState } from "react";
+import CreateStageForKanbanView from "../CreateStageForKanbanView/CreateStageForKanbanView";
+import { headers } from "next/headers";
 
 const cloneTags = (tags: Tags) => tags.map((tag) => ({ ...tag }));
 
@@ -19,6 +21,8 @@ type Task = {
 
 type Column = {
     status: string;
+    icon: React.ReactElement;
+    color: string;
     taskData: Task[];
 };
 
@@ -31,6 +35,8 @@ export type ActiveCard = {
 const initialData = [
     {
         status: "In process",
+        icon: <PersonIcon />,
+        color: "rgb(1, 114, 100)",
         taskData: [
             { header: "Task1", data: ["Prepare for exams", "Read book", "Make tea"], tags: cloneTags(tags) },
             {
@@ -43,6 +49,8 @@ const initialData = [
 
     {
         status: "TO DO",
+        icon: <CalendarIcon />,
+        color: "rgb(255, 181, 70)",
         taskData: [
             {
                 header: "To do",
@@ -53,6 +61,8 @@ const initialData = [
     },
     {
         status: "Something",
+        icon: <LaptopIcon />,
+        color: "rgb(188, 87, 73)",
         taskData: [
             {
                 header: "Big booom",
@@ -92,12 +102,17 @@ export default function KanbanView() {
     }
 
     const onDrop = (toStatus: string, position: number) => {
-        console.log("from function onDrop");
         if (activeCard) {
             const { index: fromIndex, status: fromStatus, content } = activeCard;
 
             setData((prevData) => {
-                const newData = JSON.parse(JSON.stringify(prevData)) as Column[];
+                const newData = prevData.map((column) => ({
+                    ...column,
+                    taskData: column.taskData.map((task) => ({
+                        ...task,
+                        tags: cloneTags(task.tags)
+                    }))
+                }));
 
                 const fromColumn = newData.find((col) => col.status === fromStatus);
                 const toColumn = newData.find((col) => col.status === toStatus);
@@ -113,17 +128,30 @@ export default function KanbanView() {
         setActiveCard(null);
     };
 
+    function createStage(title: string, icon: React.ReactElement, iconColor: string) {
+        console.log(title, icon, iconColor);
+        setData((prevData) => [
+            ...prevData,
+            {
+                status: title,
+                icon,
+                color: iconColor,
+                taskData: []
+            }
+        ]);
+    }
+
     return (
         <div className={styles.wrapper}>
             {data.map((column, index) => (
                 <KanbanItem
                     key={column.status}
-                    icon={index === 0 ? <PersonIcon /> : index === 1 ? <CalendarIcon /> : <LaptopIcon />}
+                    icon={column.icon}
                     number={column.taskData.length}
                     title={column.status}
                     position={index === 0 ? "left" : index === 1 ? "center" : "right"}
                     dataHeader={column.taskData}
-                    color={index === 0 ? "rgb(1, 114, 100)" : index === 1 ? "rgb(255, 181, 70)" : "rgb(188, 87, 73)"}
+                    color={column.color}
                     setActiveCard={setActiveCard}
                     activeCard={activeCard}
                     onDrop={onDrop}
@@ -132,6 +160,7 @@ export default function KanbanView() {
                     setOnDragEnterColumn={setOnDragEnterColumn}
                 />
             ))}
+            <CreateStageForKanbanView createStage={createStage} />
         </div>
     );
 }

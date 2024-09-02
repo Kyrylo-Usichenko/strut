@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px 40px;
+}
+
+.createBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-color);
+    padding: 0 0 0 4px;
+}
+.createBtn:hover {
+    color: var(--text-hover-color);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

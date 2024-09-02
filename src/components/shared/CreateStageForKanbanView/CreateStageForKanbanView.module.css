@@ -1,0 +1,35 @@
+.container {
+    width: 250px;
+    min-height: 44px;
+    padding: 8px;
+    background-color: var(--border-thin-color);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.addStageBtn {
+    padding: 0 0 0 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-color);
+}
+.addStageBtn:hover {
+    color: var(--text-hover-color);
+}
+.bottomMenu {
+    width: 100%;
+}
+
+.btnContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}

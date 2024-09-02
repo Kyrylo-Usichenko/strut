@@ -70,6 +70,7 @@ export default function StageIconMenu({ activeColor, onIconSelect, menuRef }: st
     function handleColorClick(colorItem: string, index: number) {
         setColor(colorItem);
         setActiveIndex(index);
+        console.log(colorItem, index);
     }
 
     return (
