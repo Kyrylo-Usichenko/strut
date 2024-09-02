@@ -31,11 +31,10 @@ export default function ChatScreen({ chat, onBackHandler, onCloseHandler }: Chat
         setHoveredMessageId(id);
         const rect = (event.target as any).getBoundingClientRect();
         setHoveredMessageCords({
-            x: rect.x,
-            y: rect.y - 64
+            x: rect.left,
+            y: rect.top
         });
     }
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>

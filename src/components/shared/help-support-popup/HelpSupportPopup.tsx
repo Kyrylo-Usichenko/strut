@@ -68,7 +68,6 @@ export default function HelpSupportPopup() {
 
     function handleSendMessageClick(chat?: ChatMessage[]) {
         setTabs((prevState) => ({ active: "Chat", prev: prevState.active }));
-
         setChatProps({
             ...chatProps,
             chat: chat || [],
@@ -99,6 +98,7 @@ export default function HelpSupportPopup() {
                         text="Messages"
                         onClick={() => changeTab("Messages")}
                         active={tabs.active === "Messages"}
+                        notificationsCount={1}
                     />
                     <MenuButton
                         icon={<HelpSupportHelpIcon />}
