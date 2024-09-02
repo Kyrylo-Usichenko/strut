@@ -24,6 +24,9 @@ type TabType = "Home" | "Messages" | "Help" | "Chat" | "Collection";
 
 export default function HelpSupportPopup() {
     const [tabs, setTabs] = useState<{ active: TabType; prev: TabType }>({ active: "Home", prev: "Home" });
+    const [currentNotificationsCount, setNotificationsCount] = useState<number | undefined>(
+        testMessagesData.filter((m) => m.newMessages).length
+    );
     const [chatProps, setChatProps] = useState<ChatScreenProps>({
         chat: [],
         onBackHandler: returnToPreviousTab,
@@ -96,9 +99,12 @@ export default function HelpSupportPopup() {
                         icon={<HelpSupportMessagesIcon />}
                         activeIcon={<HelpSupportMessagesActiveIcon />}
                         text="Messages"
-                        onClick={() => changeTab("Messages")}
+                        onClick={() => {
+                            changeTab("Messages");
+                            setNotificationsCount(undefined);
+                        }}
                         active={tabs.active === "Messages"}
-                        notificationsCount={1}
+                        notificationsCount={currentNotificationsCount}
                     />
                     <MenuButton
                         icon={<HelpSupportHelpIcon />}
@@ -162,7 +168,8 @@ const testMessagesData = [
         name: "Alexander",
         messagePreview: "Hey, how are you?",
         timeAgo: "2h ago",
-        chat: testChatData
+        chat: testChatData,
+        newMessages: true
     },
     {
         name: "Denis",
