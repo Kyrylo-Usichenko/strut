@@ -15,7 +15,7 @@
     height: calc(100% - 16px);
     width: calc(100% - 16px);
 
-    background-color: var(--dark-secondary);
+    background-color: var(--item-bg-color);
     color: var(--dark-text-primary);
     border-radius: 6px;
     box-shadow:

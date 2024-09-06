@@ -20,11 +20,6 @@
     color: var(--text-color);
 }
 
-.input:hover {
-    background-color: var(--item-bg-color);
-    cursor: text;
-}
-
 .input:focus {
     background-color: var(--hover-item-color);
     box-shadow: var(--box-border-color) 0px 0px 0px 1px inset;
@@ -51,7 +46,7 @@
     text-overflow: ellipsis;
 }
 
-.kanbanInput:hover {
+.kanbanInput:hover, .input:hover {
     background-color: var(--input-bg-color);
     cursor: text;
 }
