@@ -40,8 +40,8 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
             changeTab("Help");
             setHelpProps({ ...helpProps, autoFocus: true });
         },
-        recentMessage: currentMessagesData[0],
-        onRecentMessageClick: () => handleOnChatClick(currentMessagesData[0].chat)
+        recentMessage: currentMessagesData.find((m) => m.newMessages) || undefined,
+        onRecentMessageClick: () => handleOnChatClick(currentMessagesData.find((m) => m.newMessages)?.chat || [])
     });
     const [messagesProps, setMessagesProps] = useState<MessagesScreenProps>({
         messages: currentMessagesData,
@@ -85,6 +85,12 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
                     chatMainText: newMessagesData[index].chatMainText,
                     chatSubText: newMessagesData[index].chatSubText,
                     onBackHandler: returnToPreviousTab
+                });
+                setHomeProps({
+                    ...homeProps,
+                    recentMessage: newMessagesData.find((m) => m.newMessages) || undefined,
+                    onRecentMessageClick: () =>
+                        handleOnChatClick(newMessagesData.find((m) => m.newMessages)?.chat || [])
                 });
             }
             setNotificationsCount(newMessagesData.filter((m) => m.newMessages).length || undefined);
