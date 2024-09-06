@@ -14,7 +14,7 @@ The team will be back
 🕒 Later today`,
         date: "2021-10-01",
         time: "4:00 pm",
-        from: "support" as any
+        from: "system" as any
     }
 ];
 
@@ -22,23 +22,51 @@ const testChatData2 = [
     {
         id: 1,
         text: "Pummel Party go?",
-        date: "2021-10-01",
+        date: "2021-08-05",
         time: "4:00 pm",
         from: "user" as any
     },
     {
         id: 2,
         text: `Nah not today`,
-        date: "2021-10-01",
-        time: "4:00 pm",
-        from: "support" as any
+        date: "2024-10-01",
+        time: "5:00 pm",
+        from: "interlocutor" as any
     },
     {
         id: 3,
         text: `Maybe tomorrow?`,
-        date: "2021-10-01",
-        time: "4:00 pm",
-        from: "support" as any
+        date: "2024-10-01",
+        time: "5:00 pm",
+        from: "interlocutor" as any
+    },
+    {
+        id: 4,
+        text: `Maybe go **** yourself then?`,
+        date: "2024-10-01",
+        time: "6:02 pm",
+        from: "user" as any
+    },
+    {
+        id: 5,
+        text: `Maybe you should **** off then? I'm tired of this toxicity so I'm writing a long message to make it look like I'm the good guy and also test long messages!`,
+        date: "2024-10-01",
+        time: "6:02 pm",
+        from: "interlocutor" as any
+    },
+    {
+        id: 6,
+        text: `The user has blocked you`,
+        date: "2024-10-01",
+        time: "6:03 pm",
+        from: "system" as any
+    },
+    {
+        id: 7,
+        text: `You can no longer send messages to this user`,
+        date: "2024-10-01",
+        time: "6:03 pm",
+        from: "system" as any
     }
 ];
 
@@ -46,19 +74,17 @@ const testMessagesData = [
     {
         imagePath: "https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg",
         name: "Strut",
-        messagePreview: "Hey, how are you?",
         timeAgo: "2h ago",
         chat: testChatData,
         newMessages: true
     },
     {
-        name: "Denis",
-        messagePreview: "Pummel Party go?",
+        name: "Jordan",
         timeAgo: "3w ago",
         chat: testChatData2,
         newMessages: true,
-        chatMainText: "This is sample text",
-        chatSubText: "This is sample subtext"
+        chatMainText: "This is sad story",
+        chatSubText: "Maybe even dramatic"
     }
 ];
 

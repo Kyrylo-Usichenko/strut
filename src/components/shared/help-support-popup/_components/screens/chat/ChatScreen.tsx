@@ -6,6 +6,7 @@ import InputButton from "../../buttons/input-button/InputButton";
 import ArrowIcon from "~/components/icons/ArrowIconThin";
 import { ChatScreenProps } from "../../../types.module";
 import ImagePlaceholder from "../../other/image-placeholder/ImagePlaceHolder";
+import { groupBySender, groupByDate, formatDate } from "./utils";
 
 const DEFAULT_CHAT_NAME = "Strut";
 const DEFAULT_MAIN_TEXT = "We will reply as soon as we can";
@@ -25,6 +26,8 @@ export default function ChatScreen({
     const [message, setMessage] = useState<string>("");
     const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(null);
     const [hoveredMessageCords, setHoveredMessageCords] = useState<{ x: number; y: number } | null>(null);
+    const groupedBySenderChat = groupBySender(chat);
+    const groupedByDateChat = groupByDate(chat);
 
     function adjustHeight() {
         if (textbox && textbox.current) {
@@ -48,6 +51,7 @@ export default function ChatScreen({
             y: rect.top
         });
     }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -76,64 +80,91 @@ export default function ChatScreen({
                 </div>
                 <div className={styles.chat}>
                     {chat.map((message) => (
-                        <div
-                            key={message.id}
-                            className={`${styles.messageWrapper} ${message.from === "support" ? styles.supportMessage : ""}`}
-                        >
-                            {message.from === "support" && (
-                                <Image
-                                    height={32}
-                                    width={32}
-                                    src="https://static.intercomassets.com/assets/default-avatars/fin/128-6a5eabbb84cc2b038b2afc6698ca0a974faf7adc9ea9f0fb3c3e78ac12543bc5.png"
-                                    alt="Profile image for Fin"
-                                    className={styles.avatar}
-                                    unoptimized={true}
-                                />
-                            )}
-                            {hoveredMessageId === message.id && (
+                        <div key={message.id}>
+                            {groupedByDateChat.find((group) => group.id === message.id) && (
                                 <div
-                                    className={styles.timeSentTooltip}
-                                    style={
-                                        hoveredMessageCords
-                                            ? {
-                                                  top: hoveredMessageCords.y,
-                                                  left: hoveredMessageCords.x
-                                              }
-                                            : {}
-                                    }
+                                    className={`${styles.date} ${groupedByDateChat[0].id === message.id ? styles.firstDate : ""}`}
                                 >
-                                    {message.time}
+                                    {formatDate(message.date)}
                                 </div>
                             )}
                             <div
-                                className={message.from === "support" ? styles.supportBubble : styles.userBubble}
-                                onMouseOver={(event) => onChatMessageHoverHandler(message.id, event)}
-                                onMouseOut={() => {
-                                    setHoveredMessageId(null);
-                                    setHoveredMessageCords(null);
-                                }}
+                                className={`${styles.messageWrapper} ${message.from != "user" ? styles.supportMessage : ""}  ${groupedBySenderChat.all.includes(message.id) ? "" : styles.secondaryMessageInGroup} ${groupedBySenderChat.leftSided.includes(message.id) ? "" : styles.secondaryMessageInLeftSidedGroup}`}
                             >
-                                {message.text}
+                                {groupedBySenderChat.system.includes(message.id) && (
+                                    <Image
+                                        height={32}
+                                        width={32}
+                                        src="https://static.intercomassets.com/assets/default-avatars/fin/128-6a5eabbb84cc2b038b2afc6698ca0a974faf7adc9ea9f0fb3c3e78ac12543bc5.png"
+                                        alt="Profile image for Fin"
+                                        className={styles.avatar}
+                                        unoptimized={true}
+                                    />
+                                )}
+                                {groupedBySenderChat.interlocutor.includes(message.id) &&
+                                    (chatPhoto ? (
+                                        <Image
+                                            height={32}
+                                            width={32}
+                                            src={chatPhoto}
+                                            alt="Profile image for your interlocutor"
+                                            className={styles.avatar}
+                                            unoptimized={true}
+                                        />
+                                    ) : (
+                                        <ImagePlaceholder
+                                            className={`${styles.avatar} ${styles.avatarPlaceholder}`}
+                                            letter={chatName ? chatName[0] : DEFAULT_CHAT_NAME[0]}
+                                        />
+                                    ))}
+                                {hoveredMessageId === message.id && (
+                                    <div
+                                        className={styles.timeSentTooltip}
+                                        style={
+                                            hoveredMessageCords
+                                                ? {
+                                                      top: hoveredMessageCords.y,
+                                                      left: hoveredMessageCords.x
+                                                  }
+                                                : {}
+                                        }
+                                    >
+                                        {message.time}
+                                    </div>
+                                )}
+                                <div
+                                    className={`${message.from != "user" ? styles.supportBubble : styles.userBubble}`}
+                                    onMouseOver={(event) => onChatMessageHoverHandler(message.id, event)}
+                                    onMouseOut={() => {
+                                        setHoveredMessageId(null);
+                                        setHoveredMessageCords(null);
+                                    }}
+                                >
+                                    {message.text}
+                                </div>
                             </div>
                         </div>
                     ))}
                 </div>
                 <div className={styles.lowerPart}>
-                    <textarea
-                        ref={textbox}
-                        onChange={handleKeyDown}
-                        rows={1}
-                        placeholder="Message..."
-                        className={styles.input}
-                    />
-                    <div className={styles.buttons}>
-                        <InputButton icon="emoji" onClick={() => {}} />
-                        {message.length === 0 && <InputButton icon="gif" onClick={() => {}} />}
-                        {message.length === 0 && <InputButton icon="attachment" onClick={() => {}} />}
-                        <button className={styles.sendButton} disabled={message.length === 0}>
-                            <ArrowIcon direction="up" />
-                        </button>
+                    <div className={styles.lowerPartContent}>
+                        <textarea
+                            ref={textbox}
+                            onChange={handleKeyDown}
+                            rows={1}
+                            placeholder="Message..."
+                            className={styles.input}
+                        />
+                        <div className={styles.buttons}>
+                            <InputButton icon="emoji" onClick={() => {}} />
+                            {message.length === 0 && <InputButton icon="gif" onClick={() => {}} />}
+                            {message.length === 0 && <InputButton icon="attachment" onClick={() => {}} />}
+                            <button className={styles.sendButton} disabled={message.length === 0}>
+                                <ArrowIcon direction="up" />
+                            </button>
+                        </div>
                     </div>
+                    <div className={styles.footer} />
                 </div>
             </div>
         </div>

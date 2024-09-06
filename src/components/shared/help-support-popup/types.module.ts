@@ -13,8 +13,10 @@ export type ChatMessage = {
     text: string;
     date: string;
     time: string;
-    from: "user" | "support";
+    from: ChatMessageFromType;
 };
+
+export type ChatMessageFromType = "user" | "interlocutor" | "system";
 
 export type ChatScreenProps = {
     chat?: ChatMessage[];
