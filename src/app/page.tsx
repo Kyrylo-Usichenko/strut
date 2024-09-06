@@ -111,6 +111,7 @@ export default function Home() {
                     onClick={() => console.log("Brand Voice button clicked")}
                     state="hovered"
                 />
+                <Button text="Button (130px max width)" tooltipLabel="Button (130px max width)" maxWidth={130} />
             </div>
             <div className={s.item} style={{ width: "400px" }}>
                 <span className={s.title}>Stage Input</span>
