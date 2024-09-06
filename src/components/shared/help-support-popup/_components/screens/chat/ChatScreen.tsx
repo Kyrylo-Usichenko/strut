@@ -27,7 +27,7 @@ export default function ChatScreen({
     const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(null);
     const groupedBySenderChat = groupBySender(chat);
     const groupedByDateChat = groupByDate(chat);
-    const lastMessageId = chat[chat.length - 1].id;
+    const lastMessageId = chat.length > 0 ? chat[chat.length - 1].id : null;
 
     function adjustHeight() {
         if (textbox && textbox.current) {

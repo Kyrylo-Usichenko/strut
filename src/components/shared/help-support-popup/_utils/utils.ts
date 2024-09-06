@@ -7,6 +7,7 @@ function groupBySender(chat: ChatMessage[]): {
     all: number[];
     leftSided: number[];
 } {
+    if (chat.length === 0) return { system: [], interlocutor: [], user: [], all: [], leftSided: [] };
     const groupEndIds = [{ from: chat[chat.length - 1].from, id: chat[chat.length - 1].id }];
     let lastSentFrom = chat[chat.length - 1].from;
     for (let i = chat.length - 1; i >= 0; i--) {
@@ -30,6 +31,7 @@ function groupBySender(chat: ChatMessage[]): {
 }
 
 function groupByDate(chat: ChatMessage[]): { date: string; id: number }[] {
+    if (chat.length === 0) return [];
     const groupedEndIds = [{ date: chat[0].date, id: chat[0].id }];
     let lastDate = chat[0].date;
     for (let i = 1; i < chat.length; i++) {
