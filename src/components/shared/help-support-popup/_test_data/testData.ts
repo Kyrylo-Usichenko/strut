@@ -41,7 +41,7 @@ The team will be back
 const testMessagesData = [
     {
         imagePath: "https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg",
-        name: "Alexander",
+        name: "Strut",
         messagePreview: "Hey, how are you?",
         timeAgo: "2h ago",
         chat: testChatData,
@@ -51,7 +51,10 @@ const testMessagesData = [
         name: "Denis",
         messagePreview: "Pummel Party go?",
         timeAgo: "3w ago",
-        chat: testChatData2
+        chat: testChatData2,
+        newMessages: true,
+        chatMainText: "This is sample text",
+        chatSubText: "This is sample subtext"
     }
 ];
 

@@ -24,8 +24,9 @@ import {
 
 export default function HelpSupportPopup({ messagesData, collectionsData }: HelpSupportPopupProps) {
     const [tabs, setTabs] = useState<{ active: TabType; prev: TabType }>({ active: "Home", prev: "Home" });
+    const [currentMessagesData, setMessagesData] = useState(messagesData);
     const [currentNotificationsCount, setNotificationsCount] = useState<number | undefined>(
-        messagesData.filter((m) => m.newMessages).length
+        currentMessagesData.filter((m) => m.newMessages).length
     );
     const [chatProps, setChatProps] = useState<ChatScreenProps>({
         chat: [],
@@ -34,18 +35,18 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
     });
     const [homeProps, setHomeProps] = useState<HomeScreenProps>({
         name: "Alexander",
-        onMessageClick: () => handleSendMessageClick(),
+        onMessageClick: () => handleOnSendMessageClick,
         onSearchClick: () => {
             changeTab("Help");
             setHelpProps({ ...helpProps, autoFocus: true });
         },
-        recentMessage: messagesData[0],
-        onRecentMessageClick: () => handleSendMessageClick(messagesData[0].chat)
+        recentMessage: currentMessagesData[0],
+        onRecentMessageClick: () => handleOnChatClick(currentMessagesData[0].chat)
     });
     const [messagesProps, setMessagesProps] = useState<MessagesScreenProps>({
-        messages: messagesData,
-        onSendMessageClick: () => handleSendMessageClick([]),
-        onChatClick: (message) => handleSendMessageClick(message.chat)
+        messages: currentMessagesData,
+        onSendMessageClick: () => handleOnSendMessageClick(),
+        onChatClick: (message) => handleOnChatClick(message.chat)
     });
     const [helpProps, setHelpProps] = useState<HelpScreenProps>({
         collections: collectionsData,
@@ -58,7 +59,7 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
         setActiveCollection: (collection: Collection | null) => {
             setHelpProps({ ...helpProps, activeCollection: collection });
         },
-        onSendMessageClick: () => handleSendMessageClick()
+        onSendMessageClick: handleOnSendMessageClick
     });
 
     function changeTab(tab: TabType) {
@@ -69,11 +70,37 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
         setTabs((prevState) => ({ active: prevState.prev, prev: prevState.active }));
     }
 
-    function handleSendMessageClick(chat?: ChatMessage[]) {
+    function handleOnChatClick(chat: ChatMessage[]) {
+        setTabs((prevState) => ({ active: "Chat", prev: prevState.active }));
+        setMessagesData((prevState) => {
+            const newMessagesData = [...prevState];
+            const index = newMessagesData.findIndex((m) => m.chat === chat);
+            if (index !== -1) {
+                newMessagesData[index].newMessages = false;
+                setChatProps({
+                    ...chatProps,
+                    chat: chat || [],
+                    chatName: newMessagesData[index].name,
+                    chatPhoto: newMessagesData[index].imagePath,
+                    chatMainText: newMessagesData[index].chatMainText,
+                    chatSubText: newMessagesData[index].chatSubText,
+                    onBackHandler: returnToPreviousTab
+                });
+            }
+            setNotificationsCount(newMessagesData.filter((m) => m.newMessages).length || undefined);
+            return newMessagesData;
+        });
+    }
+
+    function handleOnSendMessageClick() {
         setTabs((prevState) => ({ active: "Chat", prev: prevState.active }));
         setChatProps({
             ...chatProps,
-            chat: chat || [],
+            chat: [],
+            chatName: "Strut",
+            chatPhoto: "https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg",
+            chatMainText: "We'll be back online later today",
+            chatSubText: "Ask us anything, or share your feedback.",
             onBackHandler: returnToPreviousTab
         });
     }
@@ -101,7 +128,6 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
                         text="Messages"
                         onClick={() => {
                             changeTab("Messages");
-                            setNotificationsCount(undefined);
                         }}
                         active={tabs.active === "Messages"}
                         notificationsCount={currentNotificationsCount}

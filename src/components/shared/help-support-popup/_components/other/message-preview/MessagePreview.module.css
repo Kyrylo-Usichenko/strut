@@ -59,26 +59,6 @@
     color: rgb(102, 102, 102);
 }
 
-.imagePlaceholder {
-    margin: 0px auto;
-    border-radius: 50%;
-    vertical-align: middle;
-    cursor: default;
-    position: relative;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    text-transform: uppercase;
-    background-color: rgb(59, 60, 65);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 8px;
-}
-
 .separator {
     position: absolute;
     height: 1px;

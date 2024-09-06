@@ -5,12 +5,25 @@ import NavigationButton from "../../buttons/navigation-button/NavigationButton";
 import InputButton from "../../buttons/input-button/InputButton";
 import ArrowIcon from "~/components/icons/ArrowIconThin";
 import { ChatScreenProps } from "../../../types.module";
+import ImagePlaceholder from "../../other/image-placeholder/ImagePlaceHolder";
 
-export default function ChatScreen({ chat, onBackHandler, onCloseHandler }: ChatScreenProps) {
+const DEFAULT_CHAT_NAME = "Strut";
+const DEFAULT_MAIN_TEXT = "We will reply as soon as we can";
+const DEFAULT_SUB_TEXT = "Ask us anything, or share your feedback.";
+
+export default function ChatScreen({
+    chat,
+    chatName,
+    chatPhoto,
+    chatMainText,
+    chatSubText,
+    onBackHandler,
+    onCloseHandler
+}: ChatScreenProps) {
     chat = chat || [];
     const textbox = useRef<any>(null);
     const [message, setMessage] = useState<string>("");
-    const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(1);
+    const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(null);
     const [hoveredMessageCords, setHoveredMessageCords] = useState<{ x: number; y: number } | null>(null);
 
     function adjustHeight() {
@@ -39,23 +52,27 @@ export default function ChatScreen({ chat, onBackHandler, onCloseHandler }: Chat
         <div className={styles.wrapper}>
             <div className={styles.header}>
                 <NavigationButton styleMode="light" icon="arrow" position="left" onClick={onBackHandler} />
-                <span className={styles.headerSpan}>Strut</span>
+                <span className={styles.headerSpan}>{chatName || DEFAULT_CHAT_NAME}</span>
                 <NavigationButton styleMode="light" onClick={onCloseHandler} />
             </div>
             <div className={styles.content}>
                 <div className={styles.upperPart}>
                     <div className={styles.image}>
-                        <Image
-                            src="https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg"
-                            alt="Strut"
-                            className={styles.image}
-                            width={64}
-                            height={64}
-                            unoptimized={true}
-                        />
+                        {chatPhoto ? (
+                            <Image
+                                src={chatPhoto}
+                                alt={chatName || DEFAULT_CHAT_NAME}
+                                className={styles.image}
+                                width={64}
+                                height={64}
+                                unoptimized={true}
+                            />
+                        ) : (
+                            <ImagePlaceholder letter={chatName ? chatName[0] : DEFAULT_CHAT_NAME[0]} size="big" />
+                        )}
                     </div>
-                    <span className={styles.textSpanMain}>We will reply as soon as we can</span>
-                    <span className={styles.textSpanSub}>Ask us anything, or share your feedback.</span>
+                    <span className={styles.textSpanMain}>{chatMainText || DEFAULT_MAIN_TEXT}</span>
+                    <span className={styles.textSpanSub}>{chatSubText || DEFAULT_SUB_TEXT}</span>
                 </div>
                 <div className={styles.chat}>
                     {chat.map((message) => (

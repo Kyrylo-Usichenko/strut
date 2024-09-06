@@ -1,0 +1,30 @@
+.imagePlaceholder,
+.bigImagePlaceholder {
+    margin: 0px auto;
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: default;
+    position: relative;
+    text-transform: uppercase;
+    background-color: rgb(59, 60, 65);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagePlaceholder {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.bigImagePlaceholder {
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 28px;
+}

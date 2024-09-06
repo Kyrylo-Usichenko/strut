@@ -3,7 +3,10 @@ export type Message = {
     name: string;
     messagePreview: string;
     timeAgo: string;
-    chat?: ChatMessage[];
+    chat: ChatMessage[];
+    newMessages?: boolean;
+    chatMainText?: string;
+    chatSubText?: string;
 };
 
 export type ChatMessage = {
@@ -16,6 +19,10 @@ export type ChatMessage = {
 
 export type ChatScreenProps = {
     chat?: ChatMessage[];
+    chatName?: string;
+    chatPhoto?: string;
+    chatMainText?: string;
+    chatSubText?: string;
     onBackHandler?: () => void;
     onCloseHandler?: () => void;
 };
@@ -55,19 +62,6 @@ export type HelpScreenProps = {
 export type TabType = "Home" | "Messages" | "Help" | "Chat" | "Collection";
 
 export type HelpSupportPopupProps = {
-    messagesData: {
-        imagePath?: string;
-        name: string;
-        messagePreview: string;
-        timeAgo: string;
-        chat: ChatMessage[];
-        newMessages?: boolean;
-    }[];
-    collectionsData: {
-        id: string;
-        title: string;
-        description: string;
-        collectionAmount: number;
-        collectionArticles?: string[];
-    }[];
+    messagesData: Message[];
+    collectionsData: Collection[];
 };

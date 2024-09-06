@@ -2,16 +2,13 @@ import styles from "./MessagePreview.module.css";
 import { Message } from "../../../types.module";
 import Image from "next/image";
 import SmallArrowIcon from "~/components/icons/HelpSupportSmallArrowIcon";
+import ImagePlaceholder from "../image-placeholder/ImagePlaceHolder";
 
 type MessagePrevieProps = {
     message: Message;
     separator?: boolean;
     clickHandler?: () => void;
 };
-
-function ImagePlaceholder({ letter }: { letter: string }) {
-    return <div className={styles.imagePlaceholder}>{letter}</div>;
-}
 
 export default function MessagePreview({ message, separator, clickHandler }: MessagePrevieProps) {
     return (
