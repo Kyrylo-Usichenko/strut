@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export type Message = {
     imagePath?: string;
     name: string;
@@ -52,4 +50,24 @@ export type HelpScreenProps = {
     activeCollection?: Collection | null;
     setActiveCollection?: (collection: Collection | null) => void;
     onSendMessageClick?: () => void;
+};
+
+export type TabType = "Home" | "Messages" | "Help" | "Chat" | "Collection";
+
+export type HelpSupportPopupProps = {
+    messagesData: {
+        imagePath?: string;
+        name: string;
+        messagePreview: string;
+        timeAgo: string;
+        chat: ChatMessage[];
+        newMessages?: boolean;
+    }[];
+    collectionsData: {
+        id: string;
+        title: string;
+        description: string;
+        collectionAmount: number;
+        collectionArticles?: string[];
+    }[];
 };

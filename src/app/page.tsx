@@ -33,6 +33,7 @@ import s from "./styles.module.css";
 import BrandVoiceMenu from "../components/shared/brand-voice-menu/page";
 import BrandVoiceButton, { initialData } from "~/components/shared/brand-voice-button/BrandVoiceButton";
 import HelpSupportPopup from "~/components/shared/help-support-popup/HelpSupportPopup";
+import { testMessagesData, testCollectionsData } from "~/components/shared/help-support-popup/_test_data/testData";
 
 export default function Home() {
     return (
@@ -205,7 +206,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Help Support Popup</span>
-                <HelpSupportPopup />
+                <HelpSupportPopup messagesData={testMessagesData} collectionsData={testCollectionsData} />
             </div>
             <div className={s.item}>
                 <span className={s.title}>Create Task</span>
