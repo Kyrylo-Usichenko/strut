@@ -25,7 +25,6 @@ export default function ChatScreen({
     const textbox = useRef<any>(null);
     const [message, setMessage] = useState<string>("");
     const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(null);
-    const [hoveredMessageCords, setHoveredMessageCords] = useState<{ x: number; y: number } | null>(null);
     const groupedBySenderChat = groupBySender(chat);
     const groupedByDateChat = groupByDate(chat);
 
@@ -41,15 +40,6 @@ export default function ChatScreen({
     function handleKeyDown() {
         adjustHeight();
         setMessage(textbox.current.value);
-    }
-
-    function onChatMessageHoverHandler(id: number, event: React.MouseEvent<HTMLDivElement>) {
-        setHoveredMessageId(id);
-        const rect = (event.target as any).getBoundingClientRect();
-        setHoveredMessageCords({
-            x: rect.left,
-            y: rect.top
-        });
     }
 
     return (
@@ -117,30 +107,20 @@ export default function ChatScreen({
                                             letter={chatName ? chatName[0] : DEFAULT_CHAT_NAME[0]}
                                         />
                                     ))}
-                                {hoveredMessageId === message.id && (
-                                    <div
-                                        className={styles.timeSentTooltip}
-                                        style={
-                                            hoveredMessageCords
-                                                ? {
-                                                      top: hoveredMessageCords.y,
-                                                      left: hoveredMessageCords.x
-                                                  }
-                                                : {}
-                                        }
-                                    >
-                                        {message.time}
-                                    </div>
-                                )}
                                 <div
                                     className={`${message.from != "user" ? styles.supportBubble : styles.userBubble}`}
-                                    onMouseOver={(event) => onChatMessageHoverHandler(message.id, event)}
+                                    onMouseOver={() => setHoveredMessageId(message.id)}
                                     onMouseOut={() => {
                                         setHoveredMessageId(null);
-                                        setHoveredMessageCords(null);
                                     }}
                                 >
                                     {message.text}
+                                    <div
+                                        className={styles.timeSentTooltip}
+                                        style={hoveredMessageId === message.id ? undefined : { display: "none" }}
+                                    >
+                                        {message.time}
+                                    </div>
                                 </div>
                             </div>
                         </div>

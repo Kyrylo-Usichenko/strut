@@ -218,7 +218,9 @@
 }
 
 .timeSentTooltip {
-    position: fixed;
+    position:absolute;
+    top: 0px;
+    left: 0px;
     border-radius: 4px;
     padding: 2px 4px;
     color: rgb(255, 255, 255);
