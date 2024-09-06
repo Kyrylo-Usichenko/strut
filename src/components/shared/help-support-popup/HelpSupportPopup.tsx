@@ -19,14 +19,20 @@ import {
     Collection,
     HelpScreenProps,
     TabType,
-    HelpSupportPopupProps
+    HelpSupportPopupProps,
+    Message
 } from "./types.module";
+
+function messageIsNew(messages: Message) {
+    const lastMessage = messages.chat[messages.chat.length - 1];
+    return lastMessage.from != "user" && !lastMessage.seen;
+}
 
 export default function HelpSupportPopup({ messagesData, collectionsData }: HelpSupportPopupProps) {
     const [tabs, setTabs] = useState<{ active: TabType; prev: TabType }>({ active: "Home", prev: "Home" });
     const [currentMessagesData, setMessagesData] = useState(messagesData);
     const [currentNotificationsCount, setNotificationsCount] = useState<number | undefined>(
-        currentMessagesData.filter((m) => m.newMessages).length
+        currentMessagesData.filter((m) => messageIsNew(m)).length
     );
     const [chatProps, setChatProps] = useState<ChatScreenProps>({
         chat: [],
@@ -40,8 +46,8 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
             changeTab("Help");
             setHelpProps({ ...helpProps, autoFocus: true });
         },
-        recentMessage: currentMessagesData.find((m) => m.newMessages) || undefined,
-        onRecentMessageClick: () => handleOnChatClick(currentMessagesData.find((m) => m.newMessages)?.chat || [])
+        recentMessage: currentMessagesData.find((m) => messageIsNew(m)) || undefined,
+        onRecentMessageClick: () => handleOnChatClick(currentMessagesData.find((m) => messageIsNew(m))?.chat || [])
     });
     const [messagesProps, setMessagesProps] = useState<MessagesScreenProps>({
         messages: currentMessagesData,
@@ -76,7 +82,7 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
             const newMessagesData = [...prevState];
             const index = newMessagesData.findIndex((m) => m.chat === chat);
             if (index !== -1) {
-                newMessagesData[index].newMessages = false;
+                newMessagesData[index].chat = newMessagesData[index].chat.map((m) => ({ ...m, seen: true }));
                 setChatProps({
                     ...chatProps,
                     chat: chat || [],
@@ -88,12 +94,12 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
                 });
                 setHomeProps({
                     ...homeProps,
-                    recentMessage: newMessagesData.find((m) => m.newMessages) || undefined,
+                    recentMessage: newMessagesData.find((m) => messageIsNew(m)) || undefined,
                     onRecentMessageClick: () =>
-                        handleOnChatClick(newMessagesData.find((m) => m.newMessages)?.chat || [])
+                        handleOnChatClick(newMessagesData.find((m) => messageIsNew(m))?.chat || [])
                 });
             }
-            setNotificationsCount(newMessagesData.filter((m) => m.newMessages).length || undefined);
+            setNotificationsCount(newMessagesData.filter((m) => messageIsNew(m)).length || undefined);
             return newMessagesData;
         });
     }

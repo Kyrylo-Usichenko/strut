@@ -1,9 +1,7 @@
 export type Message = {
     imagePath?: string;
     name: string;
-    timeAgo: string;
     chat: ChatMessage[];
-    newMessages?: boolean;
     chatMainText?: string;
     chatSubText?: string;
 };
@@ -14,6 +12,7 @@ export type ChatMessage = {
     date: string;
     time: string;
     from: ChatMessageFromType;
+    seen?: boolean;
 };
 
 export type ChatMessageFromType = "user" | "interlocutor" | "system";

@@ -29,44 +29,70 @@ const testChatData2 = [
     {
         id: 2,
         text: `Nah not today`,
-        date: "2024-10-01",
+        date: "2024-08-01",
         time: "5:00 pm",
         from: "interlocutor" as any
     },
     {
         id: 3,
         text: `Maybe tomorrow?`,
-        date: "2024-10-01",
+        date: "2024-08-01",
         time: "5:00 pm",
         from: "interlocutor" as any
     },
     {
         id: 4,
         text: `Maybe go **** yourself then?`,
-        date: "2024-10-01",
+        date: "2024-08-01",
         time: "6:02 pm",
         from: "user" as any
     },
     {
         id: 5,
         text: `Maybe you should **** off then? I'm tired of this toxicity so I'm writing a long message to make it look like I'm the good guy and also test long messages!`,
-        date: "2024-10-01",
+        date: "2024-08-01",
         time: "6:02 pm",
         from: "interlocutor" as any
     },
     {
         id: 6,
         text: `The user has blocked you`,
-        date: "2024-10-01",
+        date: "2024-08-01",
         time: "6:03 pm",
         from: "system" as any
     },
     {
         id: 7,
         text: `You can no longer send messages to this user`,
-        date: "2024-10-01",
+        date: "2024-08-01",
         time: "6:03 pm",
-        from: "system" as any
+        from: "system" as any,
+        seen: false
+    },
+    {
+        id: 8,
+        text: `Yes I can!`,
+        date: "2024-08-01",
+        time: "6:03 pm",
+        from: "user" as any,
+        seen: false
+    }
+];
+
+const testChatData3 = [
+    {
+        id: 1,
+        text: "Hello",
+        date: "2021-10-01",
+        time: "4:00 pm",
+        from: "user" as any
+    },
+    {
+        id: 2,
+        text: "Hi! How can I help you?",
+        date: "2021-10-01",
+        time: "4:00 pm",
+        from: "interlocutor" as any
     }
 ];
 
@@ -74,17 +100,20 @@ const testMessagesData = [
     {
         imagePath: "https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg",
         name: "Strut",
-        timeAgo: "2h ago",
         chat: testChatData,
         newMessages: true
     },
     {
         name: "Jordan",
-        timeAgo: "3w ago",
         chat: testChatData2,
-        newMessages: true,
         chatMainText: "This is sad story",
         chatSubText: "Maybe even dramatic"
+    },
+    {
+        name: "Ms. Smith",
+        chat: testChatData3,
+        chatMainText: "Some other story",
+        chatSubText: "Not that dramatic"
     }
 ];
 

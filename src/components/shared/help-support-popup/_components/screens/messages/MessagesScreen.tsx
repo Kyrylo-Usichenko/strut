@@ -3,6 +3,7 @@ import NavigationButton from "../../buttons/navigation-button/NavigationButton";
 import SendMessageButton from "../../buttons/send-message-button/SendMessageButton";
 import { MessagesScreenProps } from "../../../types.module";
 import MessagePreview from "../../other/message-preview/MessagePreview";
+import { sortMessages } from "../../../_utils/utils";
 
 export default function MessagesScreen({ messages, onSendMessageClick, onChatClick }: MessagesScreenProps) {
     return (
@@ -13,15 +14,16 @@ export default function MessagesScreen({ messages, onSendMessageClick, onChatCli
             </div>
             <div className={styles.content}>
                 {messages ? (
-                    messages.map((message, index) => (
-                        <MessagePreview
-                            key={index}
-                            message={message}
-                            separator={true}
-                            isNew={message.newMessages}
-                            clickHandler={() => (onChatClick ? onChatClick(message) : undefined)}
-                        />
-                    ))
+                    messages
+                        .sort((a, b) => sortMessages(a, b))
+                        .map((message, index) => (
+                            <MessagePreview
+                                key={index}
+                                message={message}
+                                separator={true}
+                                clickHandler={() => (onChatClick ? onChatClick(message) : undefined)}
+                            />
+                        ))
                 ) : (
                     <></>
                 )}

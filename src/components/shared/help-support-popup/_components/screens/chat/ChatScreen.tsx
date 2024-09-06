@@ -6,7 +6,7 @@ import InputButton from "../../buttons/input-button/InputButton";
 import ArrowIcon from "~/components/icons/ArrowIconThin";
 import { ChatScreenProps } from "../../../types.module";
 import ImagePlaceholder from "../../other/image-placeholder/ImagePlaceHolder";
-import { groupBySender, groupByDate, formatDate } from "./utils";
+import { groupBySender, groupByDate, formatDate, timeAgo } from "../../../_utils/utils";
 
 const DEFAULT_CHAT_NAME = "Strut";
 const DEFAULT_MAIN_TEXT = "We will reply as soon as we can";
@@ -27,6 +27,7 @@ export default function ChatScreen({
     const [hoveredMessageId, setHoveredMessageId] = useState<number | null>(null);
     const groupedBySenderChat = groupBySender(chat);
     const groupedByDateChat = groupByDate(chat);
+    const lastMessageId = chat[chat.length - 1].id;
 
     function adjustHeight() {
         if (textbox && textbox.current) {
@@ -79,7 +80,7 @@ export default function ChatScreen({
                                 </div>
                             )}
                             <div
-                                className={`${styles.messageWrapper} ${message.from != "user" ? styles.supportMessage : ""}  ${groupedBySenderChat.all.includes(message.id) ? "" : styles.secondaryMessageInGroup} ${groupedBySenderChat.leftSided.includes(message.id) ? "" : styles.secondaryMessageInLeftSidedGroup}`}
+                                className={`${styles.messageWrapper} ${message.from != "user" ? styles.supportMessage : ""}  ${groupedBySenderChat.all.includes(message.id) ? "" : styles.secondaryMessageInGroup} ${groupedBySenderChat.leftSided.includes(message.id) ? "" : styles.secondaryMessageInLeftSidedGroup} ${message.id === lastMessageId && !message.seen && message.from === "user" ? styles.lastMessage : ""}`}
                             >
                                 {groupedBySenderChat.system.includes(message.id) && (
                                     <Image
@@ -123,6 +124,11 @@ export default function ChatScreen({
                                     </div>
                                 </div>
                             </div>
+                            {message.id === lastMessageId && !message.seen && message.from === "user" && (
+                                <div
+                                    className={styles.seen}
+                                >{`${timeAgo(message.date, message.time)} ago. Not seen yet`}</div>
+                            )}
                         </div>
                     ))}
                 </div>

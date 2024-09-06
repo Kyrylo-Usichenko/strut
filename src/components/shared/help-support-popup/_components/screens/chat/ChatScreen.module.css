@@ -168,6 +168,10 @@
     margin-left: 40px;
 }
 
+.lastMessage{
+    margin-bottom: 4px;
+}
+
 .userBubble {
     position: relative;
     padding: 17px 20px;
@@ -228,4 +232,11 @@
     font-size: 12px;
     z-index: 100000;
     transform: translateX(-50%);
+}
+
+.seen{
+    font-size: 13px;
+    color: rgb(115, 115, 118);
+    float: right;
+    margin-bottom: 20px;
 }
