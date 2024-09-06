@@ -30,7 +30,12 @@ export default function ButtonIconOnly({
         <>
             <button
                 className={`${styles.button} ${className}`}
-                onClick={onClick}
+                onClick={() => {
+                    setShow(false);
+                    if (onClick) {
+                        onClick();
+                    }
+                }}
                 onPointerEnter={() => {
                     if (tooltipLabel) {
                         setShow(true);
