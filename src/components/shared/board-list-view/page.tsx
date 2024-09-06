@@ -7,6 +7,7 @@ import BoardListViewItem from "~/components/shared/BoardListViewItem/BoardListVi
 import styles from "./styles.module.css";
 import { Tags } from "../label-menu/LabelMenu";
 import { ReactElement, useCallback, useState } from "react";
+import CreateStageForListAndBoardView from "../CreateStageForListAndBoardView/CreateStageForListAndBoardView";
 
 export const tags = [
     { text: "done", isChecked: false },
@@ -29,7 +30,6 @@ type Column = {
     icon: ReactElement;
     iconColor: string;
     textData: TextData[];
-    position: string;
 };
 
 export type ActiveCard = {
@@ -56,8 +56,7 @@ const initialData = [
                 text: "Task3",
                 tags: cloneTags(tags)
             }
-        ],
-        position: "top"
+        ]
     },
     {
         status: "Hello world",
@@ -72,8 +71,7 @@ const initialData = [
                 text: "Hahahaha",
                 tags: cloneTags(tags)
             }
-        ],
-        position: "center"
+        ]
     },
     {
         status: "Fly me to the Moon",
@@ -92,8 +90,7 @@ const initialData = [
                 text: "Moon",
                 tags: cloneTags(tags)
             }
-        ],
-        position: "bottom"
+        ]
     }
 ];
 
@@ -123,7 +120,13 @@ export default function BoardListView() {
                 const { index: fromIndex, status: fromStatus, content } = activeCard;
 
                 setData((prevData) => {
-                    const newData = JSON.parse(JSON.stringify(prevData)) as Column[];
+                    const newData = prevData.map((column) => ({
+                        ...column,
+                        textData: column.textData.map((textItem) => ({
+                            ...textItem,
+                            tags: cloneTags(textItem.tags)
+                        }))
+                    }));
 
                     const fromColumn = newData.find((col) => col.status === fromStatus);
                     const toColumn = newData.find((col) => col.status === toStatus);
@@ -141,6 +144,21 @@ export default function BoardListView() {
         },
         [activeCard, setData, setActiveCard]
     );
+
+    function createStage(title: string, icon: React.ReactElement, iconColor: string) {
+        console.log(title, icon, iconColor);
+
+        const parsedTitle = title.trim() ? title : "Untitled";
+        setData((prevData) => [
+            ...prevData,
+            {
+                status: parsedTitle,
+                icon,
+                iconColor,
+                textData: []
+            }
+        ]);
+    }
     return (
         <div className={styles.wrapper}>
             {data.map((item, index) => (
@@ -151,13 +169,14 @@ export default function BoardListView() {
                     iconColor={item.iconColor}
                     number={item.textData.length}
                     textData={item.textData}
-                    position={item.position}
+                    position={index === 0 ? "top" : index === data.length - 1 ? "bottom" : "center"}
                     activeCard={activeCard}
                     setActiveCard={setActiveCard}
                     onDrop={onDrop}
                     onTagChecked={onTagChecked}
                 />
             ))}
+            <CreateStageForListAndBoardView createStage={createStage} />
         </div>
     );
 }

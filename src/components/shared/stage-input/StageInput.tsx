@@ -17,7 +17,7 @@ type StageInputProps = {
     value?: string;
     width?: number;
     amount?: number;
-    onCreateClick?: (inputColor: string, inputIcon: JSX.Element, inputText: string) => void;
+    createStage?: (title: string, icon: React.ReactElement, iconColor: string) => void;
     onCancelClick?: () => void;
 };
 
@@ -29,13 +29,13 @@ export default function StageInput({
     value,
     width,
     amount,
-    onCreateClick,
+    createStage = () => {},
     onCancelClick
 }: StageInputProps) {
     const [currentIcon, setCurrentIcon] = useState(icon || (DashedCircleIcon as unknown as JSX.Element));
     const [currentColor, setCurrentColor] = useState(color || "var(--text-color)");
     const { ref: menuRef, isVisible: showMenu, setIsVisible: setShowMenu } = useVisible(false);
-    const [currentValue, setValue] = useState(value || "Untitled");
+    const [currentValue, setValue] = useState(value || "");
     const [currentWidth, setWidth] = useState(width || 67);
     const [isNewStage, setIsNewStage] = useState(isCreated || false);
 
@@ -46,11 +46,10 @@ export default function StageInput({
     }
 
     function createHandler() {
-        onCreateClick?.(currentColor, currentIcon, currentValue);
-        setIsNewStage(false);
+        createStage(currentValue, currentIcon, currentColor);
     }
 
-    return isNewStage ? (
+    return isCreated ? (
         <div className={viewMode === "kanban" ? styles.kanbanWrappingDiv : styles.inputDiv}>
             <div className={styles.inputDiv}>
                 <IconButton
