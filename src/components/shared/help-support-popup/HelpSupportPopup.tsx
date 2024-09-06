@@ -35,7 +35,7 @@ export default function HelpSupportPopup({ messagesData, collectionsData }: Help
     });
     const [homeProps, setHomeProps] = useState<HomeScreenProps>({
         name: "Alexander",
-        onMessageClick: () => handleOnSendMessageClick,
+        onMessageClick: handleOnSendMessageClick,
         onSearchClick: () => {
             changeTab("Help");
             setHelpProps({ ...helpProps, autoFocus: true });
