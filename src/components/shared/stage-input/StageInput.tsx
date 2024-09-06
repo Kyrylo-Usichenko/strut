@@ -37,6 +37,7 @@ export default function StageInput({
     const { ref: menuRef, isVisible: showMenu, setIsVisible: setShowMenu } = useVisible(false);
     const [currentValue, setValue] = useState(value || "");
     const [currentWidth, setWidth] = useState(width || 67);
+    const [isNewStage, setIsNewStage] = useState(isCreated || false);
 
     function handleIconChange(icon: JSX.Element, color: string) {
         setCurrentIcon(icon);

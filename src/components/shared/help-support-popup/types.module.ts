@@ -1,11 +1,9 @@
-import { ReactNode } from "react";
-
 export type Message = {
     imagePath?: string;
     name: string;
-    messagePreview: string;
-    timeAgo: string;
-    chat?: ChatMessage[];
+    chat: ChatMessage[];
+    chatMainText?: string;
+    chatSubText?: string;
 };
 
 export type ChatMessage = {
@@ -13,11 +11,18 @@ export type ChatMessage = {
     text: string;
     date: string;
     time: string;
-    from: "user" | "support";
+    from: ChatMessageFromType;
+    seen?: boolean;
 };
+
+export type ChatMessageFromType = "user" | "interlocutor" | "system";
 
 export type ChatScreenProps = {
     chat?: ChatMessage[];
+    chatName?: string;
+    chatPhoto?: string;
+    chatMainText?: string;
+    chatSubText?: string;
     onBackHandler?: () => void;
     onCloseHandler?: () => void;
 };
@@ -52,4 +57,11 @@ export type HelpScreenProps = {
     activeCollection?: Collection | null;
     setActiveCollection?: (collection: Collection | null) => void;
     onSendMessageClick?: () => void;
+};
+
+export type TabType = "Home" | "Messages" | "Help" | "Chat" | "Collection";
+
+export type HelpSupportPopupProps = {
+    messagesData: Message[];
+    collectionsData: Collection[];
 };

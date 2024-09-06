@@ -14,6 +14,7 @@
     transition: background-color 0.1s ease-in-out 0s;
     white-space: nowrap;
     max-width: max-content;
+    overflow: hidden;
 }
 
 .button {
@@ -57,4 +58,6 @@
 .text {
     font-size: 14px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

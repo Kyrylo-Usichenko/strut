@@ -17,13 +17,23 @@ import {
     MessagesScreenProps,
     ChatMessage,
     Collection,
-    HelpScreenProps
+    HelpScreenProps,
+    TabType,
+    HelpSupportPopupProps,
+    Message
 } from "./types.module";
 
-type TabType = "Home" | "Messages" | "Help" | "Chat" | "Collection";
+function messageIsNew(messages: Message) {
+    const lastMessage = messages.chat[messages.chat.length - 1];
+    return lastMessage.from != "user" && !lastMessage.seen;
+}
 
-export default function HelpSupportPopup() {
+export default function HelpSupportPopup({ messagesData, collectionsData }: HelpSupportPopupProps) {
     const [tabs, setTabs] = useState<{ active: TabType; prev: TabType }>({ active: "Home", prev: "Home" });
+    const [currentMessagesData, setMessagesData] = useState(messagesData);
+    const [currentNotificationsCount, setNotificationsCount] = useState<number | undefined>(
+        currentMessagesData.filter((m) => messageIsNew(m)).length
+    );
     const [chatProps, setChatProps] = useState<ChatScreenProps>({
         chat: [],
         onBackHandler: returnToPreviousTab,
@@ -31,21 +41,21 @@ export default function HelpSupportPopup() {
     });
     const [homeProps, setHomeProps] = useState<HomeScreenProps>({
         name: "Alexander",
-        onMessageClick: () => handleSendMessageClick(),
+        onMessageClick: handleOnSendMessageClick,
         onSearchClick: () => {
             changeTab("Help");
             setHelpProps({ ...helpProps, autoFocus: true });
         },
-        recentMessage: testMessagesData[0],
-        onRecentMessageClick: () => handleSendMessageClick(testMessagesData[0].chat)
+        recentMessage: currentMessagesData.find((m) => messageIsNew(m)) || undefined,
+        onRecentMessageClick: () => handleOnChatClick(currentMessagesData.find((m) => messageIsNew(m))?.chat || [])
     });
     const [messagesProps, setMessagesProps] = useState<MessagesScreenProps>({
-        messages: testMessagesData,
-        onSendMessageClick: () => handleSendMessageClick([]),
-        onChatClick: (message) => handleSendMessageClick(message.chat)
+        messages: currentMessagesData,
+        onSendMessageClick: () => handleOnSendMessageClick(),
+        onChatClick: (message) => handleOnChatClick(message.chat)
     });
     const [helpProps, setHelpProps] = useState<HelpScreenProps>({
-        collections: testCollectionsData,
+        collections: collectionsData,
         autoFocus: false,
         searchValue: "",
         activeCollection: null,
@@ -55,7 +65,7 @@ export default function HelpSupportPopup() {
         setActiveCollection: (collection: Collection | null) => {
             setHelpProps({ ...helpProps, activeCollection: collection });
         },
-        onSendMessageClick: () => handleSendMessageClick()
+        onSendMessageClick: handleOnSendMessageClick
     });
 
     function changeTab(tab: TabType) {
@@ -66,12 +76,43 @@ export default function HelpSupportPopup() {
         setTabs((prevState) => ({ active: prevState.prev, prev: prevState.active }));
     }
 
-    function handleSendMessageClick(chat?: ChatMessage[]) {
+    function handleOnChatClick(chat: ChatMessage[]) {
         setTabs((prevState) => ({ active: "Chat", prev: prevState.active }));
+        setMessagesData((prevState) => {
+            const newMessagesData = [...prevState];
+            const index = newMessagesData.findIndex((m) => m.chat === chat);
+            if (index !== -1) {
+                newMessagesData[index].chat = newMessagesData[index].chat.map((m) => ({ ...m, seen: true }));
+                setChatProps({
+                    ...chatProps,
+                    chat: chat || [],
+                    chatName: newMessagesData[index].name,
+                    chatPhoto: newMessagesData[index].imagePath,
+                    chatMainText: newMessagesData[index].chatMainText,
+                    chatSubText: newMessagesData[index].chatSubText,
+                    onBackHandler: returnToPreviousTab
+                });
+                setHomeProps({
+                    ...homeProps,
+                    recentMessage: newMessagesData.find((m) => messageIsNew(m)) || undefined,
+                    onRecentMessageClick: () =>
+                        handleOnChatClick(newMessagesData.find((m) => messageIsNew(m))?.chat || [])
+                });
+            }
+            setNotificationsCount(newMessagesData.filter((m) => messageIsNew(m)).length || undefined);
+            return newMessagesData;
+        });
+    }
 
+    function handleOnSendMessageClick() {
+        setTabs((prevState) => ({ active: "Chat", prev: prevState.active }));
         setChatProps({
             ...chatProps,
-            chat: chat || [],
+            chat: [],
+            chatName: "Strut",
+            chatPhoto: "https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg",
+            chatMainText: "We'll be back online later today",
+            chatSubText: "Ask us anything, or share your feedback.",
             onBackHandler: returnToPreviousTab
         });
     }
@@ -97,9 +138,11 @@ export default function HelpSupportPopup() {
                         icon={<HelpSupportMessagesIcon />}
                         activeIcon={<HelpSupportMessagesActiveIcon />}
                         text="Messages"
-                        onClick={() => changeTab("Messages")}
+                        onClick={() => {
+                            changeTab("Messages");
+                        }}
                         active={tabs.active === "Messages"}
-                        notificationsCount={1}
+                        notificationsCount={currentNotificationsCount}
                     />
                     <MenuButton
                         icon={<HelpSupportHelpIcon />}
@@ -116,87 +159,3 @@ export default function HelpSupportPopup() {
         </div>
     );
 }
-
-const testChatData = [
-    {
-        id: 1,
-        text: "Sad that strut will be gone :(",
-        date: "2021-10-01",
-        time: "4:00 pm",
-        from: "user" as any
-    },
-    {
-        id: 2,
-        text: `You’ll get replies here and in your email:
-✉️ danulo2403@gmail.com\n
-The team will be back
-🕒 Later today`,
-        date: "2021-10-01",
-        time: "4:00 pm",
-        from: "support" as any
-    }
-];
-
-const testChatData2 = [
-    {
-        id: 1,
-        text: "Pummel Party go?",
-        date: "2021-10-01",
-        time: "4:00 pm",
-        from: "user" as any
-    },
-    {
-        id: 2,
-        text: `You’ll get replies here and in your email:
-✉️ danulo2403@gmail.com\n
-The team will be back
-🕒 Later today`,
-        date: "2021-10-01",
-        time: "4:00 pm",
-        from: "support" as any
-    }
-];
-
-const testMessagesData = [
-    {
-        imagePath: "https://static.intercomassets.com/avatars/6691399/square_128/kyle-thacker-1705882183.jpg",
-        name: "Alexander",
-        messagePreview: "Hey, how are you?",
-        timeAgo: "2h ago",
-        chat: testChatData
-    },
-    {
-        name: "Denis",
-        messagePreview: "Pummel Party go?",
-        timeAgo: "3w ago",
-        chat: testChatData2
-    }
-];
-
-const testCollectionsData = [
-    {
-        id: "1",
-        title: "Welcome to Strut!",
-        description: "A quick hello and intro.",
-        collectionAmount: 2,
-        collectionArticles: ["Getting Started with Strut!", "Learning the Basics"]
-    },
-    {
-        id: "2",
-        title: "Documents",
-        description: "Learn how to create, format, and organize Documents.",
-        collectionAmount: 5
-    },
-    {
-        id: "3",
-        title: "Collection 3",
-        description: "Description 3",
-        collectionAmount: 15
-    },
-    {
-        id: "4",
-        title: "Collection 4",
-        description: "Description 4",
-        collectionAmount: 20
-    }
-];

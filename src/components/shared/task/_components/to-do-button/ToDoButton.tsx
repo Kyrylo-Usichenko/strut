@@ -13,15 +13,10 @@ export default function ToDoButton({ state, onClick }: ButtonProps) {
     return (
         <>
             <button
-                className={`${styles.button}`}
+                className={`${styles.button} ${activeState ? styles.active : ""}`}
                 onClick={() => {
                     onClick && onClick();
                     setActiveState(!activeState);
-                }}
-                style={{
-                    color: activeState ? "white" : undefined,
-                    backgroundColor: activeState ? "rgba(255, 255, 255, 0.5)" : undefined,
-                    border: activeState ? "none" : undefined
                 }}
             >
                 {activeState && <SmallCheckIcon />}

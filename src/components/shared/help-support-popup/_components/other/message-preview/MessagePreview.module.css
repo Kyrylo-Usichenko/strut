@@ -24,6 +24,7 @@
     display: flex;
     flex-flow: column;
     flex: 1 1 auto;
+    min-width: 0;
 }
 
 .messagePreviewContainer {
@@ -41,6 +42,7 @@
     line-height: 21px;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol";
+    min-width: 0;
 }
 
 .messagePreview {
@@ -57,26 +59,6 @@
 
 .arrowIcon {
     color: rgb(102, 102, 102);
-}
-
-.imagePlaceholder {
-    margin: 0px auto;
-    border-radius: 50%;
-    vertical-align: middle;
-    cursor: default;
-    position: relative;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    text-transform: uppercase;
-    background-color: rgb(59, 60, 65);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 8px;
 }
 
 .separator {

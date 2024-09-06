@@ -67,11 +67,17 @@
     color: rgb(115, 115, 115);
 }
 
-.lowerPart {
+.lowerPart{
+    position: sticky;
+    bottom: 0px;
+    padding: 0px 20px 16px 20px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(255, 255, 255) 50%);
+}
+
+.lowerPartContent {
     bottom: 16px;
     min-height: 48px;
     max-height: 200px;
-    padding: 0px 20px 16px 20px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -80,10 +86,10 @@
     border-radius: 24px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px;
     outline: rgb(111, 113, 122) solid 0px;
+    background-color: rgb(255, 255, 255);
     appearance: none;
     resize: none;
     border: none;
-    background: none;
     font-size: 14px;
     line-height: 20px;
     max-height: 200px;
@@ -130,6 +136,19 @@
     width: 100%;
 }
 
+.date{
+    text-align: center;
+    color: rgb(115, 115, 118);
+    font-size: 13px;
+    clear: both;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.firstDate{
+    padding-top: 0px;
+}
+
 .messageWrapper {
     display: flex;
     justify-content: flex-end;
@@ -139,6 +158,18 @@
 .messageWrapper.supportMessage {
     justify-content: flex-start;
     align-items: flex-end;
+}
+
+.secondaryMessageInGroup{
+    margin-bottom: 8px;
+}
+
+.secondaryMessageInLeftSidedGroup{
+    margin-left: 40px;
+}
+
+.lastMessage{
+    margin-bottom: 4px;
 }
 
 .userBubble {
@@ -174,8 +205,26 @@
     margin-right: 8px;
 }
 
+.avatarPlaceholder {
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: default;
+    position: relative;
+    text-transform: uppercase;
+    background-color: rgb(59, 60, 65);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+}
+
 .timeSentTooltip {
-    position: fixed;
+    position:absolute;
+    top: 0px;
+    left: 0px;
     border-radius: 4px;
     padding: 2px 4px;
     color: rgb(255, 255, 255);
@@ -183,4 +232,11 @@
     font-size: 12px;
     z-index: 100000;
     transform: translateX(-50%);
+}
+
+.seen{
+    font-size: 13px;
+    color: rgb(115, 115, 118);
+    float: right;
+    margin-bottom: 20px;
 }

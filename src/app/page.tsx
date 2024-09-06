@@ -33,6 +33,7 @@ import s from "./styles.module.css";
 import BrandVoiceMenu from "../components/shared/brand-voice-menu/page";
 import BrandVoiceButton, { initialData } from "~/components/shared/brand-voice-button/BrandVoiceButton";
 import HelpSupportPopup from "~/components/shared/help-support-popup/HelpSupportPopup";
+import { testMessagesData, testCollectionsData } from "~/components/shared/help-support-popup/_test_data/testData";
 
 export default function Home() {
     return (
@@ -110,6 +111,7 @@ export default function Home() {
                     onClick={() => console.log("Brand Voice button clicked")}
                     state="hovered"
                 />
+                <Button text="Button (130px max width)" tooltipLabel="Button (130px max width)" maxWidth={130} />
             </div>
             <div className={s.item} style={{ width: "400px" }}>
                 <span className={s.title}>Stage Input</span>
@@ -205,33 +207,7 @@ export default function Home() {
             </div>
             <div className={s.item}>
                 <span className={s.title}>Help Support Popup</span>
-                <HelpSupportPopup />
-            </div>
-            <div className={s.item}>
-                <span className={s.title}>Create Task</span>
-                <div style={{ position: "relative", height: 800, width: 600, backgroundColor: "rgb(27, 28, 28)" }}>
-                    <Task
-                        content={[
-                            { text: "Test doc", textType: "documentTitle" },
-                            {
-                                text: "This is really formatted task 1",
-                                textType: "p",
-                                boldParts: [{ start: 3, end: 7 }],
-                                italicParts: [{ start: 0, end: 9 }],
-                                strikethroughParts: [{ start: 2, end: 8 }],
-                                highlightedParts: [{ start: 1, end: 10 }],
-                                linkParts: [{ start: 4, end: 6, url: "https://google.com" }]
-                            },
-                            { text: "This is a task 2", textType: "p", listType: "bulleted" },
-                            { text: "This is a task 3", textType: "p", listType: "bulleted" },
-                            { text: "This is a task 4", textType: "p" },
-                            { text: "This is a task 5", textType: "p", listType: "numbered" },
-                            { text: "This is a task 6", textType: "p", listType: "numbered" },
-                            { text: "This is a task 8", textType: "p", listType: "toDoChecked" },
-                            { text: "This is a task 9", textType: "p", listType: "toDoUnchecked" }
-                        ]}
-                    />
-                </div>
+                <HelpSupportPopup messagesData={testMessagesData} collectionsData={testCollectionsData} />
             </div>
         </main>
     );
