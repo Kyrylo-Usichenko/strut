@@ -28,10 +28,14 @@ const testChatData2 = [
     },
     {
         id: 2,
-        text: `You’ll get replies here and in your email:
-✉️ danulo2403@gmail.com\n
-The team will be back
-🕒 Later today`,
+        text: `Nah not today`,
+        date: "2021-10-01",
+        time: "4:00 pm",
+        from: "support" as any
+    },
+    {
+        id: 3,
+        text: `Maybe tomorrow?`,
         date: "2021-10-01",
         time: "4:00 pm",
         from: "support" as any

@@ -18,6 +18,7 @@ export default function MessagesScreen({ messages, onSendMessageClick, onChatCli
                             key={index}
                             message={message}
                             separator={true}
+                            isNew={message.newMessages}
                             clickHandler={() => (onChatClick ? onChatClick(message) : undefined)}
                         />
                     ))

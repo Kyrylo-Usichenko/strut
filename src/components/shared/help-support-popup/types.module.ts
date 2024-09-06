@@ -1,7 +1,6 @@
 export type Message = {
     imagePath?: string;
     name: string;
-    messagePreview: string;
     timeAgo: string;
     chat: ChatMessage[];
     newMessages?: boolean;

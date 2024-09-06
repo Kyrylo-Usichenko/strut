@@ -24,6 +24,7 @@
     display: flex;
     flex-flow: column;
     flex: 1 1 auto;
+    min-width: 0;
 }
 
 .messagePreviewContainer {
@@ -41,6 +42,7 @@
     line-height: 21px;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol";
+    min-width: 0;
 }
 
 .messagePreview {

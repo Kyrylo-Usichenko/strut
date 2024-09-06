@@ -7,10 +7,11 @@ import ImagePlaceholder from "../image-placeholder/ImagePlaceHolder";
 type MessagePrevieProps = {
     message: Message;
     separator?: boolean;
+    isNew?: boolean;
     clickHandler?: () => void;
 };
 
-export default function MessagePreview({ message, separator, clickHandler }: MessagePrevieProps) {
+export default function MessagePreview({ message, separator, isNew, clickHandler }: MessagePrevieProps) {
     return (
         <div
             className={separator ? styles.messageWithHover : styles.message}
@@ -33,7 +34,12 @@ export default function MessagePreview({ message, separator, clickHandler }: Mes
             </div>
             <div className={styles.messageContent}>
                 <div className={styles.messagePreviewContainer}>
-                    <span className={styles.messagePreview}>{message.messagePreview}</span>
+                    <span
+                        className={styles.messagePreview}
+                        style={isNew && separator ? { fontWeight: "500" } : undefined}
+                    >
+                        {message.chat[message.chat.length - 1].text}
+                    </span>
                 </div>
                 <div className={styles.messageInfoContainer}>
                     <span className={styles.messageName}>{`${message.name} • ${message.timeAgo} `}</span>
