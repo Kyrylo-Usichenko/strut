@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<!-- Last Published: Thu Jun 20 2024 18:27:11 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="strut.so" data-wf-page="6612f48189a1ae509d311a79" data-wf-site="64cbf5f3e6b7ac5a79b0d3fc" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Strut – The complete writing workspace</title>
+        <meta content="Strut combines your notes, docs, and writing projects together in collaborative workspaces powered by AI." name="description"/>
+        <meta content="Strut – The complete writing workspace" property="og:title"/>
+        <meta content="Strut combines your notes, docs, and writing projects together in collaborative workspaces powered by AI." property="og:description"/>
+        <meta content="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6615b1f902e994fe4c4d6e13_OG-Image.png" property="og:image"/>
+        <meta content="Strut – The complete writing workspace" property="twitter:title"/>
+        <meta content="Strut combines your notes, docs, and writing projects together in collaborative workspaces powered by AI." property="twitter:description"/>
+        <meta content="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6615b1f902e994fe4c4d6e13_OG-Image.png" property="twitter:image"/>
+        <meta property="og:type" content="website"/>
+        <meta content="summary_large_image" name="twitter:card"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="TlhXGouzuUz3YUiBv9Tr_fMsK7rZCcn8l1SQNErYpwY" name="google-site-verification"/>
+        <link href="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/css/strutai.webflow.cb52ef94a.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            WebFont.load({
+                google: {
+                    families: ["Inter:regular,500,600,700"]
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            !function(o, c) {
+                var n = c.documentElement
+                  , t = " w-mod-";
+                n.className += t + "js",
+                ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+            }(window, document);
+        </script>
+        <link href="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6615b12c2d5650c8f2cb9754_Favicon.png" rel="shortcut icon" type="image/x-icon"/>
+        <link href="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6615b133339c0cfda7a95855_Favicon_Large.png" rel="apple-touch-icon"/>
+        <meta name="google-site-verification" content="TlhXGouzuUz3YUiBv9Tr_fMsK7rZCcn8l1SQNErYpwY"/>
+        <style>
+            body {
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+        <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+        <script>
+            /* eslint-disable no-undef */
+            let auth0Client = null;
+            const authConfig = {
+                domain: "auth.strut.so",
+                clientId: "gfrlDk7esjvXwnIvjPrxh26597A1Qjkb",
+            };
+
+            const configureClient = async()=>{
+                auth0Client = await auth0.createAuth0Client({
+                    domain: authConfig.domain,
+                    clientId: authConfig.clientId,
+                });
+            }
+            ;
+
+            const updateUI = async()=>{
+                const isAuthenticated = await auth0Client.isAuthenticated();
+
+                document.getElementById("btn-login").onclick = ()=>{
+                    try {
+                        gtag("event", "login", {
+                            authenticated: isAuthenticated,
+                        });
+                    } catch (error) {
+                        console.error(error);
+                    }
+                    login();
+                }
+                ;
+                if (document.getElementById("btn-getstarted1")) {
+                    document.getElementById("btn-getstarted1").onclick = ()=>{
+                        try {
+                            gtag("event", "get_started", {
+                                authenticated: isAuthenticated,
+                            });
+                        } catch (error) {
+                            console.error(error);
+                        }
+                        isAuthenticated ? (window.location = "/inbox") : signup();
+                    }
+                    ;
+                }
+                if (document.getElementById("btn-getstarted2")) {
+                    document.getElementById("btn-getstarted2").onclick = ()=>{
+                        try {
+                            gtag("event", "get_started", {
+                                authenticated: isAuthenticated,
+                            });
+                        } catch (error) {
+                            console.error(error);
+                        }
+                        isAuthenticated ? (window.location = "/inbox") : signup();
+                    }
+                    ;
+                }
+                if (document.getElementById("btn-getstarted-free")) {
+                    document.getElementById("btn-getstarted-free").onclick = ()=>{
+                        try {
+                            gtag("event", "get_started", {
+                                authenticated: isAuthenticated,
+                            });
+                        } catch (error) {
+                            console.error(error);
+                        }
+                        isAuthenticated ? (window.location = "/inbox") : signup();
+                    }
+                    ;
+                }
+                if (document.getElementById("btn-getstarted-plus")) {
+                    document.getElementById("btn-getstarted-plus").onclick = ()=>{
+                        try {
+                            gtag("event", "get_started", {
+                                authenticated: isAuthenticated,
+                            });
+                        } catch (error) {
+                            console.error(error);
+                        }
+                        isAuthenticated ? (window.location = "/inbox") : signup();
+                    }
+                    ;
+                }
+                if (document.getElementById("btn-getstarted-pro")) {
+                    document.getElementById("btn-getstarted-pro").onclick = ()=>{
+                        try {
+                            gtag("event", "get_started", {
+                                authenticated: isAuthenticated,
+                            });
+                        } catch (error) {
+                            console.error(error);
+                        }
+                        isAuthenticated ? (window.location = "/inbox") : signup();
+                    }
+                    ;
+                }
+                if (document.getElementById("btn-signup")) {
+                    document.getElementById("btn-signup").onclick = ()=>{
+                        try {
+                            gtag("event", "signup", {
+                                authenticated: isAuthenticated,
+                            });
+                        } catch (error) {
+                            console.error(error);
+                        }
+                        signup();
+                    }
+                    ;
+                }
+
+                if (isAuthenticated) {
+                    document.getElementById("btn-login").innerHTML = "Go to app \u2192";
+                    document.getElementById("btn-signup").classList.add("hidden");
+                }
+            }
+            ;
+
+            const login = async()=>{
+                if (window.todesktop) {
+                    return window.location = "https://strut.so/inbox";
+                }
+                await auth0Client.loginWithRedirect({
+                    authorizationParams: {
+                        redirect_uri: window.location.origin + "/inbox",
+                    },
+                });
+            }
+            ;
+
+            const signup = async()=>{
+                if (window.todesktop) {
+                    return window.location = "https://strut.so/inbox";
+                }
+                await auth0Client.loginWithRedirect({
+                    authorizationParams: {
+                        screen_hint: "signup",
+                        redirect_uri: window.location.origin + "/inbox",
+                    },
+                });
+            }
+            ;
+
+            window.onload = async()=>{
+                await configureClient();
+                updateUI();
+            }
+            ;
+        </script>
+        <script>
+            !function() {
+                var analytics = window.analytics = window.analytics || [];
+                if (!analytics.initialize)
+                    if (analytics.invoked)
+                        window.console && console.error && console.error("Segment snippet included twice.");
+                    else {
+                        analytics.invoked = !0;
+                        analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"];
+                        analytics.factory = function(e) {
+                            return function() {
+                                if (window.analytics.initialized)
+                                    return window.analytics[e].apply(window.analytics, arguments);
+                                var i = Array.prototype.slice.call(arguments);
+                                i.unshift(e);
+                                analytics.push(i);
+                                return analytics
+                            }
+                        }
+                        ;
+                        for (var i = 0; i < analytics.methods.length; i++) {
+                            var key = analytics.methods[i];
+                            analytics[key] = analytics.factory(key)
+                        }
+                        analytics.load = function(key, i) {
+                            var t = document.createElement("script");
+                            t.type = "text/javascript";
+                            t.async = !0;
+                            t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
+                            var n = document.getElementsByTagName("script")[0];
+                            n.parentNode.insertBefore(t, n);
+                            analytics._loadOptions = i
+                        }
+                        ;
+                        analytics._writeKey = "YB50E5RG5QRc5pJZhyCr2aApHAqrvBLm";
+                        ;analytics.SNIPPET_VERSION = "4.16.1";
+                        analytics.load("YB50E5RG5QRc5pJZhyCr2aApHAqrvBLm");
+                        analytics.page();
+                    }
+            }();
+        </script>
+        <style>
+            .button-small {
+                -webkit-app-region: no-drag;
+            }
+        </style>
+    </head>
+    <body class="body">
+        <header class="navigation">
+            <div class="nav-left">
+                <a href="/" data-w-id="f523e102-6e89-410d-c012-9f13121d897c" aria-current="page" class="logo-container w-inline-block w--current">
+                    <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f49417a050a60d4a38e2_Logo.png" loading="eager" width="32" height="32" alt="" class="logo"/>
+                    <div data-w-id="a446f150-18c9-192a-c33a-2aff246e0269" class="html-embed-21 w-embed">
+                        <svg width="50" height="16" viewBox="0 0 50 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M49.7639 4.10113V6.22738H43.0586V4.10113H49.7639ZM44.714 1.30664H47.463V12.2568C47.463 12.6264 47.5186 12.9099 47.63 13.1073C47.7465 13.2997 47.8983 13.4313 48.0856 13.5022C48.273 13.5731 48.4805 13.6085 48.7083 13.6085C48.8805 13.6085 49.0374 13.5958 49.1791 13.5705C49.326 13.5452 49.4373 13.5224 49.5133 13.5022L49.9765 15.6512C49.8297 15.7018 49.6196 15.7575 49.3462 15.8183C49.0779 15.879 48.7488 15.9145 48.359 15.9246C47.6705 15.9448 47.0504 15.841 46.4986 15.6132C45.9467 15.3804 45.5088 15.0209 45.1848 14.5349C44.8659 14.0489 44.709 13.4414 44.714 12.7124V1.30664Z" fill="currentColor"/>
+                            <path d="M38.364 10.858V4.09961H41.1129V15.7636H38.4475V13.6905H38.326C38.0627 14.3436 37.6299 14.8777 37.0275 15.2928C36.4301 15.7079 35.6935 15.9155 34.8177 15.9155C34.0532 15.9155 33.3774 15.7459 32.7902 15.4067C32.208 15.0624 31.7523 14.5638 31.4233 13.9107C31.0942 13.2526 30.9297 12.4578 30.9297 11.5263V4.09961H33.6786V11.101C33.6786 11.8402 33.8811 12.4274 34.2861 12.8628C34.6911 13.2982 35.2227 13.5158 35.8808 13.5158C36.2858 13.5158 36.6781 13.4171 37.0578 13.2197C37.4375 13.0222 37.7489 12.7286 37.9919 12.3388C38.2399 11.9439 38.364 11.4503 38.364 10.858Z" fill="currentColor"/>
+                            <path d="M22.4492 15.7646V4.10066H25.1146V6.04465H25.2361C25.4487 5.37134 25.8132 4.85244 26.3296 4.48794C26.8511 4.11837 27.4459 3.93359 28.1141 3.93359C28.266 3.93359 28.4356 3.94119 28.6229 3.95637C28.8153 3.9665 28.9748 3.98422 29.1013 4.00953V6.53824C28.9849 6.49774 28.8001 6.46231 28.547 6.43193C28.2989 6.3965 28.0585 6.37878 27.8256 6.37878C27.3244 6.37878 26.8738 6.48762 26.4739 6.70531C26.079 6.91793 25.7677 7.21409 25.5399 7.59377C25.3121 7.97346 25.1982 8.41137 25.1982 8.90749V15.7646H22.4492Z" fill="currentColor"/>
+                            <path d="M20.1506 4.10113V6.22738H13.4453V4.10113H20.1506ZM15.1007 1.30664H17.8497V12.2568C17.8497 12.6264 17.9054 12.9099 18.0167 13.1073C18.1332 13.2997 18.2851 13.4313 18.4724 13.5022C18.6597 13.5731 18.8672 13.6085 19.0951 13.6085C19.2672 13.6085 19.4241 13.5958 19.5659 13.5705C19.7127 13.5452 19.8241 13.5224 19.9 13.5022L20.3632 15.6512C20.2164 15.7018 20.0063 15.7575 19.7329 15.8183C19.4646 15.879 19.1356 15.9145 18.7457 15.9246C18.0572 15.9448 17.4371 15.841 16.8853 15.6132C16.3335 15.3804 15.8956 15.0209 15.5716 14.5349C15.2526 14.0489 15.0957 13.4414 15.1007 12.7124V1.30664Z" fill="currentColor"/>
+                            <path d="M9.01376 4.4879C8.94289 3.82471 8.6442 3.30834 8.1177 2.93878C7.59627 2.56921 6.91789 2.38443 6.08258 2.38443C5.49533 2.38443 4.99162 2.47303 4.57143 2.65021C4.15124 2.8274 3.82977 3.06787 3.60702 3.37162C3.38427 3.67537 3.27037 4.02215 3.26531 4.41196C3.26531 4.73596 3.33871 5.01693 3.48552 5.25486C3.6374 5.4928 3.84243 5.6953 4.10062 5.86236C4.3588 6.02436 4.64483 6.16105 4.95871 6.27242C5.27258 6.3838 5.58899 6.47746 5.90793 6.55339L7.36592 6.91789C7.95317 7.05458 8.51764 7.23936 9.05933 7.47224C9.60607 7.70511 10.0946 7.99873 10.5249 8.35311C10.9603 8.70748 11.3045 9.13526 11.5577 9.63645C11.8108 10.1376 11.9374 10.7249 11.9374 11.3982C11.9374 12.3094 11.7045 13.1118 11.2387 13.8054C10.773 14.4939 10.0997 15.0331 9.21879 15.4229C8.34298 15.8076 7.28239 16 6.03702 16C4.82708 16 3.77662 15.8127 2.88562 15.4381C1.99968 15.0634 1.30612 14.5167 0.804936 13.7978C0.308812 13.0789 0.0404999 12.2031 0 11.1704H2.77171C2.81221 11.7121 2.97928 12.1626 3.2729 12.5221C3.56652 12.8815 3.94874 13.1498 4.41955 13.327C4.89543 13.5042 5.42699 13.5928 6.01424 13.5928C6.6268 13.5928 7.16342 13.5017 7.62411 13.3194C8.08986 13.1321 8.45436 12.8739 8.71761 12.5448C8.98086 12.2107 9.11501 11.8209 9.12008 11.3754C9.11501 10.9704 8.99604 10.6363 8.76317 10.373C8.5303 10.1047 8.20376 9.88198 7.78358 9.70479C7.36845 9.52254 6.88245 9.36054 6.32558 9.21879L4.55624 8.76317C3.27543 8.43411 2.26293 7.93545 1.51875 7.2672C0.779624 6.59389 0.410062 5.70036 0.410062 4.58662C0.410062 3.6703 0.658124 2.8679 1.15425 2.1794C1.65543 1.4909 2.33634 0.956811 3.19696 0.577123C4.05759 0.192374 5.03211 0 6.12055 0C7.22417 0 8.19111 0.192374 9.02136 0.577123C9.85667 0.956811 10.5123 1.48584 10.9881 2.16421C11.464 2.83753 11.7095 3.61209 11.7247 4.4879H9.01376Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                </a>
+                <link rel="prefetch" href="/"/>
+            </div>
+            <div class="nav-right">
+                <a href="" class="button-small mobile-hide w-inline-block">
+                    <div>Pricing</div>
+                </a>
+                <link rel="prefetch" href=""/>
+                <a href="" class="button-small mobile-hide hidden w-inline-block">
+                    <div>Download</div>
+                </a>
+                <link rel="prefetch" href=""/>
+                <a id="btn-login" href="#" class="button-small w-inline-block">
+                    <div>Log In</div>
+                </a>
+                <a id="btn-signup" href="#" class="button-small highlighted hidden w-inline-block">
+                    <div>Sign Up</div>
+                </a>
+                <div class="mobile-menu">
+                    <a href="" class="link-block-2 w-inline-block">
+                        <div>Pricing</div>
+                    </a>
+                    <a href="" class="link-block-2 hidden w-inline-block">
+                        <div>Download</div>
+                    </a>
+                    <a href="https://twitter.com/strut_ai" target="_blank" class="link-block-2 w-inline-block">
+                        <div>X/Twitter</div>
+                    </a>
+                    <a href="#" class="link-block-2 w-inline-block">
+                        <div>Discord</div>
+                    </a>
+                </div>
+                <div fs-scrolldisable-element="toggle" data-w-id="f523e102-6e89-410d-c012-9f13121d8998" class="mobile-menu-button">
+                    <div data-w-id="f523e102-6e89-410d-c012-9f13121d8999" class="icon-regular w-embed">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 7H1C0.4 7 0 7.4 0 8C0 8.6 0.4 9 1 9H15C15.6 9 16 8.6 16 8C16 7.4 15.6 7 15 7Z" fill="currentColor"/>
+                            <path d="M15 1H1C0.4 1 0 1.4 0 2C0 2.6 0.4 3 1 3H15C15.6 3 16 2.6 16 2C16 1.4 15.6 1 15 1Z" fill="currentColor"/>
+                            <path d="M15 13H1C0.4 13 0 13.4 0 14C0 14.6 0.4 15 1 15H15C15.6 15 16 14.6 16 14C16 13.4 15.6 13 15 13Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div data-w-id="f523e102-6e89-410d-c012-9f13121d899a" class="icon-regular close w-embed">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <g fill="currentColor">
+                                <path fill="currentColor" d="M14.7,1.3c-0.4-0.4-1-0.4-1.4,0L8,6.6L2.7,1.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4L6.6,8l-5.3,5.3 c-0.4,0.4-0.4,1,0,1.4C1.5,14.9,1.7,15,2,15s0.5-0.1,0.7-0.3L8,9.4l5.3,5.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L9.4,8l5.3-5.3C15.1,2.3,15.1,1.7,14.7,1.3z"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main id="Top" data-w-id="bbc78be8-85b0-6000-654c-5bc6789bda79" style="opacity:0" class="hero">
+            <div class="hero-heading-container">
+                <h1 letters-slide-up="" text-split="" class="heading">The complete writing workspace</h1>
+                <p words-fade-in="" text-split="" class="paragraph">Strut combines your notes, docs, and writing projects together in collaborative workspaces supported by AI.</p>
+                <a id="btn-getstarted1" data-w-id="bbc78be8-85b0-6000-654c-5bc6789bda7f" style="opacity:0" href="#" class="link-block-3 hidden w-inline-block">
+                    <div>Get Started</div>
+                    <div class="div-block-143-copy"></div>
+                </a>
+            </div>
+            <div class="hero-image-container">
+                <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero.png" loading="eager" sizes="(max-width: 767px) 90vw, (max-width: 991px) 92vw, 94vw" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero-p-1600.png 1600w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero-p-2000.png 2000w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero-p-2600.png 2600w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661622c90fa260c47a3c0b35_Hero.png 2880w" alt="" class="hero-image"/>
+            </div>
+        </main>
+        <div class="divider"></div>
+        <section class="manifesto">
+            <div class="manifesto-container">
+                <p scrub-each-word="" text-split="" class="paragraph-2">
+                    From chaos to clarity, Strut brings all your writing tools together into one simple app. Capture notes, organize projects, and collaborate with your team alongside AI. Strut keeps your writing moving forward.<br/>
+                </p>
+            </div>
+        </section>
+        <div class="divider"></div>
+        <section class="organization">
+            <div class="feature-content">
+                <h2 scrub-each-letter="" text-split="" class="section-heading">
+                    Focused writing meets project management<br/>
+                </h2>
+                <p class="paragraph-3">
+                    Glide between focused writing, document collaboration, and project management. Strut brings your tools together to keep your writing process moving forward.<br/>
+                </p>
+                <div class="details-container">
+                    <div class="details-heading-container">
+                        <div class="label">DETAILS</div>
+                    </div>
+                    <div data-w-id="3b2b6720-e188-e088-c63d-3738f7729e08" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>folder</title>
+                                        <g fill="currentColor">
+                                            <path d="M11.5,2H5.809L4.947.277A.5.5,0,0,0,4.5,0H.5A.5.5,0,0,0,0,.5V9a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V2.5A.5.5,0,0,0,11.5,2Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Project workspaces</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-regular">Organize projects into list, grid, and board views. Customize workspaces into stages that match your writing process.</div>
+                    </div>
+                    <div data-w-id="3b2b6720-e188-e088-c63d-3738f7729e12" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>webpage</title>
+                                        <g fill="currentColor">
+                                            <path d="M10,0H2A2,2,0,0,0,0,2V3H12V2A2,2,0,0,0,10,0Z" fill="currentColor"></path>
+                                            <path d="M2,12H3V5H0v5A2,2,0,0,0,2,12Z" fill="currentColor"></path>
+                                            <path d="M5,12h5a2,2,0,0,0,2-2V5H5Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Deep focus modes</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="display:none;height:0px;opacity:0" class="text-regular">Instantly go from organizing projects to deep focused writing.</div>
+                    </div>
+                    <div data-w-id="3b2b6720-e188-e088-c63d-3738f7729e1b" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>archive</title>
+                                        <g fill="currentColor">
+                                            <path d="M10,0H2A2,2,0,0,0,0,2v8a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V2A2,2,0,0,0,10,0Zm0,7H8.5a.5.5,0,0,0-.5.5V9H4V7.5A.5.5,0,0,0,3.5,7H2V2h8Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Desktop app</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="display:none;height:0px;opacity:0" class="text-regular">Keep Strut always-on and at your fingertips with the Desktop app.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-grid">
+                <div id="w-node-_3b2b6720-e188-e088-c63d-3738f7729e25-9d311a79" class="feature-image">
+                    <div class="html-embed-19 w-embed">
+                        <video width="100%" height="auto" autoplay muted loop playsinline>
+                            <source src="https://strut.so/videos/focused-to-project-management.mp4" type="video/mp4">Your browser does not support the video tag.
+
+                        </video>
+                    </div>
+                </div>
+                <div id="w-node-_3b2b6720-e188-e088-c63d-3738f7729e27-9d311a79" class="feature-image highlight">
+                    <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352bf9e9ca1400c55ecc0_Drag%20and%20Drop.png" loading="lazy" sizes="(max-width: 479px) 43vw, (max-width: 767px) 44vw, (max-width: 991px) 45vw, 46vw" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352bf9e9ca1400c55ecc0_Drag%20and%20Drop-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352bf9e9ca1400c55ecc0_Drag%20and%20Drop-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352bf9e9ca1400c55ecc0_Drag%20and%20Drop-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352bf9e9ca1400c55ecc0_Drag%20and%20Drop.png 1600w" alt="" class="image"/>
+                    <div data-w-id="30e901c2-6fdf-8781-25a4-5e24b68860a4" class="div-block-141">
+                        <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352ee65018ee696f20a4b_Drag%20and%20Drop%20Overlay.png" loading="lazy" width="358" sizes="(max-width: 479px) 111.5px, (max-width: 767px) 27vw, (max-width: 991px) 196px, 14vw" alt="" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352ee65018ee696f20a4b_Drag%20and%20Drop%20Overlay-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661352ee65018ee696f20a4b_Drag%20and%20Drop%20Overlay.png 716w"/>
+                    </div>
+                </div>
+                <div id="w-node-_3b2b6720-e188-e088-c63d-3738f7729e29-9d311a79" class="feature-image highlight">
+                    <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661314cfe155eff2038fe764_Focused.png" loading="lazy" sizes="(max-width: 479px) 43vw, (max-width: 767px) 44vw, (max-width: 991px) 45vw, 46vw" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661314cfe155eff2038fe764_Focused-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661314cfe155eff2038fe764_Focused-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661314cfe155eff2038fe764_Focused-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/661314cfe155eff2038fe764_Focused.png 1600w" alt="" class="image"/>
+                </div>
+            </div>
+        </section>
+        <div class="divider"></div>
+        <section class="capture">
+            <div class="feature-grid">
+                <div id="w-node-_4b933061-93eb-20ed-95e4-40b0426a39e1-9d311a79" class="feature-image">
+                    <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox.png" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 39vw, (max-width: 991px) 41vw, 45vw" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox-p-1600.png 1600w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox-p-2000.png 2000w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox-p-2600.png 2600w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6616223ddf54953e0380e306_Inbox.png 2880w" alt="" class="image-21"/>
+                </div>
+            </div>
+            <div class="feature-content">
+                <h2 scrub-each-letter="" text-split="" class="section-heading">
+                    Write first,<br/>
+                    organize later<br/>
+                </h2>
+                <p class="paragraph-3">
+                    Instantly captures notes and ideas with Strut &#x27;s Inbox. Then turn them into projects when you &#x27;re ready.<br/>
+                </p>
+                <p class="paragraph-3">Strut makes it easy to start writing immediately, and organize your ideas later.</p>
+                <div class="details-container">
+                    <div class="details-heading-container">
+                        <div class="label">DETAILS</div>
+                    </div>
+                    <div data-w-id="4b933061-93eb-20ed-95e4-40b0426a39f2" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed-17 w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>archive</title>
+                                        <g fill="currentColor">
+                                            <path d="M10,0H2A2,2,0,0,0,0,2v8a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V2A2,2,0,0,0,10,0Zm0,7H8.5a.5.5,0,0,0-.5.5V9H4V7.5A.5.5,0,0,0,3.5,7H2V2h8Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Writing inbox</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-regular">An open space to capture your writing before it &#x27;s ready for a project. Organized automatically for you in a daily timeline.</div>
+                    </div>
+                    <div data-w-id="4b933061-93eb-20ed-95e4-40b0426a39fb" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed-17 w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>active-40</title>
+                                        <g fill="currentColor">
+                                            <path d="M11,5.8A2.5,2.5,0,0,0,9.273,4.622L6,4.076V1A1,1,0,0,0,4,1V7.5a.5.5,0,0,1-1,0V5H2.5A1.5,1.5,0,0,0,1,6.5v2a4.173,4.173,0,0,0,2.276,3.447A.5.5,0,0,0,3.5,12h6a.5.5,0,0,0,.475-.342l1.259-3.78A2.492,2.492,0,0,0,11,5.8Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Drag &amp;drop</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="display:none;height:0px;opacity:0" class="text-regular">Easily move documents between workspaces and your Inbox by dragging &amp;dropping.</div>
+                    </div>
+                    <div data-w-id="4b933061-93eb-20ed-95e4-40b0426a3a04" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed-17 w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>lightning</title>
+                                        <g fill="currentColor">
+                                            <path d="M11.954,4.291A.5.5,0,0,0,11.5,4H6.141L6.985.621A.5.5,0,0,0,6.121.175l-6,7A.5.5,0,0,0,.5,8H5.859l-.844,3.379a.5.5,0,0,0,.256.565A.49.49,0,0,0,5.5,12a.5.5,0,0,0,.379-.175l6-7A.5.5,0,0,0,11.954,4.291Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Quick capture</div>
+                                <div class="coming-soon">
+                                    <div>COMING SOON</div>
+                                </div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="display:none;height:0px;opacity:0" class="text-regular">Use Desktop shortcuts to jot down ideas and notes into Strut without opening the app.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="divider"></div>
+        <section class="ai">
+            <div class="feature-content">
+                <h2 scrub-each-letter="" text-split="" class="section-heading">
+                    Your<br/>
+                    always-on<br/>
+                    AI collaborator<br/>
+                </h2>
+                <p class="paragraph-3">
+                    Designed to collaborate, not automate. Strut &#x27;s AI is a writing partner you can turn to for suggestions, edits, research, and inspiration.<br/>
+                </p>
+                <p class="paragraph-3">Skip the writer &#x27;s block and keep your work moving.</p>
+                <div class="details-container">
+                    <div class="details-heading-container">
+                        <div class="label">DETAILS</div>
+                    </div>
+                    <div data-w-id="cdfb4813-62bf-46e9-2341-35ad547f7b74" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed-18 w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>comment</title>
+                                        <g fill="currentColor">
+                                            <path d="M6,0C2.691,0,0,2.362,0,5.267s2.691,5.266,6,5.266a6.8,6.8,0,0,0,1.036-.079l2.725,1.485A.505.505,0,0,0,10,12a.5.5,0,0,0,.5-.5V8.711A4.893,4.893,0,0,0,12,5.267C12,2.362,9.309,0,6,0Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Document &amp;project chat</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-regular">Chat with AI about the document or project you &#x27;re working on. It &#x27;s like having a colleague available 24/7 to support any writing task. </div>
+                    </div>
+                    <div data-w-id="cdfb4813-62bf-46e9-2341-35ad547f7b7d" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed-18 w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <g fill="currentColor">
+                                            <path d="M4,12a1,1,0,0,1-1-1A2,2,0,0,0,1,9,1,1,0,0,1,1,7,2,2,0,0,0,3,5,1,1,0,0,1,5,5,2,2,0,0,0,7,7,1,1,0,0,1,7,9a2,2,0,0,0-2,2A1,1,0,0,1,4,12Z" fill="currentColor"></path>
+                                            <path d="M9.5,5a.625.625,0,0,1-.625-.625,1.252,1.252,0,0,0-1.25-1.25.625.625,0,0,1,0-1.25A1.252,1.252,0,0,0,8.875.625a.625.625,0,0,1,1.25,0,1.252,1.252,0,0,0,1.25,1.25.625.625,0,0,1,0,1.25,1.252,1.252,0,0,0-1.25,1.25A.625.625,0,0,1,9.5,5Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">AI workflows</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="display:none;height:0px;opacity:0" class="text-regular">Skip learning complicated prompts. Strut comes loaded with AI workflows for brainstorming ideas, generating outlines, creating drafts, and more.</div>
+                    </div>
+                    <div data-w-id="cdfb4813-62bf-46e9-2341-35ad547f7b86" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed-18 w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>i-edit</title>
+                                        <g fill="currentColor">
+                                            <path d="M11.5,11H.5a.5.5,0,0,0,0,1h11a.5.5,0,0,0,0-1Z" fill="currentColor"></path>
+                                            <path d="M1.5,10a.48.48,0,0,0,.158-.026l3-1a.5.5,0,0,0,.2-.12l6-6a.5.5,0,0,0,0-.708l-2-2a.5.5,0,0,0-.708,0l-6,6a.5.5,0,0,0-.12.2l-1,3A.5.5,0,0,0,1.5,10Z" fill="currentColor"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Voice &amp;tone</div>
+                                <div class="coming-soon">
+                                    <div>BETA</div>
+                                </div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="display:none;height:0px;opacity:0" class="text-regular">Use Strut &#x27;s Brand Voice to make AI actually sound like you. Write your own voice &amp;tone guide or have Strut generate one for you by analyzing a website or blog post.</div>
+                    </div>
+                    <div data-w-id="cdfb4813-62bf-46e9-2341-35ad547f7b92" class="detail-block">
+                        <div class="detail-title-row">
+                            <div class="detail-title-left">
+                                <div class="html-embed-18 w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                        <title>file-article</title>
+                                        <g fill="currentColor">
+                                            <path d="M10,0H2A2,2,0,0,0,0,2v8a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V2A2,2,0,0,0,10,0Zm0,10H2V2h8Z" fill="currentColor"></path>
+                                            <rect x="3" y="3" width="3" height="3" fill="currentColor"></rect>
+                                            <rect x="3" y="7" width="6" height="1" fill="currentColor"></rect>
+                                            <rect x="7" y="3" width="2" height="1" fill="currentColor"></rect>
+                                            <rect x="7" y="5" width="2" height="1" fill="currentColor"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-bold">Inline editing</div>
+                            </div>
+                            <div style="color:rgba(0,0,0,0.5)" class="close-feature w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <title>e-add</title>
+                                    <g fill="currentColor">
+                                        <path d="M11,5H7V1A1,1,0,0,0,5,1V5H1A1,1,0,0,0,1,7H5v4a1,1,0,0,0,2,0V7h4a1,1,0,0,0,0-2Z" fill="currentColor"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div style="display:none;height:0px;opacity:0" class="text-regular">From grammar corrections to style enhancements, Strut &#x27;s AI polishes your writing down to the last word.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-grid">
+                <div id="w-node-cdfb4813-62bf-46e9-2341-35ad547f7b9c-9d311a79" class="feature-image">
+                    <div class="ai-stamp">
+                        <div>We never use your data to train AI.</div>
+                    </div>
+                    <div class="html-embed-20 w-embed">
+                        <video width="100%" height="auto" autoplay muted loop playsinline>
+                            <source src="https://strut.so/videos/Collaboration.mp4" type="video/mp4">Your browser does not support the video tag.
+
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="edit">
+            <div data-w-id="b023e18c-4a04-5fdf-86cb-ac2e0f6741b9" class="edit-wrapper">
+                <div class="section-hero">
+                    <h2 scrub-each-letter-slow="" text-split="" class="edit-hero">
+                        Edit.<br/>
+                        Focus.<br/>Finish.
+                    </h2>
+                    <p words-fade-in-fast="" text-split="" class="paragraph-3">
+                        Minimal without sacrificing function. Strut is the only writing environment to combine the tools you need in one beautiful, focused space.<br/>
+                    </p>
+                </div>
+                <div class="edit-grid">
+                    <div id="w-node-b023e18c-4a04-5fdf-86cb-ac2e0f6741c5-9d311a79" class="grid-primary">
+                        <div class="grid-image-box">
+                            <div class="html-embed-20 w-embed">
+                                <video width="100%" height="auto" autoplay muted loop playsinline>
+                                    <source src="https://strut.so/videos/Deep-Focus-Mode.mp4" type="video/mp4">Your browser does not support the video tag.
+
+                                </video>
+                            </div>
+                        </div>
+                        <div class="text-bold">Deep focus mode</div>
+                        <div>Switch to typewriter-inspired focus mode to create the most distraction-free writing environment.</div>
+                    </div>
+                    <div class="grid-secondary">
+                        <div class="edit-box">
+                            <div class="collaboration-text-wrapper">
+                                <div class="highlighted-text">
+                                    <div class="text-block-20">Move writing forward</div>
+                                </div>
+                                <div data-w-id="b023e18c-4a04-5fdf-86cb-ac2e0f6741d2" class="cursor">
+                                    <div class="div-block-139"></div>
+                                    <div class="cursor-name">
+                                        <div class="text-block-13">Rachel</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-bold">Collaborative writing</div>
+                        <div>Invite others to join you with real-time collaboration.</div>
+                    </div>
+                    <div class="grid-secondary last">
+                        <div class="edit-box">
+                            <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f4e012d4843e0f1e873c_Inline-Editing.png" loading="lazy" sizes="(max-width: 767px) 90vw, (max-width: 991px) 44vw, 28vw" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f4e012d4843e0f1e873c_Inline-Editing-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f4e012d4843e0f1e873c_Inline-Editing.png 800w" alt=""/>
+                        </div>
+                        <div class="text-bold">Powerful Editor</div>
+                        <div>Write and format your writing with built-in tools.</div>
+                    </div>
+                </div>
+                <div class="paper-pattern"></div>
+            </div>
+        </section>
+        <section class="features">
+            <div class="feature-grid-title">
+                <div class="feature-grid-title-wrapper">
+                    <h2 scrub-each-letter="" text-split="" class="section-heading">
+                        Packed with all the tools you need<br/>
+                    </h2>
+                </div>
+            </div>
+            <div id="w-node-_251941e8-621d-9e8e-f546-a78fcbfed691-9d311a79" class="feature-grid-decorative"></div>
+            <div class="features-grid">
+                <div id="w-node-_251941e8-621d-9e8e-f546-a78fcbfed693-9d311a79" class="feature-block">
+                    <div class="grid-image-container">
+                        <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6614df189949247842219736_Dark-Mode.png" loading="lazy" alt="" class="image-25"/>
+                    </div>
+                    <div class="grid-feature-details">
+                        <div class="text-bold">Dark mode</div>
+                        <div class="text-regular">For those late night writing sessions.</div>
+                    </div>
+                </div>
+                <div id="w-node-_251941e8-621d-9e8e-f546-a78fcbfed69b-9d311a79" class="feature-block customizeable">
+                    <div class="customize-wrapper">
+                        <div data-w-id="3ed56a15-2e17-a059-dfca-302b876f1ef2" class="stage _1">
+                            <div class="stage-icon">
+                                <div class="icon-status purple w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M28.625 21.125V8C28.625 5.87 27.005 4.25 24.875 4.25H6.125C3.995 4.25 2.375 5.87 2.375 8V21.125H0.5V23C0.5 25.0719 2.17812 26.75 4.25 26.75H26.75C28.8219 26.75 30.5 25.0719 30.5 23V21.125H28.625ZM6.125 8H24.875V21.125H6.125V8Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Research</div>
+                        </div>
+                        <div data-w-id="af5d00d2-1005-6bcc-0e2f-a99618b55f41" class="stage _2">
+                            <div class="stage-icon">
+                                <div class="icon-status grey w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 26.75C21.7132 26.75 26.75 21.7132 26.75 15.5C26.75 9.2868 21.7132 4.25 15.5 4.25C9.2868 4.25 4.25 9.2868 4.25 15.5C4.25 21.7132 9.2868 26.75 15.5 26.75ZM15.5 30.5C23.7843 30.5 30.5 23.7843 30.5 15.5C30.5 7.21573 23.7843 0.5 15.5 0.5C7.21573 0.5 0.5 7.21573 0.5 15.5C0.5 23.7843 7.21573 30.5 15.5 30.5Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Ideas</div>
+                        </div>
+                        <div data-w-id="a9bae921-30a4-2bbf-7f19-550cd075c31b" class="stage _3">
+                            <div class="stage-icon">
+                                <div class="icon-status blue w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.875 19.25C10.9105 19.25 11.75 18.4105 11.75 17.375C11.75 16.3395 10.9105 15.5 9.875 15.5C8.83947 15.5 8 16.3395 8 17.375C8 18.4105 8.83947 19.25 9.875 19.25Z" fill="currentColor"/>
+                                        <path d="M21.125 19.25C22.1605 19.25 23 18.4105 23 17.375C23 16.3395 22.1605 15.5 21.125 15.5C20.0895 15.5 19.25 16.3395 19.25 17.375C19.25 18.4105 20.0895 19.25 21.125 19.25Z" fill="currentColor"/>
+                                        <path d="M15.5 0.5C7.22938 0.5 0.5 7.22938 0.5 15.5C0.5 23.7706 7.22938 30.5 15.5 30.5C23.7706 30.5 30.5 23.7706 30.5 15.5C30.5 7.22938 23.7706 0.5 15.5 0.5ZM15.5 26.75C9.29562 26.75 4.25 21.7044 4.25 15.5C4.25 14.4444 4.40563 13.4281 4.67938 12.4587C8.60188 10.8125 14.2362 13.8031 20.2737 8.34125C22.3944 11.6975 24.9069 13.1619 26.6094 13.805C26.6919 14.3581 26.75 14.9225 26.75 15.5C26.75 21.7044 21.7044 26.75 15.5 26.75Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Characters</div>
+                        </div>
+                        <div data-w-id="cb9f8e96-ffcc-c246-26d7-cc0718553b09" class="stage _4">
+                            <div class="stage-icon">
+                                <div class="icon-status yellow w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.5 0.5C12.5333 0.5 9.63319 1.37973 7.16645 3.02796C4.69972 4.67618 2.77713 7.01886 1.64181 9.75975C0.506499 12.5006 0.209449 15.5166 0.788228 18.4264C1.36701 21.3361 2.79562 24.0088 4.8934 26.1066C6.99119 28.2044 9.66394 29.633 12.5737 30.2118C15.4834 30.7906 18.4994 30.4935 21.2403 29.3582C23.9811 28.2229 26.3238 26.3003 27.9721 23.8336C29.6203 21.3668 30.5 18.4667 30.5 15.5C30.5 11.5218 28.9197 7.70644 26.1066 4.8934C23.2936 2.08035 19.4783 0.5 15.5 0.5ZM20.4294 22.2837L15.5 19.6925L10.5706 22.2837L11.5081 16.7956L7.52563 12.9087L13.0363 12.1081L15.5 7.115L17.9638 12.1081L23.4744 12.9087L19.4881 16.7956L20.4294 22.2837Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Favorites</div>
+                        </div>
+                        <div data-w-id="881cb493-9468-37b8-804a-c5faefd003a1" class="stage _5">
+                            <div class="stage-icon">
+                                <div class="icon-status crimson w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23 15.5C23 11.3579 19.6421 8 15.5 8V23C19.6421 23 23 19.6421 23 15.5Z" fill="currentColor"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M30.5 15.5C30.5 23.7843 23.7843 30.5 15.5 30.5C7.21573 30.5 0.5 23.7843 0.5 15.5C0.5 7.21573 7.21573 0.5 15.5 0.5C23.7843 0.5 30.5 7.21573 30.5 15.5ZM26.75 15.5C26.75 21.7132 21.7132 26.75 15.5 26.75C9.2868 26.75 4.25 21.7132 4.25 15.5C4.25 9.2868 9.2868 4.25 15.5 4.25C21.7132 4.25 26.75 9.2868 26.75 15.5Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Drafts</div>
+                        </div>
+                        <div data-w-id="108cb8f3-5917-96b2-a43f-c37410d61e21" class="stage _6">
+                            <div class="stage-icon">
+                                <div class="icon-status crimson w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M30.0448 10.9461L15.9823 2.50859C15.686 2.33047 15.3148 2.33047 15.0185 2.50859L0.956018 10.9461C0.511643 11.2123 0.367268 11.788 0.633518 12.2323C0.712268 12.3655 0.822893 12.4761 0.956018 12.5548L15.0185 20.9923C15.3148 21.1705 15.686 21.1705 15.9823 20.9923L30.0448 12.5548C30.4891 12.2886 30.6335 11.713 30.3673 11.2686C30.2885 11.1355 30.1779 11.0248 30.0448 10.9461Z" fill="currentColor"/>
+                                        <path d="M15.4997 28.6264C15.1791 28.6264 14.8566 28.5439 14.5697 28.3789L1.4447 20.8789C0.546572 20.3651 0.233447 19.2195 0.747197 18.3214C1.25907 17.4232 2.4047 17.1064 3.3047 17.6239L15.4997 24.5932L27.6947 17.6239C28.5928 17.1064 29.7384 17.4232 30.2522 18.3214C30.7659 19.2195 30.4528 20.3651 29.5547 20.8789L16.4297 28.3789C16.1428 28.5439 15.8203 28.6264 15.4997 28.6264Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Notes</div>
+                        </div>
+                        <div data-w-id="a26f5ed3-51bf-4c0f-a683-59003eb724f3" class="stage _7">
+                            <div class="stage-icon">
+                                <div class="icon-status green w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 30.5C23.7843 30.5 30.5 23.7843 30.5 15.5C30.5 7.21573 23.7843 0.5 15.5 0.5C7.21573 0.5 0.5 7.21573 0.5 15.5C0.5 23.7843 7.21573 30.5 15.5 30.5ZM12.9964 17.4828L20.8626 9.61651C21.0984 9.38882 21.4141 9.26282 21.7419 9.26567C22.0696 9.26852 22.3831 9.39998 22.6149 9.63174C22.8466 9.8635 22.9781 10.177 22.981 10.5048C22.9838 10.8325 22.8578 11.1483 22.6301 11.384L13.8801 20.134C13.6457 20.3684 13.3278 20.5 12.9964 20.5C12.6649 20.5 12.347 20.3684 12.1126 20.134L8.36261 16.384C8.13491 16.1483 8.00892 15.8325 8.01177 15.5048C8.01461 15.177 8.14608 14.8635 8.37784 14.6317C8.6096 14.4 8.92311 14.2685 9.25086 14.2657C9.5786 14.2628 9.89436 14.3888 10.1301 14.6165L12.9964 17.4828Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Done</div>
+                        </div>
+                        <div data-w-id="04d95956-cf57-2219-1f12-16e306150bfc" class="stage _8">
+                            <div class="stage-icon">
+                                <div class="icon-status green w-embed">
+                                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.5 0.5C7.25 0.5 0.5 7.25 0.5 15.5C0.5 23.75 7.25 30.5 15.5 30.5C23.75 30.5 30.5 23.75 30.5 15.5C30.5 7.25 23.75 0.5 15.5 0.5ZM15.5 26.75C12.6875 26.75 10.25 25.8125 8.1875 24.125C9.3125 22.625 9.5 20.75 8.375 19.25C7.4375 17.9375 5.9375 16.625 5.9375 15.5C5.9375 14 9.5 13.4375 10.625 11.9375C11.9375 10.4375 10.625 7.625 9.3125 6.125C10.8125 5.1875 12.5 4.4375 14.5625 4.25C14.9375 5.1875 16.25 6.3125 16.8125 7.0625C17.75 8.5625 17.9375 9.5 19.25 9.5C19.625 9.5 23 9.5 24.875 8.9375C26 10.8125 26.75 13.0625 26.75 15.5C26.75 21.6875 21.6875 26.75 15.5 26.75Z" fill="currentColor"/>
+                                        <path d="M19.6252 13.0625C17.3752 13.0625 15.3127 14.5625 15.5002 16.625C16.0627 21.3125 14.5627 23 16.6252 23.9375C19.0627 24.875 23.9377 20.375 23.7502 16.625C23.7502 14.5625 22.0627 13.0625 19.6252 13.0625Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div contenteditable="true" class="text-block-22">Locations</div>
+                        </div>
+                    </div>
+                    <div class="grid-feature-details">
+                        <div class="text-bold">Fully customizable</div>
+                        <div class="text-regular">Customize Strut to fit your workflow and projects, from tweets to novels.</div>
+                    </div>
+                </div>
+                <div id="w-node-_251941e8-621d-9e8e-f546-a78fcbfed6a3-9d311a79" class="feature-block shortcuts">
+                    <div data-w-id="251941e8-621d-9e8e-f546-a78fcbfed6a4" class="grid-image-container shortcuts">
+                        <img class="keyboard" src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146ec615dcb9d45e61b42a_1.png" alt="" style="display:none" sizes="100vw" data-w-id="577bae69-a7e8-2d87-cdcb-abb7f1412e3c" loading="eager" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146ec615dcb9d45e61b42a_1-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146ec615dcb9d45e61b42a_1-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146ec615dcb9d45e61b42a_1-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146ec615dcb9d45e61b42a_1-p-1600.png 1600w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146ec615dcb9d45e61b42a_1.png 3006w"/>
+                        <img class="keyboard" src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f57e4358ca56cac19cf_2.png" alt="" style="display:none" sizes="100vw" data-w-id="ed9a50a1-572e-0c42-caad-b3d4e1521960" loading="eager" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f57e4358ca56cac19cf_2-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f57e4358ca56cac19cf_2-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f57e4358ca56cac19cf_2-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f57e4358ca56cac19cf_2-p-1600.png 1600w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f57e4358ca56cac19cf_2-p-2000.png 2000w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f57e4358ca56cac19cf_2.png 3006w"/>
+                        <img class="keyboard" src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f6506731cba14ed8581_3.png" alt="" style="display:block" sizes="100vw" data-w-id="3e91ac4b-8985-7fd3-784b-394c053ddbcb" loading="eager" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f6506731cba14ed8581_3-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f6506731cba14ed8581_3-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f6506731cba14ed8581_3-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f6506731cba14ed8581_3-p-1600.png 1600w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f6506731cba14ed8581_3-p-2000.png 2000w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66146f6506731cba14ed8581_3.png 3006w"/>
+                    </div>
+                    <div class="grid-feature-details">
+                        <div class="text-bold">Keyboard shortcuts</div>
+                        <div class="text-regular">Always be typing, even when navigating the app, with handy keyboard shortcuts.</div>
+                    </div>
+                </div>
+                <div id="w-node-_251941e8-621d-9e8e-f546-a78fcbfed6ab-9d311a79" class="feature-block">
+                    <div class="grid-image-container fast">
+                        <div data-w-id="10d24266-7954-7213-d6c7-c7329e684abb" class="div-block-140">
+                            <div class="lightning-left">
+                                <div class="lightning _1"></div>
+                                <div class="lightning _2"></div>
+                                <div class="lightning _3"></div>
+                                <div class="lightning _4"></div>
+                                <div class="lightning _5"></div>
+                                <div class="lightning _6"></div>
+                                <div class="lightning _7"></div>
+                                <div class="lightning _8"></div>
+                                <div class="lightning _9"></div>
+                                <div class="lightning _10"></div>
+                            </div>
+                            <div class="lightning-right">
+                                <div class="lightning _1"></div>
+                                <div class="lightning _2"></div>
+                                <div class="lightning _3"></div>
+                                <div class="lightning _4"></div>
+                                <div class="lightning _5"></div>
+                                <div class="lightning _6"></div>
+                                <div class="lightning _7"></div>
+                                <div class="lightning _8"></div>
+                                <div class="lightning _9"></div>
+                                <div class="lightning _10"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-feature-details">
+                        <div class="text-bold">Fast</div>
+                        <div class="text-regular">Built for speed, Strut streamlines your workflow into one simple app.</div>
+                    </div>
+                </div>
+                <div id="w-node-_251941e8-621d-9e8e-f546-a78fcbfed6b3-9d311a79" class="feature-block">
+                    <div class="grid-image-container">
+                        <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66136a3de8b895f73240af62_Mention.png" loading="lazy" width="1440" sizes="(max-width: 479px) 81vw, (max-width: 767px) 79vw, (max-width: 991px) 38vw, 32vw" alt="" srcset="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66136a3de8b895f73240af62_Mention-p-500.png 500w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66136a3de8b895f73240af62_Mention-p-800.png 800w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66136a3de8b895f73240af62_Mention-p-1080.png 1080w, https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/66136a3de8b895f73240af62_Mention.png 1322w" class="image-24"/>
+                    </div>
+                    <div class="grid-feature-details">
+                        <div class="text-bold">Document mentions</div>
+                        <div class="text-regular">
+                            @Mention documents in AI Chat to collaborate on multiple docs at once.<br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="w-node-_251941e8-621d-9e8e-f546-a78fcbfed6bb-9d311a79" class="feature-grid-decorative"></div>
+        </section>
+        <div class="divider"></div>
+        <footer class="footer">
+            <div class="footer-wrapper">
+                <div class="footer-left">
+                    <h3 scrub-each-letter="" text-split="" class="heading-3">
+                        Get <br/>
+                        work <br/>moving
+                    </h3>
+                    <div class="button-wrapper hidden">
+                        <a id="btn-getstarted2" href="#" class="button-large highlight w-inline-block">
+                            <div>Get Started</div>
+                        </a>
+                        <a href="/download" class="button-large w-inline-block">
+                            <div>Download</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div data-w-id="374eb5e3-9e22-b0ac-1cfa-fff74c21892c" class="stamps-wrapper">
+                        <a data-w-id="374eb5e3-9e22-b0ac-1cfa-fff74c21892d" href="https://www.linkedin.com/company/strutai/" target="_blank" class="stamp w-inline-block">
+                            <div class="text-block-23">
+                                FOLLOW<br/>
+                                US ON<br/>LINKEDIN
+                            </div>
+                            <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f4f017a050a60d4a7892_Stamp.svg" loading="lazy" alt="" class="stamp-image"/>
+                        </a>
+                        <a data-w-id="374eb5e3-9e22-b0ac-1cfa-fff74c218935" href="https://twitter.com/strut_ai" class="rectangle w-inline-block">
+                            <div>FOLLOW US ON X/TWITTER</div>
+                            <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f4f017a050a60d4a7891_Rectangle.svg" loading="lazy" alt="" class="stamp-image"/>
+                        </a>
+                        <a data-w-id="374eb5e3-9e22-b0ac-1cfa-fff74c218939" href="https://discord.com/invite/cnQYcr5dzE" target="_blank" class="circle w-inline-block">
+                            <div class="text-block-8">
+                                JOIN OUR DISCORD<br/>COMMUNITY
+                            </div>
+                            <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f4f017a050a60d4a7890_Circle.svg" loading="lazy" alt="" class="stamp-image"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="divider"></div>
+        <section class="sub-footer">
+            <div class="bottom-wrapper">
+                <div class="bottom-left">
+                    <a href="/" aria-current="page" class="footer-logo w-inline-block w--current">
+                        <img src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/6612f49417a050a60d4a38e2_Logo.png" loading="lazy" alt="" class="logo-small"/>
+                    </a>
+                    <div>Strut is the complete writing workspace.</div>
+                </div>
+                <div class="bottom-block">
+                    <div class="bottom-label">
+                        <div class="label">Resources</div>
+                    </div>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/download" class="footer-link hidden">Download Desktop App</a>
+                </div>
+                <div id="w-node-_7a4a05fd-170c-f8d4-6d52-27f370a818fa-70a818ec" class="bottom-block">
+                    <div class="bottom-label">
+                        <div class="label">COMPANY</div>
+                    </div>
+                    <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+                    <a href="/terms-of-service" class="footer-link">Terms of Service</a>
+                </div>
+                <div class="bottom-block">
+                    <div class="bottom-label">
+                        <div class="label">Social</div>
+                    </div>
+                    <a href="https://twitter.com/strut_ai" target="_blank" class="footer-link">X/Twitter</a>
+                    <a href="https://discord.com/invite/cnQYcr5dzE" target="_blank" class="footer-link">Discord</a>
+                </div>
+            </div>
+        </section>
+        <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=64cbf5f3e6b7ac5a79b0d3fc" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdn.prod.website-files.com/64cbf5f3e6b7ac5a79b0d3fc/js/webflow.9cd4af773.js" type="text/javascript"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-scrolldisable@1/scrolldisable.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/split-type"></script>
+        <script>
+            window.addEventListener("DOMContentLoaded", (event)=>{
+                // Split text into spans
+                let typeSplit = new SplitType("[text-split]",{
+                    types: "words, chars",
+                    tagName: "span"
+                });
+
+                // Link timelines to scroll position
+                function createScrollTrigger(triggerElement, timeline) {
+                    // Reset tl when scroll out of view past bottom of screen
+                    ScrollTrigger.create({
+                        trigger: triggerElement,
+                        start: "top bottom",
+                        onLeaveBack: ()=>{
+                            timeline.progress(0);
+                            timeline.pause();
+                        }
+                    });
+                    // Play tl when scrolled into view (60% from top of screen)
+                    ScrollTrigger.create({
+                        trigger: triggerElement,
+                        start: "top 80%",
+                        onEnter: ()=>timeline.play(),
+                    });
+                }
+
+                $("[words-slide-up]").each(function(index) {
+                    let tl = gsap.timeline({
+                        paused: true
+                    });
+                    tl.from($(this).find(".word"), {
+                        opacity: 0,
+                        yPercent: 100,
+                        duration: 0.5,
+                        ease: "back.out(2)",
+                        stagger: {
+                            amount: 0.5
+                        }
+                    });
+                    createScrollTrigger($(this), tl);
+                });
+
+                $("[letters-slide-up]").each(function(index) {
+                    let tl = gsap.timeline({
+                        paused: true
+                    });
+                    tl.from($(this).find(".char"), {
+                        yPercent: 100,
+                        opacity: 0,
+                        duration: 0.5,
+                        ease: "power1.out",
+                        stagger: {
+                            amount: 0.2
+                        }
+                    });
+                    createScrollTrigger($(this), tl);
+                });
+
+                $("[letters-fade-in]").each(function(index) {
+                    let tl = gsap.timeline({
+                        paused: true
+                    });
+                    tl.from($(this).find(".char"), {
+                        opacity: 0,
+                        duration: 0.05,
+                        ease: "power1.out",
+                        stagger: {
+                            amount: 0.2
+                        }
+                    });
+                    createScrollTrigger($(this), tl);
+                });
+
+                $("[words-fade-in]").each(function(index) {
+                    let tl = gsap.timeline({
+                        paused: true
+                    });
+                    tl.from($(this).find(".char"), {
+                        opacity: 0,
+                        duration: 1.5,
+                        delay: 0.2,
+                        ease: "power1.out",
+                        stagger: {
+                            amount: 0.2
+                        }
+                    });
+                    createScrollTrigger($(this), tl);
+                });
+
+                $("[words-fade-in-fast]").each(function(index) {
+                    let tl = gsap.timeline({
+                        paused: true
+                    });
+                    tl.from($(this).find(".char"), {
+                        opacity: 0,
+                        duration: 1,
+                        delay: 0,
+                        ease: "power1.out",
+                        stagger: {
+                            amount: 0.2
+                        }
+                    });
+                    createScrollTrigger($(this), tl);
+                });
+
+                $("[scrub-each-letter]").each(function(index) {
+                    let tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: $(this),
+                            start: "top 90%",
+                            end: "top 40%",
+                            scrub: true
+                        }
+                    });
+                    tl.from($(this).find(".char"), {
+                        opacity: 0.2,
+                        duration: 0.2,
+                        ease: "power1.out",
+                        stagger: {
+                            each: 0.4
+                        }
+                    });
+                });
+
+                $("[scrub-each-letter-slow]").each(function(index) {
+                    let tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: $(this),
+                            start: "top 80%",
+                            end: "bottom 80%",
+                            scrub: true
+                        }
+                    });
+                    tl.from($(this).find(".char"), {
+                        opacity: 0.2,
+                        duration: 0.2,
+                        ease: "power1.out",
+                        stagger: {
+                            each: 0.4
+                        }
+                    });
+                });
+
+                $("[scrub-each-word]").each(function(index) {
+                    let tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: $(this),
+                            start: "top 90%",
+                            end: "top 40%",
+                            scrub: true
+                        }
+                    });
+                    tl.from($(this).find(".word"), {
+                        opacity: 0.2,
+                        duration: 0.2,
+                        ease: "power1.out",
+                        stagger: {
+                            each: 0.4
+                        }
+                    });
+                });
+
+                // Avoid flash of unstyled content
+                gsap.set("[text-split]", {
+                    opacity: 1
+                });
+            }
+            );
+        </script>
+    </body>
+</html>

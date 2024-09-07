@@ -34,6 +34,7 @@ import BrandVoiceMenu from "../components/shared/brand-voice-menu/page";
 import BrandVoiceButton, { initialData } from "~/components/shared/brand-voice-button/BrandVoiceButton";
 import HelpSupportPopup from "~/components/shared/help-support-popup/HelpSupportPopup";
 import { testMessagesData, testCollectionsData } from "~/components/shared/help-support-popup/_test_data/testData";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -208,6 +209,12 @@ export default function Home() {
             <div className={s.item}>
                 <span className={s.title}>Help Support Popup</span>
                 <HelpSupportPopup messagesData={testMessagesData} collectionsData={testCollectionsData} />
+            </div>
+
+            <div className={s.item} style={{ padding: "0px 50px" }}>
+                <Link className={s.title} href="/landing" style={{ textDecoration: "underline" }}>
+                    Landing Page
+                </Link>
             </div>
         </main>
     );
