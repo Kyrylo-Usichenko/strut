@@ -9,7 +9,6 @@ import { Tags } from "~/components/shared/label-menu/LabelMenu";
 import { tags } from "~/components/shared/board-list-view/page";
 import React, { useState } from "react";
 import CreateStageForKanbanView from "../CreateStageForKanbanView/CreateStageForKanbanView";
-import { headers } from "next/headers";
 
 const cloneTags = (tags: Tags) => tags.map((tag) => ({ ...tag }));
 
@@ -129,7 +128,6 @@ export default function KanbanView() {
     };
 
     function createStage(title: string, icon: React.ReactElement, iconColor: string) {
-        // console.log(title, icon, iconColor);
         const parsedTitle = title.trim() ? title : "Untitled";
 
         setData((prevData) => [

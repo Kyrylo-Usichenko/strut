@@ -109,7 +109,6 @@ export default function KanbanViewBottomItem({
     const handleMouseUp = useCallback(() => {
         if (isDragging && ref.current) {
             setIsDragging(false);
-            // handleCLickLabel(false);
             ref.current!.style.position = "";
             ref.current!.style.left = "";
             ref.current!.style.top = "";
@@ -144,7 +143,7 @@ export default function KanbanViewBottomItem({
             onMouseDown={handleMouseDown}
         >
             <a
-                ref={iconRef} // Додаємо реф для іконки
+                ref={iconRef}
                 className={`${isChekIconActive ? styles.chekedIconActive : styles.chekedIcon}`}
                 onClick={hahdleCheckIcon}
             >
