@@ -28,12 +28,16 @@ export default function BrandVoiceButton() {
         setData(data);
     }
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={ref}>
             <Tooltip label="Brand voice" direction="bottom" visible={!isVisible}>
-                <Button text={btnText} icon={<BullHornIcon />} onClick={() => setIsVisible(true)} />
+                <Button
+                    text={btnText}
+                    icon={<BullHornIcon />}
+                    onClick={() => (isVisible ? setIsVisible(false) : setIsVisible(true))}
+                />
             </Tooltip>
             {isVisible && (
-                <div ref={ref} className={styles.brandVoiceMenu}>
+                <div className={styles.brandVoiceMenu}>
                     <BrandVoiceMenu onMenuClick={onMenuItemClick} initialData={data} />
                 </div>
             )}

@@ -16,7 +16,6 @@ import { StageMenu } from "~/components/shared/stage-menu/StageMenu";
 import { Tags } from "../label-menu/LabelMenu";
 import KanbanViewBottomItem from "../KanbanViewBottomItem/KanbanViewBottomItem";
 import { ActiveCard } from "../kanban-view/page";
-import DropArea from "../DropArea/DropArea";
 import DropAreaForGridView from "../DropAreaForGridView/DropAreaForGridView";
 
 const stageItemsTop: MenuItem[] = [

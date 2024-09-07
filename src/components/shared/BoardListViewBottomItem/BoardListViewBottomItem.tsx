@@ -40,14 +40,11 @@ export default function BoardListViewBottomItem({
     const checkIconRef = useRef<HTMLAnchorElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
 
-    // const [tags, setTags] = useState<Tags>(initialTags);
-
     function handleCLickLabel(isVisible: boolean) {
         setIsVisible(isVisible);
     }
 
     function selectTag(tags: Tags) {
-        // setTags(data);
         onTagChecked(tags, status, index);
     }
 
@@ -94,7 +91,6 @@ export default function BoardListViewBottomItem({
                     ref.current!.style.top = `${top}px`;
                     ref.current!.style.zIndex = "10000";
                     ref.current!.style.pointerEvents = "none";
-                    // ref.current!.style.width = "75%";
                     ref.current!.style.width = initialWidth;
                     ref.current!.style.borderRadius = "12px";
                     ref.current!.style.backgroundColor = "var(--item-bg-color)";

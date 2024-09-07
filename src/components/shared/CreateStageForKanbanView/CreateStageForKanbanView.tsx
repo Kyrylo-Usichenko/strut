@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import styles from "./CreateStageForKanbanView.module.css";
 import PlusIcon from "~/components/icons/PlusIcon";
-import Button from "../button/Button";
-import DashedCircleIcon from "~/components/icons/DashedCircleIcon";
 import StageInput from "../stage-input/StageInput";
 
 type Props = {

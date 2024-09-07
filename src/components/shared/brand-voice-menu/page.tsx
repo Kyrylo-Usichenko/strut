@@ -21,12 +21,6 @@ export default function BrandVoiceMenu({ onMenuClick, initialData }: Props) {
     const [hoveredItem, setHoveredItem] = useState<string | null>("No brand Voice");
     const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (containerRef.current) {
-            containerRef.current.focus();
-        }
-    }, []);
-
     function handleCheck(text: string) {
         if (text === "No brand Voice") {
             const newData = data.map((item) => ({ ...item, isChecked: false }));

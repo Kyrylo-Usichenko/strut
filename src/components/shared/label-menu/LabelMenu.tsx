@@ -16,7 +16,6 @@ type Props = {
 };
 
 export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () => {} }: Props) {
-    // const [tagsData, setTagsData] = useState<Tags>(tags);
     const [inputValue, setInputValue] = useState<string>("");
     const [hoveredItem, setHoveredItem] = useState<number | null>(0);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -76,7 +75,6 @@ export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () =>
     const onTagClick = (index: number) => {
         const updatedTags = [...tags];
         updatedTags[index].isChecked = !updatedTags[index].isChecked;
-        // setTagsData(updatedTags);
         onTagChecked(updatedTags);
         setIsVisible(false);
         handleCLickLabel(false);
@@ -85,7 +83,6 @@ export default function LabelMenu({ tags, onTagChecked, handleCLickLabel = () =>
     const handleCreateTag = () => {
         const newTag = { text: inputValue, isChecked: true };
         const updatedTags = [...tags, newTag];
-        // setTagsData(updatedTags);
         onTagChecked(updatedTags);
         setInputValue("");
         setIsVisible(false);
